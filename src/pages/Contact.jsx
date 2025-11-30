@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { Phone, Mail, MapPin, Send, MessageSquare, Clock, Globe } from "lucide-react";
 
-// ⭐ GOOGLE FORM URL
 const GOOGLE_FORM_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSc6-tbU7hRQeYUyDlaM2pMaH-5oNemq5A9q7b1nOCKAwGZu2w/formResponse";
 
-// ⭐ GOOGLE FORM ENTRY IDS
 const ENTRY_IDS = {
   fullName: "entry.1950094604",
   subject: "entry.1621944053",
@@ -22,23 +20,17 @@ export default function Contact() {
     message: "",
   });
 
-  // Form input updater
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Submit handler
   const handleSubmit = (e) => {
     e.preventDefault();
     setStatus("sending");
     document.getElementById("real-form").submit();
   };
 
-  // When Google Form iframe loads → success
   const handleIframeLoad = () => {
     if (status === "sending") {
       setStatus("success");
@@ -53,10 +45,11 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans">
+      
       {/* HERO HEADER */}
       <div className="bg-slate-900 pb-32 pt-20 px-6 relative overflow-hidden">
         <div className="max-w-3xl mx-auto text-center relative z-10 text-white">
-          <h2 className="text-indigo-400 font-semibold tracking-wide uppercase text-sm mb-4">
+          <h2 className="text-indigo-400 font-semibold uppercase text-sm mb-4">
             24/7 Support
           </h2>
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
@@ -66,8 +59,7 @@ export default function Contact() {
             </span>
           </h1>
           <p className="text-slate-400 text-lg">
-            Have a question about a trip? Want to partner with us? Or just want
-            to say hi?
+            Have a question? Want to partner with us? We're here to help.
           </p>
         </div>
       </div>
@@ -75,73 +67,51 @@ export default function Contact() {
       {/* FLOATING CARD */}
       <div className="max-w-7xl mx-auto px-6 -mt-20 relative z-20 mb-20">
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col lg:flex-row border border-slate-100">
+
           {/* LEFT SIDE */}
           <div className="lg:w-5/12 bg-slate-50 p-10 border-r border-slate-100">
-            <h3 className="text-2xl font-bold text-slate-900 mb-8">
-              Contact Details
-            </h3>
+            <h3 className="text-2xl font-bold text-slate-900 mb-8">Contact Details</h3>
 
             <div className="space-y-8">
+
               <div className="flex gap-4">
-                <div className="w-12 h-12 bg-white border border-slate-200 rounded-xl flex items-center justify-center text-indigo-600 shadow-sm">
+                <div className="w-12 h-12 bg-white border border-slate-200 rounded-xl flex items-center justify-center text-indigo-600">
                   <Mail size={20} />
                 </div>
                 <div>
                   <p className="text-sm text-slate-500 font-medium">Email Us</p>
-                  <p className="text-slate-900 font-semibold">
-                    hello@bharatmile.com
-                  </p>
+                  <p className="text-slate-900 font-semibold">hello@bharatmile.com</p>
                 </div>
               </div>
 
               <div className="flex gap-4">
-                <div className="w-12 h-12 bg-white border border-slate-200 rounded-xl flex items-center justify-center text-indigo-600 shadow-sm">
+                <div className="w-12 h-12 bg-white border border-slate-200 rounded-xl flex items-center justify-center text-indigo-600">
                   <Phone size={20} />
                 </div>
                 <div>
                   <p className="text-sm text-slate-500 font-medium">Call Us</p>
-                  <p className="text-slate-900 font-semibold">
-                    +91 98765 43210
-                  </p>
+                  <p className="text-slate-900 font-semibold">+91 98765 43210</p>
                 </div>
               </div>
 
               <div className="flex gap-4">
-                <div className="w-12 h-12 bg-white border border-slate-200 rounded-xl flex items-center justify-center text-indigo-600 shadow-sm">
+                <div className="w-12 h-12 bg-white border border-slate-200 rounded-xl flex items-center justify-center text-indigo-600">
                   <MapPin size={20} />
                 </div>
                 <div>
                   <p className="text-sm text-slate-500 font-medium">Visit HQ</p>
-                  <p className="text-slate-900 font-semibold">
-                    Jaipur, Rajasthan, India
-                  </p>
+                  <p className="text-slate-900 font-semibold">Jaipur, Rajasthan, India</p>
                 </div>
               </div>
-            </div>
 
-            {/* MAP */}
-            <div className="mt-10 h-64 w-full rounded-2xl overflow-hidden shadow-inner border border-slate-200 grayscale hover:grayscale-0 transition-all duration-500">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227748.382562!2d75.65!3d26.88"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-              ></iframe>
             </div>
           </div>
 
           {/* RIGHT SIDE FORM */}
           <div className="lg:w-7/12 p-10 bg-white">
-            <h3 className="text-2xl font-bold text-slate-900 mb-2">
-              Send a Message
-            </h3>
-            <p className="text-slate-500 mb-8">
-              We typically respond within 2 hours.
-            </p>
+            <h3 className="text-2xl font-bold text-slate-900 mb-2">Send a Message</h3>
+            <p className="text-slate-500 mb-8">We typically respond within 2 hours.</p>
 
-            {/* REAL GOOGLE FORM */}
             <form
               id="real-form"
               action={GOOGLE_FORM_URL}

@@ -100,7 +100,7 @@ export default function Blogs() {
           </p>
 
           {/* SEARCH BAR */}
-          <div className="max-w-xl mx-auto bg-white rounded-full flex items-center px-4 py-2 shadow-lg">
+          {/* <div className="max-w-xl mx-auto bg-white rounded-full flex items-center px-4 py-2 shadow-lg">
             <Search className="text-slate-400" size={20} />
             <input 
               type="text" 
@@ -110,7 +110,7 @@ export default function Blogs() {
             <button className={`bg-${accentColor}-600 hover:bg-${accentColor}-700 text-white px-6 py-2 rounded-full text-sm font-bold`}>
               Search
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
 
