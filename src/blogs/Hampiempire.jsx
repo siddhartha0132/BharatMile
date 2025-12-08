@@ -1,166 +1,247 @@
-import { useEffect } from "react";
+// src/blogs/Hampiempire.jsx
+import React, { useEffect } from "react";
 
 export default function Hampiempire() {
   useEffect(() => {
-    document.title = "Hampi: Exploring the Ruins of an Empire | Travel Guide";
+    const title =
+      "Hampi: Exploring the Ruins of the Vijayanagara Empire | Complete 2025 Guide";
+    document.title = title;
 
-    const set = (n, c, a = "name") => {
-      let e = document.querySelector(`meta[${a}="${n}"]`);
-      if (!e) {
-        e = document.createElement("meta");
-        e.setAttribute(a, n);
-        document.head.appendChild(e);
+    const upsert = (attr, name, content) => {
+      let el = document.querySelector(`meta[${attr}='${name}']`);
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute(attr, name);
+        document.head.appendChild(el);
       }
-      e.setAttribute("content", c);
+      el.setAttribute("content", content);
     };
 
-    set(
+    // ✅ BASIC SEO
+    upsert(
+      "name",
       "description",
-      "Explore a complete 2000+ word guide to Hampi: Vijayanagara Empire history, best temples, royal complexes, bouldered landscapes, itinerary, sunrise points, tips, safety, and FAQs."
+      "A complete 2025 Hampi travel guide covering Vijayanagara Empire history, temples, royal complexes, stone chariot, sunrise points, itineraries, safety tips & FAQs."
     );
-
-    set(
+    upsert(
+      "name",
       "keywords",
-      "Hampi travel guide, Vijayanagara Empire history, Hampi temples, Hampi itinerary, Hampi best places, Hampi tourism, Hampi monuments, stone chariot hampi"
+      "Hampi travel guide, Vijayanagara Empire history, Hampi temples, Hampi itinerary, Stone Chariot Hampi, Hampi best places"
+    );
+    upsert("name", "author", "BharatMile Editorial");
+    upsert("name", "robots", "index,follow");
+
+    // ✅ OPEN GRAPH
+    upsert("property", "og:title", title);
+    upsert(
+      "property",
+      "og:description",
+      "Walk through the ruins of the Vijayanagara Empire in Hampi — temples, stone chariot, sunrise views & hidden stories."
+    );
+    upsert("property", "og:type", "article");
+    upsert("property", "og:url", window.location.href);
+    upsert("property", "og:site_name", "BharatMile");
+    upsert(
+      "property",
+      "og:image",
+      "https://images.unsplash.com/photo-1622445275463-afa2ab738c3a"
     );
 
-    set("canonical", "https://yourwebsite.com/hampi", "rel");
+    // ✅ TWITTER
+    upsert("name", "twitter:card", "summary_large_image");
+    upsert("name", "twitter:title", title);
+    upsert(
+      "name",
+      "twitter:description",
+      "Explore Hampi — the ruins of India's greatest empire with this complete 2025 travel guide."
+    );
+    upsert(
+      "name",
+      "twitter:image",
+      "https://images.unsplash.com/photo-1622445275463-afa2ab738c3a"
+    );
+
+    // ✅ CANONICAL
+    let canonical = document.querySelector("link[rel='canonical']");
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.rel = "canonical";
+      document.head.appendChild(canonical);
+    }
+    canonical.href = window.location.origin + "/blog/hampi-vijayanagara-empire";
+
+    // ✅ SCHEMA
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: title,
+      description:
+        "A heritage guide to Hampi covering the Vijayanagara Empire ruins, temples, stone chariot, landscapes, itineraries and travel tips.",
+      image: [
+        "https://images.unsplash.com/photo-1622445275463-afa2ab738c3a",
+      ],
+      author: { "@type": "Organization", name: "BharatMile Editorial" },
+      publisher: {
+        "@type": "Organization",
+        name: "BharatMile",
+        logo: {
+          "@type": "ImageObject",
+          url: window.location.origin + "/images/logo.png",
+        },
+      },
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": window.location.href,
+      },
+      datePublished: new Date().toISOString().split("T")[0],
+      dateModified: new Date().toISOString(),
+    };
+
+    let ld = document.getElementById("ld-hampi");
+    if (!ld) {
+      ld = document.createElement("script");
+      ld.id = "ld-hampi";
+      ld.type = "application/ld+json";
+      document.head.appendChild(ld);
+    }
+    ld.text = JSON.stringify(schema);
   }, []);
 
   return (
-    <main className="max-w-4xl mx-auto px-4 py-10 leading-7">
-      <header>
-        <h1 className="text-4xl font-bold mb-4">Hampi: Exploring the Ruins of an Empire</h1>
-        <p className="text-gray-700 text-lg">
-          This in-depth Hampi travel guide helps you explore the temples, royal complexes, carved monuments, local stories, and surreal landscapes of the Vijayanagara Empire. Whether you're visiting for history, photography, or adventure, Hampi is an unforgettable mix of mythology and ancient engineering.
-        </p>
-      </header>
+    <main className="bg-[#f7f9fc] text-gray-800">
+      <article className="max-w-5xl mx-auto px-6 py-12">
 
-      <section className="mt-10">
-        <h2 className="text-2xl font-semibold mb-2">🏛️ The Story of Vijayanagara: India’s Forgotten Superpower</h2>
-        <p>
-          The Vijayanagara Empire was once one of the richest and most powerful kingdoms in the world. Its capital, Hampi, stretched across massive plains and rocky hills — filled with palaces, temples, bazaars, water tanks, military bases, royal baths, and scientific irrigation systems. Visitors from Persia and Portugal described it as a city full of wealth, gemstones, and unmatched architecture.
-        </p>
-        <p className="mt-4">
-          Today, the ruins cover nearly 30 square kilometers and are protected as a UNESCO World Heritage Site. Every corner of Hampi tells a story — some carved in stone, some passed down through legends, and some hidden in the silence of abandoned structures.
-        </p>
-      </section>
+        {/* ✅ HERO */}
+        <header className="mb-10">
+          <img
+            src="https://images.unsplash.com/photo-1622445275463-afa2ab738c3a"
+            alt="Hampi ruins and boulder landscapes"
+            className="w-full h-72 object-cover rounded-xl shadow-lg mb-6"
+            loading="lazy"
+          />
+          <h1 className="text-3xl md:text-4xl font-bold">
+            Hampi: Exploring the Ruins of the Vijayanagara Empire — 2025 Guide
+          </h1>
+          <p className="text-gray-600 mt-3 text-lg">
+            Walk through ancient temples, royal complexes, stone chariots and surreal
+            boulder landscapes that once formed India’s most powerful medieval empire.
+          </p>
 
-      <section className="mt-10">
-        <h2 className="text-2xl font-semibold mb-3">🌄 The Landscape: Nature & History Blended Together</h2>
-        <p>
-          One thing that makes Hampi instantly unique is its landscape — huge round boulders scattered as far as the eye can see, like nature built them deliberately for dramatic effect. These formations are millions of years old and create surreal viewpoints, beautiful valleys, and ideal trails for trekking and photography.
-        </p>
-        <p className="mt-3">
-          The Tungabhadra River splits the region into two: the temple side (Hampi Bazaar area) and the Hippie Island side (Virupapur Gadde), each offering entirely different experiences.
-        </p>
-      </section>
+          <aside className="mt-5 p-4 bg-yellow-50 border rounded-lg text-sm">
+            <strong>Quick Answer:</strong> Hampi is a UNESCO World Heritage Site and one of
+            India’s most atmospheric historical destinations, ideal for 2–3 days.
+          </aside>
+        </header>
 
-      <section className="mt-10">
-        <h2 className="text-2xl font-semibold mb-3">🏯 Top Places to Visit in Hampi (Detailed)</h2>
+        {/* ✅ MAIN CONTENT */}
+        <section className="space-y-10 leading-relaxed text-lg">
 
-        <h3 className="text-xl font-semibold mt-4">1. Virupaksha Temple</h3>
-        <p>
-          The heart of Hampi and one of the oldest functioning temples in India, Virupaksha Temple is dedicated to Lord Shiva. Its towering gopuram, daily rituals, elephants, and serene courtyards make it a spiritual anchor of the region.
-        </p>
+          <div>
+            <h2 className="text-2xl font-semibold">🏛️ Vijayanagara Empire History</h2>
+            <p>
+              Once among the richest kingdoms in the world, the Vijayanagara Empire ruled
+              South India with trade routes connected to Persia and Portugal. Hampi was
+              its mighty capital, filled with palaces, temples, markets and water systems.
+            </p>
+          </div>
 
-        <h3 className="text-xl font-semibold mt-5">2. Vittala Temple & The Stone Chariot</h3>
-        <p>
-          This iconic complex is the highlight of Hampi tourism. The stone chariot — carved entirely from granite — stands as a symbol of India’s architectural brilliance. The musical pillars inside the hall once produced sounds when tapped (now protected).
-        </p>
+          <div>
+            <h2 className="text-2xl font-semibold">🏯 Top Places in Hampi</h2>
+            <ul className="list-disc list-inside">
+              <li><strong>Virupaksha Temple</strong> — Living temple & spiritual heart</li>
+              <li><strong>Vittala Temple</strong> — Stone Chariot & musical pillars</li>
+              <li><strong>Hampi Bazaar</strong> — Ancient market street</li>
+              <li><strong>Royal Enclosure</strong> — Palaces & Mahanavami Dibba</li>
+              <li><strong>Lotus Mahal</strong> — Indo-Islamic architecture</li>
+              <li><strong>Elephant Stables</strong> — Royal elephant chambers</li>
+              <li><strong>Matanga Hill</strong> — Best sunrise & sunset point</li>
+            </ul>
+          </div>
 
-        <h3 className="text-xl font-semibold mt-5">3. Hampi Bazaar</h3>
-        <p>
-          Once a lively ancient marketplace, Hampi Bazaar stretches for almost a kilometer with pillared pavilions on both sides. You can walk through history imagining traders selling horses, jewels, spices, and textiles centuries ago.
-        </p>
+          <div>
+            <h2 className="text-2xl font-semibold">🚲 How to Explore Hampi</h2>
+            <ul className="list-disc list-inside">
+              <li>Scooters for quick movement</li>
+              <li>Bicycles for peaceful mornings</li>
+              <li>Autos for short distances</li>
+              <li>Carry water & sunscreen</li>
+            </ul>
+          </div>
 
-        <h3 className="text-xl font-semibold mt-5">4. Royal Enclosure</h3>
-        <p>
-          This area once housed palaces, pavilions, and administrative courts. Even in ruins, you can feel the scale of power — especially when standing near the Mahanavami Dibba, a massive platform used for festivals and military parades.
-        </p>
+          <div>
+            <h2 className="text-2xl font-semibold">🗺️ 2-Day Suggested Itinerary</h2>
+            <p><strong>Day 1:</strong> Virupaksha Temple → Hampi Bazaar → Vittala Temple → Sunset at Hemakuta Hill</p>
+            <p><strong>Day 2:</strong> Royal Enclosure → Lotus Mahal → Elephant Stables → Matanga Hill</p>
+          </div>
 
-        <h3 className="text-xl font-semibold mt-5">5. Lotus Mahal</h3>
-        <p>
-          A stunning blend of Hindu and Islamic styles, this monument is known for its delicate arches and lotus-shaped design. It was likely used by royal women for recreation.
-        </p>
+          <div>
+            <h2 className="text-2xl font-semibold">📍 Best Time to Visit</h2>
+            <p>October to February is ideal. Summers are extremely hot; monsoons offer dramatic greenery but slippery paths.</p>
+          </div>
 
-        <h3 className="text-xl font-semibold mt-5">6. Elephant Stables</h3>
-        <p>
-          A long row of domed chambers built to house the royal elephants, this is one of the most photogenic sites in Hampi. The Indo-Islamic architecture shows the empire’s global influences.
-        </p>
+        </section>
 
-        <h3 className="text-xl font-semibold mt-5">7. Queen’s Bath</h3>
-        <p>
-          An elegant structure where royal women once bathed, surrounded by ornate balconies and corridors. The Indo-Islamic fusion is seen in every arch.
-        </p>
+        {/* ✅ INTERNAL LINKS */}
+        <section className="mt-16 bg-white p-6 rounded-xl shadow-md">
+          <h3 className="text-xl font-semibold mb-3">Related Travel Guides</h3>
+          <ul className="grid md:grid-cols-2 gap-3 text-blue-600 font-medium">
+            <li><a href="/goa-forts">→ Goa Heritage Travel</a></li>
+            <li><a href="/coorg-tour">→ Coorg Nature Trip</a></li>
+            <li><a href="/jaipur-tour">→ Jaipur Forts Guide</a></li>
+            <li><a href="/solo-female-travel">→ Solo Female Travel Safety</a></li>
+          </ul>
+        </section>
 
-        <h3 className="text-xl font-semibold mt-5">8. Matanga Hill</h3>
-        <p>
-          The best sunrise point in Hampi. The climb is moderate, but the panoramic view of boulders, temples, and the river valley is absolutely worth it.
-        </p>
-      </section>
+        {/* ✅ EXTERNAL TRUST LINKS */}
+        <section className="mt-10 bg-gray-50 p-6 rounded-xl border">
+          <h3 className="text-lg font-semibold mb-3">Official Resources</h3>
+          <ul className="space-y-2 text-blue-600 text-sm">
+            <li>
+              <a
+                href="https://www.incredibleindia.org"
+                target="_blank"
+                rel="nofollow noreferrer"
+              >
+                → Incredible India Tourism
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://whc.unesco.org"
+                target="_blank"
+                rel="nofollow noreferrer"
+              >
+                → UNESCO World Heritage
+              </a>
+            </li>
+          </ul>
+        </section>
 
-      <section className="mt-10">
-        <h2 className="text-2xl font-semibold mb-3">🚲 How to Explore Hampi Comfortably</h2>
-        <ul className="list-disc ml-6 space-y-2">
-          <li>Rent a scooter for fast and flexible movement.</li>
-          <li>Bicycles are great for early mornings when the weather is pleasant.</li>
-          <li>Tuk-tuks are available for point-to-point travel.</li>
-          <li>Wear sunscreen and carry water — the sun is strong.</li>
-          <li>Start early to see the major temples before crowds arrive.</li>
-        </ul>
-      </section>
+        {/* ✅ WHATSAPP CTA */}
+        <div className="mt-16 bg-green-600 text-white p-6 rounded-xl shadow-lg text-center">
+          <h3 className="text-xl font-semibold">
+            Planning a Hampi Heritage Trip?
+          </h3>
+          <p className="mt-2 text-green-100">
+            Get a custom South India history itinerary instantly.
+          </p>
 
-      <section className="mt-10">
-        <h2 className="text-2xl font-semibold mb-3">✨ Mythology & Hidden Stories of Hampi</h2>
-        <p>
-          Many legends connect Hampi to the Ramayana. It is believed to be part of Kishkindha, the kingdom of Sugriva and Hanuman. Anjanadri Hill is considered the birthplace of Hanuman, making Hampi a major site for mythology lovers as well.
-        </p>
-      </section>
+          <a
+            href="https://wa.me/9198XXXXXXXX"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-block mt-4 bg-white text-green-600 px-6 py-2 rounded-lg font-semibold hover:scale-105 transition"
+          >
+            Chat on WhatsApp
+          </a>
+        </div>
 
-      <section className="mt-10">
-        <h2 className="text-2xl font-semibold mb-3">🗺️ Suggested 2-Day Hampi Itinerary</h2>
+        <footer className="mt-12 text-sm text-gray-600 text-center">
+          © {new Date().getFullYear()} — BharatMile. History comes alive.
+        </footer>
 
-        <h3 className="font-semibold mt-4">Day 1: Temples & Historic Sights</h3>
-        <ul className="list-disc ml-6 space-y-1">
-          <li>Virupaksha Temple</li>
-          <li>Hampi Bazaar</li>
-          <li>Vittala Temple & Stone Chariot</li>
-          <li>King’s Balance</li>
-          <li>Achyutaraya Temple</li>
-          <li>Sunset at Hemakuta Hill</li>
-        </ul>
-
-        <h3 className="font-semibold mt-6">Day 2: Royal Enclosure & Natural Views</h3>
-        <ul className="list-disc ml-6 space-y-1">
-          <li>Royal Enclosure</li>
-          <li>Queen’s Bath</li>
-          <li>Lotus Mahal & Elephant Stables</li>
-          <li>Pushkarini Stepwell</li>
-          <li>Sunset at Matanga Hill</li>
-        </ul>
-      </section>
-
-      <section className="mt-10">
-        <h2 className="text-2xl font-semibold mb-3">📍 Best Time to Visit Hampi</h2>
-        <p>
-          October to February is the best time with pleasant weather. Summers are extremely hot, and monsoons make some paths slippery but great for photography.
-        </p>
-      </section>
-
-      <section className="mt-10">
-        <h2 className="text-2xl font-semibold mb-3">❓ Frequently Asked Questions</h2>
-
-        <h3 className="font-semibold mt-4">Is Hampi safe for solo travelers?</h3>
-        <p>Yes, it is safe. Just avoid isolated areas after dark and travel with basic precautions.</p>
-
-        <h3 className="font-semibold mt-4">Do I need a guide?</h3>
-        <p>A guide is helpful for history, but you can explore alone using maps and signboards.</p>
-
-        <h3 className="font-semibold mt-4">How many days are enough?</h3>
-        <p>2–3 days are ideal to cover main monuments and viewpoints.</p>
-      </section>
-
-      <footer className="mt-12 text-sm text-gray-600 text-center">© {new Date().getFullYear()} — Historic Travel Notes.</footer>
+      </article>
     </main>
-  );}
+  );
+}
+

@@ -1,178 +1,184 @@
-import React from "react";
-import { Helmet } from "react-helmet";
+import React, { useEffect } from "react";
 
-export default function Theultimate2week() {
-  
-  // Structured Data (JSON-LD) for SEO: WebPage, ItemList (for Itinerary), and FAQPage
+export default function TheUltimate2Week() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@graph": [
-      // 1. WebPage Schema (Main Context)
-      {
-        "@type": "WebPage",
-        "name": "The Ultimate 2-Week India Itinerary for First-Time Travelers",
-        "description": "A perfect, beginner-friendly 14-day India itinerary covering the Golden Triangle (Delhi, Agra, Jaipur) and South India highlights like Udaipur and Goa. Includes essential transport, safety, and budget tips.",
-        "url": "https://yourwebsite.com/india-2-week-itinerary", // **UPDATE URL**
-        "inLanguage": "en",
-        "author": { "@type": "Person", "name": "Your Name/Website Name" }, // **UPDATE Author**
-        "datePublished": "2025-01-10", 
-        "dateModified": new Date().toISOString(),
+    "@type": "Article",
+    headline:
+      "The Ultimate 2 Week India Itinerary for First Time Travelers (2025 Guide)",
+    description:
+      "Perfect 14 day India itinerary for first timers covering Delhi, Agra, Jaipur, Udaipur and Goa with exact transport plan, budget, safety tips and hotels.",
+    image: ["https://yourwebsite.com/images/india-itinerary-hero.jpg"],
+    author: {
+      "@type": "Organization",
+      name: "BharatMile",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "BharatMile",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://yourwebsite.com/logo.png",
       },
-      // 2. ItemList Schema (Itinerary Breakdown for Search Engines)
-      {
-        "@type": "ItemList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Day 1-2: Delhi (Arrival & Heritage)", "description": "Old Delhi markets, Humayun’s Tomb, India Gate." },
-          { "@type": "ListItem", "position": 2, "name": "Day 3: Agra (The Taj Mahal)", "description": "Sunrise Taj Mahal visit and Agra Fort." },
-          { "@type": "ListItem", "position": 3, "name": "Day 4-6: Jaipur (Pink City)", "description": "Amber Fort, Hawa Mahal, City Palace, shopping." },
-          { "@type": "ListItem", "position": 4, "name": "Day 7-8: Udaipur (Lake City)", "description": "Lake Pichola boat ride, City Palace." },
-          { "@type": "ListItem", "position": 5, "name": "Day 9-13: Goa (Beaches & Relaxation)", "description": "Palolem, Calangute, or Baga Beach; water sports, nightlife." },
-          { "@type": "ListItem", "position": 6, "name": "Day 14: Departure", "description": "Fly out from Goa or Mumbai." }
-        ]
-      },
-      // 3. FAQPage Schema (For Rich Snippets)
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What is the best way to travel between cities on this itinerary?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "For the Delhi-Agra-Jaipur loop, use the efficient train system (AC Classes) or hire a private car/driver. For the long jump from Udaipur to Goa, domestic flights are highly recommended to save time."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is the approximate budget for this 2-week trip?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Excluding international flights, a budget traveler can expect to spend $40-60 USD per day (approx. ₹3,500-₹5,000), covering transport, accommodation, food, and entry fees."
-            }
-          }
-        ]
-      }
-    ]
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": "https://yourwebsite.com/blog/2-week-india-itinerary",
+    },
   };
 
-  const itineraryData = [
-    { days: "Day 1–2", city: "Delhi", highlights: "Old Delhi markets, Humayun’s Tomb, India Gate, Chandni Chowk street food.", transport: "Arrival at DEL, local metro/auto-rickshaw." },
-    { days: "Day 3", city: "Agra", highlights: "Sunrise at Taj Mahal, Agra Fort, Mehtab Bagh for sunset.", transport: "Fast train (Shatabdi Express) or private car from Delhi." },
-    { days: "Day 4–6", city: "Jaipur", highlights: "Amber Fort, Hawa Mahal, City Palace, shopping at Bapu Bazaar.", transport: "Train or car from Agra (4-5 hours)." },
-    { days: "Day 7–8", city: "Udaipur", highlights: "Lake Pichola boat ride, City Palace, Jag Mandir, local art streets.", transport: "Domestic flight (JAI to UDR) or overnight train." },
-    { days: "Day 9–13", city: "Goa", highlights: "Beaches (Palolem/Calangute), Old Goa churches, seafood, water sports.", transport: "Domestic flight (UDR to GOI). **Essential to fly this leg.**" },
-    { days: "Day 14", city: "Departure", highlights: "Final souvenir shopping or relaxed brunch.", transport: "Fly back from Goa (GOI) or take an overnight train/flight to Mumbai/Delhi." },
-  ];
+  useEffect(() => {
+    document.title =
+      "Ultimate 2 Week India Itinerary for First Time Travelers (2025)";
+
+    const set = (n, c, a = "name") => {
+      let e = document.querySelector(`meta[${a}="${n}"]`);
+      if (!e) {
+        e = document.createElement("meta");
+        e.setAttribute(a, n);
+        document.head.appendChild(e);
+      }
+      e.setAttribute("content", c);
+    };
+
+    set(
+      "description",
+      "Best 14 day India itinerary for first time travelers covering Delhi, Agra (Taj Mahal), Jaipur, Udaipur and Goa with transport, budget and safety tips."
+    );
+
+    set(
+      "keywords",
+      "2 week India itinerary, India trip plan 14 days, first time India travel guide, Delhi Agra Jaipur Goa itinerary, Golden Triangle itinerary India"
+    );
+
+    set("og:title", document.title, "property");
+    set(
+      "og:description",
+      "Safe and complete 2 week India travel itinerary for beginners: Golden Triangle + Goa with full transport and budget guide.",
+      "property"
+    );
+    set(
+      "og:image",
+      "https://yourwebsite.com/images/india-itinerary-hero.jpg",
+      "property"
+    );
+    set("og:type", "article", "property");
+
+    set("twitter:card", "summary_large_image");
+    set("twitter:title", document.title);
+    set(
+      "twitter:description",
+      "The perfect 14-day India itinerary for first time travelers."
+    );
+    set(
+      "twitter:image",
+      "https://yourwebsite.com/images/india-itinerary-hero.jpg"
+    );
+
+    let link = document.querySelector("link[rel='canonical']");
+    if (!link) {
+      link = document.createElement("link");
+      link.setAttribute("rel", "canonical");
+      document.head.appendChild(link);
+    }
+    link.href = "https://yourwebsite.com/blog/2-week-india-itinerary";
+
+    let script = document.getElementById("2week-jsonld");
+    if (!script) {
+      script = document.createElement("script");
+      script.id = "2week-jsonld";
+      script.type = "application/ld+json";
+      document.head.appendChild(script);
+    }
+    script.textContent = JSON.stringify(jsonLd);
+  }, []);
 
   return (
-    <div className="px-6 py-10 max-w-5xl mx-auto text-gray-800 leading-relaxed">
-      
-      {/* --- SEO HEAD TAGS --- */}
-      <Helmet>
-        <title>The Ultimate 2-Week India Itinerary for First-Time Travelers</title>
-        <meta
-          name="description"
-          content="A perfect, beginner-friendly 14-day India itinerary covering the Golden Triangle (Delhi, Agra, Jaipur) and South India highlights like Udaipur and Goa. Includes essential transport, safety, and budget tips."
-        />
-        <meta name="keywords" content="India itinerary, 2 week India travel plan, India trip for beginners, India travel guide, Golden Triangle itinerary, Delhi Agra Jaipur Goa" />
-        
-        {/* Open Graph Tags for Social Sharing */}
-        <meta property="og:title" content="Ultimate 2-Week India Itinerary (Delhi, Taj Mahal, Goa)" />
-        <meta property="og:description" content="A safe, easy 14-day plan for first-timers: Delhi, Agra, Jaipur, Udaipur, and 5 days relaxing on the beaches of Goa." />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://yourwebsite.com/india-2-week-itinerary" />
-        <meta property="og:image" content="https://yourwebsite.com/images/india-itinerary-hero.jpg" /> {/* **UPDATE IMAGE URL** */}
-        
-        <link rel="canonical" href="https://yourwebsite.com/india-2-week-itinerary" />
-        
-        {/* JSON-LD Structured Data */}
-        <script type="application/ld+json">
-          {JSON.stringify(jsonLd)}
-        </script>
-      </Helmet>
+    <main className="max-w-5xl mx-auto px-6 py-12 text-gray-800">
 
-      {/* --- PAGE CONTENT --- */}
-      <h1 className="text-4xl font-bold mb-6 text-gray-900 border-b pb-2">
-        The Ultimate 2-Week India Itinerary for First-Time Travelers 🎒🇮🇳
+      <h1 className="text-4xl font-extrabold mb-6 text-indigo-800">
+        Ultimate 2-Week India Itinerary for First-Time Travelers 🇮🇳🎒
       </h1>
 
-      <p className="mb-6 text-lg p-3 bg-indigo-50 border-l-4 border-indigo-500">
-        If you're visiting India for the first time, this 14-day plan offers the
-        perfect mix of culture, history, beaches, and relaxation. It successfully
-        combines the **Golden Triangle** with the beautiful lakes of Rajasthan and the vibrant coast of Goa.
+      <p className="mb-8 text-lg bg-indigo-50 p-4 rounded border-l-4 border-indigo-600">
+        Visiting India for the first time? This **14-day India travel plan** is
+        perfectly designed to balance history, culture, luxury cities, and
+        tropical beaches. You’ll cover the **Golden Triangle (Delhi-Agra-Jaipur)**,
+        romantic **Udaipur**, and finish with **5 days of relaxation in Goa**.
       </p>
 
-      {/* --- Day-Wise Itinerary Table --- */}
-      <h2 className="text-3xl font-semibold mt-10 mb-4 text-indigo-700">Detailed 14-Day Itinerary Breakdown</h2>
+      {/* DAY-WISE ITINERARY */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold mb-4 text-indigo-700">
+          ✅ Complete 14-Day India Itinerary (Day-by-Day)
+        </h2>
 
-      <div className="overflow-x-auto shadow-lg rounded-lg">
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-indigo-600 text-white">
-            <tr>
-              <th className="px-4 py-3 text-left text-sm font-medium uppercase tracking-wider">Days</th>
-              <th className="px-4 py-3 text-left text-sm font-medium uppercase tracking-wider">City/Region</th>
-              <th className="px-4 py-3 text-left text-sm font-medium uppercase tracking-wider">Must-See Highlights</th>
-              <th className="px-4 py-3 text-left text-sm font-medium uppercase tracking-wider">Transport Tip</th>
-            </tr>
-          </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
-            {itineraryData.map((item, index) => (
-              <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                <td className="px-4 py-4 whitespace-nowrap font-semibold">{item.days}</td>
-                <td className="px-4 py-4 whitespace-nowrap font-medium text-gray-900">{item.city}</td>
-                <td className="px-4 py-4">{item.highlights}</td>
-                <td className="px-4 py-4 text-sm text-gray-600 italic">{item.transport}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+        <ul className="space-y-4 list-disc list-inside">
+          <li><b>Day 1–2:</b> Delhi – Old Delhi, India Gate, Humayun’s Tomb, Chandni Chowk food walk</li>
+          <li><b>Day 3:</b> Agra – Sunrise Taj Mahal, Agra Fort, Mehtab Bagh sunset</li>
+          <li><b>Day 4–6:</b> Jaipur – Amber Fort, Hawa Mahal, City Palace, markets</li>
+          <li><b>Day 7–8:</b> Udaipur – Lake Pichola boat ride, City Palace, Jag Mandir</li>
+          <li><b>Day 9–13:</b> Goa – Beaches, seafood, churches, nightlife, water sports</li>
+          <li><b>Day 14:</b> Return flight from Goa or Mumbai</li>
+        </ul>
+      </section>
 
-      {/* --- Logistics and Transport --- */}
-      <h2 className="text-3xl font-semibold mt-12 mb-4 text-indigo-700">Logistics, Transport, and Accommodation</h2>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="p-4 border rounded-lg shadow-sm">
-          <h3 className="text-xl font-semibold mb-2">Internal Transport Strategy</h3>
-          <ul className="list-disc pl-6 space-y-2 text-gray-700">
-            <li>**Golden Triangle (Delhi-Agra-Jaipur):** Use AC trains (Shatabdi/Rajdhani) for speed and comfort, or hire a dedicated private car/driver.</li>
-            <li>**Long-Haul (Udaipur to Goa):** Book a **domestic flight**. This jump is over 2,000 km by road; flying saves two full days of travel.</li>
-            <li>**City Travel:** Rely on the Metro (Delhi), Uber/Ola, or pre-paid auto-rickshaws for predictable fares.</li>
-          </ul>
-        </div>
-        
-        <div className="p-4 border rounded-lg shadow-sm">
-          <h3 className="text-xl font-semibold mb-2">Accommodation & Booking</h3>
-          <ul className="list-disc pl-6 space-y-2 text-gray-700">
-            <li>**Delhi/Jaipur/Udaipur:** Boutique hotels, Havelis (heritage homes), or quality hostels offer the best value.</li>
-            <li>**Goa:** Choose accommodation based on your vibe: North Goa (party) or South Goa (peaceful).</li>
-            <li>**Booking Tip:** Use popular sites like Booking.com or Hostelworld and read recent reviews carefully for safety and hygiene.</li>
-          </ul>
-        </div>
-      </div>
-      
-      {/* --- Essential Tips --- */}
-      <h2 className="text-3xl font-semibold mt-12 mb-4 text-indigo-700">Essential Tips for First-Time Travellers</h2>
-      <ul className="list-disc pl-6 space-y-3">
-        <li>
-          **Health and Safety:** Only drink **bottled water** (check the seal!) and be cautious with street food initially. Always carry a small bottle of hand sanitizer.
-        </li>
-        <li>
-          **Documentation:** Carry **digital and printed copies** of your visa, passport, and major hotel/flight bookings in separate places.
-        </li>
-        <li>
-          **Money:** Keep cash (for small shops, markets, and auto-rickshaws) and one debit/credit card separated in your luggage. ATMs are widely available.
-        </li>
-        <li>
-          **Cultural Respect:** Dress modestly when visiting temples, mosques, or ashrams (cover shoulders and knees). Remove shoes before entering religious sites.
-        </li>
-      </ul>
+      {/* TRANSPORT */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold text-indigo-700 mb-3">
+          🚆 Transport Strategy (Fast + Safe)
+        </h2>
 
-      {/* --- Conclusion --- */}
-      <h2 className="text-3xl font-semibold mt-12 mb-4 text-gray-900">Final Thoughts: Ready for Adventure</h2>
-      <p>
-        This itinerary covers the essential history of North India and rewards you with the relaxation of a coastal holiday. It's designed to minimize culture shock and maximize enjoyment, making your first trip to India seamless and unforgettable.
-      </p>
-    </div>
+        <ul className="list-disc list-inside space-y-2">
+          <li>Delhi → Agra → Jaipur: **AC Trains or Private Car**</li>
+          <li>Jaipur → Udaipur: **Train or flight**</li>
+          <li>Udaipur → Goa: **Domestic Flight (Mandatory)**</li>
+          <li>Local Travel: Uber/Ola, Metro (Delhi), Scooters (Goa)</li>
+        </ul>
+      </section>
+
+      {/* BUDGET */}
+      <section className="mb-12 bg-green-50 p-5 rounded">
+        <h2 className="text-2xl font-bold text-green-800 mb-3">
+          💰 Budget for 2 Weeks in India
+        </h2>
+
+        <ul className="list-disc list-inside space-y-2">
+          <li>Budget: ₹3,500–₹5,000/day</li>
+          <li>Mid-range: ₹7,000–₹10,000/day</li>
+          <li>Luxury: ₹15,000+/day</li>
+        </ul>
+      </section>
+
+      {/* SAFETY */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold text-indigo-700 mb-3">
+          🛡️ Safety + Health Tips for First-Timers
+        </h2>
+
+        <ul className="list-disc list-inside space-y-2">
+          <li>Drink only sealed bottled water</li>
+          <li>Avoid raw street food on Day 1–2</li>
+          <li>Keep digital + paper copies of passport & visa</li>
+          <li>Dress modestly in temples & mosques</li>
+          <li>Use prepaid taxis or ride-hailing apps</li>
+        </ul>
+      </section>
+
+      {/* FAQ */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold text-indigo-700 mb-3">
+          ❓ Frequently Asked Questions
+        </h2>
+
+        <p><b>Is 2 weeks enough for India?</b><br />Yes—this plan covers the best highlights without rushing.</p>
+        <p><b>Is India safe for solo travelers?</b><br />Yes, if basic precautions are followed.</p>
+        <p><b>Should I book trains in advance?</b><br />Yes—especially Agra & Jaipur routes.</p>
+      </section>
+
+      <footer className="mt-12 text-sm text-center text-gray-600">
+        © {new Date().getFullYear()} — BharatMile · Ultimate India Travel Guide
+      </footer>
+    </main>
   );
 }

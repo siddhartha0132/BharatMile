@@ -1,297 +1,256 @@
-import React, { useEffect } from "react";
+// src/blogs/Ooty.jsx
+import { useEffect } from "react";
 
 export default function Ooty() {
-  
-  // Structured Data (JSON-LD) for SEO: Article, BreadcrumbList, and FAQPage
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      // 1. Article Schema for SEO Authority
-      {
-        "@type": "Article",
-        mainEntityOfPage: {
-          "@type": "WebPage",
-          "@id": "https://example.com/ooty-toy-train-guide" // **UPDATE with actual URL**
-        },
-        headline: "Ooty Toy Train: The Definitive Guide to Nilgiri Mountain Railway (NMR) Tickets, Timings, and Route",
-        image: ["https://example.com/images/ooty-toy-train-hero.jpg", "https://example.com/images/NMR-steam-engine.jpg"], // **UPDATE with actual image URLS**
-        datePublished: "2025-11-23T08:00:00+05:30", 
-        dateModified: new Date().toISOString(),
-        author: {
-          "@type": "Person",
-          name: "Wander Guides Travel Team" // **UPDATE with actual author**
-        },
-        publisher: {
-          "@type": "Organization",
-          name: "Wander Guides",
-          logo: {
-            "@type": "ImageObject",
-            url: "https://example.com/logo.png" // **UPDATE with actual logo URL**
-          }
-        },
-        description: "The complete guide on the UNESCO-listed Ooty Toy Train (Nilgiri Mountain Railway - NMR). Find detailed information on ticket prices, online reservation tips via IRCTC, timings, the best scenic route segments, and the history of this steam-powered journey."
-      },
-      // 2. Breadcrumb Schema for Navigation SEO
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://example.com/" },
-          { "@type": "ListItem", "position": 2, "name": "South India", "item": "https://example.com/south-india" },
-          { "@type": "ListItem", "position": 3, "name": "Ooty Toy Train Guide" }
-        ]
-      },
-      // 3. FAQPage Schema
-      {
-        "@type": "FAQPage",
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "How can I book tickets for the Ooty Toy Train?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Tickets must be booked online via the Indian Railways (IRCTC) website. Booking opens 120 days in advance and sells out quickly, especially for the steam-hauled Mettupalayam to Ooty section."
-            }
-          },
-          {
-            "@type": "Question",
-            name: "Which side of the train has the best views?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "For the Mettupalayam to Ooty ascent, the **right side** generally offers the most dramatic views of the gorges, waterfalls, and valleys. For the descent, the left side is better."
-            }
-          },
-        ]
-      }
-    ]
-  };
-
   useEffect(() => {
-    // 1. Set Document Title (Expanded for SEO)
-    document.title = "Ooty Toy Train: The Definitive Guide to NMR Tickets, Timings, and Route";
+    document.title =
+      "Ooty Toy Train 2025 | Nilgiri Mountain Railway Tickets, Timings & Travel Guide | BharatMile";
 
-    // Helper function to create or update meta tags
-    const setOrCreate = (name, content, attr = "name") => {
-      let el = document.querySelector(`meta[${attr}="${name}"]`);
-      if (!el) {
-        el = document.createElement("meta");
-        el.setAttribute(attr, name);
-        document.head.appendChild(el);
+    const setMeta = (name, content, attr = "name") => {
+      let m = document.querySelector(`meta[${attr}='${name}']`);
+      if (!m) {
+        m = document.createElement("meta");
+        m.setAttribute(attr, name);
+        document.head.appendChild(m);
       }
-      el.setAttribute("content", content);
+      m.setAttribute("content", content);
     };
 
-    const descriptionContent = "The complete guide on the UNESCO-listed Ooty Toy Train (Nilgiri Mountain Railway - NMR). Find detailed information on ticket prices, online reservation tips via IRCTC, timings, the best scenic route segments, and the history of this steam-powered journey.";
-    const titleContent = "Ooty Toy Train: Nilgiri Railway Tickets, Timings & Route Guide";
-    const imageUrl = "https://example.com/images/ooty-toy-train-hero.jpg"; // **UPDATE URL**
+    setMeta(
+      "description",
+      "Complete Ooty Toy Train (Nilgiri Mountain Railway) travel guide with latest 2025 timings, ticket booking tips, best seats, scenic routes and WhatsApp booking support."
+    );
 
-    // 2. General SEO Meta Tag
-    setOrCreate("description", descriptionContent);
-    
-    // 3. Open Graph Tags (for Social Media)
-    setOrCreate('og:title', titleContent, 'property');
-    setOrCreate('og:description', descriptionContent, 'property');
-    setOrCreate('og:type', 'article', 'property');
-    setOrCreate('og:url', window.location.href, 'property');
-    setOrCreate('og:image', imageUrl, 'property');
-    setOrCreate('og:site_name', 'Wander Guides', 'property');
+    setMeta(
+      "keywords",
+      "Ooty toy train, Nilgiri Mountain Railway tickets, Ooty toy train timings, Ooty travel guide, UNESCO toy train India"
+    );
 
-    // 4. Twitter Card Tags
-    setOrCreate('twitter:card', 'summary_large_image');
-    setOrCreate('twitter:title', titleContent);
-    setOrCreate('twitter:description', descriptionContent);
-    setOrCreate('twitter:image', imageUrl);
+    setMeta(
+      "og:title",
+      "Ooty Toy Train 2025 | Nilgiri Mountain Railway Complete Guide",
+      "property"
+    );
+    setMeta(
+      "og:description",
+      "Ride India’s most scenic UNESCO Toy Train through Nilgiri Hills — timings, booking, prices & travel tips.",
+      "property"
+    );
+    setMeta("og:type", "article", "property");
+    setMeta(
+      "og:image",
+      "https://images.unsplash.com/photo-1600664939236-ea4c17823e0c",
+      "property"
+    );
 
-    // 5. Canonical Link Tag
     let link = document.querySelector("link[rel='canonical']");
     if (!link) {
       link = document.createElement("link");
       link.setAttribute("rel", "canonical");
       document.head.appendChild(link);
     }
-    link.setAttribute("href", window.location.href);
+    link.setAttribute(
+      "href",
+      window.location.origin + "/blog/ooty-toy-train"
+    );
 
-    // 6. JSON-LD Structured Data Script
-    let jsonScript = document.getElementById("ooty-jsonld");
-    if (!jsonScript) {
-      jsonScript = document.createElement("script");
-      jsonScript.id = "ooty-jsonld";
-      jsonScript.type = "application/ld+json";
-      document.head.appendChild(jsonScript);
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline:
+        "Ooty Toy Train 2025 | Nilgiri Mountain Railway Tickets, Timings & Travel Guide",
+      description:
+        "Complete Ooty Toy Train guide with timings, booking tips, best seats, scenic routes and UNESCO heritage journey details.",
+      image: [
+        "https://images.unsplash.com/photo-1600664939236-ea4c17823e0c",
+      ],
+      author: { "@type": "Organization", name: "BharatMile Editorial" },
+      publisher: {
+        "@type": "Organization",
+        name: "BharatMile",
+        logo: { "@type": "ImageObject", url: "/images/logo.png" },
+      },
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id":
+          typeof window !== "undefined"
+            ? window.location.href
+            : "https://yourwebsite.com/blog/ooty-toy-train",
+      },
+    };
+
+    let script = document.getElementById("ooty-schema");
+    if (!script) {
+      script = document.createElement("script");
+      script.id = "ooty-schema";
+      script.type = "application/ld+json";
+      document.head.appendChild(script);
     }
-    jsonScript.textContent = JSON.stringify(jsonLd);
-
+    script.textContent = JSON.stringify(jsonLd);
   }, []);
 
-  const faqItems = [
-    { 
-      q: "How can I book tickets for the Ooty Toy Train?", 
-      a: "Tickets must be booked online via the Indian Railways (IRCTC) website. Booking opens 120 days in advance and sells out quickly, especially for the steam-hauled Mettupalayam to Ooty section." 
-    },
-    { 
-      q: "Which side of the train has the best views?", 
-      a: "For the Mettupalayam to Ooty ascent, the **right side** generally offers the most dramatic views of the gorges, waterfalls, and valleys. For the descent, the left side is better." 
-    },
-    {
-      q: "What is the difference between First Class (FC) and Second Class (2S)?",
-      a: "First Class offers wider seats, larger windows (ideal for photos), and is generally less crowded. Second Class is more budget-friendly but offers a denser seating arrangement and smaller windows."
-    }
-  ];
-
   return (
-    <main className="max-w-4xl mx-auto px-4 py-10">
-      
-      {/* --- Header Section --- */}
-      <header className="mb-8 border-b pb-4">
-        <h1 className="text-4xl font-extrabold text-blue-800">
-          Ooty Toy Train: Tickets, Timings & Essential Guide 🚂
-        </h1>
-        <p className="text-gray-600 mt-2 text-lg">
-          Everything you need to know about the iconic **Nilgiri Mountain Railway (NMR)** journey, a UNESCO World Heritage site, from Mettupalayam to Ooty.
-        </p>
-      </header>
+    <main className="max-w-6xl mx-auto px-6 py-12">
 
-      {/* --- Section 1: About the NMR --- */}
-      <section className="mt-8">
-        <h2 className="text-3xl font-bold text-blue-700">1. Nilgiri Mountain Railway: A UNESCO Gem</h2>
-        <p className="mt-3 leading-relaxed">
-          The Nilgiri Mountain Railway (NMR) is not just a ride; it's a step back in time. It was commissioned in 1908 and is celebrated for its unique **rack-and-pinion system**—a specialized gear that helps the train climb the steep gradients of the Nilgiri Hills.
-        </p>
+      {/* ✅ HERO */}
+      <section className="relative rounded-2xl overflow-hidden shadow-xl">
+        <img
+          src="https://images.unsplash.com/photo-1600664939236-ea4c17823e0c"
+          alt="Ooty Toy Train Nilgiri Railway"
+          className="w-full h-[480px] object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60 flex items-end">
+          <div className="p-8 text-white max-w-4xl">
+            <h1 className="text-4xl md:text-5xl font-extrabold">
+              Ooty Toy Train 2025
+            </h1>
+            <p className="mt-3 text-lg">
+              India’s most scenic UNESCO mountain railway ride through Nilgiri Hills.
+            </p>
 
-        <h3 className="text-xl font-semibold mt-4 text-blue-600">The Journey Highlights:</h3>
-        <ul className="list-disc list-inside space-y-1 mt-2 ml-4">
-          <li>**Steam Power:** The primary section (Mettupalayam to Coonoor) is hauled by a century-old steam locomotive.</li>
-          <li>**Route:** The 46-km line passes through 250 bridges and 16 tunnels.</li>
-          <li>**Gradient:** It has the steepest track in Asia, with a gradient of 1 in 12.5.</li>
-          <li>**Scenery:** Winding through tea plantations, dense Shola forests, and deep valleys, offering spectacular views.</li>
-        </ul>
-      </section>
-
-      <hr className="my-8 border-blue-200" />
-
-      {/* --- Section 2: Toy Train Timings and Route Details --- */}
-      <section className="mt-8">
-        <h2 className="text-3xl font-bold text-blue-700">2. Toy Train Timings, Route, and Duration</h2>
-        <p className="mt-3 leading-relaxed">
-          The full journey from Mettupalayam to Ooty is the most scenic, taking approximately **4.5 to 5 hours**. Short segments are also available for tourists in Ooty who miss the main ride.
-        </p>
-
-        <h3 className="text-xl font-semibold mt-4 text-blue-600">Primary NMR Schedule (Mettupalayam to Ooty)</h3>
-        <div className="overflow-x-auto mt-4">
-          <table className="min-w-full divide-y divide-gray-200 border">
-            <thead className="bg-gray-50">
-              <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Route</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Departure Time</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Arrival Time (Approx.)</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Duration</th>
-              </tr>
-            </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
-              <tr>
-                <td className="px-6 py-4 whitespace-nowrap font-medium">Mettupalayam (MTP) → Ooty (UAM)</td>
-                <td className="px-6 py-4 whitespace-nowrap">07:10 AM</td>
-                <td className="px-6 py-4 whitespace-nowrap">12:00 PM</td>
-                <td className="px-6 py-4 whitespace-nowrap">4 hours 50 min</td>
-              </tr>
-              <tr>
-                <td className="px-6 py-4 whitespace-nowrap font-medium">Ooty (UAM) → Mettupalayam (MTP)</td>
-                <td className="px-6 py-4 whitespace-nowrap">02:00 PM</td>
-                <td className="px-6 py-4 whitespace-nowrap">05:35 PM</td>
-                <td className="px-6 py-4 whitespace-nowrap">3 hours 35 min</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        
-        <p className="mt-3 text-sm text-red-600 font-medium">
-          **Important Note:** These are typical times for the primary service (Train 56136/56137). Always verify the latest schedule on the IRCTC website using the station codes (MTP, UAM, ONR).
-        </p>
-
-        <h3 className="text-xl font-semibold mt-4 text-blue-600">Short, Scenic Rides (Coonoor to Ooty)</h3>
-        <p className="mt-2">
-          For a shorter experience, diesel-hauled rides run several times a day between Coonoor (ONR) and Ooty (UAM). These are easier to book and still offer beautiful tea estate views.
-        </p>
-      </section>
-
-      <hr className="my-8 border-blue-200" />
-
-      {/* --- Section 3: Ticket Booking and Classes --- */}
-      <section className="mt-8">
-        <h2 className="text-3xl font-bold text-blue-700">3. Ticket Booking Tips and Fare Classes</h2>
-        <p className="mt-3 leading-relaxed">
-          Tickets are scarce, especially for the steam-hauled ascent. Treat booking like a reservation for an exclusive event.
-        </p>
-
-        <h3 className="text-xl font-semibold mt-4 text-blue-600">Reservation Strategy: The 120-Day Rule</h3>
-        <ul className="list-disc list-inside space-y-1 mt-2 ml-4">
-          <li>**Advance Booking:** Tickets open **120 days** before the travel date (excluding the date of journey) on the IRCTC website.</li>
-          <li>**Timing:** Be logged in and ready to book precisely at **8:00 AM IST** on the opening day for the best chance of securing a seat.</li>
-          <li>**Booking Platform:** Use only the official Indian Railway Catering and Tourism Corporation (**IRCTC**) website or mobile app.</li>
-        </ul>
-
-        <h3 className="text-xl font-semibold mt-4 text-blue-600">Classes and Price Range</h3>
-        <div className="overflow-x-auto mt-4">
-          <table className="min-w-full divide-y divide-gray-200 border">
-            <thead className="bg-gray-50">
-              <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Class</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Features</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Approx. Fare (MTP→UAM)</th>
-              </tr>
-            </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
-              <tr>
-                <td className="px-6 py-4 whitespace-nowrap font-medium">First Class (FC)</td>
-                <td className="px-6 py-4 whitespace-nowrap">Padded seats, large windows, fewer people. **Best photo experience.**</td>
-                <td className="px-6 py-4 whitespace-nowrap">₹500 - ₹700</td>
-              </tr>
-              <tr>
-                <td className="px-6 py-4 whitespace-nowrap font-medium">Second Class (2S)</td>
-                <td className="px-6 py-4 whitespace-nowrap">Bench seating, functional windows, crowded.</td>
-                <td className="px-6 py-4 whitespace-nowrap">₹150 - ₹250</td>
-              </tr>
-            </tbody>
-          </table>
+            <div className="mt-5 flex gap-4">
+              <a
+                href="https://wa.me/919636974688"
+                target="_blank"
+                rel="noreferrer"
+                className="bg-green-500 text-white px-6 py-3 rounded-lg font-bold hover:scale-105 transition"
+              >
+                Book Ooty Tour on WhatsApp
+              </a>
+              <a
+                href="#details"
+                className="border border-white px-6 py-3 rounded-lg"
+              >
+                View Train Details
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
-      <hr className="my-8 border-blue-200" />
-
-      {/* --- Section 4: Travel Tips and Best Views --- */}
-      <section className="mt-8">
-        <h2 className="text-3xl font-bold text-blue-700">4. Best Time to Ride & In-Train Travel Tips</h2>
-        
-        <h3 className="text-xl font-semibold mt-4 text-blue-600">Best Season to Visit</h3>
-        <ul className="list-disc list-inside space-y-1 mt-2 ml-4">
-          <li>**Peak Season (Oct–Mar):** Clear skies, pleasant weather, and sharp visibility—ideal for photographers.</li>
-          <li>**Monsoon (Jun–Sep):** Foggy, wet, and incredibly lush. The hills are cloaked in green and mist, providing a moody, romantic atmosphere.</li>
-        </ul>
-
-        <h3 className="text-xl font-semibold mt-4 text-blue-600">The Ultimate Photo Tip: Seat Choice</h3>
-        <p className="mt-2">
-          As the train climbs from Mettupalayam, the **right side** of the train offers superior views of the deep valley, dramatic bridges, and tunnels carved into the hillside.
+      {/* ✅ INTRO */}
+      <section className="mt-16 text-lg">
+        <h2 className="text-3xl font-bold mb-4">
+          Why Ooty Toy Train is a UNESCO World Heritage Ride
+        </h2>
+        <p>
+          The Nilgiri Mountain Railway (NMR), popularly called the Ooty Toy Train, is one of the most scenic and engineering-marvel railway journeys in the world. Built in 1908, this rack-and-pinion railway climbs steep mountain gradients, passes through misty forests, tea gardens, tunnels, bridges and waterfalls.
         </p>
       </section>
 
-      <hr className="my-8 border-blue-200" />
+      {/* ✅ TRAIN DETAILS */}
+      <section id="details" className="mt-16">
+        <h2 className="text-3xl font-bold mb-6">
+          Ooty Toy Train Route, Distance & Duration
+        </h2>
 
-      {/* --- FAQ Section --- */}
-      <section className="mt-12" id="ooty-faq">
-        <h2 className="text-3xl font-bold text-blue-700">Frequently Asked Questions</h2>
-        {faqItems.map((item, i) => (
-          <details key={i} className="mt-3 p-4 border rounded-lg bg-gray-50">
-            <summary className="cursor-pointer font-medium text-lg text-blue-600">{item.q}</summary>
-            <p className="mt-2 text-gray-700">{item.a}</p>
+        <ul className="space-y-3 text-lg list-disc list-inside">
+          <li><strong>Route:</strong> Mettupalayam → Coonoor → Ooty</li>
+          <li><strong>Total Distance:</strong> 46 km</li>
+          <li><strong>Total Journey Time:</strong> 4.5 – 5 Hours</li>
+          <li><strong>Gradient:</strong> Asia’s steepest mountain railway section</li>
+          <li><strong>Locomotive:</strong> Steam engine till Coonoor</li>
+        </ul>
+      </section>
+
+      {/* ✅ TIMINGS */}
+      <section className="mt-16 bg-blue-50 p-8 rounded-xl">
+        <h2 className="text-3xl font-bold mb-6 text-blue-700">
+          Ooty Toy Train Timings (2025)
+        </h2>
+
+        <ul className="space-y-3 text-lg list-disc list-inside">
+          <li><strong>Mettupalayam → Ooty:</strong> 7:10 AM – 12:00 PM</li>
+          <li><strong>Ooty → Mettupalayam:</strong> 2:00 PM – 5:35 PM</li>
+          <li><strong>Short Ride:</strong> Coonoor ↔ Ooty (multiple slots daily)</li>
+        </ul>
+      </section>
+
+      {/* ✅ TICKET PRICES */}
+      <section className="mt-16">
+        <h2 className="text-3xl font-bold mb-6">
+          Ooty Toy Train Ticket Prices
+        </h2>
+
+        <ul className="space-y-3 text-lg list-disc list-inside">
+          <li><strong>First Class:</strong> ₹500 – ₹700</li>
+          <li><strong>Second Class:</strong> ₹150 – ₹250</li>
+          <li><strong>Children:</strong> Discounted fares</li>
+        </ul>
+
+        <p className="mt-4 text-lg font-semibold">
+          ✅ Tickets open 120 days in advance on IRCTC and sell out fast.
+        </p>
+      </section>
+
+      {/* ✅ BEST TIME */}
+      <section className="mt-16">
+        <h2 className="text-3xl font-bold mb-6">
+          Best Time to Ride Ooty Toy Train
+        </h2>
+
+        <ul className="space-y-3 text-lg list-disc list-inside">
+          <li><strong>October – March:</strong> Best weather & visibility</li>
+          <li><strong>June – September:</strong> Lush green monsoon views</li>
+          <li><strong>April – May:</strong> Crowded but pleasant</li>
+        </ul>
+      </section>
+
+      {/* ✅ BEST SEATS */}
+      <section className="mt-16">
+        <h2 className="text-3xl font-bold mb-6">
+          Best Seat for Scenic Views
+        </h2>
+
+        <p className="text-lg">
+          For the **Mettupalayam → Ooty** journey, the **RIGHT side window seat** gives the best views of valleys, waterfalls, tunnels and tea plantations. For the return journey, choose the left side.
+        </p>
+      </section>
+
+      {/* ✅ FAQ */}
+      <section className="mt-20">
+        <h2 className="text-3xl font-bold mb-6">
+          Ooty Toy Train FAQs
+        </h2>
+
+        {[
+          ["Is the Ooty Toy Train worth it?", "Yes, it is India’s most scenic railway journey and a UNESCO World Heritage Site."],
+          ["Where to book tickets?", "Only on IRCTC website or app."],
+          ["Is it safe for children?", "Yes, very safe and family-friendly."],
+          ["Does the steam engine still run?", "Yes, till Coonoor section."],
+        ].map((faq, i) => (
+          <details key={i} className="border p-4 rounded-lg mb-4">
+            <summary className="font-medium cursor-pointer">
+              {faq[0]}
+            </summary>
+            <p className="mt-2 text-gray-700">{faq[1]}</p>
           </details>
         ))}
       </section>
 
-      <hr className="my-8 border-blue-200" />
+      {/* ✅ FINAL CTA */}
+      <section className="mt-20 bg-green-700 text-white p-10 rounded-xl text-center shadow-xl">
+        <h3 className="text-3xl font-bold">
+          Planning an Ooty Toy Train Trip?
+        </h3>
+        <p className="mt-2 text-green-200">
+          Hotel, cab & train booking assistance available.
+        </p>
 
-      {/* --- Footer --- */}
-      <footer className="mt-10 text-sm text-gray-600 text-center">
-        © {new Date().getFullYear()} — Wander Guides. Travel safely and enjoy the rack-and-pinion journey!
+        <a
+          href="https://wa.me/919636974688"
+          target="_blank"
+          rel="noreferrer"
+          className="inline-block mt-6 bg-white text-green-700 px-8 py-3 rounded-lg font-bold hover:scale-105 transition"
+        >
+          Chat on WhatsApp Now
+        </a>
+      </section>
+
+      <footer className="mt-20 text-center text-sm text-gray-500">
+        © {new Date().getFullYear()} — BharatMile | Premium Hill Travel Guides
       </footer>
     </main>
   );
 }
+

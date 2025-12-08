@@ -2,8 +2,10 @@ import React, { useEffect } from "react";
 
 export default function BhangarhFort() {
   useEffect(() => {
-    document.title =
-      "The Haunted History of Bhangarh Fort | Bhangarh Fort Stories & Visitor Guide";
+    const title =
+      "The Haunted History of Bhangarh Fort | Legends, Timings & Travel Guide";
+
+    document.title = title;
 
     const setOrCreate = (name, content, attr = "name") => {
       let el = document.querySelector(`meta[${attr}='${name}']`);
@@ -15,29 +17,45 @@ export default function BhangarhFort() {
       el.setAttribute("content", content);
     };
 
+    // ✅ BASIC SEO
     setOrCreate(
       "description",
-      "Explore the haunted history and legends of Bhangarh Fort — tales, historical timeline, visitor tips, and essential safety guidance for travellers."
+      "Explore the real history & haunted legends of Bhangarh Fort. Complete visitor guide with timings, location, myths, safety tips & how to reach."
     );
 
-    setOrCreate("keywords", "Bhangarh Fort history, haunted places India, Bhangarh story, Rajasthan travel guide, Alwar tourism");
+    setOrCreate(
+      "keywords",
+      "Bhangarh Fort history, Bhangarh haunted place, haunted fort in India, Bhangarh story, Alwar tourism, Rajasthan haunted place"
+    );
 
-    setOrCreate("og:title", "The Haunted History of Bhangarh Fort", "property");
+    // ✅ OPEN GRAPH
+    setOrCreate("og:title", title, "property");
     setOrCreate(
       "og:description",
-      "A balanced look at Bhangarh Fort: documented history, chilling legends, visiting hours, and practical travel tips.",
+      "A balanced guide to Bhangarh Fort — real history, haunted legends, visiting hours, safety rules & travel tips.",
       "property"
     );
-    setOrCreate("og:image", "https://example.com/images/bhangarh-hero.jpg", "property");
+    setOrCreate(
+      "og:image",
+      window.location.origin + "/images/bhangarh-hero.jpg",
+      "property"
+    );
     setOrCreate("og:type", "article", "property");
+    setOrCreate("og:url", window.location.href, "property");
 
-    setOrCreate("twitter:card", "summary_large_image", "name");
-    setOrCreate("twitter:title", "The Haunted History of Bhangarh Fort");
+    // ✅ TWITTER
+    setOrCreate("twitter:card", "summary_large_image");
+    setOrCreate("twitter:title", title);
     setOrCreate(
       "twitter:description",
-      "Explore the myths, stories, and historical facts about Bhangarh Fort — India's most mysterious ruin."
+      "Is Bhangarh Fort really haunted? Discover the truth, myths, history & visitor tips.",
+    );
+    setOrCreate(
+      "twitter:image",
+      window.location.origin + "/images/bhangarh-hero.jpg"
     );
 
+    // ✅ CANONICAL
     let link = document.querySelector("link[rel='canonical']");
     if (!link) {
       link = document.createElement("link");
@@ -46,17 +64,16 @@ export default function BhangarhFort() {
     }
     link.setAttribute("href", window.location.href);
 
-    // JSON-LD
-    let jsonScript = document.getElementById("bhangarh-jsonld");
+    // ✅ ARTICLE SCHEMA
     const jsonLd = {
       "@context": "https://schema.org",
       "@type": "Article",
       headline: "The Haunted History of Bhangarh Fort",
       description:
-        "A deep dive into Bhangarh Fort's history, legends, myths, and practical tourist information.",
-      image: ["https://example.com/images/bhangarh-hero.jpg"],
+        "An in-depth guide covering the haunted legends, real history, visitor rules, safety tips & travel guide for Bhangarh Fort.",
+      image: [window.location.origin + "/images/bhangarh-hero.jpg"],
       author: {
-        "@type": "Person",
+        "@type": "Organization",
         name: "India Travel Insights",
       },
       publisher: {
@@ -64,180 +81,194 @@ export default function BhangarhFort() {
         name: "India Travel Insights",
         logo: {
           "@type": "ImageObject",
-          url: "https://example.com/images/logo.png",
+          url: window.location.origin + "/images/logo.png",
         },
       },
       mainEntityOfPage: {
         "@type": "WebPage",
         "@id": window.location.href,
       },
+      datePublished: "2025-01-01",
+      dateModified: new Date().toISOString(),
     };
 
+    let jsonScript = document.getElementById("bhangarh-jsonld");
     if (!jsonScript) {
       jsonScript = document.createElement("script");
       jsonScript.id = "bhangarh-jsonld";
       jsonScript.type = "application/ld+json";
       document.head.appendChild(jsonScript);
     }
-
     jsonScript.textContent = JSON.stringify(jsonLd);
   }, []);
 
   return (
-    <main className="max-w-4xl mx-auto px-4 py-12">
-      <article className="prose lg:prose-xl">
-        {/* HERO */}
-        <header className="rounded-lg overflow-hidden shadow-md">
+    <main className="bg-[#f7f9fc] text-gray-800">
+      <article className="max-w-5xl mx-auto px-4 py-12">
+
+        {/* ✅ HERO */}
+        <header className="mb-10">
           <img
             src="/images/bhangarh-hero.jpg"
             alt="Bhangarh Fort ruins at dusk"
-            className="w-full h-64 object-cover"
+            className="w-full h-72 object-cover rounded-xl shadow-lg"
             loading="lazy"
           />
-          <div className="p-6">
-            <h1 className="text-3xl font-extrabold">
-              The Haunted History of Bhangarh Fort
-            </h1>
-            <p className="mt-2 text-gray-600">
-              Between fear and folklore — explore legends, architecture, and
-              essential travel tips for visiting India's most mysterious fort.
-            </p>
-            <p className="mt-2 text-sm text-gray-500">
-              Last updated: {new Date().toLocaleDateString()}
-            </p>
-          </div>
+
+          <h1 className="text-3xl md:text-4xl font-bold mt-6">
+            The Haunted History of Bhangarh Fort
+          </h1>
+
+          <p className="text-gray-600 mt-3 text-lg">
+            Real history vs haunted legends — complete travel guide, visiting
+            rules, safety tips & myths explained.
+          </p>
+
+          <aside className="mt-4 p-4 bg-yellow-50 border rounded-lg text-sm">
+            <strong>Quick Answer:</strong> There is no scientific proof that
+            Bhangarh Fort is haunted. Its reputation comes from folklore,
+            abandoned ruins & ASI night entry restrictions.
+          </aside>
         </header>
 
-        {/* INTRO */}
-        <section>
-          <h2>Introduction</h2>
-          <p>
-            Bhangarh Fort, located in the Alwar district of Rajasthan, is
-            regarded as one of the most mysterious ruins in India. Surrounded by
-            dense forests and the Aravalli hills, the fort’s eerie reputation
-            has grown due to countless legends, myths, and chilling stories
-            passed down over generations.
-          </p>
+        {/* ✅ CONTENT */}
+        <section className="space-y-10 leading-relaxed text-lg">
+
+          <div>
+            <h2 className="text-2xl font-semibold">Introduction</h2>
+            <p>
+              Bhangarh Fort, located in Rajasthan’s Alwar district, is widely
+              known as India’s most haunted place. Surrounded by the Aravalli
+              hills, the fort attracts thrill-seekers, photographers and
+              curious travelers from across the country.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold">Historical Timeline</h2>
+            <ul className="list-disc list-inside">
+              <li><strong>16th century:</strong> Built by Raja Man Singh I</li>
+              <li><strong>17th–18th century:</strong> Flourishing town with temples & markets</li>
+              <li><strong>Later period:</strong> Mysteriously abandoned</li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold">The Haunted Legend</h2>
+            <p>
+              The most famous legend is of a tantric who cursed Princess
+              Ratnavati. It is believed the entire city fell into ruin after the
+              curse. However, these stories are folklore — not backed by
+              archaeological proof.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold">Scientific View</h2>
+            <p>
+              Experts believe strange sounds come from wildlife, wind, bats and
+              collapsing stone structures. The darkness & isolation fuel fear.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold">Visitor Information</h2>
+            <p><strong>Location:</strong> Alwar District, Rajasthan</p>
+            <p><strong>Timings:</strong> Sunrise to Sunset (No night entry)</p>
+            <p><strong>Entry Fee:</strong> Free</p>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold">How to Reach</h2>
+            <ul className="list-disc list-inside">
+              <li>From Jaipur: 85 km by road</li>
+              <li>From Alwar: 90 km by taxi</li>
+              <li>Nearest Airport: Jaipur International Airport</li>
+            </ul>
+          </div>
+
         </section>
 
-        {/* HISTORY */}
-        <section>
-          <h2>Historical Timeline</h2>
-          <ul>
+        {/* ✅ INTERNAL BACKLINKS */}
+        <section className="mt-14 bg-white p-6 rounded-xl shadow-md">
+          <h3 className="text-xl font-semibold mb-3">Popular Rajasthan Travel Guides</h3>
+          <ul className="grid md:grid-cols-2 gap-3 text-blue-600 font-medium">
+            <li><a href="/jaipur-tour">→ Jaipur Travel Guide</a></li>
+            <li><a href="/udaipur-tour">→ Udaipur Travel Guide</a></li>
+            <li><a href="/jaisalmer-safari">→ Jaisalmer Desert Safari</a></li>
+            <li><a href="/ranthambore-safari">→ Ranthambore Jungle Safari</a></li>
+            <li><a href="/bikaner-tour">→ Bikaner Travel Guide</a></li>
+            <li><a href="/jodhpur-tour">→ Jodhpur Forts & Palaces</a></li>
+          </ul>
+        </section>
+
+        {/* ✅ EXTERNAL AUTHORITY BACKLINKS */}
+        <section className="mt-10 bg-gray-50 p-6 rounded-xl border">
+          <h3 className="text-lg font-semibold mb-3">Official Tourism Resources</h3>
+          <ul className="space-y-2 text-blue-600 text-sm">
             <li>
-              <strong>16th century:</strong> Built by Raja Man Singh I for his
-              son Madho Singh.
+              <a href="https://asi.nic.in" target="_blank" rel="nofollow noreferrer">
+                → Archaeological Survey of India (ASI)
+              </a>
             </li>
             <li>
-              <strong>17th–18th century:</strong> Functioned as a fortified town
-              with markets, temples, and royal residences.
+              <a href="https://www.tourism.rajasthan.gov.in" target="_blank" rel="nofollow noreferrer">
+                → Rajasthan Tourism Official Website
+              </a>
             </li>
             <li>
-              <strong>Unknown era:</strong> Abandonment due to possible war,
-              famine, or depopulation.
+              <a href="https://www.incredibleindia.org" target="_blank" rel="nofollow noreferrer">
+                → Incredible India Tourism
+              </a>
             </li>
           </ul>
         </section>
 
-        {/* LEGENDS */}
-        <section>
-          <h2>Local Legends & The Curse</h2>
-          <p>
-            The most famous legend revolves around a tantric who fell in love
-            with Princess Ratnavati. After she rejected him, he cursed the fort,
-            leading to its supposed downfall. Other tales describe ghosts,
-            shadows, unusual sounds, and supernatural events.
-          </p>
-          <p>
-            These stories, while fascinating, are part of oral folklore and are
-            not backed by historical evidence.
-          </p>
-        </section>
+        {/* ✅ FAQ */}
+        <section className="mt-14 bg-white p-6 rounded-xl shadow-md">
+          <h3 className="text-2xl font-semibold mb-4">Frequently Asked Questions</h3>
 
-        {/* FACTUAL VIEW */}
-        <section>
-          <h2>What the Evidence Suggests</h2>
-          <p>
-            Archaeological studies reveal that Bhangarh Fort follows classic
-            Rajput architectural style. Many so-called paranormal experiences
-            can be explained by natural sounds, wildlife activity, and the
-            fort’s deteriorating stone structures.
-          </p>
-        </section>
+          <div className="space-y-4">
+            <div>
+              <strong>Q. Is Bhangarh Fort really haunted?</strong>
+              <p>No scientific evidence supports paranormal activity here.</p>
+            </div>
 
-        {/* VISITOR INFO */}
-        <section>
-          <h2>Visitor Information</h2>
-          <p>
-            <strong>Location:</strong> Bhangarh Village, Alwar District,
-            Rajasthan.
-          </p>
-          <p>
-            <strong>Entry Timings:</strong> Sunrise to sunset (entry is strictly
-            prohibited after dark as per ASI rules).
-          </p>
-          <p>
-            <strong>Tips for Visitors:</strong> Carry water, wear comfortable
-            shoes, avoid isolated corners, and respect local customs.
-          </p>
-        </section>
+            <div>
+              <strong>Q. Is entry allowed at night?</strong>
+              <p>No, ASI strictly prohibits night entry for safety reasons.</p>
+            </div>
 
-        {/* GALLERY */}
-        <section>
-          <h2>Photo Gallery</h2>
-          <div className="grid grid-cols-2 gap-3">
-            <img
-              src="/images/bhangarh-1.jpg"
-              alt="Entrance gate of Bhangarh Fort"
-              className="w-full h-40 object-cover rounded"
-              loading="lazy"
-            />
-            <img
-              src="/images/bhangarh-2.jpg"
-              alt="Inside ruins of Bhangarh Fort"
-              className="w-full h-40 object-cover rounded"
-              loading="lazy"
-            />
+            <div>
+              <strong>Q. Is Bhangarh safe for solo travelers?</strong>
+              <p>Yes, during daytime with proper precautions.</p>
+            </div>
           </div>
         </section>
 
-        {/* HOW TO REACH */}
-        <section>
-          <h2>How to Reach</h2>
-          <p>
-            Bhangarh Fort is easily accessible from Alwar (90 km) and Jaipur (85
-            km). The nearest airport is Jaipur International Airport, and the
-            closest railway station is Alwar Junction.
+        {/* ✅ WHATSAPP CTA */}
+        <div className="mt-16 bg-green-600 text-white p-6 rounded-xl shadow-lg text-center">
+          <h3 className="text-xl font-semibold">
+            Planning a Rajasthan Trip?
+          </h3>
+          <p className="mt-2 text-green-100">
+            Get custom itineraries, hotel suggestions & instant travel help.
           </p>
-        </section>
 
-        {/* FAQ */}
-        <section>
-          <h2>Frequently Asked Questions</h2>
-          <dl>
-            <dt>Is Bhangarh Fort haunted?</dt>
-            <dd>
-              There is no scientific evidence of paranormal activity — most
-              stories are based on folklore and local belief.
-            </dd>
+          <a
+            href="https://wa.me/919999999999"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-block mt-4 bg-white text-green-600 px-6 py-2 rounded-lg font-semibold hover:scale-105 transition"
+          >
+            Chat on WhatsApp
+          </a>
+        </div>
 
-            <dt>Can visitors enter after sunset?</dt>
-            <dd>
-              No. The ASI has officially banned entry after sunset for safety
-              reasons.
-            </dd>
-
-            <dt>Are guided tours available?</dt>
-            <dd>
-              Yes, you can hire local licensed guides who explain both the
-              history and the stories around the fort.
-            </dd>
-          </dl>
-        </section>
-
-        <footer className="mt-10 text-sm text-gray-600">
+        <footer className="mt-12 text-sm text-gray-600 text-center">
           © {new Date().getFullYear()} — India Travel Insights.
         </footer>
+
       </article>
     </main>
   );

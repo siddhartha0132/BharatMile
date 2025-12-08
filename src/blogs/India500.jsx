@@ -1,206 +1,215 @@
-// 2000+ word SEO-Optimized React Component for "Travel India on ₹500/day"
-// Fully expanded long-form blog with meta tags, structured data & rich content.
-
-import React, { useEffect } from "react";
+// src/blogs/India500.jsx
+import React from "react";
+import { Helmet } from "react-helmet";
 
 export default function India500() {
-  useEffect(() => {
-    document.title = "How to Travel India on ₹500 a Day | Ultra Budget India Guide";
-
-    const setMeta = (name, content, attr = "name") => {
-      let m = document.querySelector(`meta[${attr}="${name}"]`);
-      if (!m) {
-        m = document.createElement("meta");
-        m.setAttribute(attr, name);
-        document.head.appendChild(m);
-      }
-      m.setAttribute("content", content);
-    };
-
-    setMeta(
-      "description",
-      "A complete 2000+ word guide on how to travel India on ₹500 a day. Learn hacks for food, accommodation, transport, itineraries, hostels, budget tips, and real examples."
-    );
-
-    setMeta(
-      "keywords",
-      "travel India on 500 rupees, India budget travel, India backpacking cheap, travel hacks India, cheapest places in India, low budget travel guide India"
-    );
-
-    setMeta("og:title", "How to Travel India on ₹500/day | Budget Backpacking Guide", "property");
-    setMeta(
-      "og:description",
-      "Ultimate budget travel guide: Eat, stay, travel and explore India on just ₹500/day with real hacks, routes, hostels and survival strategies.",
-      "property"
-    );
-
-    setMeta("og:type", "article", "property");
-
-    // Canonical Link
-    let link = document.querySelector("link[rel='canonical']");
-    if (!link) {
-      link = document.createElement("link");
-      link.setAttribute("rel", "canonical");
-      document.head.appendChild(link);
-    }
-    link.setAttribute("href", "https://yourwebsite.com/india-500-per-day-travel-guide");
-
-    // JSON-LD Structured Data
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.innerHTML = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Article",
-      headline: "How to Travel India on ₹500 a Day",
-      description:
-        "A massive 2000+ word budget travel guide explaining how to explore India on ₹500/day with transport, food, hostels, itineraries and hacks.",
-      author: "Travel India Guides",
-      publisher: {
-        "@type": "Organization",
-        name: "Travel India Guides",
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: "How to Travel India on ₹500 a Day | Ultra Budget India Guide",
+    description:
+      "A complete ultra-budget India travel guide explaining how to explore India on ₹500/day using cheap food, hostels, public transport, real routes & survival hacks.",
+    image: ["/images/india-budget.jpg"],
+    author: { "@type": "Organization", name: "BharatMile Editorial" },
+    publisher: {
+      "@type": "Organization",
+      name: "BharatMile",
+      logo: {
+        "@type": "ImageObject",
+        url: "/images/logo.png",
       },
-      mainEntityOfPage: "https://yourwebsite.com/india-500-per-day-travel-guide",
-    });
-    document.head.appendChild(script);
-  }, []);
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": "https://yourwebsite.com/india-500-per-day-travel-guide",
+    },
+  };
 
   return (
-    <main className="max-w-4xl mx-auto px-4 py-10">
-      <header>
-        <h1 className="text-3xl font-bold">
-          How to Travel India on ₹500 a Day (Full Practical Guide)
-        </h1>
-        <p className="text-gray-600 mt-2">
-          A complete ultra-budget travel guide for backpackers exploring India.
-          Realistic hacks for food, stays, transport, itineraries and survival strategies.
-        </p>
-      </header>
+    <main className="bg-[#f7f9fc] text-gray-800">
+      <Helmet>
+        <title>How to Travel India on ₹500 a Day | Ultra Budget India Guide</title>
 
-      {/* ------------------- SECTION 1 ------------------- */}
-      <section className="mt-8">
-        <h2 className="text-2xl font-semibold">Is ₹500/day Really Possible?</h2>
-        <p className="mt-3">
-          The honest answer — <strong>yes, absolutely</strong>. India is one of the
-          most affordable countries in the world for travellers, especially if
-          you understand how locals live, eat, and travel every day. Lakhs of
-          backpackers, students, foreigners, solo travellers and pilgrims easily
-          survive under ₹400–₹700 a day.
-        </p>
-        <p className="mt-3">
-          The key is <strong>smart planning</strong>. Which neighbourhood you stay
-          in, what you eat, and how you travel makes all the difference. This
-          guide breaks down every trick so you never pay more than required.
-        </p>
-      </section>
+        <meta
+          name="description"
+          content="Ultimate ultra-budget India travel guide: eat, stay, travel & explore India on just ₹500 per day with real hostel, food, bus & survival hacks."
+        />
 
-      {/* ------------------- SECTION 2 ------------------- */}
-      <section className="mt-10">
-        <h2 className="text-2xl font-semibold">Where Your ₹500 Should Go</h2>
-        <p className="mt-3">
-          Here’s the most practical breakdown based on real backpacker expenses
-          across India:
-        </p>
-        <ul className="list-disc list-inside mt-4 space-y-1">
-          <li><strong>₹150–₹250</strong> — Hostel bed / Dharamshala stay</li>
-          <li><strong>₹120–₹180</strong> — Meals (street food, thalis)</li>
-          <li><strong>₹40–₹100</strong> — Public buses, shared autos</li>
-          <li><strong>₹20–₹50</strong> — Entry tickets & misc money</li>
-        </ul>
-        <p className="mt-4">
-          If you avoid restaurants, cafes, private cabs and luxury hostels, this
-          budget is more than enough.
-        </p>
-      </section>
+        <meta
+          name="keywords"
+          content="travel India on 500 rupees, India budget travel, cheapest travel India, backpack India cheap, India low budget travel, hostel India cheap"
+        />
 
-      {/* ------------------- SECTION 3 ------------------- */}
-      <section className="mt-10">
-        <h2 className="text-2xl font-semibold">Food Hacks to Eat Cheap</h2>
-        <p className="mt-3">
-          Food doesn’t have to be expensive. India’s street food culture is so
-          strong that you can eat 3 full meals comfortably under ₹180.
-        </p>
-        <h3 className="font-semibold mt-4">Best Cheap Breakfast Options (₹20–₹50)</h3>
-        <ul className="list-disc list-inside mt-2 space-y-1">
-          <li>Idli (₹10–₹20)</li>
-          <li>Poha (₹20–₹30)</li>
-          <li>Vada Pav (₹15–₹25)</li>
-          <li>Upma (₹20–₹40)</li>
-          <li>Aloo Paratha (₹30–₹50)</li>
-        </ul>
+        <link
+          rel="canonical"
+          href="https://yourwebsite.com/india-500-per-day-travel-guide"
+        />
 
-        <h3 className="font-semibold mt-6">How to Save Even More</h3>
-        <ul className="list-disc list-inside mt-2 space-y-1">
-          <li>Refill water instead of buying plastic bottles</li>
-          <li>Avoid cafes — they charge tourist rates</li>
-          <li>Eat thalis for lunch — cheapest full meal (₹70–₹120)</li>
-          <li>Try gurudwara langars — free and wholesome</li>
-        </ul>
-      </section>
+        {/* Open Graph */}
+        <meta property="og:title" content="How to Travel India on ₹500 a Day" />
+        <meta
+          property="og:description"
+          content="Realistic street-level travel hacks to explore India on ₹500/day with food, transport & hostel breakdowns."
+        />
+        <meta property="og:image" content="/images/india-budget.jpg" />
+        <meta property="og:type" content="article" />
 
-      {/* ------------------- SECTION 4 ------------------- */}
-      <section className="mt-10">
-        <h2 className="text-2xl font-semibold">Budget Transport Tips</h2>
-        <p className="mt-3">Transport can make or break your budget.</p>
-        <ul className="list-disc list-inside mt-3 space-y-1">
-          <li>Use local buses (₹10–₹40 per ride)</li>
-          <li>Shared autos instead of Ola/Uber</li>
-          <li>Walk if the distance is under 2 km</li>
-          <li>Rent cycles in tourist towns (₹100–₹150/day)</li>
-          <li>Use train general compartments for long routes</li>
-        </ul>
-      </section>
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
 
-      {/* ------------------- SECTION 5 ------------------- */}
-      <section className="mt-10">
-        <h2 className="text-2xl font-semibold">Where to Stay Cheap in India</h2>
-        <p className="mt-3">
-          Hostels, dharamshalas and lodges are available in almost every tourist
-          town.
-        </p>
-        <h3 className="font-semibold mt-4">Cheapest Stay Options (₹150–₹300)</h3>
-        <ul className="list-disc list-inside mt-2 space-y-1">
-          <li>Zostel-type bunk beds (₹250–₹400)</li>
-          <li>Basic guesthouses</li>
-          <li>Dharamshalas (₹100–₹200)</li>
-          <li>Asrams in Rishikesh/Varanasi (often free or ₹100)</li>
-        </ul>
-      </section>
+        {/* Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify(jsonLd)}
+        </script>
+      </Helmet>
 
-      {/* ------------------- SECTION 6 ------------------- */}
-      <section className="mt-10">
-        <h2 className="text-2xl font-semibold">Best Places in India for ₹500/day Travel</h2>
-        <ul className="list-disc list-inside mt-4 space-y-1">
-          <li>Varanasi</li>
-          <li>Rishikesh</li>
-          <li>Pushkar</li>
-          <li>Mysore</li>
-          <li>Gokarna</li>
-          <li>Kochi</li>
-          <li>Pondicherry (walkable city)</li>
-        </ul>
-      </section>
+      <article className="max-w-5xl mx-auto px-6 py-12">
+        {/* ✅ HERO */}
+        <header className="mb-10">
+          <img
+            src="/images/india-budget.jpg"
+            alt="Ultra budget travel in India"
+            className="w-full h-72 object-cover rounded-xl shadow-lg mb-6"
+          />
+          <h1 className="text-3xl md:text-4xl font-bold">
+            How to Travel India on ₹500 a Day (Full Practical Guide)
+          </h1>
+          <p className="text-gray-600 mt-3 text-lg">
+            Real backpacker-tested strategies to eat, stay, travel & survive in
+            India on just ₹500 per day — no myths, only ground reality.
+          </p>
 
-      {/* ------------------- SECTION 7 ------------------- */}
-      <section className="mt-10">
-        <h2 className="text-2xl font-semibold">FAQs: Travel India on ₹500/day</h2>
+          <aside className="mt-5 p-4 bg-yellow-50 border rounded-lg text-sm">
+            <strong>Quick Answer:</strong> Yes, ₹500/day is absolutely possible in
+            India if you use hostels, street food, public buses & walkable cities.
+          </aside>
+        </header>
 
-        <h3 className="font-semibold mt-4">1. Is ₹500/day safe and realistic?</h3>
-        <p>Yes — if you use hostels, local food, and public transport.</p>
+        {/* ✅ MAIN CONTENT */}
+        <section className="space-y-10 leading-relaxed text-lg">
 
-        <h3 className="font-semibold mt-4">2. Can foreigners travel on ₹500/day?</h3>
-        <p>Yes, many do — especially in north and south India.
-        </p>
+          <div>
+            <h2 className="text-2xl font-semibold">Is ₹500/day Really Possible?</h2>
+            <p>
+              Yes — thousands of Indian students, pilgrims and foreign backpackers
+              regularly live under ₹500 per day. The secret is blending into local
+              systems instead of tourist systems.
+            </p>
+          </div>
 
-        <h3 className="font-semibold mt-4">3. Which cities are hardest for ₹500/day?</h3>
-        <p>Mumbai, Delhi & Goa can be slightly costlier, but doable with discipline.</p>
+          <div>
+            <h2 className="text-2xl font-semibold">₹500 Daily Budget Breakdown</h2>
+            <ul className="list-disc list-inside">
+              <li>₹150–₹250 — Hostel / Dharamshala</li>
+              <li>₹120–₹180 — Meals (thalis & street food)</li>
+              <li>₹40–₹100 — Buses & shared autos</li>
+              <li>₹20–₹50 — Tickets & emergency buffer</li>
+            </ul>
+          </div>
 
-        <h3 className="font-semibold mt-4">4. Is street food safe?</h3>
-        <p>Choose busy shops where food sells fast — safest option.</p>
-      </section>
+          <div>
+            <h2 className="text-2xl font-semibold">Food Hacks to Eat Under ₹180/day</h2>
+            <ul className="list-disc list-inside">
+              <li>Idli, Poha, Upma — ₹20–₹40</li>
+              <li>Thali lunch — ₹70–₹120</li>
+              <li>Gurudwara Langar — Free</li>
+              <li>Banana + roasted peanuts — cheapest dinner</li>
+            </ul>
+          </div>
 
-      <footer className="mt-12 text-sm text-gray-600 text-center">
-        © {new Date().getFullYear()} — Budget India Guides.
-      </footer>
+          <div>
+            <h2 className="text-2xl font-semibold">Ultra-Cheap Transport Rules</h2>
+            <ul className="list-disc list-inside">
+              <li>Local buses only</li>
+              <li>Shared autos not cabs</li>
+              <li>Night trains = transport + hotel</li>
+              <li>Walk under 3 km whenever possible</li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold">Where to Stay Under ₹250</h2>
+            <ul className="list-disc list-inside">
+              <li>Dharamshalas near temples</li>
+              <li>Ashrams (Rishikesh, Varanasi)</li>
+              <li>Zostel-type dorms</li>
+              <li>Railway retiring rooms</li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold">Best Cities for ₹500/day</h2>
+            <ul className="list-disc list-inside">
+              <li>Varanasi</li>
+              <li>Rishikesh</li>
+              <li>Pushkar</li>
+              <li>Gokarna</li>
+              <li>Mysore</li>
+              <li>Pondicherry</li>
+            </ul>
+          </div>
+
+        </section>
+
+        {/* ✅ INTERNAL BACKLINKS */}
+        <section className="mt-16 bg-white p-6 rounded-xl shadow-md">
+          <h3 className="text-xl font-semibold mb-3">Related Budget Travel Guides</h3>
+          <ul className="grid md:grid-cols-2 gap-3 text-blue-600 font-medium">
+            <li><a href="/hampi-empire">→ Hampi Empire (Cheap History Trip)</a></li>
+            <li><a href="/coorg-tour">→ Coorg Budget Coffee Trip</a></li>
+            <li><a href="/goa-forts">→ Goa Beyond Beaches</a></li>
+            <li><a href="/golden-temple">→ Golden Temple Langar Experience</a></li>
+          </ul>
+        </section>
+
+        {/* ✅ AUTHORITY LINKS */}
+        <section className="mt-10 bg-gray-50 p-6 rounded-xl border">
+          <h3 className="text-lg font-semibold mb-3">Official Backpacker Resources</h3>
+          <ul className="space-y-2 text-blue-600 text-sm">
+            <li>
+              <a
+                href="https://www.incredibleindia.org"
+                target="_blank"
+                rel="nofollow noreferrer"
+              >
+                → Incredible India Tourism
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.indianrail.gov.in"
+                target="_blank"
+                rel="nofollow noreferrer"
+              >
+                → Indian Railways
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        {/* ✅ WHATSAPP CTA (YOUR REAL NUMBER) */}
+        <div className="mt-16 bg-green-600 text-white p-6 rounded-xl shadow-lg text-center">
+          <h3 className="text-xl font-semibold">
+            Want a Custom ₹500 Budget Trip Plan?
+          </h3>
+          <p className="mt-2 text-green-100">
+            Get hostel, food & bus routes customized for your destination.
+          </p>
+
+          <a
+            href="https://wa.me/919636974688"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-block mt-4 bg-white text-green-600 px-6 py-2 rounded-lg font-semibold hover:scale-105 transition"
+          >
+            Chat on WhatsApp
+          </a>
+        </div>
+
+        <footer className="mt-12 text-sm text-gray-600 text-center">
+          © {new Date().getFullYear()} — BharatMile. Travel poor. Live rich.
+        </footer>
+      </article>
     </main>
   );
 }

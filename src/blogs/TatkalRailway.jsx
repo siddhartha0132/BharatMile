@@ -1,248 +1,202 @@
-import React from "react";
-import { Helmet } from "react-helmet";
+import React, { useEffect } from "react";
 
 export default function TatkalRailway() {
-  
-  // Structured Data (JSON-LD) for SEO: Article and FAQPage
+
   const jsonLd = {
     "@context": "https://schema.org",
-    "@graph": [
-      // 1. Article Schema for SEO Authority
-      {
-        "@type": "Article",
-        mainEntityOfPage: {
-          "@type": "WebPage",
-          "@id": "https://example.com/irctc-tatkal-booking-guide" // **UPDATE with actual URL**
-        },
-        headline: "IRCTC Tatkal Booking: The Definitive Step-by-Step Guide for Confirmed Tickets",
-        image: ["https://example.com/images/irctc-tatkal-booking.jpg", "https://example.com/images/train-journey-tatkal.jpg"], // **UPDATE with actual image URLS**
-        datePublished: "2025-11-23T08:00:00+05:30", 
-        dateModified: new Date().toISOString(),
-        author: {
-          "@type": "Person",
-          name: "Rail Travel Insights" // **UPDATE with actual author**
-        },
-        publisher: {
-          "@type": "Organization",
-          name: "IRCTC Travel Guides", // **UPDATE Publisher Name**
-          logo: {
-            "@type": "ImageObject",
-            url: "https://example.com/logo.png" // **UPDATE with actual logo URL**
-          }
-        },
-        description: "A definitive guide on how to book IRCTC Tatkal tickets fast. Covers precise timings for AC and Non-AC classes, step-by-step instructions, use of the Master List, and technical tips to ensure confirmed bookings for urgent travel."
+    "@type": "Article",
+    headline:
+      "IRCTC Tatkal Booking Guide 2025: Confirmed Tickets Step-by-Step",
+    description:
+      "Complete IRCTC Tatkal booking guide with exact AC & Non-AC timings, master list trick, fastest payment method, Premium Tatkal difference and confirmed ticket tips.",
+    image: ["https://yourwebsite.com/images/irctc-tatkal-booking.jpg"],
+    author: {
+      "@type": "Organization",
+      name: "BharatMile",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "BharatMile",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://yourwebsite.com/logo.png",
       },
-      // 2. FAQPage Schema
-      {
-        "@type": "FAQPage",
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "What is the key difference between Tatkal and Premium Tatkal?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Tatkal has a fixed price, while **Premium Tatkal** uses dynamic pricing (prices increase as demand rises). Both schemes operate under the same timings, but Premium Tatkal does not allow concession or RAC/Waiting List tickets."
-            }
-          },
-          {
-            "@type": "Question",
-            name: "How many passengers can be booked on one Tatkal ticket?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "A maximum of **four passengers** can be booked on a single Tatkal ticket, unlike the six allowed in General quota booking."
-            }
-          },
-        ]
-      }
-    ]
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": "https://yourwebsite.com/blog/irctc-tatkal-booking-guide",
+    },
   };
 
-  const faqItems = [
-    { 
-      q: "What is the key difference between Tatkal and Premium Tatkal?", 
-      a: "Tatkal has a fixed price, while **Premium Tatkal** uses dynamic pricing (prices increase as demand rises). Both schemes operate under the same timings, but Premium Tatkal does not allow concession or RAC/Waiting List tickets." 
-    },
-    { 
-      q: "How many passengers can be booked on one Tatkal ticket?", 
-      a: "A maximum of **four passengers** can be booked on a single Tatkal ticket, unlike the six allowed in General quota booking." 
-    },
-    {
-      q: "When can I book a Tatkal ticket?",
-      a: "Tatkal booking opens exactly **one day** prior to the date of journey from the originating station. For example, for a train on the 25th, booking opens on the 24th."
+  useEffect(() => {
+    document.title =
+      "IRCTC Tatkal Booking Guide 2025 | Confirmed Tickets Fast";
+
+    const set = (n, c, a = "name") => {
+      let e = document.querySelector(`meta[${a}="${n}"]`);
+      if (!e) {
+        e = document.createElement("meta");
+        e.setAttribute(a, n);
+        document.head.appendChild(e);
+      }
+      e.setAttribute("content", c);
+    };
+
+    set(
+      "description",
+      "Learn how to book IRCTC Tatkal tickets fast with exact timings for AC & Sleeper class. Use master list tricks, fastest payment options & Premium Tatkal tips to get confirmed tickets."
+    );
+
+    set(
+      "keywords",
+      "IRCTC Tatkal booking, Tatkal ticket booking guide, confirmed Tatkal ticket, Premium Tatkal vs Tatkal, Tatkal timing AC sleeper, fastest Tatkal trick"
+    );
+
+    set("og:title", document.title, "property");
+    set(
+      "og:description",
+      "Complete IRCTC Tatkal booking guide with exact timings, master list setup, payment tricks & Premium Tatkal options.",
+      "property"
+    );
+    set(
+      "og:image",
+      "https://yourwebsite.com/images/irctc-tatkal-booking.jpg",
+      "property"
+    );
+    set("og:type", "article", "property");
+
+    set("twitter:card", "summary_large_image");
+    set("twitter:title", document.title);
+    set(
+      "twitter:description",
+      "Step-by-step IRCTC Tatkal booking guide for confirmed Indian Railway tickets."
+    );
+    set(
+      "twitter:image",
+      "https://yourwebsite.com/images/irctc-tatkal-booking.jpg"
+    );
+
+    let link = document.querySelector("link[rel='canonical']");
+    if (!link) {
+      link = document.createElement("link");
+      link.setAttribute("rel", "canonical");
+      document.head.appendChild(link);
     }
-  ];
+    link.href =
+      "https://yourwebsite.com/blog/irctc-tatkal-booking-guide";
+
+    let script = document.getElementById("tatkal-jsonld");
+    if (!script) {
+      script = document.createElement("script");
+      script.id = "tatkal-jsonld";
+      script.type = "application/ld+json";
+      document.head.appendChild(script);
+    }
+    script.textContent = JSON.stringify(jsonLd);
+  }, []);
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-10">
-      
-      {/* --- SEO Helmet --- */}
-      <Helmet>
-        <title>IRCTC Tatkal Booking: The Definitive Step-by-Step Guide for Confirmed Tickets</title>
-        <meta
-          name="description"
-          content="A definitive guide on how to book IRCTC Tatkal tickets fast. Covers precise timings for AC and Non-AC classes, step-by-step instructions, use of the Master List, and technical tips to ensure confirmed bookings for urgent travel."
-        />
-        <meta
-          name="keywords"
-          content="Tatkal booking, IRCTC tatkal, Indian Railways tatkal, book tatkal fast, tatkal tips, tatkal timings, confirmed tatkal tickets"
-        />
-        <meta property="og:title" content="IRCTC Tatkal Booking: Step-by-Step Guide for Confirmed Tickets" />
-        <meta property="og:description" content="Master the art of Tatkal booking! Complete guide to timings, preparation, and pro tips to secure confirmed tickets on IRCTC fast." />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://example.com/irctc-tatkal-booking-guide" />
-        <meta property="og:image" content="https://example.com/images/irctc-tatkal-booking.jpg" />
-        <script type="application/ld+json">
-          {JSON.stringify(jsonLd)}
-        </script>
-      </Helmet>
+    <main className="max-w-5xl mx-auto px-5 py-12">
 
-      {/* --- Header --- */}
-      <header className="mb-8 border-b pb-4">
-        <h1 className="text-4xl font-extrabold text-red-700">
-          IRCTC Tatkal Booking: The Definitive Step-by-Step Guide 🚄💨
-        </h1>
-        <p className="text-gray-600 mt-2 text-lg">
-          Booking Tatkal tickets on IRCTC is a race against the clock! Seats
-          get filled in seconds for popular routes. Here’s a simple, clear guide to help you increase your chances of getting a confirmed ticket.
-        </p>
-      </header>
+      <h1 className="text-4xl font-extrabold text-red-700 mb-4">
+        IRCTC Tatkal Booking Guide 2025: How to Get Confirmed Tickets Fast 🚄
+      </h1>
 
-      {/* --- Section 1: Tatkal Timings & Quota --- */}
-      <section className="mt-8">
-        <h2 className="text-3xl font-bold text-red-600">
-          1. Tatkal Quota Timings and Rules
-        </h2>
-        <p className="mt-3 leading-relaxed">
-          The Tatkal quota opens exactly **one day in advance** of the journey date from the train's originating station. Missing the exact second can mean losing your ticket.
-        </p>
+      <p className="text-gray-600 text-lg mb-10">
+        Tatkal tickets sell out in seconds on IRCTC. This complete guide shows
+        you the exact booking time, fastest payment method, master list trick,
+        Premium Tatkal difference and pro hacks to maximize your chances of
+        getting confirmed tickets.
+      </p>
 
-        <h3 className="text-xl font-semibold mt-4 text-red-500">Official Opening Times (IST)</h3>
-        <div className="overflow-x-auto mt-4">
-          <table className="min-w-full divide-y divide-gray-200 border">
-            <thead className="bg-gray-50">
-              <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Quota/Class</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Booking Starts At</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Example Classes</th>
-              </tr>
-            </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
-              <tr>
-                <td className="px-6 py-4 whitespace-nowrap font-medium">AC Classes</td>
-                <td className="px-6 py-4 whitespace-nowrap text-red-700 font-bold">10:00 AM</td>
-                <td className="px-6 py-4 whitespace-nowrap">1A, 2A, 3A, CC, 3E</td>
-              </tr>
-              <tr>
-                <td className="px-6 py-4 whitespace-nowrap font-medium">Non-AC Classes</td>
-                <td className="px-6 py-4 whitespace-nowrap text-red-700 font-bold">11:00 AM</td>
-                <td className="px-6 py-4 whitespace-nowrap">SL (Sleeper), 2S (Second Seating)</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3 className="text-xl font-semibold mt-4 text-red-500">Key Tatkal Rules</h3>
-        <ul className="list-disc ml-6 space-y-1 mt-2">
-          <li>**Max Passengers:** Limited to **4** passengers per PNR.</li>
-          <li>**Cancellation/Refund:** No refund on confirmed Tatkal tickets upon cancellation.</li>
-          <li>**ID Proof:** At least one passenger must carry a valid photo ID (Aadhaar, PAN, Voter ID).</li>
-        </ul>
-      </section>
-      
-      <hr className="my-8 border-red-200" />
-
-      {/* --- Section 2: Preparation: The Master List Advantage --- */}
-      <section className="mt-8">
-        <h2 className="text-3xl font-bold text-red-600">
-          2. Master Preparation: Use the IRCTC Master List
-        </h2>
-        <p className="mt-3 leading-relaxed">
-          The biggest time-saver is the **Master List** feature on the IRCTC website/app. This allows you to pre-save all passenger details, eliminating manual data entry when the booking window opens.
-        </p>
-
-        <h3 className="text-xl font-semibold mt-4 text-red-500">Master List & Payment Setup</h3>
-        <ol className="list-decimal ml-6 space-y-2 mt-2">
-          <li>**Create Master List:** Go to **My Profile > Master List** on the IRCTC dashboard. Add the full name, age, gender, berth preference, and ID card number for *all* travelers.</li>
-          <li>**Pre-Login:** Log into the IRCTC website/app **5 minutes before** the window opens (9:55 AM for AC, 10:55 AM for Non-AC).</li>
-          <li>**Pre-Fill Route:** Have the train number, journey date, and destination stations pre-selected.</li>
-          <li>**Payment:** Ensure your UPI app is open on your mobile or your Netbanking credentials are ready for the quickest payment.</li>
-        </ol>
-      </section>
-
-      <hr className="my-8 border-red-200" />
-
-      {/* --- Section 3: Step-by-Step Execution (The Race) --- */}
-      <section className="mt-8">
-        <h2 className="text-3xl font-bold text-red-600">
-          3. Step-by-Step Booking Execution
-        </h2>
-        <p className="mt-3 leading-relaxed">
-          Follow these steps exactly between 10:00 AM and 10:01 AM (or 11:00 AM and 11:01 AM):
-        </p>
-
-        <h3 className="text-xl font-semibold mt-4 text-red-500">The 60-Second Drill</h3>
-        <ol className="list-decimal ml-6 space-y-3 mt-2 font-semibold">
-          <li>
-            **09:59 AM:** Refresh the page once and enter the captcha/security code **before** 10:00 AM.
-          </li>
-          <li>
-            **10:00:00 AM (Sharp):** Click on the **Tatkal quota** option and select the desired train and class immediately.
-          </li>
-          <li>
-            **Passenger Details:** Select passengers instantly from your **Master List**. Do not make any edits.
-          </li>
-          <li>
-            **Review:** Skip any optional services (travel insurance) and enter the payment captcha/code.
-          </li>
-          <li>
-            **Payment:** Choose **UPI** (fastest) or **Netbanking**. Complete the transaction in the bank/payment gateway screen **within 30 seconds**.
-          </li>
-          <li>
-            **Confirmation:** Do not close the payment window until you are redirected back to the IRCTC confirmation page.
-          </li>
-        </ol>
-      </section>
-
-      <hr className="my-8 border-red-200" />
-
-      {/* --- Section 4: Pro Tips --- */}
-      <section className="mt-8 p-6 bg-yellow-50 rounded-lg border-l-4 border-yellow-500">
-        <h2 className="text-3xl font-bold text-yellow-800">
-          4. 💡 Pro Tips for a Confirmed Ticket
-        </h2>
-        <ul className="list-disc ml-6 space-y-3 mt-4">
-          <li>
-            **Use App/Desktop:** Some users find the IRCTC app slightly faster; others prefer the desktop interface. Practice your sequence on both before the day.
-          </li>
-          <li>
-            **Fastest Payment:** UPI is generally the fastest payment gateway as it requires minimal data entry. Netbanking can be slow due to multiple authentications.
-          </li>
-          <li>
-            **Avoid Peak Internet:** Use a stable internet connection (4G/5G or fiber broadband). Avoid public Wi-Fi.
-          </li>
-          <li>
-            **Alternative Quota:** If Tatkal seats are gone, immediately check the **Premium Tatkal** quota, although the price will be significantly higher.
-          </li>
+      {/* Tatkal Timings */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold">Tatkal Booking Timings (IST)</h2>
+        <ul className="list-disc list-inside mt-3">
+          <li>AC Classes (1A, 2A, 3A, 3E, CC): **10:00 AM**</li>
+          <li>Non-AC Classes (SL, 2S): **11:00 AM**</li>
+          <li>Booking opens **1 day before journey date**</li>
+          <li>Maximum **4 passengers per ticket**</li>
         </ul>
       </section>
 
-      <hr className="my-8 border-red-200" />
-
-      {/* --- FAQ Section --- */}
-      <section className="mt-12" id="tatkal-faq">
-        <h2 className="text-3xl font-bold text-red-600">Frequently Asked Questions</h2>
-        {faqItems.map((item, i) => (
-          <details key={i} className="mt-3 p-4 border rounded-lg bg-gray-50">
-            <summary className="cursor-pointer font-medium text-lg text-red-600">{item.q}</summary>
-            <p className="mt-2 text-gray-700">{item.a}</p>
-          </details>
-        ))}
+      {/* Master List */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold">
+          IRCTC Master List — Your Biggest Weapon
+        </h2>
+        <ul className="list-disc list-inside mt-3">
+          <li>Save passenger details before booking day</li>
+          <li>Avoid typing during Tatkal rush</li>
+          <li>Works on both IRCTC app and website</li>
+          <li>Gives 3–4 seconds speed advantage</li>
+        </ul>
       </section>
 
-      {/* --- Footer --- */}
-      <footer className="mt-10 text-sm text-gray-600 text-center">
-        © {new Date().getFullYear()} — IRCTC Travel Guides. Book fast and travel safely!
+      {/* Step-by-step */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold">
+          Step-by-Step Tatkal Booking Process
+        </h2>
+        <ol className="list-decimal list-inside mt-3 space-y-2">
+          <li>Login by **9:55 AM / 10:55 AM**</li>
+          <li>Keep train number & date pre-filled</li>
+          <li>Select Tatkal quota exactly at **10:00 / 11:00**</li>
+          <li>Select passengers from master list</li>
+          <li>Proceed to payment without edits</li>
+          <li>Pay instantly using UPI or Netbanking</li>
+        </ol>
+      </section>
+
+      {/* Pro Tips */}
+      <section className="mb-12 bg-yellow-50 p-5 rounded-lg">
+        <h2 className="text-2xl font-bold text-yellow-800">
+          Pro Tatkal Booking Hacks 💡
+        </h2>
+        <ul className="list-disc list-inside mt-3">
+          <li>UPI is the fastest payment option</li>
+          <li>Avoid peak mobile network congestion</li>
+          <li>Use Premium Tatkal if Tatkal fails</li>
+          <li>Never refresh page repeatedly</li>
+        </ul>
+      </section>
+
+      {/* Premium Tatkal */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold">
+          Tatkal vs Premium Tatkal
+        </h2>
+        <ul className="list-disc list-inside mt-3">
+          <li>Tatkal: Fixed pricing</li>
+          <li>Premium Tatkal: Dynamic pricing</li>
+          <li>No refund on cancellation</li>
+          <li>No concession allowed</li>
+        </ul>
+      </section>
+
+      {/* FAQ */}
+      <section className="mt-12">
+        <h2 className="text-2xl font-bold">Frequently Asked Questions</h2>
+
+        <p className="mt-3">
+          <b>Can Tatkal tickets be cancelled?</b><br />
+          Yes, but confirmed Tatkal tickets have **no refund**.
+        </p>
+
+        <p className="mt-3">
+          <b>Can agent book Tatkal for me?</b><br />
+          Yes, but extra commission will apply.
+        </p>
+
+        <p className="mt-3">
+          <b>What if payment succeeds but ticket is not booked?</b><br />
+          IRCTC usually auto-refunds within 3–7 days.
+        </p>
+      </section>
+
+      <footer className="mt-12 text-sm text-center text-gray-600">
+        © {new Date().getFullYear()} — BharatMile IRCTC Travel Guide
       </footer>
-    </div>
+    </main>
   );
 }

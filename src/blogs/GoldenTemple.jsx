@@ -1,133 +1,254 @@
-import React from "react";
-import { Helmet } from "react-helmet";
+// src/blogs/GoldenTemple.jsx
+import React, { useEffect } from "react";
 
 export default function GoldenTemple() {
+  useEffect(() => {
+    const title =
+      "Amritsar Golden Temple Guide | Darshan, Langar, History & Tips (2025)";
+    document.title = title;
+
+    const upsert = (attr, name, content) => {
+      let el = document.querySelector(`meta[${attr}='${name}']`);
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute(attr, name);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", content);
+    };
+
+    // ✅ BASIC SEO
+    upsert(
+      "name",
+      "description",
+      "Complete 2025 Golden Temple travel guide: darshan timings, langar experience, Sikh history, dress code, photography rules, safety tips & nearby places in Amritsar."
+    );
+    upsert(
+      "name",
+      "keywords",
+      "Golden Temple guide, Harmandir Sahib travel, Golden Temple darshan, Golden Temple langar, Sikh temple rules, Amritsar tourism"
+    );
+    upsert("name", "author", "BharatMile Editorial");
+    upsert("name", "robots", "index,follow");
+
+    // ✅ OPEN GRAPH
+    upsert("property", "og:title", title);
+    upsert(
+      "property",
+      "og:description",
+      "Experience the Golden Temple beyond sightseeing — darshan, langar, history, rituals & travel tips for 2025."
+    );
+    upsert("property", "og:type", "article");
+    upsert("property", "og:url", window.location.href);
+    upsert("property", "og:site_name", "BharatMile");
+    upsert(
+      "property",
+      "og:image",
+      "https://images.unsplash.com/photo-1582550945154-66ea8fff25e7"
+    );
+
+    // ✅ TWITTER
+    upsert("name", "twitter:card", "summary_large_image");
+    upsert("name", "twitter:title", title);
+    upsert(
+      "name",
+      "twitter:description",
+      "A complete spiritual travel guide to the Golden Temple, Amritsar."
+    );
+    upsert(
+      "name",
+      "twitter:image",
+      "https://images.unsplash.com/photo-1582550945154-66ea8fff25e7"
+    );
+
+    // ✅ CANONICAL
+    let canonical = document.querySelector("link[rel='canonical']");
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.rel = "canonical";
+      document.head.appendChild(canonical);
+    }
+    canonical.href =
+      window.location.origin + "/blog/golden-temple-amritsar-guide";
+
+    // ✅ SCHEMA
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: title,
+      description:
+        "A spiritual and cultural travel guide to the Golden Temple, covering darshan, langar, history, safety, dress code and nearby attractions.",
+      image: [
+        "https://images.unsplash.com/photo-1582550945154-66ea8fff25e7",
+      ],
+      author: { "@type": "Organization", name: "BharatMile Editorial" },
+      publisher: {
+        "@type": "Organization",
+        name: "BharatMile",
+        logo: {
+          "@type": "ImageObject",
+          url: window.location.origin + "/images/logo.png",
+        },
+      },
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": window.location.href,
+      },
+      datePublished: new Date().toISOString().split("T")[0],
+      dateModified: new Date().toISOString(),
+    };
+
+    let ld = document.getElementById("ld-golden-temple");
+    if (!ld) {
+      ld = document.createElement("script");
+      ld.id = "ld-golden-temple";
+      ld.type = "application/ld+json";
+      document.head.appendChild(ld);
+    }
+    ld.text = JSON.stringify(schema);
+  }, []);
+
   return (
-    <div className="max-w-4xl mx-auto px-4 py-10">
+    <main className="bg-[#f7f9fc] text-gray-800">
+      <article className="max-w-5xl mx-auto px-6 py-12">
 
-      <Helmet>
-        <title>Amritsar Golden Temple Guide | Darshan, Langar, History, Tips</title>
-        <meta
-          name="description"
-          content="A 2000+ word complete Golden Temple travel guide: darshan timings, langar experience, rituals, history, dressing rules, crowd tips, safety, photography, best time to visit, and local Amritsar attractions."
-        />
-        <meta
-          name="keywords"
-          content="Golden Temple guide, Harmandir Sahib travel, Golden Temple timings, Golden Temple langar, Sikh temple rules, Amritsar tourism, kirtan, Golden Temple history"
-        />
-        <link rel="canonical" href="https://yourwebsite.com/blog/golden-temple-amritsar-guide" />
-      </Helmet>
+        {/* ✅ HERO */}
+        <header className="mb-10">
+          <img
+            src="https://images.unsplash.com/photo-1582550945154-66ea8fff25e7"
+            alt="Golden Temple Amritsar at night reflection"
+            className="w-full h-72 object-cover rounded-xl shadow-lg mb-6"
+            loading="lazy"
+          />
+          <h1 className="text-3xl md:text-4xl font-bold">
+            Amritsar Golden Temple & Langar Experience — Complete 2025 Guide
+          </h1>
+          <p className="text-gray-600 mt-3 text-lg">
+            A peaceful, practical and spiritual guide to visiting Harmandir Sahib —
+            darshan, langar, rituals, history, dress code & nearby attractions.
+          </p>
 
-      <h1 className="text-4xl font-bold mb-6">Amritsar: Golden Temple and the Langar Experience — A Complete 2025 Traveller’s Guide</h1>
+          <aside className="mt-5 p-4 bg-yellow-50 border rounded-lg text-sm">
+            <strong>Quick Answer:</strong> The Golden Temple is open nearly 20 hours
+            daily, offers free langar to all, and welcomes visitors of every religion.
+          </aside>
+        </header>
 
-      <p className="mb-4">
-        Visiting the Golden Temple (Harmandir Sahib) in Amritsar isn’t just another travel plan — it’s an experience that shifts something inside you. The sound of the shabad kirtan echoing across the sarovar, the sight of the golden sanctum glowing under the sun, the kindness of volunteers running the world’s largest community kitchen… everything here feels pure, peaceful, and deeply human. Whether you're coming for spiritual reasons, cultural curiosity, photography, or just inner stillness, this guide will take you through everything you need to know to make your visit effortless, meaningful, and unforgettable.
-      </p>
+        {/* ✅ CONTENT */}
+        <section className="space-y-10 leading-relaxed text-lg">
 
-      <h2 className="text-2xl font-semibold mt-8 mb-3">✨ A Glimpse Into the Golden Temple Experience</h2>
-      <p className="mb-4">
-        The Golden Temple remains open nearly 20 hours a day — from around 3 AM till 11 PM — and each hour has its own unique energy. Early mornings are serene with soft chanting. Evenings are magical as the temple glows like a floating jewel. And late-night darshan, when the crowds reduce, feels almost meditative.
-      </p>
+          <div>
+            <h2 className="text-2xl font-semibold">📜 History of the Golden Temple</h2>
+            <p>
+              Founded in 1581 by Guru Arjan Dev Ji, the Golden Temple symbolizes humility,
+              equality, and universal brotherhood. Its four entrances welcome people from
+              all directions and backgrounds without discrimination.
+            </p>
+          </div>
 
-      <p className="mb-4">
-        The moment you enter the complex, you’ll notice everyone moves slowly, respectfully. Shoes are left outside, heads are covered, and visitors wash their hands and feet before stepping inside. The marble floors, the calm water of the sarovar, and the rhythmic chants create an environment that pulls you inward. It doesn’t matter whether you’re religious or not — this place has a way of making you pause and breathe.
-      </p>
+          <div>
+            <h2 className="text-2xl font-semibold">🍲 Langar — World’s Largest Free Kitchen</h2>
+            <ul className="list-disc list-inside">
+              <li>Serves 1–3 lakh people daily</li>
+              <li>100% volunteer-run service (sewa)</li>
+              <li>Vegetarian meals for everyone</li>
+              <li>Tourists can volunteer too</li>
+            </ul>
+          </div>
 
-      <h2 className="text-2xl font-semibold mt-8 mb-3">📜 A Brief History of the Golden Temple</h2>
-      <p className="mb-4">
-        The foundation of the Golden Temple was laid in 1581 by Guru Arjan Dev Ji, the fifth Sikh Guru. What makes this temple different from most religious structures is its design — it is built below ground level to symbolize humility, and it has four entrances instead of one, representing that all people, from all directions, are welcome regardless of caste, gender, religion, or status.
-      </p>
+          <div>
+            <h2 className="text-2xl font-semibold">🛕 Darshan Timings (Approx)</h2>
+            <ul className="list-disc list-inside">
+              <li>3:00–4:00 AM — Prakash Ceremony</li>
+              <li>4:00–6:00 AM — Morning Kirtan</li>
+              <li>7:00–10:30 PM — Evening Darshan</li>
+              <li>10:30–11:00 PM — Sukhasan</li>
+            </ul>
+          </div>
 
-      <p className="mb-4">
-        Over the centuries, the temple has been reconstructed, expanded, and beautified multiple times. The gold plating that gives it its iconic look came in the early 19th century under Maharaja Ranjit Singh. Today, the temple stands not only as a major spiritual center but also as a symbol of equality and service.
-      </p>
+          <div>
+            <h2 className="text-2xl font-semibold">🧕 Dress Code & Rules</h2>
+            <ul className="list-disc list-inside">
+              <li>Head covering mandatory</li>
+              <li>No shoes inside complex</li>
+              <li>No alcohol, tobacco or loud behavior</li>
+              <li>Photography only in permitted zones</li>
+            </ul>
+          </div>
 
-      <h2 className="text-2xl font-semibold mt-8 mb-3">🍲 The Langar: World’s Largest Free Kitchen</h2>
-      <p className="mb-4">
-        One of the most extraordinary aspects of the Golden Temple is the langar — a free community kitchen that serves simple vegetarian meals to anyone who walks in. No discrimination, no hierarchy, no separation. Everyone sits together on the floor, sharing the same food.
-      </p>
+          <div>
+            <h2 className="text-2xl font-semibold">📍 Nearby Places</h2>
+            <ul className="list-disc list-inside">
+              <li>Jallianwala Bagh</li>
+              <li>Partition Museum</li>
+              <li>Hall Bazaar</li>
+              <li>Wagah Border Ceremony</li>
+            </ul>
+          </div>
 
-      <p className="mb-4">
-        Daily, up to **1–2 lakh people** are fed, and during peak days, this number crosses 3 lakh. Volunteers known as "sewadars" prepare, cook, serve, and clean. Watching the seva being done with such devotion teaches you more about humanity than any book ever could.
-      </p>
+        </section>
 
-      <ul className="list-disc ml-6 mb-4">
-        <li>Meals include roti, dal, sabzi, kheer, and sometimes kadhi.</li>
-        <li>Volunteers roll nearly 2 lakh rotis a day.</li>
-        <li>Anyone can volunteer — even tourists.</li>
-      </ul>
+        {/* ✅ INTERNAL LINKS */}
+        <section className="mt-16 bg-white p-6 rounded-xl shadow-md">
+          <h3 className="text-xl font-semibold mb-3">Related Travel Guides</h3>
+          <ul className="grid md:grid-cols-2 gap-3 text-blue-600 font-medium">
+            <li><a href="/goa-forts">→ Goa Heritage Travel</a></li>
+            <li><a href="/jaipur-tour">→ Jaipur Cultural Guide</a></li>
+            <li><a href="/best-hostels-india">→ Best Hostels in India</a></li>
+            <li><a href="/solo-female-travel">→ Solo Female Travel Safety</a></li>
+          </ul>
+        </section>
 
-      <h2 className="text-2xl font-semibold mt-8 mb-3">🛕 Darshan Guide: What to Expect</h2>
-      <p className="mb-4">
-        Reaching the main sanctum (the inner Golden Temple where the Guru Granth Sahib is placed) might take 30 minutes on a low day and up to 2–3 hours on weekends or holidays. The queue moves slowly but peacefully. Inside, you get a close view of the holy scripture while devotional music plays.
-      </p>
+        {/* ✅ EXTERNAL TRUST LINKS */}
+        <section className="mt-10 bg-gray-50 p-6 rounded-xl border">
+          <h3 className="text-lg font-semibold mb-3">Official Resources</h3>
+          <ul className="space-y-2 text-blue-600 text-sm">
+            <li>
+              <a
+                href="https://shiromani.gurdwara.sgpc.net"
+                target="_blank"
+                rel="nofollow noreferrer"
+              >
+                → SGPC Official Website
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.incredibleindia.org"
+                target="_blank"
+                rel="nofollow noreferrer"
+              >
+                → Incredible India Tourism
+              </a>
+            </li>
+          </ul>
+        </section>
 
-      <h3 className="text-xl font-semibold mt-6 mb-2">Darshan Timings (Approx)</h3>
-      <ul className="list-disc ml-6 mb-4">
-        <li><strong>3:00 AM – 4:00 AM:</strong> Opening ceremony (Prakash)</li>
-        <li><strong>4:00 AM – 6:00 AM:</strong> Early morning kirtan</li>
-        <li><strong>7:00 PM – 10:30 PM:</strong> Evening kirtan and lighting</li>
-        <li><strong>10:30 PM – 11:00 PM:</strong> Sukhasan ceremony (closing)</li>
-      </ul>
+        {/* ✅ WHATSAPP CTA */}
+        <div className="mt-16 bg-green-600 text-white p-6 rounded-xl shadow-lg text-center">
+          <h3 className="text-xl font-semibold">
+            Planning a Spiritual India Trip?
+          </h3>
+          <p className="mt-2 text-green-100">
+            Get a personalized North India spiritual itinerary instantly.
+          </p>
 
-      <h2 className="text-2xl font-semibold mt-8 mb-3">🧕 Dress Code & Visitor Etiquette</h2>
-      <p className="mb-4">
-        The Golden Temple is a sacred place, so dressing respectfully is important. You don’t need traditional clothes — simply ensure shoulders and knees are covered.
-      </p>
+          <a
+            href="https://wa.me/9198XXXXXXXX"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-block mt-4 bg-white text-green-600 px-6 py-2 rounded-lg font-semibold hover:scale-105 transition"
+          >
+            Chat on WhatsApp
+          </a>
+        </div>
 
-      <ul className="list-disc ml-6 mb-4">
-        <li>Head must be covered at all times (scarves available for free).</li>
-        <li>No shoes or socks inside the complex.</li>
-        <li>No alcohol or tobacco allowed anywhere near the temple.</li>
-        <li>Photography only in permitted areas.</li>
-        <li>Do not dip feet or hands in the sarovar.</li>
-        <li>Maintain silence around the sanctum.</li>
-      </ul>
+        <footer className="mt-12 text-sm text-gray-600 text-center">
+          © {new Date().getFullYear()} — BharatMile. Travel with soul.
+        </footer>
 
-      <h2 className="text-2xl font-semibold mt-8 mb-3">📸 Best Time to Visit</h2>
-      <p className="mb-4">
-        The Golden Temple looks different and beautiful throughout the day, but a few timings stand out:
-      </p>
-
-      <ul className="list-disc ml-6 mb-6">
-        <li><strong>4–6 AM:</strong> The most peaceful, spiritual atmosphere.</li>
-        <li><strong>Sunset:</strong> Perfect golden glow on the water.</li>
-        <li><strong>Night:</strong> Stunning reflections and fewer crowds.</li>
-      </ul>
-
-      <h2 className="text-2xl font-semibold mt-8 mb-3">📍 Places to Visit Nearby</h2>
-      <ul className="list-disc ml-6 mb-4">
-        <li>Jallianwala Bagh (5-minute walk)</li>
-        <li>Partition Museum</li>
-        <li>Hall Bazaar for shopping</li>
-        <li>Wagah Border ceremony (30–45 minutes drive)</li>
-      </ul>
-
-      <h2 className="text-2xl font-semibold mt-8 mb-3">🧭 Tips to Make Your Visit Smooth</h2>
-      <ul className="list-disc ml-6 mb-6">
-        <li>Avoid weekends if you want a quieter experience.</li>
-        <li>Carry a light scarf for head covering.</li>
-        <li>Drink water before entering — darshan lines can be long.</li>
-        <li>Do not rush; the vibe here is slow and peaceful.</li>
-        <li>Respect volunteers — they work tirelessly.</li>
-      </ul>
-
-      <h2 className="text-2xl font-semibold mt-8 mb-3">❓ FAQs About the Golden Temple</h2>
-      <h3 className="text-xl font-semibold mt-4 mb-2">Is the Golden Temple safe for solo travellers?</h3>
-      <p className="mb-4">Absolutely. It’s one of the safest and most welcoming places in India.</p>
-
-      <h3 className="text-xl font-semibold mt-4 mb-2">Is langar free for everyone?</h3>
-      <p className="mb-4">Yes. Completely free, regardless of religion or nationality.</p>
-
-      <h3 className="text-xl font-semibold mt-4 mb-2">Can I volunteer?</h3>
-      <p className="mb-4">Yes! You can help in serving food, cleaning, chopping vegetables, or washing dishes.</p>
-
-      <h3 className="text-xl font-semibold mt-4 mb-2">How long does darshan take?</h3>
-      <p className="mb-4">Usually 30–90 minutes; longer on weekends and holidays.</p>
-
-      <p className="mb-10">
-        A visit to the Golden Temple isn’t just sightseeing — it’s an experience that stays with you. The peace, the music, the community, and the kindness you witness here make it one of the most unforgettable spiritual destinations in the world.
-      </p>
-    </div>
+      </article>
+    </main>
   );
 }
+

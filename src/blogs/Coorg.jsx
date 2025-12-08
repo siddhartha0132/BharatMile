@@ -3,267 +3,253 @@ import { Helmet } from "react-helmet";
 
 export default function Coorg() {
   return (
-    <main className="max-w-4xl mx-auto px-4 py-10">
-      <Helmet>
-        <title>Coorg: The Scotland of India Coffee Guide | Complete 2025 Travel Blog</title>
-        <meta
-          name="description"
-          content="A complete 2000+ word Coorg travel guide covering coffee plantations, waterfalls, treks, food, culture, history, stays, itineraries, costs, weather, and the best time to visit."
-        />
-        <meta
-          name="keywords"
-          content="Coorg travel guide, Coorg itinerary, Coorg coffee plantations, Karnataka tourism, Scotland of India, Coorg weather, Coorg trip plan, Coorg homestays"
-        />
-        <link rel="canonical" href="https://www.yourwebsite.com/blog/coorg" />
-      </Helmet>
+    <main className="bg-[#f7f9fc] text-gray-800">
+      <div className="max-w-5xl mx-auto px-4 py-12">
 
-      <header>
-        <h1 className="text-4xl font-bold">
-          Coorg: The Scotland of India — A Complete Travel & Coffee Guide (2025)
-        </h1>
-        <p className="text-gray-600 mt-3 text-lg">
-          Coorg is a peaceful escape tucked between rolling hills, lush forests,
-          and endless coffee estates. This guide takes you through everything —
-          places to visit, food, itineraries, history, culture, waterfalls,
-          coffee tours, weather, and real travel tips that make your trip easy
-          and memorable.
-        </p>
-      </header>
+        <Helmet>
+          <title>Coorg: The Scotland of India Coffee Guide | Complete 2025 Travel Blog</title>
+          <meta
+            name="description"
+            content="Complete Coorg travel guide 2025: coffee plantations, waterfalls, treks, food, culture, itineraries, budget, best time to visit & homestays."
+          />
+          <meta
+            name="keywords"
+            content="Coorg travel guide, Coorg coffee plantations, Scotland of India, Coorg itinerary, Coorg budget trip, Coorg weather, Kodagu tourism"
+          />
+          <link rel="canonical" href={window.location.href} />
 
-      {/* ------------------- INTRO ------------------------ */}
-      <section className="mt-8">
-        <h2 className="text-2xl font-semibold">🌿 Introduction: Why Coorg Feels Different</h2>
+          {/* ✅ Open Graph */}
+          <meta property="og:title" content="Coorg Travel Guide 2025 – The Scotland of India" />
+          <meta
+            property="og:description"
+            content="Explore Coorg — coffee estates, waterfalls, treks, homestays & scenic viewpoints in this full 2025 travel guide."
+          />
+          <meta
+            property="og:image"
+            content={window.location.origin + "/images/coorg-hero.jpg"}
+          />
+          <meta property="og:type" content="article" />
+          <meta property="og:url" content={window.location.href} />
 
-        <p className="mt-3 leading-7">
-          Coorg, officially known as Kodagu, is always described as the “Scotland of
-          India,” and honestly, it does live up to that name. The moment you enter the
-          district, the landscape changes — mist floats above the hills, the roads curve
-          gently through dense forests, and the air suddenly smells of fresh coffee, rain,
-          and earth.
-          <br /><br />
-          What makes Coorg so special is the atmosphere. It is peaceful but not boring,
-          adventurous but not overwhelming, touristy but still full of local charm. You
-          can start your mornings in a cozy homestay surrounded by plantations, sip
-          freshly brewed coffee with a view, head out to explore waterfalls and viewpoints
-          by noon, and end your day watching a sunset from Raja’s Seat or sitting around a
-          bonfire.
-          <br /><br />
-          Whether you love nature, photography, food, or just want a slow vacation away
-          from the chaos of Bengaluru or Mysuru — Coorg fits every mood perfectly.
-        </p>
-      </section>
+          {/* ✅ Twitter */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Coorg Travel Guide 2025 – Scotland of India" />
+          <meta
+            name="twitter:description"
+            content="Best time, itinerary, budget, coffee estates & things to do in Coorg."
+          />
+          <meta
+            name="twitter:image"
+            content={window.location.origin + "/images/coorg-hero.jpg"}
+          />
 
-      {/* ------------------- HISTORY ------------------------ */}
-      <section className="mt-10">
-        <h2 className="text-2xl font-semibold">📜 A Short History of Coorg</h2>
+          {/* ✅ Article Schema */}
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Article",
+              headline: "Coorg: The Scotland of India — A Complete Travel Guide",
+              description:
+                "Complete Coorg travel guide including coffee plantations, waterfalls, treks, food, itinerary & budget.",
+              image: window.location.origin + "/images/coorg-hero.jpg",
+              author: {
+                "@type": "Organization",
+                name: "Wander Guides",
+              },
+              publisher: {
+                "@type": "Organization",
+                name: "Wander Guides",
+                logo: {
+                  "@type": "ImageObject",
+                  url: window.location.origin + "/images/logo.png",
+                },
+              },
+              mainEntityOfPage: {
+                "@type": "WebPage",
+                "@id": window.location.href,
+              },
+              datePublished: "2025-01-01",
+              dateModified: new Date().toISOString(),
+            })}
+          </script>
+        </Helmet>
 
-        <p className="mt-3 leading-7">
-          Kodagu has a fascinating and unique history. The Kodavas, the native people of
-          Coorg, have a warrior culture and traditions that are very different from other
-          communities in Karnataka. Their festivals, marriage rituals, and way of living
-          revolve around the forest, land, and nature.
-          <br /><br />
-          Coorg was a kingdom ruled by local chieftains, later taken over by the British
-          in the 1800s. The British loved Coorg for its cool weather and rich forests.
-          They introduced coffee plantations — which completely transformed the region.
-          Today, Coorg is one of India’s top coffee capitals.
-          <br /><br />
-          This cultural blend — traditional Kodava life + colonial influence —
-          gives Coorg its uniquely charming personality.
-        </p>
-      </section>
+        {/* ✅ HERO */}
+        <header className="mb-10">
+          <img
+            src="/images/coorg-hero.jpg"
+            alt="Coffee plantations of Coorg"
+            className="w-full h-72 object-cover rounded-xl shadow-lg mb-6"
+            loading="lazy"
+          />
+          <h1 className="text-3xl md:text-4xl font-bold">
+            Coorg: The Scotland of India — Complete Travel & Coffee Guide (2025)
+          </h1>
+          <p className="text-gray-600 mt-3 text-lg">
+            A peaceful hill escape famous for coffee plantations, waterfalls,
+            misty roads, Kodava culture & forest adventures.
+          </p>
 
-      {/* ------------------- WHY SPECIAL ------------------------ */}
-      <section className="mt-10">
-        <h2 className="text-2xl font-semibold">🌄 Why Coorg Is Truly Special</h2>
+          <aside className="mt-5 p-4 bg-green-50 border rounded-lg text-sm">
+            <strong>Quick Tip:</strong> The best time to visit Coorg is from
+            <b> October to April</b> for plantations, treks & sightseeing.
+          </aside>
+        </header>
 
-        <p className="mt-3 leading-7">
-          Coorg is not just scenery — it’s a feeling. The combination of weather,
-          greenery, and coffee-scented air is therapeutic. Whether you’re hiking to
-          Mandalpatti, sipping filter coffee in a 150-year-old plantation home, or
-          wandering through quiet forest trails, the experience feels wholesome and
-          grounding.
-          <br /><br />
-          The slow lifestyle here is a break from city rush. Local people speak softly,
-          smile often, and treat guests with warmth. Roads are lined with pepper vines,
-          orange trees, forest shadows, and little streams that appear out of nowhere.
-        </p>
-      </section>
+        {/* ✅ MAIN CONTENT */}
+        <section className="space-y-10 leading-relaxed text-lg">
 
-      {/* ------------------- WHAT TO DO ------------------------ */}
-      <section className="mt-10">
-        <h2 className="text-2xl font-semibold">✨ Top Things to Do in Coorg</h2>
+          <div>
+            <h2 className="text-2xl font-semibold">Why Coorg Feels Different</h2>
+            <p>
+              Coorg, also known as Kodagu, is a misty hill district in Karnataka
+              known for coffee estates, green valleys, waterfalls and
+              old-world homestays. The air smells of fresh rain and roasted
+              coffee beans.
+            </p>
+          </div>
 
-        <p className="mt-3 leading-7">
-          Coorg has activities for every kind of traveler. Here are the best experiences
-          you absolutely shouldn’t miss:
-        </p>
+          <div>
+            <h2 className="text-2xl font-semibold">Top Things to Do in Coorg</h2>
+            <ul className="list-disc list-inside">
+              <li>Coffee plantation tours</li>
+              <li>Mandalpatti sunrise viewpoint</li>
+              <li>Abbey Falls forest trail</li>
+              <li>Dubare Elephant Camp</li>
+              <li>Namdroling Monastery (Golden Temple)</li>
+              <li>Barapole river rafting (seasonal)</li>
+            </ul>
+          </div>
 
-        <ul className="list-disc list-inside mt-4 space-y-2 leading-7">
-          <li>
-            **Tour coffee plantations** — Understand how beans are grown, roasted, and
-            brewed. Taste fresh Arabica and Robusta.
-          </li>
-          <li>
-            **Visit Abbey Falls** — A dramatic waterfall hidden deep in a forest valley.
-          </li>
-          <li>
-            **Drive to Mandalpatti Viewpoint** — Sunrise here is magical, with clouds
-            floating at eye level.
-          </li>
-          <li>
-            **Spend an evening at Raja’s Seat** — One of the most beautiful sunset spots
-            in Karnataka.
-          </li>
-          <li>
-            **Try Coorgi cuisine** — Pandi curry, akki roti, kadambuttu, bamboo shoot
-            curry — must-try dishes.
-          </li>
-          <li>
-            **River rafting in Barapole** — For adventure lovers.
-          </li>
-          <li>
-            **Visit Dubare Elephant Camp** — You can bathe, feed, and interact with
-            elephants here.
-          </li>
-          <li>
-            **Explore Namdroling Monastery (Golden Temple)** — A peaceful Tibetan
-            monastery in Bylakuppe.
-          </li>
-        </ul>
-      </section>
+          <div>
+            <h2 className="text-2xl font-semibold">Coorg & Coffee Culture</h2>
+            <p>
+              Coorg produces some of India’s finest Arabica and Robusta coffee.
+              Many homestays sit inside active plantations where you can learn
+              about harvesting, roasting, grinding and tasting freshly brewed
+              coffee.
+            </p>
+          </div>
 
-      {/* ------------------- COFFEE SECTION ------------------------ */}
-      <section className="mt-10">
-        <h2 className="text-2xl font-semibold">☕ Coorg & Coffee — A Deep Connection</h2>
+          <div>
+            <h2 className="text-2xl font-semibold">3-Day Perfect Coorg Itinerary</h2>
+            <ul className="list-disc list-inside">
+              <li><b>Day 1:</b> Madikeri Fort, Raja’s Seat, markets</li>
+              <li><b>Day 2:</b> Mandalpatti, Abbey Falls, plantation tour</li>
+              <li><b>Day 3:</b> Dubare Camp, Golden Temple, rafting</li>
+            </ul>
+          </div>
 
-        <p className="mt-3 leading-7">
-          If you're a coffee enthusiast, Coorg is basically a sacred place. The entire
-          district smells like roasted beans after rain. Coffee here grows under shade,
-          alongside spices like cardamom, pepper, and vanilla — which gives Coorg coffee
-          a rich and earthy profile.
-          <br /><br />
-          Plantation tours usually include:
-        </p>
+          <div>
+            <h2 className="text-2xl font-semibold">Coorg Food You Must Try</h2>
+            <ul className="list-disc list-inside">
+              <li>Pandi Curry (Pork Speciality)</li>
+              <li>Kadambuttu (Rice dumplings)</li>
+              <li>Akki Roti</li>
+              <li>Bamboo Shoot Curry</li>
+            </ul>
+          </div>
 
-        <ul className="list-disc list-inside mt-4 space-y-2 leading-7">
-          <li>Walking inside 50–200 acre coffee estates</li>
-          <li>Learning how Arabica & Robusta are grown</li>
-          <li>Watching roasting & grinding process</li>
-          <li>Tasting fresh brews made traditionally</li>
-          <li>Buying beans or ground coffee directly from farmers</li>
-        </ul>
+          <div>
+            <h2 className="text-2xl font-semibold">Best Time to Visit</h2>
+            <p>
+              <b>October–April:</b> Best weather for sightseeing & plantations  
+              <br />
+              <b>June–September:</b> Magical monsoon greenery & waterfalls
+            </p>
+          </div>
 
-        <p className="mt-4 leading-7">
-          Many homestays in Coorg are inside plantations — waking up to that smell is an
-          experience you won’t forget.
-        </p>
-      </section>
+          <div>
+            <h2 className="text-2xl font-semibold">Trip Budget (3 Days)</h2>
+            <ul className="list-disc list-inside">
+              <li>Homestay: ₹1500–₹3500/night</li>
+              <li>Food: ₹800–₹1500/day</li>
+              <li>Local travel: ₹2000–₹4000</li>
+            </ul>
+          </div>
 
-      {/* ------------------- ITINERARY ------------------------ */}
-      <section className="mt-10">
-        <h2 className="text-2xl font-semibold">🗓️ 3-Day Coorg Itinerary (Perfect Trip)</h2>
+        </section>
 
-        <h3 className="text-lg font-semibold mt-4">⭐ Day 1 — Madikeri Town + Coffee</h3>
-        <ul className="list-disc list-inside mt-2 leading-7 space-y-1">
-          <li>Check-in at a plantation homestay</li>
-          <li>Visit Raja’s Seat for sunset</li>
-          <li>Explore Madikeri Fort & Museum</li>
-          <li>Evening walk in markets + local dinner</li>
-        </ul>
+        {/* ✅ INTERNAL BACKLINKS */}
+        <section className="mt-16 bg-white p-6 rounded-xl shadow-md">
+          <h3 className="text-xl font-semibold mb-3">Related Travel Guides</h3>
+          <ul className="grid md:grid-cols-2 gap-3 text-blue-600 font-medium">
+            <li><a href="/goa-tour">→ Goa Beach Travel</a></li>
+            <li><a href="/ooty-tour">→ Ooty Hill Station Guide</a></li>
+            <li><a href="/mysore-tour">→ Mysore Palace Tour</a></li>
+            <li><a href="/jaipur-tour">→ Jaipur Travel Guide</a></li>
+            <li><a href="/andaman-tour">→ Andaman Island Guide</a></li>
+            <li><a href="/rishikesh-tour">→ Rishikesh Yoga Travel</a></li>
+          </ul>
+        </section>
 
-        <h3 className="text-lg font-semibold mt-6">⭐ Day 2 — Waterfalls + Mandalpatti</h3>
-        <ul className="list-disc list-inside mt-2 leading-7 space-y-1">
-          <li>Start early for Mandalpatti Jeep Safari</li>
-          <li>Visit Abbey Falls</li>
-          <li>Lunch in Madikeri</li>
-          <li>Tour a coffee plantation</li>
-        </ul>
+        {/* ✅ EXTERNAL AUTHORITY LINKS */}
+        <section className="mt-10 bg-gray-50 p-6 rounded-xl border">
+          <h3 className="text-lg font-semibold mb-3">Official Tourism Resources</h3>
+          <ul className="space-y-2 text-blue-600 text-sm">
+            <li>
+              <a
+                href="https://www.karnatakatourism.org"
+                target="_blank"
+                rel="nofollow noreferrer"
+              >
+                → Karnataka Tourism Official Website
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.incredibleindia.org"
+                target="_blank"
+                rel="nofollow noreferrer"
+              >
+                → Incredible India Tourism
+              </a>
+            </li>
+          </ul>
+        </section>
 
-        <h3 className="text-lg font-semibold mt-6">⭐ Day 3 — Culture + Adventure</h3>
-        <ul className="list-disc list-inside mt-2 leading-7 space-y-1">
-          <li>Visit Dubare Elephant Camp</li>
-          <li>Explore Tibetan Monastery</li>
-          <li>Try river rafting (seasonal)</li>
-          <li>Buy spices, Coorg coffee, handmade chocolates</li>
-        </ul>
-      </section>
+        {/* ✅ FAQ */}
+        <section className="mt-14 bg-white p-6 rounded-xl shadow-md">
+          <h3 className="text-2xl font-semibold mb-4">Frequently Asked Questions</h3>
+          <div className="space-y-4">
+            <div>
+              <strong>Q. Why is Coorg called Scotland of India?</strong>
+              <p>Because of its misty hills, cool climate & rolling green valleys.</p>
+            </div>
+            <div>
+              <strong>Q. How many days are enough for Coorg?</strong>
+              <p>3 to 4 days are perfect for sightseeing & relaxation.</p>
+            </div>
+            <div>
+              <strong>Q. Is Coorg good for couples?</strong>
+              <p>Yes, it is very popular for honeymoons & romantic getaways.</p>
+            </div>
+          </div>
+        </section>
 
-      {/* ------------------- FOOD ------------------------ */}
-      <section className="mt-10">
-        <h2 className="text-2xl font-semibold">🍲 Coorg Cuisine You Must Taste</h2>
+        {/* ✅ WHATSAPP CTA */}
+        <div className="mt-16 bg-green-600 text-white p-6 rounded-xl shadow-lg text-center">
+          <h3 className="text-xl font-semibold">
+            Planning a Coorg Trip?
+          </h3>
+          <p className="mt-2 text-green-100">
+            Get custom itinerary, hotels & cab booking instantly.
+          </p>
+          <a
+            href="https://wa.me/919999999999"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-block mt-4 bg-white text-green-600 px-6 py-2 rounded-lg font-semibold hover:scale-105 transition"
+          >
+            Chat on WhatsApp
+          </a>
+        </div>
 
-        <p className="mt-3 leading-7">
-          Coorgi food is delicious, earthy, and full of flavors influenced by forests and
-          spices. It’s unlike typical South Indian cuisine.
-        </p>
+        <footer className="mt-12 text-sm text-gray-600 text-center">
+          © {new Date().getFullYear()} — Wander Guides.
+        </footer>
 
-        <ul className="list-disc list-inside mt-4 leading-7 space-y-2">
-          <li>
-            **Pandi Curry** — The most famous dish; a spicy pork curry made with the
-            special Coorg vinegar.
-          </li>
-          <li>**Kadambuttu** — Soft rice dumplings paired with curries.</li>
-          <li>**Akki Roti** — Rice flour rotis, slightly chewy and delicious.</li>
-          <li>**Bamboo Shoot Curry** — Seasonal forest delicacy.</li>
-          <li>**Noolputtu** — Handmade rice noodles.</li>
-        </ul>
-      </section>
-
-      {/* ------------------- BEST TIME ------------------------ */}
-      <section className="mt-10">
-        <h2 className="text-2xl font-semibold">🌤️ Best Time to Visit Coorg</h2>
-
-        <p className="mt-3 leading-7">
-          Coorg is beautiful year-round, but different seasons offer different vibes:
-          <br /><br />
-          <b>October – April:</b> Best for sightseeing, treks, plantations.  
-          <br />
-          <b>June – September:</b> Monsoon magic — waterfalls are full, forests glow
-          green, everything looks dreamy. But roads may be slippery.
-        </p>
-      </section>
-
-      {/* ------------------- COST ------------------------ */}
-      <section className="mt-10">
-        <h2 className="text-2xl font-semibold">💰 Trip Budget: How Much Will It Cost?</h2>
-
-        <p className="mt-3 leading-7">Approx budget for a 3-day trip:</p>
-
-        <ul className="list-disc list-inside mt-4 leading-7 space-y-2">
-          <li><b>Homestay:</b> ₹1500–₹3500 per night</li>
-          <li><b>Food:</b> ₹800–₹1500 per day</li>
-          <li><b>Local travel:</b> ₹2000–₹4000</li>
-          <li><b>Activities:</b> Plantation tours, safari, rafting etc.</li>
-        </ul>
-      </section>
-
-      {/* ------------------- TIPS ------------------------ */}
-      <section className="mt-10">
-        <h2 className="text-2xl font-semibold">🛡️ Travel Tips for Coorg</h2>
-
-        <ul className="list-disc list-inside mt-4 space-y-2 leading-7">
-          <li>Start early for Mandalpatti to avoid fog blocking the view.</li>
-          <li>Rent a Jeep — normal cars struggle on hilly patches.</li>
-          <li>Carry a light jacket — Coorg gets chilly at night.</li>
-          <li>Mobile network is weak inside plantations.</li>
-          <li>Try homestays for a more local experience.</li>
-        </ul>
-      </section>
-
-      {/* ------------------- ENDING ------------------------ */}
-      <section className="mt-10">
-        <p className="leading-7">
-          Coorg is more than a destination — it’s an experience that stays with you long
-          after your trip ends. From the misty mountains to the warmth of local Kodava
-          culture, from the fragrance of coffee blossoms to the sound of forest silence —
-          Coorg is peaceful, soulful, and endlessly beautiful.
-        </p>
-      </section>
-
-      <footer className="mt-10 text-sm text-gray-600">
-        © {new Date().getFullYear()} — Wander Guides.
-      </footer>
+      </div>
     </main>
   );
 }

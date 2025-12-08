@@ -1,77 +1,13 @@
+// src/blogs/MeghalayaWalking.jsx
 import React, { useEffect } from "react";
 
 export default function MeghalayaWalking() {
-
-  // Structured Data (JSON-LD) for SEO: Article, BreadcrumbList, and FAQPage
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      // 1. Article Schema for SEO Authority
-      {
-        "@type": "Article",
-        mainEntityOfPage: {
-          "@type": "WebPage",
-          "@id": "https://example.com/meghalaya-root-bridges" // **UPDATE with actual URL**
-        },
-        headline: "Meghalaya: The Definitive Guide to Trekking the Living Root Bridges",
-        image: ["https://example.com/images/double-decker-bridge.jpg", "https://example.com/images/meghalaya-trek.jpg"], // **UPDATE with actual image URLS**
-        datePublished: "2025-11-23T08:00:00+05:30", // Use dynamic date or fixed publication date
-        dateModified: new Date().toISOString(),
-        author: {
-          "@type": "Person",
-          name: "India Travel Insights Team" // **UPDATE with actual author**
-        },
-        publisher: {
-          "@type": "Organization",
-          name: "India Travel Insights",
-          logo: {
-            "@type": "ImageObject",
-            url: "https://example.com/logo.png" // **UPDATE with actual logo URL**
-          }
-        },
-        description: "Explore Meghalaya's iconic Living Root Bridges—trekking routes, difficulty level, essential tips for visiting the Double-Decker Bridge in Nongriat, best time to visit the wettest place on Earth, and eco-friendly travel guidance."
-      },
-      // 2. Breadcrumb Schema for Navigation SEO
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://example.com/" },
-          { "@type": "ListItem", "position": 2, "name": "India Destinations", "item": "https://example.com/india" },
-          { "@type": "ListItem", "position": 3, "name": "Meghalaya Root Bridges Guide" }
-        ]
-      },
-      // 3. FAQPage Schema
-      {
-        "@type": "FAQPage",
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "How difficult is the trek to the Double-Decker Root Bridge?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "The trek to the Double-Decker Root Bridge (Jingkieng Nongriat) is of **moderate difficulty**. It involves descending (and later ascending) approximately 3,500 steps. It takes 3-4 hours round trip, plus time spent at the bridge."
-            }
-          },
-          {
-            "@type": "Question",
-            name: "What is the best time to visit the Living Root Bridges?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "The best time to visit is during the **winter season (October to March)**. The weather is cool and the humidity and rainfall are significantly lower than in the summer monsoon months."
-            }
-          },
-        ]
-      }
-    ]
-  };
-
   useEffect(() => {
-    // 1. Set Document Title (Expanded for SEO)
-    document.title = "Meghalaya: The Definitive Guide to Trekking the Living Root Bridges";
+    document.title =
+      "Meghalaya Living Root Bridge Trek 2025 | Double Decker Trek & Booking | BharatMile";
 
-    // Helper function to create or update meta tags
-    const setOrCreate = (name, content, attr = "name") => {
-      let el = document.querySelector(`meta[${attr}="${n}"]`);
+    const setMeta = (name, content, attr = "name") => {
+      let el = document.querySelector(`meta[${attr}='${name}']`);
       if (!el) {
         el = document.createElement("meta");
         el.setAttribute(attr, name);
@@ -80,160 +16,223 @@ export default function MeghalayaWalking() {
       el.setAttribute("content", content);
     };
 
-    const descriptionContent = "Explore Meghalaya's iconic Living Root Bridges—trekking routes, difficulty level, essential tips for visiting the Double-Decker Bridge in Nongriat, best time to visit the wettest place on Earth, and eco-friendly travel guidance.";
-    const titleContent = "Meghalaya: Trekking the Living Root Bridges | Travel Guide";
-    const imageUrl = "https://example.com/images/double-decker-bridge.jpg"; // **UPDATE URL**
+    setMeta(
+      "description",
+      "Complete Meghalaya Living Root Bridge trek guide 2025: Double Decker Bridge Nongriat route, difficulty, best time, trek safety & WhatsApp booking."
+    );
 
-    // 2. General SEO Meta Tag
-    setOrCreate("description", descriptionContent);
-    
-    // 3. Open Graph Tags (for Social Media)
-    setOrCreate('og:title', titleContent, 'property');
-    setOrCreate('og:description', descriptionContent, 'property');
-    setOrCreate('og:type', 'article', 'property');
-    setOrCreate('og:url', window.location.href, 'property');
-    setOrCreate('og:image', imageUrl, 'property');
-    setOrCreate('og:site_name', 'India Travel Insights', 'property');
+    setMeta(
+      "keywords",
+      "Meghalaya root bridge trek, Double Decker Root Bridge trek, Nongriat trek, Living Root Bridge Meghalaya, Meghalaya trekking tour"
+    );
 
-    // 4. Twitter Card Tags
-    setOrCreate('twitter:card', 'summary_large_image');
-    setOrCreate('twitter:title', titleContent);
-    setOrCreate('twitter:description', descriptionContent);
-    setOrCreate('twitter:image', imageUrl);
+    setMeta(
+      "og:title",
+      "Meghalaya Living Root Bridge Trek 2025 | Double Decker Trek & Booking",
+      "property"
+    );
+    setMeta(
+      "og:description",
+      "Walk on living bridges grown by nature! Complete Meghalaya trek guide with booking.",
+      "property"
+    );
+    setMeta("og:type", "article", "property");
+    setMeta(
+      "og:image",
+      "https://images.unsplash.com/photo-1608889176923-3c87f225f53c",
+      "property"
+    );
 
-    // 5. Canonical Link Tag
     let link = document.querySelector("link[rel='canonical']");
     if (!link) {
       link = document.createElement("link");
       link.setAttribute("rel", "canonical");
       document.head.appendChild(link);
     }
-    link.setAttribute("href", window.location.href);
+    link.setAttribute(
+      "href",
+      window.location.origin + "/blog/meghalaya-living-root-bridge-trek"
+    );
 
-    // 6. JSON-LD Structured Data Script
-    let jsonScript = document.getElementById("meghalaya-jsonld");
-    if (!jsonScript) {
-      jsonScript = document.createElement("script");
-      jsonScript.id = "meghalaya-jsonld";
-      jsonScript.type = "application/ld+json";
-      document.head.appendChild(jsonScript);
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: "Meghalaya Living Root Bridge Trek 2025 | Complete Guide & Booking",
+      description:
+        "Complete guide to Meghalaya Living Root Bridge and Double Decker Bridge trek with routes, safety & travel tips.",
+      image: ["https://images.unsplash.com/photo-1608889176923-3c87f225f53c"],
+      author: { "@type": "Organization", name: "BharatMile Editorial" },
+      publisher: {
+        "@type": "Organization",
+        name: "BharatMile",
+        logo: { "@type": "ImageObject", url: "/images/logo.png" },
+      },
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id":
+          typeof window !== "undefined"
+            ? window.location.href
+            : "https://yourwebsite.com/blog/meghalaya-living-root-bridge-trek",
+      },
+    };
+
+    let script = document.getElementById("meghalaya-schema");
+    if (!script) {
+      script = document.createElement("script");
+      script.id = "meghalaya-schema";
+      script.type = "application/ld+json";
+      document.head.appendChild(script);
     }
-    jsonScript.textContent = JSON.stringify(jsonLd);
-
+    script.textContent = JSON.stringify(jsonLd);
   }, []);
 
-  const faqItems = [
-    { 
-      q: "How difficult is the trek to the Double-Decker Root Bridge?", 
-      a: "The trek to the Double-Decker Root Bridge (Jingkieng Nongriat) is of **moderate difficulty**. It involves descending (and later ascending) approximately 3,500 slippery steps. Allow 3-4 hours round trip, plus time at the bridge." 
-    },
-    { 
-      q: "What is the best time to visit the Living Root Bridges?", 
-      a: "The best time to visit is during the **winter season (October to March)**. The weather is cool and the humidity and rainfall are significantly lower, making the treks safer and more enjoyable." 
-    },
-    {
-      q: "How old are the Living Root Bridges?",
-      a: "The oldest and strongest root bridges are estimated to be over **200 years old**. They take 10 to 15 years to fully form, and the Khasi tribe guides their growth using betel nut trunks."
-    },
-  ];
-
-
   return (
-    <main className="max-w-4xl mx-auto px-4 py-10">
-      
-      {/* --- Header Section --- */}
-      <header className="mb-8 border-b pb-4">
-        <h1 className="text-4xl font-extrabold text-green-800">
-          Meghalaya: Walking on Living Root Bridges 🌱
-        </h1>
-        <p className="text-gray-600 mt-2 text-lg">
-          A serene journey into Meghalaya’s rain-soaked valleys and natural root
-          architecture built by the Khasi tribes—the ultimate guide to trekking this natural wonder.
-        </p>
-      </header>
+    <main className="max-w-6xl mx-auto px-6 py-12">
 
-      {/* --- Section 1: The Magic and Science --- */}
-      <section className="mt-8">
-        <h2 className="text-3xl font-bold text-green-700">1. The Magic and Architecture of the Bridges</h2>
-        <p className="mt-3 leading-relaxed">
-          These incredible bridges—**grown, not built**—are a testament to the symbiotic relationship between the **Khasi tribe** and the forest. They are crafted by guiding the flexible aerial roots of the **Rubber Fig tree** (Ficus elastica) across streams.
-        </p>
+      {/* ✅ HERO */}
+      <section className="relative rounded-2xl overflow-hidden shadow-xl">
+        <img
+          src="https://images.unsplash.com/photo-1608889176923-3c87f225f53c"
+          alt="Meghalaya Living Root Bridge Trek"
+          className="w-full h-[480px] object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60 flex items-end">
+          <div className="p-8 text-white max-w-4xl">
+            <h1 className="text-4xl md:text-5xl font-extrabold">
+              Meghalaya Living Root Bridge Trek 2025
+            </h1>
+            <p className="mt-3 text-lg">
+              Walk on bridges grown by nature — the legendary Double Decker Root Bridge.
+            </p>
 
-        <h3 className="text-xl font-semibold mt-4 text-green-600">Why They Last Centuries</h3>
-        <ul className="list-disc list-inside space-y-1 mt-2 ml-4">
-          <li>**Self-Strengthening:** Unlike wooden bridges that rot in the high moisture of Cherrapunji, these living structures grow stronger and thicker over time.</li>
-          <li>**Guidance System:** Young roots are directed using hollowed-out **betel nut trunks** to guide them to the other side of the stream.</li>
-          <li>**Age:** Some bridges are more than **200 years old** and still used daily, easily capable of holding 50+ people.</li>
+            <div className="mt-5 flex gap-4">
+              <a
+                href="https://wa.me/919636974688"
+                target="_blank"
+                rel="noreferrer"
+                className="bg-green-500 text-white px-6 py-3 rounded-lg font-bold hover:scale-105 transition"
+              >
+                Book Meghalaya Trek on WhatsApp
+              </a>
+              <a
+                href="#trek"
+                className="border border-white px-6 py-3 rounded-lg"
+              >
+                View Trek Details
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ✅ INTRO */}
+      <section className="mt-16 text-lg">
+        <h2 className="text-3xl font-bold mb-4">
+          Why Meghalaya’s Living Root Bridges Are a Natural Wonder
+        </h2>
+        <p>
+          Meghalaya is home to the only bridges on Earth that are grown, not built. Created by the Khasi tribe using the roots of rubber fig trees, these bridges grow stronger every year and survive powerful monsoon floods.
+        </p>
+      </section>
+
+      {/* ✅ TREK DETAILS */}
+      <section id="trek" className="mt-16">
+        <h2 className="text-3xl font-bold mb-6">
+          Double Decker Root Bridge Trek (Nongriat)
+        </h2>
+
+        <ul className="space-y-3 text-lg list-disc list-inside">
+          <li><strong>Location:</strong> Nongriat Village near Cherrapunji</li>
+          <li><strong>Steps:</strong> Approx 3,500 stone steps</li>
+          <li><strong>Difficulty:</strong> Moderate to Hard</li>
+          <li><strong>Time Required:</strong> 4–6 hours round trip</li>
+          <li><strong>Best Start Time:</strong> Before 8 AM</li>
         </ul>
       </section>
 
-      <hr className="my-8 border-green-200" />
+      {/* ✅ EASY BRIDGES */}
+      <section className="mt-16">
+        <h2 className="text-3xl font-bold mb-6">
+          Easy Root Bridges for Casual Visitors
+        </h2>
 
-      {/* --- Section 2: Key Destinations & Treks --- */}
-      <section className="mt-8">
-        <h2 className="text-3xl font-bold text-green-700">2. Key Trekking Destinations and Difficulty</h2>
-        <p className="mt-3 leading-relaxed">
-          The best root bridges require commitment. Most are located near Cherrapunji (Sohra) and Mawlynnong.
-        </p>
-
-        <h3 className="text-xl font-semibold mt-4 text-green-600">The Double-Decker Challenge (Nongriat)</h3>
-        <ul className="list-disc list-inside space-y-1 mt-2 ml-4">
-          <li>**Location:** Nongriat Village (near Cherrapunji).</li>
-          <li>**Trek Difficulty:** **Moderate to Hard.** Involves a steep descent of approximately 3,500 steps, followed by the equally tough ascent.</li>
-          <li>**Duration:** 3–6 hours round trip.</li>
-          <li>**Reward:** The spectacular **Jingkieng Nongriat**, the only functional double-decker root bridge in the world.</li>
-        </ul>
-
-        <h3 className="text-xl font-semibold mt-4 text-green-600">Easier and Accessible Bridges</h3>
-        <ul className="list-disc list-inside space-y-1 mt-2 ml-4">
-          <li>**Riwai Single Root Bridge:** Very close to Mawlynnong (Asia's Cleanest Village). Requires only a 5-minute easy walk from the road.</li>
-          <li>**Mawsaw Root Bridge:** Another single bridge, easily accessible and often less crowded than the double-decker bridge.</li>
+        <ul className="space-y-3 text-lg list-disc list-inside">
+          <li><strong>Riwai Root Bridge:</strong> Near Mawlynnong, 5-minute walk</li>
+          <li><strong>Mawsaw Bridge:</strong> Less crowded and scenic</li>
         </ul>
       </section>
 
-      <hr className="my-8 border-green-200" />
+      {/* ✅ BEST TIME */}
+      <section className="mt-16">
+        <h2 className="text-3xl font-bold mb-6">
+          Best Time to Visit Living Root Bridges
+        </h2>
 
-      {/* --- Section 3: Essential Trekking Tips --- */}
-      <section className="mt-8">
-        <h2 className="text-3xl font-bold text-green-700">3. Trekking Tips and Eco-Friendly Travel</h2>
-        <p className="mt-3 leading-relaxed">
-          Meghalaya is the wettest region on Earth. Preparation is key to enjoying the trek and respecting the environment.
-        </p>
-        
-        <h3 className="text-xl font-semibold mt-4 text-green-600">Gear & Preparation Checklist</h3>
-        <ul className="list-disc list-inside space-y-1 mt-2 ml-4">
-          <li>**Footwear:** Wear durable trekking shoes with excellent grip. The steps and rocks are perpetually damp and extremely slippery.</li>
-          <li>**Timing:** Start the trek to Nongriat early (by 8:00 AM) to avoid the intense afternoon sun and tourist crowds.</li>
-          <li>**Essentials:** Carry a lightweight rain poncho/jacket, a waterproof bag cover, and a headlamp (if starting before sunrise).</li>
-        </ul>
-
-        <h3 className="text-xl font-semibold mt-4 text-green-600">Responsible Tourism Guide 🌿</h3>
-        <ul className="list-disc list-inside space-y-1 mt-2 ml-4">
-          <li>**Waste:** Carry all plastic, wrappers, and non-biodegradable waste back with you. Meghalaya takes environmental cleanliness seriously.</li>
-          <li>**Respect:** Be mindful of the Khasi village life. Ask for permission before photographing locals or entering private areas.</li>
-          <li>**Foot Traffic:** Do not peel, cut, or interfere with the bridge roots in any way; these structures are alive and require care.</li>
+        <ul className="space-y-3 text-lg list-disc list-inside">
+          <li><strong>October–March:</strong> Best season for trekking</li>
+          <li><strong>April–May:</strong> Warm but manageable</li>
+          <li><strong>June–September:</strong> Heavy monsoon, risky treks</li>
         </ul>
       </section>
 
-      <hr className="my-8 border-green-200" />
+      {/* ✅ TREK SAFETY */}
+      <section className="mt-16 bg-yellow-50 p-8 rounded-xl">
+        <h2 className="text-3xl font-bold mb-6 text-yellow-700">
+          Trek Safety & Travel Rules
+        </h2>
 
-      {/* --- FAQ Section (Matches JSON-LD) --- */}
-      <section className="mt-12" id="meghalaya-faq">
-        <h2 className="text-3xl font-bold text-green-700">Frequently Asked Questions</h2>
-        {faqItems.map((item, i) => (
-          <details key={i} className="mt-3 p-4 border rounded-lg bg-gray-50">
-            <summary className="cursor-pointer font-medium text-lg text-green-600">{item.q}</summary>
-            <p className="mt-2 text-gray-700">{item.a}</p>
+        <ul className="space-y-3 text-lg list-disc list-inside">
+          <li>Wear proper trekking shoes with grip</li>
+          <li>Carry rainwear and flashlight</li>
+          <li>Start early to avoid exhaustion</li>
+          <li>Never damage Living Root Bridges</li>
+        </ul>
+      </section>
+
+      {/* ✅ FAQ */}
+      <section className="mt-20">
+        <h2 className="text-3xl font-bold mb-6">
+          Meghalaya Root Bridge Trek FAQs
+        </h2>
+
+        {[
+          ["Is the Double Decker Root Bridge difficult?", "Yes, it is physically demanding with 3,500 steep steps."],
+          ["Is it safe for beginners?", "Yes, with proper fitness and early start."],
+          ["Do I need a guide?", "Recommended for first-timers."],
+          ["Is it open all year?", "Closed mostly during heavy monsoon."],
+        ].map((faq, i) => (
+          <details key={i} className="border p-4 rounded-lg mb-4">
+            <summary className="font-medium cursor-pointer">
+              {faq[0]}
+            </summary>
+            <p className="mt-2 text-gray-700">{faq[1]}</p>
           </details>
         ))}
       </section>
 
-      <hr className="my-8 border-green-200" />
+      {/* ✅ FINAL CTA */}
+      <section className="mt-20 bg-green-700 text-white p-10 rounded-xl text-center shadow-xl">
+        <h3 className="text-3xl font-bold">
+          Want a Guided Meghalaya Living Root Bridge Trek?
+        </h3>
+        <p className="mt-2 text-green-200">
+          Transport, local guide & village accommodation available.
+        </p>
 
-      {/* --- Footer --- */}
-      <footer className="mt-10 text-sm text-gray-600 text-center">
-        © {new Date().getFullYear()} — India Travel Insights. All rights reserved.
+        <a
+          href="https://wa.me/919636974688"
+          target="_blank"
+          rel="noreferrer"
+          className="inline-block mt-6 bg-white text-green-700 px-8 py-3 rounded-lg font-bold hover:scale-105 transition"
+        >
+          Chat on WhatsApp Now
+        </a>
+      </section>
+
+      <footer className="mt-20 text-center text-sm text-gray-500">
+        © {new Date().getFullYear()} — BharatMile | Trekking & Adventure Travel
       </footer>
     </main>
   );
 }
+
