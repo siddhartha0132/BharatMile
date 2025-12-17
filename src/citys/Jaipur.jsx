@@ -1,372 +1,212 @@
-// filename: src/citys/Jaipur.jsx
 import React, { useEffect } from "react";
-import jaipurHero from "../assets/jaipur.jpeg"; // update path if needed
-// optional additional images (place in assets folder)
+import jaipurHero from "../assets/jaipur.jpeg";
 import amberFort from "../assets/amber-fort.jpg";
-import hawaMahal from "../assets/jaipur.jpeg";
 import cityPalace from "../assets/city-palace.jpeg";
 
-/**
- * Jaipur city page — longform, SEO-friendly, no external head libs
- *
- * Replace placeholders:
- *  - SITE_URL -> your live site URL (e.g. https://bharatmile.example)
- *  - companyName -> your company name (BharatMile)
- *  - image imports -> make sure images exist in /src/assets
- */
-
 export default function Jaipur() {
-  const city = "Jaipur";
-  const country = "India";
-  const siteUrl = "http://localhost:5173"; // change to your production domain when live
+  const siteUrl = "https://bharatmile.com";
   const pageUrl = `${siteUrl}/city/jaipur`;
-  const companyName = "BharatMile";
   const pageTitle =
-    "Jaipur Travel Guide — Pink City Attractions, 3-Day Itinerary, Best Time to Visit";
+    "Jaipur Travel Guide | Places to Visit, Itinerary, Food, Hotels & Best Time";
   const description =
-    "Complete Jaipur travel guide: top attractions (Hawa Mahal, Amber Fort, City Palace), 3-day itinerary, best time to visit, how to reach, where to eat, safety tips & local experiences.";
+    "Ultimate Jaipur travel guide covering forts, palaces, shopping markets, food, hotels, itinerary, safety tips, best time to visit & nearby places.";
 
-  // JSON-LD schemas
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${siteUrl}/` },
-      { "@type": "ListItem", "position": 2, "name": "Cities", "item": `${siteUrl}/cities` },
-      { "@type": "ListItem", "position": 3, "name": "Jaipur", "item": pageUrl }
-    ]
-  };
-
-  const citySchema = {
-    "@context": "https://schema.org",
-    "@type": "City",
-    "name": city,
-    "description": description,
-    "url": pageUrl,
-    "image": `${siteUrl}/assets/jaipur.jpeg`,
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "26.9124",
-      "longitude": "75.7873"
-    },
-    "sameAs": [
-      "https://en.wikipedia.org/wiki/Jaipur",
-      "https://www.britannica.com/place/Jaipur"
-    ]
-  };
-
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "TravelAgency",
-    "name": companyName,
-    "url": siteUrl,
-    "logo": `${siteUrl}/logo.png`,
-    "sameAs": [siteUrl],
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": country
-    }
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is the best time to visit Jaipur?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "October to March — pleasant weather and many festivals. Avoid April–June (very hot)."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How many days are enough to explore Jaipur?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "2–3 full days cover major sights (Hawa Mahal, Amber Fort, City Palace, Jantar Mantar) and shopping."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is Jaipur safe for solo travellers?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Jaipur is generally safe during daytime for most travellers. Use common-sense precautions at night and avoid isolated areas."
-        }
-      }
-    ]
-  };
-
-  // Set document head manually (avoids react-helmet dependency)
   useEffect(() => {
-    // title
     document.title = pageTitle;
 
-    // canonical
-    let linkCanonical = document.querySelector("link[rel='canonical']");
-    if (!linkCanonical) {
-      linkCanonical = document.createElement("link");
-      linkCanonical.setAttribute("rel", "canonical");
-      document.head.appendChild(linkCanonical);
-    }
-    linkCanonical.setAttribute("href", pageUrl);
-
-    // meta description
-    let metaDesc = document.querySelector("meta[name='description']");
-    if (!metaDesc) {
-      metaDesc = document.createElement("meta");
-      metaDesc.setAttribute("name", "description");
-      document.head.appendChild(metaDesc);
-    }
-    metaDesc.setAttribute("content", description);
-
-    // Open Graph & Twitter — helper
-    function upsertMeta(attrName, attrValue, content) {
-      let sel = `meta[${attrName}='${attrValue}']`;
-      let el = document.querySelector(sel);
-      if (!el) {
-        el = document.createElement("meta");
-        el.setAttribute(attrName, attrValue);
-        document.head.appendChild(el);
+    const setMeta = (name, content) => {
+      let tag = document.querySelector(`meta[name='${name}']`);
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute("name", name);
+        document.head.appendChild(tag);
       }
-      el.setAttribute("content", content);
+      tag.setAttribute("content", content);
+    };
+
+    setMeta("description", description);
+
+    let canonical = document.querySelector("link[rel='canonical']");
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.rel = "canonical";
+      document.head.appendChild(canonical);
     }
+    canonical.href = pageUrl;
 
-    upsertMeta("property", "og:title", pageTitle);
-    upsertMeta("property", "og:description", description);
-    upsertMeta("property", "og:url", pageUrl);
-    upsertMeta("property", "og:image", `${siteUrl}/assets/jaipur.jpeg`);
-    upsertMeta("property", "og:type", "article");
-
-    upsertMeta("name", "twitter:card", "summary_large_image");
-    upsertMeta("name", "twitter:title", pageTitle);
-    upsertMeta("name", "twitter:description", description);
-    upsertMeta("name", "twitter:image", `${siteUrl}/assets/jaipur.jpeg`);
-
-    // inject JSON-LD scripts (remove existing to avoid duplicates)
-    const removeIfExists = (id) => {
-      const e = document.getElementById(id);
-      if (e) e.remove();
-    };
-    removeIfExists("jaipur-breadcrumb-jsonld");
-    removeIfExists("jaipur-city-jsonld");
-    removeIfExists("jaipur-business-jsonld");
-    removeIfExists("jaipur-faq-jsonld");
-
-    const addJsonLd = (id, obj) => {
-      const s = document.createElement("script");
-      s.type = "application/ld+json";
-      s.id = id;
-      s.text = JSON.stringify(obj);
-      document.head.appendChild(s);
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "City",
+      name: "Jaipur",
+      description,
+      url: pageUrl,
+      image: `${siteUrl}/assets/jaipur.jpeg`,
+      sameAs: [
+        "https://en.wikipedia.org/wiki/Jaipur",
+        "https://www.britannica.com/place/Jaipur",
+      ],
     };
 
-    addJsonLd("jaipur-breadcrumb-jsonld", breadcrumbSchema);
-    addJsonLd("jaipur-city-jsonld", citySchema);
-    addJsonLd("jaipur-business-jsonld", localBusinessSchema);
-    addJsonLd("jaipur-faq-jsonld", faqSchema);
-
-    // cleanup on unmount (optional)
-    return () => {
-      // not removing head tags on unmount to avoid flicker if SPA navigates;
-      // if desired, remove added JSON-LD tags:
-      removeIfExists("jaipur-breadcrumb-jsonld");
-      removeIfExists("jaipur-city-jsonld");
-      removeIfExists("jaipur-business-jsonld");
-      removeIfExists("jaipur-faq-jsonld");
-    };
-  }, []); // run once
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.text = JSON.stringify(schema);
+    document.head.appendChild(script);
+  }, []);
 
   return (
-    <main className="max-w-7xl mx-auto px-6 py-12">
-      {/* HERO */}
-      <header className="relative w-full h-[420px] rounded-xl overflow-hidden shadow-lg mb-12">
-        <picture>
-          <source
-            srcSet={`${jaipurHero.replace(".jpeg", "-800.jpeg")} 800w, ${jaipurHero.replace(
-              ".jpeg",
-              "-1200.jpeg"
-            )} 1200w`}
-            sizes="(max-width: 768px) 100vw, 1200px"
-          />
-          <img
-            src={jaipurHero}
-            alt="Jaipur – Pink City skyline and Amber Fort"
-            loading="lazy"
-            className="w-full h-full object-cover"
-          />
-        </picture>
+    <main className="max-w-7xl mx-auto px-6 py-12 bg-gray-50">
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+      {/* HERO */}
+      <section className="relative h-[450px] rounded-xl overflow-hidden shadow mb-16">
+        <img
+          src={jaipurHero}
+          alt="Jaipur Pink City skyline"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60 flex items-end p-8">
           <div>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-white">
-              Jaipur — The Pink City of India
+            <h1 className="text-4xl md:text-5xl font-bold text-white">
+              Jaipur – The Pink City of India
             </h1>
-            <p className="text-sm md:text-base text-gray-200 mt-2 max-w-2xl">
-              Explore royal palaces, hilltop forts, vibrant bazaars and authentic Rajasthani food — a complete guide to Jaipur.
+            <p className="text-gray-200 max-w-3xl mt-3">
+              Royal forts, majestic palaces, colorful bazaars, rich culture and
+              authentic Rajasthani food — Jaipur is India’s most iconic heritage city.
             </p>
-            <div className="mt-4">
-              <a
-                href="#top-places"
-                className="inline-block bg-pink-600 text-white px-4 py-2 rounded-md mr-3"
-              >
-                Top Places
-              </a>
-              <a
-                href="#itinerary"
-                className="inline-block border border-white text-white px-4 py-2 rounded-md"
-              >
-                3-Day Itinerary
-              </a>
-            </div>
           </div>
         </div>
-      </header>
+      </section>
 
-      {/* INTRO */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-3">Quick overview</h2>
-        <p className="text-gray-700 leading-relaxed">
-          Jaipur is the capital of Rajasthan and a centre of royal Rajasthani architecture.
-          Founded in 1727, the city is famous for its pink-painted historic district, palaces,
-          hill forts and a thriving handicraft scene. Jaipur is a major stop on Rajasthan circuits
-          and a gateway to hill forts and desert excursions.
+      {/* ABOUT */}
+      <section className="mb-20">
+        <h2 className="text-3xl font-bold mb-4">About Jaipur</h2>
+        <p className="text-gray-700 text-lg leading-relaxed">
+          Jaipur, the capital of Rajasthan, is one of India’s most visited
+          heritage destinations. Popularly known as <strong>“The Pink City”</strong>,
+          Jaipur is famous for its royal palaces, hill forts, planned streets,
+          vibrant bazaars, and deep-rooted culture.
+          <br /><br />
+          Founded in <strong>1727 by Maharaja Sawai Jai Singh II</strong>, Jaipur is
+          India’s first planned city designed according to Vastu Shastra. The
+          old city was painted pink to welcome Prince Albert, and the color
+          remains a symbol of hospitality.
+          <br /><br />
+          Jaipur is a major part of the <strong>Golden Triangle (Delhi–Agra–Jaipur)</strong>,
+          making it one of the most searched travel destinations in India.
         </p>
       </section>
 
-      {/* TOP PLACES */}
-      <section id="top-places" className="mb-14">
-        <h2 className="text-2xl font-semibold mb-6 text-center">Top places to visit</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <article className="bg-white rounded-lg shadow p-6">
-            <img src={hawaMahal || jaipurHero} alt="Hawa Mahal" className="w-full h-44 object-cover rounded-md mb-4" loading="lazy" />
-            <h3 className="text-lg font-semibold">Hawa Mahal</h3>
-            <p className="text-gray-600 mt-2">Built in 1799, this ornate five-storey facade is the city's most photographed landmark.</p>
-          </article>
-
-          <article className="bg-white rounded-lg shadow p-6">
-            <img src={amberFort || jaipurHero} alt="Amber Fort" className="w-full h-44 object-cover rounded-md mb-4" loading="lazy" />
-            <h3 className="text-lg font-semibold">Amber Fort</h3>
-            <p className="text-gray-600 mt-2">Hilltop fort with courtyards, halls and the mirror palace — Sheesh Mahal.</p>
-          </article>
-
-          <article className="bg-white rounded-lg shadow p-6">
-            <img src={cityPalace || jaipurHero} alt="City Palace Jaipur" className="w-full h-44 object-cover rounded-md mb-4" loading="lazy" />
-            <h3 className="text-lg font-semibold">City Palace</h3>
-            <p className="text-gray-600 mt-2">Royal residence with museums showcasing textiles, weapons and decorative arts.</p>
-          </article>
-
-          <article className="bg-white rounded-lg shadow p-6">
-            <h3 className="text-lg font-semibold">Jantar Mantar</h3>
-            <p className="text-gray-600 mt-2">UNESCO-listed astronomical observatory with monumental instruments.</p>
-          </article>
-
-          <article className="bg-white rounded-lg shadow p-6">
-            <h3 className="text-lg font-semibold">Nahargarh Fort</h3>
-            <p className="text-gray-600 mt-2">Panoramic city views and sunset spots above Jaipur.</p>
-          </article>
-
-          <article className="bg-white rounded-lg shadow p-6">
-            <h3 className="text-lg font-semibold">Local bazaars</h3>
-            <p className="text-gray-600 mt-2">Johari Bazaar for jewelry, Bapu Bazaar for textiles and Rajasthani handicrafts.</p>
-          </article>
-        </div>
+      {/* LOCATION */}
+      <section className="mb-20">
+        <h2 className="text-3xl font-bold mb-4">Where Is Jaipur Located & How to Reach</h2>
+        <p className="text-gray-700 text-lg leading-relaxed">
+          Jaipur is located in eastern Rajasthan and is well connected by air,
+          rail, and road.
+        </p>
+        <ul className="list-disc pl-6 mt-4 text-gray-700 text-lg space-y-2">
+          <li><strong>By Air:</strong> Jaipur International Airport (JAI)</li>
+          <li><strong>By Train:</strong> Jaipur Junction & Durgapura Station</li>
+          <li><strong>By Road:</strong> Delhi (5–6 hrs), Agra (4 hrs)</li>
+        </ul>
       </section>
 
-      {/* ITINERARIES */}
-      <section id="itinerary" className="mb-14">
-        <h2 className="text-2xl font-semibold mb-6">Suggested itineraries</h2>
+      {/* PLACES */}
+      <section className="mb-20">
+        <h2 className="text-3xl font-bold mb-8 text-center">
+          Top Places to Visit in Jaipur
+        </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="text-xl font-semibold mb-3">2-Day Jaipur</h3>
-            <ol className="list-decimal list-inside text-gray-700">
-              <li><strong>Day 1:</strong> Hawa Mahal (photo stop), City Palace, Jantar Mantar, evening shopping at Johari Bazaar.</li>
-              <li><strong>Day 2:</strong> Amber Fort (arrive early), Panna Meena ka Kund, Nahargarh Fort sunset.</li>
-            </ol>
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="bg-white p-6 rounded-xl shadow">
+            <img src={amberFort} alt="Amber Fort" className="rounded mb-4" />
+            <h3 className="text-xl font-semibold">Amber Fort</h3>
+            <p className="text-gray-600">
+              Majestic hilltop fort famous for Sheesh Mahal and royal courtyards.
+            </p>
           </div>
 
-          <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="text-xl font-semibold mb-3">3-Day Jaipur (Leisure)</h3>
-            <ol className="list-decimal list-inside text-gray-700">
-              <li>Day 1: City Palace, Jantar Mantar, Albert Hall Museum.</li>
-              <li>Day 2: Amber Fort, Jaigarh Fort, Panna Meena stepwell.</li>
-              <li>Day 3: Textile workshops, cooking class, evening cultural show or light/sound at Amber.</li>
-            </ol>
+          <div className="bg-white p-6 rounded-xl shadow">
+            <img src={jaipurHero} alt="Hawa Mahal" className="rounded mb-4" />
+            <h3 className="text-xl font-semibold">Hawa Mahal</h3>
+            <p className="text-gray-600">
+              Iconic Palace of Winds with 953 windows.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-xl shadow">
+            <img src={cityPalace} alt="City Palace" className="rounded mb-4" />
+            <h3 className="text-xl font-semibold">City Palace</h3>
+            <p className="text-gray-600">
+              Royal residence with museums, courtyards and gates.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* TRAVEL TIPS */}
-      <section className="mb-14">
-        <h2 className="text-2xl font-semibold mb-4">Practical travel tips</h2>
-        <ul className="list-disc pl-5 text-gray-700">
-          <li><strong>Getting there:</strong> Jaipur has an international airport (JAI) with frequent flights to major Indian cities. It is also connected by rail and national highways.</li>
-          <li><strong>Local transport:</strong> Use app-based cabs, prepaid taxis, or cycle-rickshaws for short trips. Negotiate fares for auto-rickshaws if needed.</li>
-          <li><strong>Money:</strong> Major cards accepted in hotels and big shops; carry cash for bazaars and small food stalls.</li>
-          <li><strong>Clothing:</strong> Lightweight breathable clothes for summers; late autumn to winter evenings can be cool.</li>
-          <li><strong>Health & Safety:</strong> Drink bottled water, carry sunscreen, and be cautious when sampling street food (choose busy stalls).</li>
+      {/* SHOPPING */}
+      <section className="mb-20">
+        <h2 className="text-3xl font-bold mb-4">Shopping & Famous Markets in Jaipur</h2>
+        <ul className="list-disc pl-6 text-gray-700 text-lg space-y-2">
+          <li>Johari Bazaar – Jewelry & gemstones</li>
+          <li>Bapu Bazaar – Mojris & textiles</li>
+          <li>Tripolia Bazaar – Bangles</li>
+          <li>Chandpole Bazaar – Handicrafts</li>
         </ul>
       </section>
 
       {/* FOOD */}
-      <section id="food" className="mb-14">
-        <h2 className="text-2xl font-semibold mb-4">Where to eat — Rajasthani food highlights</h2>
-        <p className="text-gray-700 mb-4">
-          Try local specialities like Laal Maas (spicy mutton curry), Dal Baati Churma, Ghevar (sweet), and kachoris. Popular dining areas: MI Road, C Scheme, and old city lanes near the bazaars.
+      <section className="mb-20">
+        <h2 className="text-3xl font-bold mb-4">Food & Cuisine of Jaipur</h2>
+        <p className="text-gray-700 text-lg leading-relaxed">
+          Jaipur is famous for authentic Rajasthani cuisine. Must-try dishes
+          include Dal Baati Churma, Laal Maas, Gatte ki Sabzi, Ker Sangri,
+          Pyaaz Kachori, and Ghewar.
         </p>
       </section>
 
-      {/* NEARBY TRIPS */}
-      <section className="mb-14">
-        <h2 className="text-2xl font-semibold mb-4">Nearby trips</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700">
-          <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="text-lg font-semibold">Pushkar</h3>
-            <p className="mt-2">Famous for the Pushkar lake and Brahma temple (3–4 hours by road).</p>
-          </div>
-          <div className="bg-white rounded-lg shadow p-6">
-            <h3 className="text-lg font-semibold">Sambhar Salt Lake / Samode</h3>
-            <p className="mt-2">Lesser-known escapes for heritage hotels and quiet countryside drives.</p>
-          </div>
-        </div>
+      {/* ITINERARY */}
+      <section className="mb-20">
+        <h2 className="text-3xl font-bold mb-4">Perfect Jaipur 3-Day Itinerary</h2>
+        <ul className="list-disc pl-6 text-gray-700 text-lg space-y-2">
+          <li>Day 1: City Palace, Jantar Mantar, Hawa Mahal, Shopping</li>
+          <li>Day 2: Amber Fort, Jaigarh Fort, Nahargarh Fort</li>
+          <li>Day 3: Albert Hall Museum, Food tour, Leisure</li>
+        </ul>
       </section>
 
-      {/* FAQ — inline for users */}
-      <section id="faq" className="mb-20">
-        <h2 className="text-2xl font-semibold mb-6">Frequently asked questions</h2>
-
-        <div className="space-y-4">
-          <details className="bg-white rounded-lg shadow p-4">
-            <summary className="font-medium">When is the best time to visit Jaipur?</summary>
-            <p className="mt-2 text-gray-700">October to March is ideal — pleasant temperatures and festival season.</p>
-          </details>
-
-          <details className="bg-white rounded-lg shadow p-4">
-            <summary className="font-medium">How much should I budget?</summary>
-            <p className="mt-2 text-gray-700">Budget depends on style: budget travellers (₹1500–₹3000/day), midrange (₹3000–₹7000/day), luxury much higher.</p>
-          </details>
-
-          <details className="bg-white rounded-lg shadow p-4">
-            <summary className="font-medium">Do I need advance tickets for attractions?</summary>
-            <p className="mt-2 text-gray-700">Amber Fort, City Palace and some museums have ticket counters and online booking — buy online for peak season to skip queues.</p>
-          </details>
-        </div>
+      {/* SAFETY */}
+      <section className="bg-green-50 p-8 rounded-xl mb-20">
+        <h2 className="text-2xl font-semibold mb-4">Is Jaipur Safe for Tourists?</h2>
+        <p className="text-gray-700 text-lg">
+          Jaipur is generally safe for families, solo travelers, and women.
+          Avoid isolated areas at night, use trusted cabs, and be cautious
+          with street vendors near tourist spots.
+        </p>
       </section>
 
-      {/* CTA */}
-      <section className="mb-12 text-center">
-        <p className="text-gray-700 mb-4">Planning a trip? BharatMile can help with local tours, guides, and curated experiences.</p>
-        <a href={`${siteUrl}/contact`} className="inline-block bg-pink-600 text-white px-6 py-3 rounded-md">
-          Contact BharatMile
-        </a>
+      {/* NEARBY */}
+      <section className="mb-20">
+        <h2 className="text-3xl font-bold mb-4">Nearby Places from Jaipur</h2>
+        <ul className="list-disc pl-6 text-gray-700 text-lg space-y-2">
+          <li>Pushkar & Ajmer – 2.5 hrs</li>
+          <li>Ranthambore – 3.5 hrs</li>
+          <li>Alwar & Sariska – 3 hrs</li>
+        </ul>
       </section>
 
-      <footer className="text-sm text-gray-500">
-        <p>Last updated: {new Date().toLocaleDateString()}</p>
-      </footer>
+      {/* INTERNAL LINKS */}
+      <section className="bg-white p-8 rounded-xl shadow">
+        <h2 className="text-3xl font-bold mb-6">
+          Explore More Rajasthan Destinations
+        </h2>
+        <ul className="grid md:grid-cols-2 gap-4 text-lg">
+          <li><a href="/city/ranthambore" className="text-green-700 font-semibold">Ranthambore Travel Guide</a></li>
+          <li><a href="/city/jaisalmer" className="text-green-700 font-semibold">Jaisalmer Travel Guide</a></li>
+          <li><a href="/city/udaipur" className="text-green-700 font-semibold">Udaipur Travel Guide</a></li>
+          <li><a href="/city/pushkar" className="text-green-700 font-semibold">Pushkar Travel Guide</a></li>
+        </ul>
+      </section>
+
     </main>
   );
 }
+

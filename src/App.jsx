@@ -12,6 +12,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import LeadCapturePopup from './components/LeadCapturePopup';
+import WhatsAppFloat from "./components/WhatsAppFloat.jsx";
 // City Pages
 import Udaipur from "./citys/Udaipur";
 import Jaipur from "./citys/Jaipur.jsx";
@@ -126,6 +127,7 @@ export default function App() {
 
         </Routes>
       </main>
+      <WhatsAppFloat />
 
       <Footer />
     </BrowserRouter>
