@@ -5,7 +5,7 @@ export default function WhatsAppFloat() {
 
   return (
     <a
-      href={`https://wa.me/919257143175?text=${message}`}
+      href={`https://wa.me/919636974688?text=${message}`}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed right-5 bottom-6 z-[9999] bg-green-500 p-3 rounded-full shadow-lg hover:scale-110 transition"
