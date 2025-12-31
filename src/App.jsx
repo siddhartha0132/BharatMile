@@ -1,21 +1,23 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { lazy, Suspense } from "react";
+import { Suspense, lazy } from "react";
 
-// Core Pages (lazy loaded)
-const Home = lazy(() => import("./pages/Home"));
-const About = lazy(() => import("./pages/About"));
-const Contact = lazy(() => import("./pages/Contact"));
-const City = lazy(() => import("./pages/City"));
-const Blogs = lazy(() => import("./pages/Blogs"));
+// 🔹 Critical pages (keep eager)
+import Home from "./pages/Home";
+import City from "./pages/City";
+import Blogs from "./pages/Blogs";
 
-// Layout
+// 🔹 Layout
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import LeadCapturePopup from "./components/LeadCapturePopup";
 import WhatsAppFloat from "./components/WhatsAppFloat.jsx";
 
-// City Pages (lazy)
+// 🔹 Lazy loaded pages (performance boost)
+const About = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
+
+// 🔹 Cities
 const Udaipur = lazy(() => import("./citys/Udaipur"));
 const Jaipur = lazy(() => import("./citys/Jaipur.jsx"));
 const Ranthambore = lazy(() => import("./citys/Ranthambore"));
@@ -25,7 +27,7 @@ const Jaisalmer = lazy(() => import("./citys/Jaisalmer"));
 const Jawai = lazy(() => import("./citys/Jawai"));
 const Ranchi = lazy(() => import("./citys/Ranchi"));
 
-// Blogs (lazy)
+// 🔹 Blogs
 const Top10places = lazy(() => import("./blogs/Top10places"));
 const Theultimate2week = lazy(() => import("./blogs/Theultimate2week"));
 const Besttimevisit = lazy(() => import("./blogs/Besttimevisit"));
@@ -67,17 +69,22 @@ export default function App() {
       <ScrollToTop />
       <LeadCapturePopup />
 
-      <main className="min-h-screen pt-20">
-        <Suspense fallback={<div className="text-center py-10">Loading…</div>}>
+      {/* fallback prevents blank screens */}
+      <Suspense fallback={<div className="pt-24 text-center">Loading…</div>}>
 
+        <main className="min-h-screen pt-20">
           <Routes>
+
+            {/* Eager loaded important routes */}
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
             <Route path="/city" element={<City />} />
             <Route path="/blogs" element={<Blogs />} />
+
+            {/* Lazy basic pages */}
+            <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
 
-            {/* City */}
+            {/* City Routes */}
             <Route path="/city/jaipur" element={<Jaipur />} />
             <Route path="/city/udaipur" element={<Udaipur />} />
             <Route path="/city/ranthambore" element={<Ranthambore />} />
@@ -96,11 +103,8 @@ export default function App() {
             <Route path="/spiti-valley-middle-land" element={<SpitiValley />} />
             <Route path="/varanasi-ghats-spiritual-journey" element={<VaranasiGhats />} />
             <Route path="/rishikesh-yoga-rafting-peace" element={<Rishikesh />} />
-
             <Route path="/jaisalmer-desert-camping" element={<JaisalmerCamping />} />
             <Route path="/bhangarh-fort-haunted-history" element={<BhangarhFort />} />
-
-            {/* More blog routes */}
             <Route path="/blogs/kerala-backwaters" element={<KeralaBackWater />} />
             <Route path="/blogs/hampi-ruins-empire" element={<HampiEmpire />} />
             <Route path="/blogs/pondicherry-french-town" element={<Pondicherry />} />
@@ -124,10 +128,10 @@ export default function App() {
             <Route path="/valley-of-flowers-monsoon-trekking" element={<ValleyFlowers />} />
             <Route path="/blogs/sundarbans-mangrove-safari" element={<Mangrove />} />
             <Route path="/blogs/packing-list-india" element={<PackingList />} />
-          </Routes>
 
-        </Suspense>
-      </main>
+          </Routes>
+        </main>
+      </Suspense>
 
       <WhatsAppFloat />
       <Footer />

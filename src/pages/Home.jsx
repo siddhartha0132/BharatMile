@@ -10,7 +10,7 @@ import {
 
 import { Link } from "react-router-dom";
 
-// WEBP / JPG IMAGES  (keeping exactly as you wrote)
+// WEBP / JPG IMAGES
 import HeroBannerImage from "../assets/HeroBannerImagel.webp";
 import jaipur from "../assets/jaipur.jpg";
 import udaipur from "../assets/udaipur.jpg";
@@ -37,21 +37,9 @@ export default function Home() {
   }, []);
 
   const features = [
-    {
-      icon: Award,
-      title: "Curated Experiences",
-      description: "Handpicked travel experiences with cultural depth.",
-    },
-    {
-      icon: Briefcase,
-      title: "Local Expert Guides",
-      description: "Trusted local guides who know every hidden gem.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Safe & Secure Booking",
-      description: "Protected bookings with complete transparency.",
-    },
+    { icon: Award, title: "Curated Experiences", description: "Handpicked travel experiences with cultural depth." },
+    { icon: Briefcase, title: "Local Expert Guides", description: "Trusted local guides who know every hidden gem." },
+    { icon: ShieldCheck, title: "Safe & Secure Booking", description: "Protected bookings with complete transparency." },
   ];
 
   const popularCities = [
@@ -75,14 +63,23 @@ export default function Home() {
   return (
     <div className="w-full bg-gray-50">
 
-      {/* ⭐ HERO SECTION — restored background concept */}
-      <section
-        className="relative h-[80vh] md:h-[95vh] bg-cover bg-center flex items-center justify-center text-white"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)), url(${HeroBannerImage})`,
-        }}
-      >
-        <div className="text-center px-6 max-w-3xl">
+      {/* ⭐ HERO SECTION — CLEAR + NOT BLUR + LCP FRIENDLY */}
+      <section className="relative h-[80vh] md:h-[95vh] flex items-center justify-center text-white overflow-hidden">
+
+        {/* LCP hero image */}
+        <img
+          src={HeroBannerImage}
+          alt="Explore Incredible India"
+          className="absolute inset-0 w-full h-full object-cover "
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+
+        {/* dark overlay for readability */}
+        <div className="absolute inset-0 bg-black/60 -z-0" />
+
+        <div className="relative z-10 text-center px-6 max-w-3xl">
           <h1 className="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
             Explore Incredible India with BharatMile
           </h1>
@@ -246,6 +243,7 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
     </div>
   );
 }
