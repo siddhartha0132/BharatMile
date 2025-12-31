@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from 'react';
-import logo from '../assets/BharatMile-Logo.webp';
+import logo from '../assets/BharatMile-Logo.jpg';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

@@ -10,25 +10,20 @@ import {
 
 import { Link } from "react-router-dom";
 
-// WEBP IMAGES
-import HeroBannerImage from "../assets/HeroBannerImage1.webp";
-import jaipur from "../assets/jaipur.webp";
-import udaipur from "../assets/udaipur.webp";
-import delhi from "../assets/delhi.webp";
-import TajMahal from "../assets/taj-mahal.webp";
-import Water from "../assets/keralaBackWater.webp";
+// WEBP / JPG IMAGES  (keeping exactly as you wrote)
+import HeroBannerImage from "../assets/HeroBannerImagel.webp";
+import jaipur from "../assets/jaipur.jpg";
+import udaipur from "../assets/udaipur.jpg";
+import delhi from "../assets/delhi.jpg";
+import TajMahal from "../assets/taj-mahal.jpg";
+import Water from "../assets/keralaBackWaterl.webp";
 import temple from "../assets/goldentemple.webp";
 
-/* ---------------------------------------------------- */
 const CITIES_PAGE_LINK = "/city";
 const WHATSAPP_NUMBER = "919636974688";
-/* ---------------------------------------------------- */
 
 export default function Home() {
 
-  /* ---------------------------------------------------- */
-  /* 🔥 SEO UPDATE FOR HOME PAGE (React 19 SAFE) */
-  /* ---------------------------------------------------- */
   useEffect(() => {
     document.title =
       "BharatMile — Explore Incredible India | Travel Guides & Tours";
@@ -41,9 +36,6 @@ export default function Home() {
       );
   }, []);
 
-  /* ---------------------------------------------------- */
-  /* FEATURES */
-  /* ---------------------------------------------------- */
   const features = [
     {
       icon: Award,
@@ -62,46 +54,40 @@ export default function Home() {
     },
   ];
 
-  /* POPULAR CITIES */
   const popularCities = [
     { name: "Jaipur", image: jaipur, description: "The vibrant Pink City.", link: "/city/jaipur" },
     { name: "Udaipur", image: udaipur, description: "The romantic City of Lakes.", link: "/city/udaipur" },
     { name: "Delhi", image: delhi, description: "India’s historical capital.", link: "/city/delhi" },
   ];
 
-  /* EXPERIENCES */
   const experiences = [
     { name: "Taj Mahal Sunrise Tour", location: "Agra", image: TajMahal, link: "/top-10-places-to-visit-in-india" },
     { name: "Kerala Backwaters Cruise", location: "Alleppey", image: Water, link: "/blogs/kerala-backwaters" },
     { name: "Golden Temple Visit", location: "Amritsar", image: temple, link: "/blogs/amritsar-golden-temple-langar" },
   ];
 
-  /* TESTIMONIALS */
   const testimonials = [
     { quote: "“BharatMile made our Rajasthan trip unforgettable.”", name: "Priya & Rohan", location: "Mumbai" },
     { quote: "“The Kerala Backwaters experience was magical!”", name: "Anil Kumar", location: "Bangalore" },
     { quote: "“I felt safe traveling solo in Delhi with BharatMile.”", name: "Sarah J.", location: "New York" },
   ];
 
-  /* ---------------------------------------------------- */
   return (
     <div className="w-full bg-gray-50">
 
-      {/* ---------------------------------------------------- */}
-      {/* HERO */}
-      {/* ---------------------------------------------------- */}
-
+      {/* ⭐ HERO SECTION — restored background concept */}
       <section
-        className="h-[80vh] md:h-[95vh] bg-cover bg-center flex items-center justify-center text-white relative"
-        style={{ backgroundImage: `url(${HeroBannerImage})` }}
+        className="relative h-[80vh] md:h-[95vh] bg-cover bg-center flex items-center justify-center text-white"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)), url(${HeroBannerImage})`,
+        }}
       >
-        <div className="absolute inset-0 bg-black/60" />
-
-        <div className="relative z-10 text-center px-4">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
+        <div className="text-center px-6 max-w-3xl">
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
             Explore Incredible India with BharatMile
           </h1>
-          <p className="text-lg md:text-xl mb-10 opacity-90">
+
+          <p className="text-lg md:text-xl mb-10 opacity-95">
             Travel guides, curated tours, and cultural experiences — all in one place.
           </p>
 
@@ -115,7 +101,7 @@ export default function Home() {
 
             <button
               onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}`)}
-              className="bg-white/20 border border-white/40 backdrop-blur-md px-8 py-3 rounded-lg hover:bg-white/30 transition shadow-lg flex items-center text-lg"
+              className="bg-white/20 border border-white/30 px-8 py-3 rounded-lg hover:bg-white/30 transition shadow-lg backdrop-blur-sm flex items-center text-lg"
             >
               <Phone className="mr-2" size={20} />
               Contact Us
@@ -124,10 +110,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---------------------------------------------------- */}
       {/* WHY CHOOSE US */}
-      {/* ---------------------------------------------------- */}
-
       <section className="max-w-6xl mx-auto py-20 px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">
           Why Travel with BharatMile?
@@ -150,10 +133,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---------------------------------------------------- */}
       {/* POPULAR CITIES */}
-      {/* ---------------------------------------------------- */}
-
       <section className="bg-gray-100 py-20">
         <div className="max-w-6xl mx-auto px-4">
 
@@ -172,6 +152,7 @@ export default function Home() {
                   src={city.image}
                   alt={city.name}
                   loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-110 transition"
                 />
 
@@ -187,10 +168,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---------------------------------------------------- */}
       {/* EXPERIENCES */}
-      {/* ---------------------------------------------------- */}
-
       <section className="max-w-6xl mx-auto py-20 px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           Unforgettable Experiences
@@ -198,14 +176,12 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {experiences.map((exp) => (
-            <div
-              key={exp.name}
-              className="bg-white rounded-xl shadow-lg overflow-hidden group"
-            >
+            <div key={exp.name} className="bg-white rounded-xl shadow-lg overflow-hidden group">
               <img
                 src={exp.image}
                 alt={exp.name}
                 loading="lazy"
+                decoding="async"
                 className="h-56 w-full object-cover group-hover:scale-110 transition"
               />
 
@@ -228,10 +204,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---------------------------------------------------- */}
       {/* TESTIMONIALS */}
-      {/* ---------------------------------------------------- */}
-
       <section className="bg-blue-600 text-white py-20">
         <div className="max-w-6xl mx-auto px-4">
 
@@ -241,10 +214,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((t, i) => (
-              <div
-                key={i}
-                className="bg-white/10 p-6 rounded-xl backdrop-blur-md shadow-lg"
-              >
+              <div key={i} className="bg-white/10 p-6 rounded-xl backdrop-blur-md shadow-lg">
                 <div className="flex text-yellow-300 mb-4">
                   {[1, 2, 3, 4, 5].map((star) => <Star key={star} size={20} />)}
                 </div>
@@ -258,10 +228,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---------------------------------------------------- */}
       {/* FINAL CTA */}
-      {/* ---------------------------------------------------- */}
-
       <section className="bg-gray-900 text-white py-20 text-center">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">

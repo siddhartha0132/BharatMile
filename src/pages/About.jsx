@@ -35,48 +35,24 @@ export default function About() {
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-teal-100 rounded-full blur-3xl opacity-50 translate-x-1/3 translate-y-1/3"></div>
       </div>
 
-      {/* OUR STORY */}
-      <div className="max-w-7xl mx-auto px-6 py-16 md:py-24">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+      {/* OUR STORY – text only now */}
+      <div className="max-w-4xl mx-auto px-6 py-16 md:py-24 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">
+          We Bridge the Gap Between <br />
+          <span className="text-indigo-600">Tourist and Traveler</span>
+        </h2>
 
-          <div className="relative">
-            <div className="aspect-[4/3] bg-slate-200 rounded-2xl overflow-hidden shadow-xl flex items-center justify-center group">
-              <img 
-                src="/path-to-your-team-or-scenery-photo.jpg"
-                alt="Traveling in India"
-                className="w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-700 absolute z-10"
-              />
-              <span className="text-slate-400 font-medium z-0">
-                Add Photo: Team or Landscape (600x800)
-              </span>
-            </div>
+        <p className="text-slate-600 mb-6 leading-relaxed">
+          India is vast, chaotic, and beautiful. BharatMile was created to help travelers find authentic, trusted, and unforgettable experiences with ease.
+        </p>
 
-            <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-lg hidden md:block border border-indigo-100">
-              <p className="text-4xl font-bold text-indigo-600">100+</p>
-              <p className="text-sm text-slate-500 font-medium">Curated Destinations</p>
-            </div>
-          </div>
+        <p className="text-slate-600 mb-8 leading-relaxed">
+          From Rajasthan’s deserts to Kerala’s backwaters, we bring you insights, guides, routes, safety tips, and hidden gems — all verified and updated.
+        </p>
 
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">
-              We Bridge the Gap Between <br />
-              <span className="text-indigo-600">Tourist and Traveler</span>
-            </h2>
-
-            <p className="text-slate-600 mb-6 leading-relaxed">
-              India is vast, chaotic, and beautiful. BharatMile was created to help travelers find authentic, trusted, and unforgettable experiences with ease.
-            </p>
-
-            <p className="text-slate-600 mb-8 leading-relaxed">
-              From Rajasthan’s deserts to Kerala’s backwaters, we bring you insights, guides, routes, safety tips, and hidden gems — all verified and updated.
-            </p>
-
-            <button className="flex items-center gap-2 text-indigo-600 font-bold hover:gap-4 transition-all">
-              Read Our Full Story <ArrowRight size={20} />
-            </button>
-          </div>
-
-        </div>
+        <button className="flex items-center gap-2 text-indigo-600 font-bold hover:gap-4 transition-all mx-auto">
+          Read Our Full Story <ArrowRight size={20} />
+        </button>
       </div>
 
       {/* VALUES / WHY CHOOSE US */}
@@ -92,7 +68,6 @@ export default function About() {
 
           <div className="grid md:grid-cols-3 gap-8">
 
-            {/* CARD 1 */}
             <div className="p-8 rounded-2xl bg-slate-800 border border-slate-700 hover:border-indigo-500 transition-colors group">
               <div className="w-12 h-12 bg-indigo-600/20 rounded-lg flex items-center justify-center text-indigo-400 mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-all">
                 <ShieldCheck size={24} />
@@ -103,7 +78,6 @@ export default function About() {
               </p>
             </div>
 
-            {/* CARD 2 */}
             <div className="p-8 rounded-2xl bg-slate-800 border border-slate-700 hover:border-indigo-500 transition-colors group">
               <div className="w-12 h-12 bg-indigo-600/20 rounded-lg flex items-center justify-center text-indigo-400 mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-all">
                 <Heart size={24} />
@@ -114,7 +88,6 @@ export default function About() {
               </p>
             </div>
 
-            {/* CARD 3 */}
             <div className="p-8 rounded-2xl bg-slate-800 border border-slate-700 hover:border-indigo-500 transition-colors group">
               <div className="w-12 h-12 bg-indigo-600/20 rounded-lg flex items-center justify-center text-indigo-400 mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-all">
                 <Users size={24} />

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Phone, Mail, MapPin, Send, MessageSquare, Clock, Globe } from "lucide-react";
+// Updated MessageSquare to MessageCircle for the chat support icon
+import { Phone, Mail, MapPin, Send, MessageCircle, Clock, Globe } from "lucide-react";
 
 const GOOGLE_FORM_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSc6-tbU7hRQeYUyDlaM2pMaH-5oNemq5A9q7b1nOCKAwGZu2w/formResponse";
@@ -80,7 +81,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-slate-500 font-medium">Email Us</p>
-                  <p className="text-slate-900 font-semibold">hello@bharatmile.com</p>
+                  {/* Updated Email */}
+                  <p className="text-slate-900 font-semibold">info@bharatmile.com</p>
                 </div>
               </div>
 
@@ -134,7 +136,8 @@ export default function Contact() {
                         target: { name: "fullName", value: e.target.value },
                       })
                     }
-                    className="w-full p-3 rounded-lg bg-slate-50 border"
+                    className="w-full p-3 rounded-lg bg-slate-50 border focus:ring-2 focus:ring-indigo-500 outline-none"
+                    required
                   />
                 </div>
 
@@ -151,7 +154,8 @@ export default function Contact() {
                         target: { name: "subject", value: e.target.value },
                       })
                     }
-                    className="w-full p-3 rounded-lg bg-slate-50 border"
+                    className="w-full p-3 rounded-lg bg-slate-50 border focus:ring-2 focus:ring-indigo-500 outline-none"
+                    required
                   />
                 </div>
               </div>
@@ -169,7 +173,8 @@ export default function Contact() {
                       target: { name: "phoneNumber", value: e.target.value },
                     })
                   }
-                  className="w-full p-3 rounded-lg bg-slate-50 border"
+                  className="w-full p-3 rounded-lg bg-slate-50 border focus:ring-2 focus:ring-indigo-500 outline-none"
+                  required
                 />
               </div>
 
@@ -186,17 +191,18 @@ export default function Contact() {
                       target: { name: "message", value: e.target.value },
                     })
                   }
-                  className="w-full p-3 rounded-lg bg-slate-50 border"
+                  className="w-full p-3 rounded-lg bg-slate-50 border focus:ring-2 focus:ring-indigo-500 outline-none"
+                  required
                 ></textarea>
               </div>
 
-              <button className="w-full bg-indigo-600 text-white py-4 rounded-lg flex justify-center items-center gap-2">
+              <button className="w-full bg-indigo-600 hover:bg-indigo-700 transition-colors text-white py-4 rounded-lg flex justify-center items-center gap-2">
                 {status === "sending" ? "Sending..." : "Send Message"}
                 <Send size={18} />
               </button>
 
               {status === "success" && (
-                <p className="text-green-600 text-center mt-3">
+                <p className="text-green-600 text-center mt-3 font-medium">
                   Message sent successfully!
                 </p>
               )}
@@ -214,15 +220,16 @@ export default function Contact() {
 
       {/* EXTRA INFO */}
       <div className="max-w-6xl mx-auto px-6 pb-20 grid md:grid-cols-3 gap-8">
-        <div className="bg-white p-6 rounded-2xl shadow-sm">
-          <MessageSquare size={20} className="text-green-600 mb-4" />
+        <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+          {/* Updated Chat Icon */}
+          <MessageCircle size={20} className="text-green-600 mb-4" />
           <h4 className="font-bold text-slate-900 mb-2">Chat Support</h4>
           <p className="text-slate-500 text-sm">
             Available 10 AM – 6 PM IST via WhatsApp.
           </p>
         </div>
 
-        <div className="bg-white p-6 rounded-2xl shadow-sm">
+        <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
           <Globe size={20} className="text-blue-600 mb-4" />
           <h4 className="font-bold text-slate-900 mb-2">Global Partners</h4>
           <p className="text-slate-500 text-sm">
@@ -230,7 +237,7 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="bg-white p-6 rounded-2xl shadow-sm">
+        <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
           <Clock size={20} className="text-purple-600 mb-4" />
           <h4 className="font-bold text-slate-900 mb-2">Response Time</h4>
           <p className="text-slate-500 text-sm">
