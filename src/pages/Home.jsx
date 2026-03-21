@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import {
   Award,
   Briefcase,
@@ -6,12 +6,16 @@ import {
   Star,
   ArrowRight,
   Phone,
+  MapPin,
+  ChevronDown,
+  Users,
+  Globe,
+  Compass,
 } from "lucide-react";
-
 import { Link } from "react-router-dom";
 
 // WEBP / JPG IMAGES
-import HeroBannerImage from "../assets/HeroBannerImagel.webp";
+import HeroBannerImage from "../assets/jaipur.jpeg";
 import jaipur from "../assets/jaipur.jpg";
 import udaipur from "../assets/udaipur.jpg";
 import delhi from "../assets/delhi.jpg";
@@ -22,228 +26,764 @@ import temple from "../assets/goldentemple.webp";
 const CITIES_PAGE_LINK = "/city";
 const WHATSAPP_NUMBER = "919636974688";
 
+// ── Animated counter hook ──────────────────────────────────────────────────
+function useCounter(target, duration = 2000, startOnMount = false) {
+  const [count, setCount] = useState(0);
+  const [started, setStarted] = useState(startOnMount);
+  useEffect(() => {
+    if (!started) return;
+    let start = null;
+    const step = (timestamp) => {
+      if (!start) start = timestamp;
+      const progress = Math.min((timestamp - start) / duration, 1);
+      setCount(Math.floor(progress * target));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [started, target, duration]);
+  return { count, trigger: () => setStarted(true) };
+}
+
+// ── Stat Item ─────────────────────────────────────────────────────────────
+function StatItem({ target, suffix, label, onVisible }) {
+  const { count, trigger } = useCounter(target);
+  const ref = useRef(null);
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { trigger(); obs.disconnect(); } },
+      { threshold: 0.5 }
+    );
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, []);
+  return (
+    <div ref={ref} className="stat-item">
+      <span className="stat-number">{count}{suffix}</span>
+      <span className="stat-label">{label}</span>
+    </div>
+  );
+}
+
 export default function Home() {
+  const [scrolled, setScrolled] = useState(false);
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
 
   useEffect(() => {
-    document.title =
-      "BharatMile — Explore Incredible India | Travel Guides & Tours";
-
+    document.title = "BharatMile — Explore Incredible India | Travel Guides & Tours";
     const metaDesc = document.querySelector("meta[name='description']");
     if (metaDesc)
-      metaDesc.setAttribute(
-        "content",
-        "Explore India’s top destinations with BharatMile. Detailed guides, itineraries, hidden gems, and curated cultural experiences."
-      );
+      metaDesc.setAttribute("content", "Explore India's top destinations with BharatMile. Detailed guides, itineraries, hidden gems, and curated cultural experiences.");
+
+    const handleScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Auto-rotate testimonials
+  useEffect(() => {
+    const t = setInterval(() => setActiveTestimonial(p => (p + 1) % testimonials.length), 4000);
+    return () => clearInterval(t);
   }, []);
 
   const features = [
-    { icon: Award, title: "Curated Experiences", description: "Handpicked travel experiences with cultural depth." },
-    { icon: Briefcase, title: "Local Expert Guides", description: "Trusted local guides who know every hidden gem." },
-    { icon: ShieldCheck, title: "Safe & Secure Booking", description: "Protected bookings with complete transparency." },
+    { icon: Award, title: "Curated Experiences", description: "Every itinerary is handpicked for cultural depth, authenticity, and memories that last a lifetime." },
+    { icon: Briefcase, title: "Local Expert Guides", description: "Trusted local specialists who reveal the stories behind every monument, meal, and moment." },
+    { icon: ShieldCheck, title: "Safe & Secure Booking", description: "Transparent pricing, protected payments, and 24/7 on-trip support wherever you are." },
   ];
 
   const popularCities = [
-    { name: "Jaipur", image: jaipur, description: "The vibrant Pink City.", link: "/city/jaipur" },
-    { name: "Udaipur", image: udaipur, description: "The romantic City of Lakes.", link: "/city/udaipur" },
-    { name: "Delhi", image: delhi, description: "India’s historical capital.", link: "/city/delhi" },
+    { name: "Jaipur", tag: "Rajasthan", image: jaipur, description: "The vibrant Pink City of palaces and bazaars.", link: "/city/jaipur" },
+    { name: "Udaipur", tag: "Rajasthan", image: udaipur, description: "Romance above shimmering lakes.", link: "/city/udaipur" },
+    { name: "Delhi", tag: "Capital Territory", image: delhi, description: "Seven dynasties, one boundless city.", link: "/city/delhi" },
   ];
 
   const experiences = [
-    { name: "Taj Mahal Sunrise Tour", location: "Agra", image: TajMahal, link: "/top-10-places-to-visit-in-india" },
-    { name: "Kerala Backwaters Cruise", location: "Alleppey", image: Water, link: "/blogs/kerala-backwaters" },
-    { name: "Golden Temple Visit", location: "Amritsar", image: temple, link: "/blogs/amritsar-golden-temple-langar" },
+    { name: "Taj Mahal Sunrise Tour", location: "Agra, UP", image: TajMahal, tag: "Heritage", link: "/top-10-places-to-visit-in-india" },
+    { name: "Kerala Backwaters Cruise", location: "Alleppey, Kerala", image: Water, tag: "Nature", link: "/blogs/kerala-backwaters" },
+    { name: "Golden Temple Visit", location: "Amritsar, Punjab", image: temple, tag: "Spiritual", link: "/blogs/amritsar-golden-temple-langar" },
   ];
 
   const testimonials = [
-    { quote: "“BharatMile made our Rajasthan trip unforgettable.”", name: "Priya & Rohan", location: "Mumbai" },
-    { quote: "“The Kerala Backwaters experience was magical!”", name: "Anil Kumar", location: "Bangalore" },
-    { quote: "“I felt safe traveling solo in Delhi with BharatMile.”", name: "Sarah J.", location: "New York" },
+    { quote: "BharatMile turned our Rajasthan honeymoon into something we will talk about for decades. Every detail was perfect.", name: "Priya & Rohan Mehta", location: "Mumbai", rating: 5 },
+    { quote: "The Kerala Backwaters houseboat experience was beyond magical. The guide knew every inlet and story.", name: "Anil Kumar", location: "Bangalore", rating: 5 },
+    { quote: "As a solo female traveller, I felt genuinely safe and looked after throughout Delhi. Exceptional care.", name: "Sarah J.", location: "New York", rating: 5 },
+  ];
+
+  const stats = [
+    { target: 12, suffix: "K+", label: "Happy Travellers" },
+    { target: 80, suffix: "+", label: "Destinations" },
+    { target: 15, suffix: "+", label: "Years of Experience" },
+    { target: 98, suffix: "%", label: "Satisfaction Rate" },
   ];
 
   return (
-    <div className="w-full bg-gray-50">
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap');
 
-      {/* ⭐ HERO SECTION — CLEAR + NOT BLUR + LCP FRIENDLY */}
-      <section className="relative h-[80vh] md:h-[95vh] flex items-center justify-center text-white overflow-hidden">
+        :root {
+          --sand: #f5efe6;
+          --sand-dark: #e8ddd0;
+          --terracotta: #c1644a;
+          --terracotta-dark: #a14e38;
+          --charcoal: #1c1c1e;
+          --charcoal-soft: #2d2d2f;
+          --muted: #6b6b6b;
+          --gold: #c9972a;
+          --white: #fefefe;
+          --radius: 4px;
+        }
 
-        {/* LCP hero image */}
-        <img
-          src={HeroBannerImage}
-          alt="Explore Incredible India"
-          className="absolute inset-0 w-full h-full object-cover "
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-        />
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        {/* dark overlay for readability */}
-        <div className="absolute inset-0 bg-black/60 -z-0" />
+        .bm-root {
+          font-family: 'DM Sans', sans-serif;
+          background: var(--white);
+          color: var(--charcoal);
+          overflow-x: hidden;
+        }
 
-        <div className="relative z-10 text-center px-6 max-w-3xl">
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
-            Explore Incredible India with BharatMile
-          </h1>
+        /* ── HERO ── */
+        .hero {
+          position: relative;
+          height: 100svh;
+          min-height: 600px;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          padding-bottom: 80px;
+          overflow: hidden;
+        }
+        .hero-img {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transform: scale(1.04);
+          animation: heroZoom 12s ease-out forwards;
+        }
+        @keyframes heroZoom { to { transform: scale(1); } }
 
-          <p className="text-lg md:text-xl mb-10 opacity-95">
-            Travel guides, curated tours, and cultural experiences — all in one place.
-          </p>
+        .hero-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            to top,
+            rgba(18,14,10,0.88) 0%,
+            rgba(18,14,10,0.3) 55%,
+            rgba(18,14,10,0.05) 100%
+          );
+        }
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to={CITIES_PAGE_LINK}
-              className="bg-blue-600 px-8 py-3 rounded-lg hover:bg-blue-700 transition shadow-lg flex items-center text-lg"
-            >
-              Explore Tours <ArrowRight className="ml-2" size={20} />
-            </Link>
+        .hero-badge {
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background: rgba(201,151,42,0.18);
+          border: 1px solid rgba(201,151,42,0.45);
+          color: #e8c56b;
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          padding: 6px 14px;
+          border-radius: 100px;
+          margin-bottom: 22px;
+          backdrop-filter: blur(6px);
+        }
 
-            <button
-              onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}`)}
-              className="bg-white/20 border border-white/30 px-8 py-3 rounded-lg hover:bg-white/30 transition shadow-lg backdrop-blur-sm flex items-center text-lg"
-            >
-              <Phone className="mr-2" size={20} />
-              Contact Us
-            </button>
-          </div>
-        </div>
-      </section>
+        .hero-content {
+          position: relative;
+          max-width: 900px;
+          padding: 0 32px;
+          margin: 0 auto;
+          color: #fff;
+          animation: heroFade 1s ease both 0.2s;
+        }
+        @keyframes heroFade { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:none; } }
 
-      {/* WHY CHOOSE US */}
-      <section className="max-w-6xl mx-auto py-20 px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">
-          Why Travel with BharatMile?
-        </h2>
+        .hero-title {
+          font-family: 'Cormorant Garamond', serif;
+          font-size: clamp(3rem, 7vw, 6rem);
+          font-weight: 600;
+          line-height: 1.08;
+          margin-bottom: 20px;
+          letter-spacing: -0.01em;
+        }
+        .hero-title em {
+          font-style: italic;
+          color: #e8c56b;
+        }
+        .hero-sub {
+          font-size: 1.05rem;
+          color: rgba(255,255,255,0.78);
+          max-width: 520px;
+          line-height: 1.7;
+          margin-bottom: 36px;
+          font-weight: 300;
+        }
+        .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
-        <p className="text-gray-600 text-center max-w-2xl mx-auto mb-14">
-          Experience India with trusted local experts, curated destinations, and seamless travel planning.
-        </p>
+        .btn-primary {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background: var(--terracotta);
+          color: #fff;
+          padding: 14px 28px;
+          border-radius: var(--radius);
+          font-weight: 600;
+          font-size: 0.92rem;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          text-decoration: none;
+          border: none;
+          cursor: pointer;
+          transition: background 0.22s, transform 0.18s;
+        }
+        .btn-primary:hover { background: var(--terracotta-dark); transform: translateY(-2px); }
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {features.map((f) => (
-            <div key={f.title} className="bg-white p-8 rounded-xl shadow-lg text-center">
-              <div className="inline-block p-5 bg-blue-100 text-blue-600 rounded-full mb-5">
-                <f.icon size={34} />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">{f.title}</h3>
-              <p className="text-gray-600">{f.description}</p>
+        .btn-ghost {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background: transparent;
+          border: 1.5px solid rgba(255,255,255,0.5);
+          color: #fff;
+          padding: 14px 28px;
+          border-radius: var(--radius);
+          font-weight: 500;
+          font-size: 0.92rem;
+          cursor: pointer;
+          backdrop-filter: blur(8px);
+          transition: border-color 0.2s, background 0.2s, transform 0.18s;
+        }
+        .btn-ghost:hover { border-color: #fff; background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+
+        .hero-scroll {
+          position: absolute;
+          bottom: 28px;
+          left: 50%;
+          transform: translateX(-50%);
+          color: rgba(255,255,255,0.5);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 6px;
+          font-size: 10px;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          animation: bounce 2s infinite;
+        }
+        @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+
+        /* ── STATS STRIP ── */
+        .stats-strip {
+          background: var(--charcoal);
+          padding: 36px 0;
+        }
+        .stats-inner {
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 0 32px;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 0;
+        }
+        .stat-item {
+          text-align: center;
+          padding: 12px 0;
+          border-right: 1px solid rgba(255,255,255,0.08);
+        }
+        .stat-item:last-child { border-right: none; }
+        .stat-number {
+          display: block;
+          font-family: 'Cormorant Garamond', serif;
+          font-size: 2.8rem;
+          font-weight: 600;
+          color: #e8c56b;
+          line-height: 1;
+          margin-bottom: 6px;
+        }
+        .stat-label {
+          font-size: 0.75rem;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.5);
+        }
+
+        /* ── SECTION COMMONS ── */
+        .section-eyebrow {
+          display: inline-block;
+          font-size: 10px;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          font-weight: 700;
+          color: var(--terracotta);
+          margin-bottom: 14px;
+        }
+        .section-title {
+          font-family: 'Cormorant Garamond', serif;
+          font-size: clamp(2rem, 4vw, 3rem);
+          font-weight: 600;
+          line-height: 1.15;
+          color: var(--charcoal);
+          margin-bottom: 16px;
+        }
+        .section-body {
+          color: var(--muted);
+          line-height: 1.75;
+          font-size: 0.95rem;
+          max-width: 520px;
+        }
+
+        /* ── WHY US ── */
+        .why-section {
+          background: var(--sand);
+          padding: 100px 32px;
+        }
+        .why-inner { max-width: 1100px; margin: 0 auto; }
+        .why-header {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 60px;
+          align-items: end;
+          margin-bottom: 70px;
+        }
+        .why-cards {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 2px;
+        }
+        .why-card {
+          background: var(--white);
+          padding: 40px 32px;
+          transition: transform 0.25s;
+        }
+        .why-card:hover { transform: translateY(-6px); }
+        .why-icon {
+          width: 52px;
+          height: 52px;
+          border-radius: 50%;
+          background: #f5ebe0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 24px;
+          color: var(--terracotta);
+        }
+        .why-card h3 {
+          font-family: 'Cormorant Garamond', serif;
+          font-size: 1.35rem;
+          font-weight: 600;
+          margin-bottom: 12px;
+        }
+        .why-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+
+        /* ── CITIES ── */
+        .cities-section {
+          background: var(--white);
+          padding: 100px 32px;
+        }
+        .cities-inner { max-width: 1100px; margin: 0 auto; }
+        .cities-header { margin-bottom: 56px; }
+        .cities-grid {
+          display: grid;
+          grid-template-columns: 1.6fr 1fr 1fr;
+          grid-template-rows: 500px;
+          gap: 3px;
+        }
+        .city-card {
+          position: relative;
+          overflow: hidden;
+          text-decoration: none;
+          display: block;
+        }
+        .city-card:first-child { grid-row: span 1; }
+        .city-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+        }
+        .city-card:hover .city-img { transform: scale(1.07); }
+        .city-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 55%);
+        }
+        .city-info {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          padding: 28px 24px;
+          color: #fff;
+          transform: translateY(8px);
+          transition: transform 0.3s;
+        }
+        .city-card:hover .city-info { transform: none; }
+        .city-tag {
+          font-size: 9px;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.65);
+          margin-bottom: 6px;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+        .city-name {
+          font-family: 'Cormorant Garamond', serif;
+          font-size: 1.9rem;
+          font-weight: 600;
+          line-height: 1.1;
+          margin-bottom: 6px;
+        }
+        .city-card:first-child .city-name { font-size: 2.8rem; }
+        .city-desc { font-size: 0.8rem; color: rgba(255,255,255,0.75); }
+
+        /* ── EXPERIENCES ── */
+        .exp-section {
+          background: var(--charcoal);
+          padding: 100px 32px;
+        }
+        .exp-inner { max-width: 1100px; margin: 0 auto; }
+        .exp-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+          margin-bottom: 56px;
+        }
+        .exp-header .section-title { color: #fff; margin-bottom: 0; }
+        .exp-header .section-eyebrow { color: #e8c56b; }
+        .link-all {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 0.82rem;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.5);
+          text-decoration: none;
+          transition: color 0.2s;
+        }
+        .link-all:hover { color: #e8c56b; }
+        .exp-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 20px;
+        }
+        .exp-card {
+          background: var(--charcoal-soft);
+          border-radius: 2px;
+          overflow: hidden;
+          display: block;
+          text-decoration: none;
+          transition: transform 0.25s;
+        }
+        .exp-card:hover { transform: translateY(-6px); }
+        .exp-img-wrap { position: relative; height: 220px; overflow: hidden; }
+        .exp-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s;
+        }
+        .exp-card:hover .exp-img { transform: scale(1.08); }
+        .exp-tag-pill {
+          position: absolute;
+          top: 14px;
+          left: 14px;
+          background: rgba(201,151,42,0.88);
+          color: #fff;
+          font-size: 9px;
+          font-weight: 700;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          padding: 5px 10px;
+          border-radius: 100px;
+        }
+        .exp-body { padding: 24px; }
+        .exp-loc {
+          font-size: 0.75rem;
+          color: rgba(255,255,255,0.4);
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          margin-bottom: 8px;
+          letter-spacing: 0.04em;
+        }
+        .exp-name {
+          font-family: 'Cormorant Garamond', serif;
+          font-size: 1.3rem;
+          font-weight: 600;
+          color: #fff;
+          margin-bottom: 16px;
+        }
+        .exp-link {
+          font-size: 0.78rem;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: #e8c56b;
+          display: inline-flex;
+          align-items: center;
+          gap: 5px;
+          font-weight: 600;
+        }
+
+        /* ── TESTIMONIALS ── */
+        .testi-section {
+          background: var(--sand);
+          padding: 100px 32px;
+        }
+        .testi-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+        .testi-slider { position: relative; min-height: 200px; margin-bottom: 48px; }
+        .testi-slide {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          transform: translateY(16px);
+          transition: opacity 0.6s, transform 0.6s;
+          pointer-events: none;
+        }
+        .testi-slide.active { opacity: 1; transform: none; pointer-events: auto; }
+        .testi-quote {
+          font-family: 'Cormorant Garamond', serif;
+          font-size: clamp(1.3rem, 3vw, 1.85rem);
+          font-style: italic;
+          color: var(--charcoal);
+          line-height: 1.5;
+          margin-bottom: 24px;
+          max-width: 680px;
+        }
+        .testi-stars { display: flex; gap: 4px; justify-content: center; color: #c9972a; margin-bottom: 16px; }
+        .testi-author { font-weight: 600; font-size: 0.9rem; color: var(--charcoal); }
+        .testi-location { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.06em; }
+        .testi-dots { display: flex; gap: 10px; justify-content: center; }
+        .testi-dot {
+          width: 8px; height: 8px; border-radius: 50%;
+          background: var(--sand-dark);
+          border: none; cursor: pointer; padding: 0;
+          transition: background 0.3s, transform 0.3s;
+        }
+        .testi-dot.active { background: var(--terracotta); transform: scale(1.4); }
+
+        /* ── CTA ── */
+        .cta-section {
+          position: relative;
+          padding: 120px 32px;
+          overflow: hidden;
+          background: var(--charcoal);
+        }
+        .cta-pattern {
+          position: absolute;
+          inset: 0;
+          background-image: radial-gradient(circle at 20% 50%, rgba(193,100,74,0.15) 0%, transparent 50%),
+                            radial-gradient(circle at 80% 30%, rgba(201,151,42,0.1) 0%, transparent 45%);
+        }
+        .cta-inner { position: relative; max-width: 700px; margin: 0 auto; text-align: center; }
+        .cta-title {
+          font-family: 'Cormorant Garamond', serif;
+          font-size: clamp(2.4rem, 5vw, 4rem);
+          font-weight: 600;
+          color: #fff;
+          line-height: 1.12;
+          margin-bottom: 20px;
+        }
+        .cta-title span { color: #e8c56b; }
+        .cta-sub { color: rgba(255,255,255,0.55); font-size: 0.97rem; line-height: 1.7; margin-bottom: 40px; }
+        .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+          .stats-inner { grid-template-columns: repeat(2,1fr); }
+          .stat-item:nth-child(2) { border-right: none; }
+          .why-header { grid-template-columns: 1fr; gap: 24px; }
+          .why-cards { grid-template-columns: 1fr; }
+          .cities-grid { grid-template-columns: 1fr; grid-template-rows: 280px 220px 220px; }
+          .exp-grid { grid-template-columns: 1fr; }
+          .exp-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+        }
+        @media (max-width: 600px) {
+          .stats-inner { grid-template-columns: 1fr 1fr; }
+          .hero-title { font-size: 2.6rem; }
+        }
+      `}</style>
+
+      <div className="bm-root">
+
+        {/* ── HERO ─────────────────────────────────────────── */}
+        <section className="hero">
+          <img src={HeroBannerImage} alt="Explore Incredible India" className="hero-img" loading="eager" fetchPriority="high" decoding="async" />
+          <div className="hero-overlay" />
+          <div className="hero-content">
+            <div className="hero-badge">
+              <Compass size={12} />
+              India's Most Trusted Travel Agency
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* POPULAR CITIES */}
-      <section className="bg-gray-100 py-20">
-        <div className="max-w-6xl mx-auto px-4">
-
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            Popular Cities in India
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {popularCities.map((city) => (
-              <Link
-                key={city.name}
-                to={city.link}
-                className="group relative h-80 rounded-xl overflow-hidden shadow-lg"
-              >
-                <img
-                  src={city.image}
-                  alt={city.name}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover group-hover:scale-110 transition"
-                />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-
-                <div className="absolute bottom-0 p-6 text-white">
-                  <h3 className="text-2xl font-bold">{city.name}</h3>
-                  <p className="text-gray-300">{city.description}</p>
-                </div>
+            <h1 className="hero-title">
+              Discover<br /><em>Incredible</em> India
+            </h1>
+            <p className="hero-sub">
+              Expertly crafted tours, immersive cultural journeys, and seamless travel planning — from the Himalayas to the backwaters.
+            </p>
+            <div className="hero-actions">
+              <Link to={CITIES_PAGE_LINK} className="btn-primary">
+                Explore Tours <ArrowRight size={16} />
               </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* EXPERIENCES */}
-      <section className="max-w-6xl mx-auto py-20 px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          Unforgettable Experiences
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {experiences.map((exp) => (
-            <div key={exp.name} className="bg-white rounded-xl shadow-lg overflow-hidden group">
-              <img
-                src={exp.image}
-                alt={exp.name}
-                loading="lazy"
-                decoding="async"
-                className="h-56 w-full object-cover group-hover:scale-110 transition"
-              />
-
-              <div className="p-6">
-                <p className="text-blue-600 text-sm font-semibold uppercase">
-                  {exp.location}
-                </p>
-
-                <h3 className="text-xl font-semibold mb-4">{exp.name}</h3>
-
-                <Link
-                  to={exp.link}
-                  className="text-blue-600 font-semibold flex items-center hover:text-blue-800"
-                >
-                  Learn More <ArrowRight size={18} className="ml-1" />
-                </Link>
-              </div>
+              <button className="btn-ghost" onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}`)}>
+                <Phone size={16} /> Talk to an Expert
+              </button>
             </div>
-          ))}
-        </div>
-      </section>
+          </div>
+          <div className="hero-scroll">
+            <ChevronDown size={18} />
+            Scroll
+          </div>
+        </section>
 
-      {/* TESTIMONIALS */}
-      <section className="bg-blue-600 text-white py-20">
-        <div className="max-w-6xl mx-auto px-4">
-
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            What Our Travelers Say
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((t, i) => (
-              <div key={i} className="bg-white/10 p-6 rounded-xl backdrop-blur-md shadow-lg">
-                <div className="flex text-yellow-300 mb-4">
-                  {[1, 2, 3, 4, 5].map((star) => <Star key={star} size={20} />)}
-                </div>
-
-                <p className="text-lg italic mb-6">{t.quote}</p>
-                <p className="font-semibold">{t.name}</p>
-                <p className="text-sm opacity-80">{t.location}</p>
-              </div>
+        {/* ── STATS STRIP ──────────────────────────────────── */}
+        <div className="stats-strip">
+          <div className="stats-inner">
+            {stats.map((s) => (
+              <StatItem key={s.label} target={s.target} suffix={s.suffix} label={s.label} />
             ))}
           </div>
         </div>
-      </section>
 
-      {/* FINAL CTA */}
-      <section className="bg-gray-900 text-white py-20 text-center">
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready for Your Next Adventure?
-          </h2>
-          <p className="text-gray-300 mb-10 text-lg">
-            Explore curated guides, premium tours, and unforgettable experiences.
-          </p>
+        {/* ── WHY CHOOSE US ────────────────────────────────── */}
+        <section className="why-section">
+          <div className="why-inner">
+            <div className="why-header">
+              <div>
+                <span className="section-eyebrow">Why BharatMile</span>
+                <h2 className="section-title">Travel crafted with<br />care & expertise</h2>
+              </div>
+              <p className="section-body">
+                From your first enquiry to your last meal on tour, every element is designed to give you confidence, comfort, and experiences you couldn't plan alone.
+              </p>
+            </div>
+            <div className="why-cards">
+              {features.map((f) => (
+                <div key={f.title} className="why-card">
+                  <div className="why-icon"><f.icon size={22} /></div>
+                  <h3>{f.title}</h3>
+                  <p>{f.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
-          <Link
-            to={CITIES_PAGE_LINK}
-            className="bg-blue-600 px-10 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition shadow-xl"
-          >
-            Explore All Destinations
-          </Link>
-        </div>
-      </section>
+        {/* ── POPULAR CITIES ───────────────────────────────── */}
+        <section className="cities-section">
+          <div className="cities-inner">
+            <div className="cities-header">
+              <span className="section-eyebrow">Top Destinations</span>
+              <h2 className="section-title">Cities that stay<br />with you forever</h2>
+            </div>
+            <div className="cities-grid">
+              {popularCities.map((city) => (
+                <Link key={city.name} to={city.link} className="city-card">
+                  <img src={city.image} alt={city.name} loading="lazy" decoding="async" className="city-img" />
+                  <div className="city-overlay" />
+                  <div className="city-info">
+                    <div className="city-tag"><MapPin size={9} />{city.tag}</div>
+                    <div className="city-name">{city.name}</div>
+                    <div className="city-desc">{city.description}</div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
 
-    </div>
+        {/* ── EXPERIENCES ──────────────────────────────────── */}
+        <section className="exp-section">
+          <div className="exp-inner">
+            <div className="exp-header">
+              <div>
+                <span className="section-eyebrow">Signature Journeys</span>
+                <h2 className="section-title">Unforgettable<br />Experiences</h2>
+              </div>
+              <Link to={CITIES_PAGE_LINK} className="link-all">
+                View all <ArrowRight size={14} />
+              </Link>
+            </div>
+            <div className="exp-grid">
+              {experiences.map((exp) => (
+                <Link key={exp.name} to={exp.link} className="exp-card">
+                  <div className="exp-img-wrap">
+                    <img src={exp.image} alt={exp.name} loading="lazy" decoding="async" className="exp-img" />
+                    <span className="exp-tag-pill">{exp.tag}</span>
+                  </div>
+                  <div className="exp-body">
+                    <div className="exp-loc"><MapPin size={10} />{exp.location}</div>
+                    <div className="exp-name">{exp.name}</div>
+                    <span className="exp-link">Explore <ArrowRight size={12} /></span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── TESTIMONIALS ─────────────────────────────────── */}
+        <section className="testi-section">
+          <div className="testi-inner">
+            <span className="section-eyebrow">Traveller Stories</span>
+            <h2 className="section-title">What our guests say</h2>
+            <div className="testi-slider" style={{ minHeight: 220 }}>
+              {testimonials.map((t, i) => (
+                <div key={i} className={`testi-slide ${i === activeTestimonial ? "active" : ""}`}>
+                  <div className="testi-stars">
+                    {Array.from({ length: t.rating }).map((_, s) => <Star key={s} size={16} fill="currentColor" />)}
+                  </div>
+                  <p className="testi-quote">"{t.quote}"</p>
+                  <p className="testi-author">{t.name}</p>
+                  <p className="testi-location">{t.location}</p>
+                </div>
+              ))}
+            </div>
+            <div className="testi-dots">
+              {testimonials.map((_, i) => (
+                <button key={i} className={`testi-dot ${i === activeTestimonial ? "active" : ""}`} onClick={() => setActiveTestimonial(i)} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── FINAL CTA ────────────────────────────────────── */}
+        <section className="cta-section">
+          <div className="cta-pattern" />
+          <div className="cta-inner">
+            <span className="section-eyebrow" style={{ color: "#e8c56b" }}>Start Your Journey</span>
+            <h2 className="cta-title">
+              Your next adventure<br />
+              begins <span>right here</span>
+            </h2>
+            <p className="cta-sub">
+              From a weekend escape to a three-week expedition — we handle every detail so you can focus on the wonder.
+            </p>
+            <div className="cta-actions">
+              <Link to={CITIES_PAGE_LINK} className="btn-primary">
+                Explore All Destinations <ArrowRight size={16} />
+              </Link>
+              <button className="btn-ghost" onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}`)}>
+                <Phone size={16} /> Chat on WhatsApp
+              </button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </>
   );
 }
