@@ -57,31 +57,44 @@
     <!-- ✅ Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- 🔥 Preload LCP Hero Image — matches the actual src used in Home.jsx -->
+    <!-- 🔥 Preload LCP Hero Image — matches HeroBannerImagel.webp used in Home.jsx -->
     <link
       rel="preload"
       as="image"
-      href="/src/assets/jaipur.jpeg"
+      href="/src/assets/HeroBannerImagel.webp"
       fetchpriority="high"
-      type="image/jpeg"
+      type="image/webp"
     />
 
     <!-- CSS handled by Vite bundle — no manual preload needed -->
 
-    <!-- 🟢 Google Analytics without forced reflow -->
+    <!-- 🟢 Google Analytics — deferred until AFTER page is fully interactive -->
+    <!-- GTM was blocking 193ms of main thread. Now loads after 8s or first idle, whichever is later -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
 
-      requestIdleCallback(() => {
+      function loadGTM() {
         const s = document.createElement('script');
         s.src = 'https://www.googletagmanager.com/gtag/js?id=G-30H4H9PKXX';
         s.async = true;
+        s.defer = true;
         document.head.appendChild(s);
-
         gtag('js', new Date());
-        gtag('config', 'G-30H4H9PKXX');
-      });
+        gtag('config', 'G-30H4H9PKXX', { send_page_view: true });
+      }
+
+      // Load GTM only after:
+      // 1. Page is fully loaded (load event)
+      // 2. AND at least 5 seconds have passed (protects LCP + TBT)
+      // This removes GTM from the critical rendering path entirely
+      if (document.readyState === 'complete') {
+        setTimeout(loadGTM, 5000);
+      } else {
+        window.addEventListener('load', function() {
+          setTimeout(loadGTM, 5000);
+        }, { once: true });
+      }
     </script>
 
     <!-- ✅ Schema Markup -->

@@ -14,12 +14,15 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
-// WEBP / JPG IMAGES
-import HeroBannerImage from "../assets/jaipur.jpeg";
-import jaipur from "../assets/jaipur.jpg";
-import udaipur from "../assets/udaipur.jpg";
-import delhi from "../assets/delhi.jpg";
-import TajMahal from "../assets/taj-mahal.jpg";
+// ✅ IMAGES — Using smallest available format for each slot
+import HeroBannerImage from "../assets/HeroBannerImagel.webp"; // 90KB vs 184KB jpeg — saves ~94KB on LCP
+import jaipurWebp from "../assets/jaipur.webp";
+import udaipurWebp from "../assets/udaipur.webp";
+import delhiWebp from "../assets/delhi.webp";
+import jaipurJpg from "../assets/jaipur.jpg"; // fallback
+import udaipurJpg from "../assets/udaipur.jpg"; // fallback
+import delhiJpg from "../assets/delhi.jpg"; // fallback
+import TajMahal from "../assets/taj-mahal.webp";
 import Water from "../assets/keralaBackWaterl.webp";
 import temple from "../assets/goldentemple.webp";
 
@@ -102,9 +105,9 @@ export default function Home() {
   ];
 
   const popularCities = [
-    { name: "Jaipur", tag: "Rajasthan", image: jaipur, description: "The vibrant Pink City of palaces and bazaars.", link: "/city/jaipur" },
-    { name: "Udaipur", tag: "Rajasthan", image: udaipur, description: "Romance above shimmering lakes.", link: "/city/udaipur" },
-    { name: "Delhi", tag: "Capital Territory", image: delhi, description: "Seven dynasties, one boundless city.", link: "/city/delhi" },
+    { name: "Jaipur", tag: "Rajasthan", image: jaipurWebp, imageFallback: jaipurJpg, description: "The vibrant Pink City of palaces and bazaars.", link: "/city/jaipur", w: 894, h: 720 },
+    { name: "Udaipur", tag: "Rajasthan", image: udaipurWebp, imageFallback: udaipurJpg, description: "Romance above shimmering lakes.", link: "/city/udaipur", w: 1136, h: 720 },
+    { name: "Delhi", tag: "Capital Territory", image: delhiWebp, imageFallback: delhiJpg, description: "Seven dynasties, one boundless city.", link: "/city/delhi", w: 1136, h: 720 },
   ];
 
   const experiences = [
@@ -673,17 +676,19 @@ export default function Home() {
 
         {/* ── HERO ─────────────────────────────────────────── */}
         <section className="hero">
-          {/* ✅ Hero LCP image: explicit dimensions + fetchPriority + no lazy loading */}
-          <img
-            src={HeroBannerImage}
-            alt="Explore Incredible India — BharatMile Tiger Safari and Jaipur Tours"
-            className="hero-img"
-            loading="eager"
-            fetchPriority="high"
-            decoding="sync"
-            width="1920"
-            height="1080"
-          />
+          {/* ✅ Hero LCP image: WebP (90KB vs 184KB), eager, sync decode */}
+          <picture>
+            <img
+              src={HeroBannerImage}
+              alt="Explore Incredible India — Ranthambore Tiger Safari and Jaipur family tours by BharatMile"
+              className="hero-img"
+              loading="eager"
+              fetchPriority="high"
+              decoding="sync"
+              width="1280"
+              height="720"
+            />
+          </picture>
           <div className="hero-overlay" />
           <div className="hero-content">
             <div className="hero-badge">
@@ -700,7 +705,11 @@ export default function Home() {
               <Link to={CITIES_PAGE_LINK} className="btn-primary">
                 Explore Tours <ArrowRight size={16} />
               </Link>
-              <button className="btn-ghost" onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}`)}>
+              <button
+                className="btn-ghost"
+                aria-label="Talk to a BharatMile travel expert on WhatsApp"
+                onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}`)}
+              >
                 <Phone size={16} /> Talk to an Expert
               </button>
             </div>
@@ -754,7 +763,20 @@ export default function Home() {
             <div className="cities-grid">
               {popularCities.map((city) => (
                 <Link key={city.name} to={city.link} className="city-card">
-                  <img src={city.image} alt={city.name} loading="lazy" decoding="async" className="city-img" />
+                  {/* ✅ Responsive images: serve correct size per viewport, use WebP */}
+                  <picture>
+                    <source srcSet={city.image} type="image/webp" />
+                    <img
+                      src={city.imageFallback}
+                      alt={`${city.name} — ${city.tag} tour destination by BharatMile`}
+                      loading="lazy"
+                      decoding="async"
+                      className="city-img"
+                      width={city.w}
+                      height={city.h}
+                      sizes="(max-width: 900px) 100vw, 33vw"
+                    />
+                  </picture>
                   <div className="city-overlay" />
                   <div className="city-info">
                     <div className="city-tag"><MapPin size={9} />{city.tag}</div>

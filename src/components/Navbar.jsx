@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Phone, Menu, X } from "lucide-react";
-import logo from "../assets/BharatMile-Logo.jpg";
+import logo from "../assets/BharatMile-Logo.webp"; // ✅ WebP — served at 42x42, smaller than jpg at render time
 
 const WHATSAPP_NUMBER = "919636974688";
 
