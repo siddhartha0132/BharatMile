@@ -47,7 +47,7 @@ export default function Navbar() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500;600&display=swap');
+        /* Google Fonts loaded non-blocking from index.html */
 
         :root {
           --sand: #f5efe6;
@@ -154,8 +154,9 @@ export default function Navbar() {
           transition: color 0.2s;
         }
 
+        /* ✅ Improved contrast: white links on transparent bg are now full white */
         .navbar.top .nav-link {
-          color: rgba(255,255,255,0.78);
+          color: rgba(255,255,255,0.92);
         }
 
         .navbar.solid .nav-link {
@@ -488,6 +489,7 @@ export default function Navbar() {
           <div className="mobile-panel-foot">
             <button
               className="mobile-cta"
+              aria-label="Plan my trip on WhatsApp"
               onClick={() => {
                 setMenuOpen(false);
                 window.open(`https://wa.me/${WHATSAPP_NUMBER}`);
