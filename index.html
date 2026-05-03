@@ -3,30 +3,53 @@
   <head>
     <meta charset="UTF-8" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <!-- ✅ BharatMile Favicon — replaces default Vite icon -->
+    <link rel="icon" type="image/jpeg" href="/favicon.jpeg" />
+    <link rel="apple-touch-icon" href="/favicon.jpeg" />
+    <meta name="theme-color" content="#c1644a" />
 
     <!-- Mobile Responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ✅ Google Fonts — preconnect first, then non-blocking stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap"
+      />
+    </noscript>
 
     <!-- Robots -->
     <meta name="robots" content="index, follow" />
 
     <!-- ✅ SEO Title -->
-    <title>BharatMile – Travel, Tourism & Budget Trips Across India</title>
+    <title>Ranthambore Safari & Jaipur Tours | Family Packages | BharatMile</title>
 
     <!-- ✅ SEO Description -->
     <meta
       name="description"
-      content="BharatMile helps you explore the best travel destinations across India with affordable tour packages, budget trips, hotels and experience-based tourism."
+      content="Book safe, family-friendly Ranthambore tiger safaris and romantic Jaipur tours with BharatMile. Custom packages starting at ₹4,999. Chat on WhatsApp today!"
     />
 
     <!-- ✅ Canonical URL -->
     <link rel="canonical" href="https://bharatmile.com/" />
 
     <!-- ✅ Open Graph -->
-    <meta property="og:title" content="BharatMile – Travel & Tourism Across India" />
-    <meta property="og:description" content="Discover tourist places, budget trips and best destinations across India with BharatMile." />
+    <meta property="og:title" content="Ranthambore Safari & Jaipur Tours | Family Packages | BharatMile" />
+    <meta property="og:description" content="Book safe, family-friendly Ranthambore tiger safaris and romantic Jaipur tours with BharatMile. Custom packages starting at ₹4,999. Chat on WhatsApp today!" />
     <meta property="og:image" content="https://bharatmile.com/preview.jpg" />
     <meta property="og:url" content="https://bharatmile.com/" />
     <meta property="og:type" content="website" />
@@ -65,6 +88,29 @@
         gtag('js', new Date());
         gtag('config', 'G-30H4H9PKXX');
       });
+    </script>
+
+    <!-- ✅ Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TravelAgency",
+      "name": "BharatMile",
+      "image": "https://bharatmile.com/logo.jpg",
+      "url": "https://bharatmile.com",
+      "telephone": "+91-XXXXXXXXXX",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Jaipur",
+        "addressRegion": "Rajasthan",
+        "addressCountry": "IN"
+      },
+      "priceRange": "₹₹",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Families and Couples"
+      }
+    }
     </script>
   </head>
 

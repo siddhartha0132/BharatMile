@@ -162,9 +162,12 @@ export default function Ranthambore() {
 
         {/* SAFARI TYPES */}
         <section>
-          <h2 className="text-3xl font-bold mb-6">
+          <h2 className="text-3xl font-bold mb-4">
             Ranthambore Safari Types & Timings
           </h2>
+          <p className="text-gray-700 text-lg leading-relaxed mb-6">
+            Wondering about <strong>Ranthambore canter vs gypsy for family</strong>? Here is what you need to know:
+          </p>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-white p-6 rounded-xl shadow">
               <h3 className="text-xl font-semibold mb-2">Gypsy Safari</h3>
@@ -188,9 +191,22 @@ export default function Ranthambore() {
             Ranthambore Safari Zones (1–10)
           </h2>
           <p className="text-gray-700 text-lg leading-relaxed">
-            Zones 1 to 5 are core zones with higher tiger density and popular
+            Looking for the <strong>best Ranthambore safari zones for tiger sighting</strong>? Zones 1 to 5 are core zones with higher tiger density and popular
             water bodies like Padam Talab and Rajbagh. Zones 6 to 10 are buffer
             zones offering quieter safari experiences.
+          </p>
+        </section>
+
+        {/* PACKAGES (SEO Keywords) */}
+        <section>
+          <h2 className="text-3xl font-bold mb-4">
+            Family & Couple Safari Packages
+          </h2>
+          <p className="text-gray-700 text-lg leading-relaxed">
+            Book our highly rated <strong>Ranthambore family tiger safari package (रणथंभौर सफारी फैमिली पैकेज)</strong> or a romantic <strong>Ranthambore weekend getaway for couples</strong>. 
+            We specialize in providing a <strong>safe luxury wildlife tour Ranthambore</strong> experience. Need a comfortable stay? Contact us for the best <strong>Ranthambore couple resort booking (रणथंभौर कपल रिसॉर्ट)</strong>.
+            <br /><br />
+            Common questions we get: <strong>Can we take kids on Ranthambore safari (रणथंभौर सफारी बच्चों के साथ)?</strong> Yes! Our guides ensure complete safety for families. Check out the <strong>BharatMile Ranthambore tour reviews</strong> from hundreds of happy travelers.
           </p>
         </section>
 

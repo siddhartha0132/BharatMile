@@ -74,8 +74,18 @@ export default function Home() {
     if (metaDesc)
       metaDesc.setAttribute("content", "Explore India's top destinations with BharatMile. Detailed guides, itineraries, hidden gems, and curated cultural experiences.");
 
-    const handleScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", handleScroll);
+    // ✅ Throttled scroll listener — prevents FID/INP degradation
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 60);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -119,7 +129,7 @@ export default function Home() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap');
+        /* Google Fonts loaded from index.html (non-blocking preload) */
 
         :root {
           --sand: #f5efe6;
@@ -615,13 +625,65 @@ export default function Home() {
           .stats-inner { grid-template-columns: 1fr 1fr; }
           .hero-title { font-size: 2.6rem; }
         }
+      `}
+        {/* ✅ CORE WEB VITALS ADDITIONS */}
+        {`
+        /* ── MOBILE TOUCH TARGETS (min 44x44px) ── */
+        .btn-primary, .btn-ghost {
+          min-height: 48px;
+          min-width: 48px;
+          touch-action: manipulation;
+        }
+        .testi-dot {
+          min-width: 44px;
+          min-height: 44px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+        }
+        /* ✅ Reduce layout shift for images */
+        .hero-img, .city-img, .exp-img {
+          aspect-ratio: auto;
+        }
+        /* ✅ will-change for GPU-composited animations only */
+        .hero-img { will-change: transform; }
+        .city-img { will-change: transform; }
+        .testi-slide { will-change: opacity, transform; }
+        /* ✅ content-visibility for below-fold sections — improves LCP */
+        .why-section, .exp-section, .testi-section, .cta-section {
+          content-visibility: auto;
+          contain-intrinsic-size: 0 600px;
+        }
+        /* ✅ Prevent horizontal scroll on all screens */
+        .bm-root { max-width: 100vw; overflow-x: hidden; }
+        /* ✅ Better mobile tap highlight */
+        a, button { -webkit-tap-highlight-color: transparent; }
+        /* ✅ Smooth text rendering on mobile */
+        .bm-root { -webkit-font-smoothing: antialiased; text-rendering: optimizeSpeed; }
+        /* ✅ Prevent font flash */
+        body { font-display: optional; }
+        /* ✅ Mobile hero — avoid reflow from 100svh on older browsers */
+        @supports not (height: 100svh) {
+          .hero { height: 100vh; }
+        }
       `}</style>
 
       <div className="bm-root">
 
         {/* ── HERO ─────────────────────────────────────────── */}
         <section className="hero">
-          <img src={HeroBannerImage} alt="Explore Incredible India" className="hero-img" loading="eager" fetchPriority="high" decoding="async" />
+          {/* ✅ Hero LCP image: explicit dimensions + fetchPriority + no lazy loading */}
+          <img
+            src={HeroBannerImage}
+            alt="Explore Incredible India — BharatMile Tiger Safari and Jaipur Tours"
+            className="hero-img"
+            loading="eager"
+            fetchPriority="high"
+            decoding="sync"
+            width="1920"
+            height="1080"
+          />
           <div className="hero-overlay" />
           <div className="hero-content">
             <div className="hero-badge">

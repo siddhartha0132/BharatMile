@@ -183,6 +183,20 @@ export default function Jaipur() {
         </p>
       </section>
 
+      {/* TOURS & TRANSPORT (SEO Keywords) */}
+      <section className="mb-20">
+        <h2 className="text-3xl font-bold mb-4">Tour Packages & Transport Services</h2>
+        <p className="text-gray-700 text-lg leading-relaxed mb-4">
+          Looking for the <strong>best couple tour operator Jaipur (जयपुर कपल टूर पैकेज)</strong> or planning a family getaway? 
+          We specialize in organizing a <strong>romantic weekend trip to Jaipur from Delhi</strong> and provide a reliable <strong>Jaipur local sightseeing taxi for family (जयपुर दर्शनीय स्थल टैक्सी)</strong>.
+        </p>
+        <ul className="list-disc pl-6 mt-4 text-gray-700 text-lg space-y-2">
+          <li><strong>Guided Walks:</strong> Book our expert <strong>Jaipur heritage walk tour operator</strong> for an immersive cultural experience.</li>
+          <li><strong>Fort Tours:</strong> Need a knowledgeable <strong>Jaipur forts tour guide for families</strong>? We have you covered.</li>
+          <li><strong>Intercity Travel:</strong> Safe and comfortable <strong>Jaipur to Ranthambore private cab family</strong> transfers available.</li>
+        </ul>
+      </section>
+
       {/* NEARBY */}
       <section className="mb-20">
         <h2 className="text-3xl font-bold mb-4">Nearby Places from Jaipur</h2>

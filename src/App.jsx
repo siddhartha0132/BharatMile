@@ -62,6 +62,18 @@ const ValleyFlowers = lazy(() => import("./blogs/ValleyFlowers"));
 const Mangrove = lazy(() => import("./blogs/Mangrove"));
 const PackingList = lazy(() => import("./blogs/PackingList"));
 
+// 🔹 New BharatMile SEO Blogs (Ranthambore + Jaipur)
+const RanthamboreGuide2026 = lazy(() => import("./blogs/RanthamboreGuide2026"));
+const JaipurCoupleGuide = lazy(() => import("./blogs/JaipurCoupleGuide"));
+const GypsyVsCanter = lazy(() => import("./blogs/GypsyVsCanter"));
+const JaipurFamilyHotels = lazy(() => import("./blogs/JaipurFamilyHotels"));
+const RajasthanWeekend = lazy(() => import("./blogs/RajasthanWeekend"));
+const RanthamboreKidsSafety = lazy(() => import("./blogs/RanthamboreKidsSafety"));
+const JaipurLocalFood = lazy(() => import("./blogs/JaipurLocalFood"));
+const RanthamboreResorts = lazy(() => import("./blogs/RanthamboreResorts"));
+const JaipurFortGuide = lazy(() => import("./blogs/JaipurFortGuide"));
+const JaipurToRanthambore = lazy(() => import("./blogs/JaipurToRanthambore"));
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -128,6 +140,18 @@ export default function App() {
             <Route path="/valley-of-flowers-monsoon-trekking" element={<ValleyFlowers />} />
             <Route path="/blogs/sundarbans-mangrove-safari" element={<Mangrove />} />
             <Route path="/blogs/packing-list-india" element={<PackingList />} />
+
+            {/* ✅ New SEO Blog Routes — Ranthambore & Jaipur */}
+            <Route path="/blogs/ranthambore-safari-guide-2026-family" element={<RanthamboreGuide2026 />} />
+            <Route path="/blogs/jaipur-couple-guide-48-hours" element={<JaipurCoupleGuide />} />
+            <Route path="/blogs/gypsy-vs-canter-ranthambore-family" element={<GypsyVsCanter />} />
+            <Route path="/blogs/family-friendly-hotels-jaipur-under-5000" element={<JaipurFamilyHotels />} />
+            <Route path="/blogs/rajasthan-weekend-trip-family-delhi" element={<RajasthanWeekend />} />
+            <Route path="/blogs/ranthambore-safari-safe-for-kids" element={<RanthamboreKidsSafety />} />
+            <Route path="/blogs/jaipur-local-food-family-guide" element={<JaipurLocalFood />} />
+            <Route path="/blogs/couple-resorts-ranthambore" element={<RanthamboreResorts />} />
+            <Route path="/blogs/jaipur-fort-complete-guide" element={<JaipurFortGuide />} />
+            <Route path="/blogs/jaipur-to-ranthambore-travel-guide" element={<JaipurToRanthambore />} />
 
           </Routes>
         </main>
