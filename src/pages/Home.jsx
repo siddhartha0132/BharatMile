@@ -25,6 +25,8 @@ import delhiJpg from "../assets/delhi.jpg"; // fallback
 import TajMahal from "../assets/taj-mahal.webp";
 import Water from "../assets/keralaBackWaterl.webp";
 import temple from "../assets/goldentemple.webp";
+import cloudResortVideo from "../assets/CloudResort.mp4";
+import cloudResortPdf from "../assets/cloudResort.pdf";
 
 const CITIES_PAGE_LINK = "/city";
 const WHATSAPP_NUMBER = "919636974688";
@@ -588,6 +590,226 @@ export default function Home() {
         }
         .testi-dot.active { background: var(--terracotta); transform: scale(1.4); }
 
+        /* ── FEATURED STAY: THE CLOUDS RESORT ── */
+        .resort-section {
+          background: linear-gradient(135deg, #0f1c2e 0%, #1a2d47 50%, #0f1c2e 100%);
+          padding: 100px 32px;
+          position: relative;
+          overflow: hidden;
+        }
+        .resort-section::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-image:
+            radial-gradient(circle at 10% 20%, rgba(201,151,42,0.08) 0%, transparent 45%),
+            radial-gradient(circle at 90% 80%, rgba(193,100,74,0.06) 0%, transparent 45%);
+          pointer-events: none;
+        }
+        .resort-inner {
+          max-width: 1100px;
+          margin: 0 auto;
+          position: relative;
+          z-index: 1;
+        }
+        .resort-eyebrow {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 10px;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          font-weight: 700;
+          color: #e8c56b;
+          margin-bottom: 12px;
+        }
+        .resort-eyebrow::before {
+          content: '';
+          width: 28px;
+          height: 1.5px;
+          background: #e8c56b;
+          display: inline-block;
+        }
+        .resort-heading {
+          font-family: 'Cormorant Garamond', serif;
+          font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+          font-weight: 600;
+          color: #fff;
+          line-height: 1.15;
+          margin-bottom: 48px;
+        }
+        .resort-heading span { color: #e8c56b; }
+        .resort-layout {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 52px;
+          align-items: start;
+        }
+        /* Video container */
+        .resort-video-wrap {
+          position: relative;
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 0 24px 80px rgba(0,0,0,0.55);
+          background: #000;
+        }
+        .resort-video-wrap::after {
+          content: '';
+          position: absolute;
+          inset: -1px;
+          border-radius: 11px;
+          border: 1px solid rgba(201,151,42,0.25);
+          pointer-events: none;
+        }
+        .resort-video {
+          width: 100%;
+          display: block;
+          aspect-ratio: 16/9;
+          object-fit: cover;
+          border-radius: 10px;
+        }
+        /* Right content */
+        .resort-content {}
+        .resort-stars {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          margin-bottom: 18px;
+        }
+        .resort-stars-row {
+          display: flex;
+          gap: 3px;
+          color: #e8c56b;
+        }
+        .resort-star-label {
+          font-size: 0.78rem;
+          font-weight: 600;
+          color: rgba(255,255,255,0.55);
+          letter-spacing: 0.06em;
+        }
+        .resort-title {
+          font-family: 'Cormorant Garamond', serif;
+          font-size: clamp(1.6rem, 3vw, 2.4rem);
+          font-weight: 700;
+          color: #fff;
+          line-height: 1.15;
+          margin-bottom: 6px;
+        }
+        .resort-location {
+          font-size: 0.82rem;
+          color: rgba(255,255,255,0.5);
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          margin-bottom: 22px;
+          letter-spacing: 0.04em;
+        }
+        .resort-tagline {
+          font-style: italic;
+          color: #e8c56b;
+          font-size: 0.92rem;
+          margin-bottom: 20px;
+          opacity: 0.9;
+        }
+        .resort-desc {
+          color: rgba(255,255,255,0.68);
+          font-size: 0.9rem;
+          line-height: 1.78;
+          margin-bottom: 28px;
+        }
+        .resort-amenities {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 10px 20px;
+          margin-bottom: 30px;
+        }
+        .resort-amenity {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 0.82rem;
+          color: rgba(255,255,255,0.72);
+        }
+        .resort-amenity::before {
+          content: '✦';
+          color: #e8c56b;
+          font-size: 0.65rem;
+          flex-shrink: 0;
+        }
+        .resort-divider {
+          height: 1px;
+          background: rgba(255,255,255,0.08);
+          margin: 28px 0;
+        }
+        .resort-testimonials {
+          margin-bottom: 30px;
+        }
+        .resort-testi {
+          font-style: italic;
+          color: rgba(255,255,255,0.6);
+          font-size: 0.85rem;
+          line-height: 1.6;
+          margin-bottom: 10px;
+          padding-left: 14px;
+          border-left: 2px solid rgba(201,151,42,0.4);
+        }
+        .resort-actions {
+          display: flex;
+          gap: 14px;
+          flex-wrap: wrap;
+        }
+        .resort-btn-primary {
+          display: inline-flex;
+          align-items: center;
+          gap: 9px;
+          background: linear-gradient(135deg, #c9972a, #e8c56b);
+          color: #0f1c2e;
+          padding: 13px 26px;
+          border-radius: 6px;
+          font-weight: 700;
+          font-size: 0.85rem;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          text-decoration: none;
+          border: none;
+          cursor: pointer;
+          transition: transform 0.2s, box-shadow 0.2s;
+          box-shadow: 0 4px 20px rgba(201,151,42,0.3);
+        }
+        .resort-btn-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 30px rgba(201,151,42,0.45);
+        }
+        .resort-btn-ghost {
+          display: inline-flex;
+          align-items: center;
+          gap: 9px;
+          background: transparent;
+          border: 1.5px solid rgba(201,151,42,0.45);
+          color: #e8c56b;
+          padding: 13px 26px;
+          border-radius: 6px;
+          font-weight: 600;
+          font-size: 0.85rem;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          cursor: pointer;
+          text-decoration: none;
+          transition: background 0.2s, border-color 0.2s, transform 0.2s;
+        }
+        .resort-btn-ghost:hover {
+          background: rgba(201,151,42,0.1);
+          border-color: #e8c56b;
+          transform: translateY(-2px);
+        }
+        @media (max-width: 860px) {
+          .resort-layout {
+            grid-template-columns: 1fr;
+            gap: 36px;
+          }
+          .resort-amenities { grid-template-columns: 1fr; }
+        }
+
         /* ── CTA ── */
         .cta-section {
           position: relative;
@@ -749,6 +971,94 @@ export default function Home() {
                   <p>{f.description}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── FEATURED STAY: THE CLOUDS RESORT ─────────────── */}
+        <section className="resort-section" aria-label="Featured Partner Stay — The Clouds Resort, Arambol Goa">
+          <div className="resort-inner">
+            <div className="resort-eyebrow">Featured Stay</div>
+            <h2 className="resort-heading">
+              Discover <span>The Clouds Resort</span><br />
+              <em style={{ fontStyle: 'italic', fontSize: '70%', color: 'rgba(255,255,255,0.6)' }}>Where Understated Luxury Meets the Serenity of Nature</em>
+            </h2>
+            <div className="resort-layout">
+
+              {/* Left — Video */}
+              <div className="resort-video-wrap">
+                <video
+                  className="resort-video"
+                  src={cloudResortVideo}
+                  controls
+                  preload="metadata"
+                  poster=""
+                  aria-label="The Clouds Resort — property tour video"
+                />
+              </div>
+
+              {/* Right — Content */}
+              <div className="resort-content">
+                <div className="resort-stars">
+                  <div className="resort-stars-row">
+                    {[1,2,3,4].map(i => <Star key={i} size={15} fill="currentColor" />)}
+                  </div>
+                  <span className="resort-star-label">4-Star Luxury Resort</span>
+                </div>
+
+                <div className="resort-title">The Clouds Resort</div>
+                <div className="resort-location">
+                  <MapPin size={12} />
+                  Arambol, North Goa
+                </div>
+                <div className="resort-tagline">"An oasis of calm with impeccable hospitality and beautifully designed spaces."</div>
+
+                <p className="resort-desc">
+                  An elegant 4-star retreat nestled in the tranquil landscape of Arambol, North Goa — crafted for discerning travellers who value privacy, comfort, and curated experiences. Every detail is thoughtfully designed to deliver a refined stay.
+                </p>
+
+                <div className="resort-amenities">
+                  {[
+                    "Spacious rooms with private balconies",
+                    "Scenic swimming pool",
+                    "Multi-cuisine curated dining",
+                    "Well-equipped fitness centre",
+                    "Elegant indoor event venues",
+                    "Expansive landscaped lawns",
+                    "Dedicated concierge service",
+                    "High-speed Wi-Fi & 24/7 support",
+                  ].map(a => (
+                    <div key={a} className="resort-amenity">{a}</div>
+                  ))}
+                </div>
+
+                <div className="resort-divider" />
+
+                <div className="resort-testimonials">
+                  <div className="resort-testi">"A refined stay experience — thoughtful service, elegant rooms, and excellent cuisine."</div>
+                  <div className="resort-testi">"Perfect blend of luxury and tranquility, ideal for both relaxation and celebrations."</div>
+                </div>
+
+                <div className="resort-actions">
+                  <a
+                    href={cloudResortPdf}
+                    download="TheCloudsResort_Brochure.pdf"
+                    className="resort-btn-primary"
+                    aria-label="Download The Clouds Resort brochure PDF"
+                  >
+                    ⬇ Download Brochure
+                  </a>
+                  <a
+                    href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="resort-btn-ghost"
+                    aria-label="Enquire about The Clouds Resort on WhatsApp"
+                  >
+                    <Phone size={14} /> Enquire Now
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </section>
