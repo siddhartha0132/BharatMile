@@ -25,7 +25,7 @@ import delhiJpg from "../assets/delhi.jpg"; // fallback
 import TajMahal from "../assets/taj-mahal.webp";
 import Water from "../assets/keralaBackWaterl.webp";
 import temple from "../assets/goldentemple.webp";
-import cloudResortVideo from "../assets/CloudResort.mp4";
+import cloudResortVideo from "../assets/CloudResort1.mp4";
 import cloudResortPdf from "../assets/cloudResort.pdf";
 
 const CITIES_PAGE_LINK = "/city";
