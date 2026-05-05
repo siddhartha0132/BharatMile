@@ -113,7 +113,7 @@ export default function Home() {
   ];
 
   const experiences = [
-    { name: "Taj Mahal Sunrise Tour", location: "Agra, UP", image: TajMahal, tag: "Heritage", link: "/top-10-places-to-visit-in-india" },
+    { name: "Taj Mahal Sunrise tour", location: "Agra, UP", image: TajMahal, tag: "Heritage", link: "/top-10-places-to-visit-in-india" },
     { name: "Kerala Backwaters Cruise", location: "Alleppey, Kerala", image: Water, tag: "Nature", link: "/blogs/kerala-backwaters" },
     { name: "Golden Temple Visit", location: "Amritsar, Punjab", image: temple, tag: "Spiritual", link: "/blogs/amritsar-golden-temple-langar" },
   ];
