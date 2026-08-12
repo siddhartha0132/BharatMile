@@ -1,5 +1,38 @@
 @import "tailwindcss";
 
+/* 
+  Mobile-First Optimizations (Phase 1)
+  Enforce 48x48px minimum touch targets for all interactive elements on mobile
+*/
+@media (max-width: 768px) {
+  button, 
+  a, 
+  input[type="submit"], 
+  input[type="button"], 
+  .bl-cat-pill,
+  select, 
+  textarea, 
+  input {
+    min-height: 48px;
+    min-width: 48px;
+    padding: 12px;
+  }
+}
 
+/* Prevent horizontal overflow on mobile devices */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  -webkit-text-size-adjust: 100%;
+}
 
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
 
+/* Base image rules to prevent layout shifts */
+img, video {
+  max-width: 100%;
+  height: auto;
+}

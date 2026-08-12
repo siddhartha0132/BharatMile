@@ -97,6 +97,16 @@ const ALL_BLOGS = [
   { id: 31, title: "Valley of Flowers: Trekking in Monsoon",              category: "Trekking",  img: id31, slug: "/valley-of-flowers-monsoon-trekking",          read: 6  },
   { id: 32, title: "Sundarbans: The Mangrove Forest Boat Safari",         category: "Wildlife",  img: id32, slug: "/blogs/sundarbans-mangrove-safari",             read: 6  },
   { id: 33, title: "Packing List for India: What Not to Bring",           category: "Tips",      img: id33, slug: "/blogs/packing-list-india",                    read: 5  },
+  { id: 34, title: "How to Book a Jeep Safari in Ranthambore",            category: "Wildlife",  img: id30, slug: "/blogs/how-to-book-jeep-safari-ranthambore",   read: 9  },
+  { id: 35, title: "3-Day Jaipur Itinerary for History Lovers",           category: "Heritage",  img: id4,  slug: "/blogs/3-day-jaipur-itinerary-history-lovers", read: 12 },
+  { id: 36, title: "Best Time to Visit Ranthambore for Tiger Sightings",  category: "Wildlife",  img: id30, slug: "/blogs/best-time-visit-ranthambore-tiger-sightings", read: 10 },
+  { id: 37, title: "Top 10 Monuments in Jaipur 2026",                     category: "Heritage",  img: id4,  slug: "/blogs/top-10-monuments-jaipur-2026",          read: 11 },
+  { id: 38, title: "Ranthambore Fort Complete Guide",                     category: "Heritage",  img: id30, slug: "/blogs/ranthambore-fort-complete-surroundings-guide", read: 10 },
+  { id: 39, title: "Where to Stay in Jaipur: Best Neighborhoods",         category: "Guides",    img: id4,  slug: "/blogs/where-to-stay-jaipur-best-neighborhoods", read: 12 },
+  { id: 40, title: "10 Essential Tips for Your First Ranthambore Safari", category: "Tips",      img: id30, slug: "/blogs/tips-first-ranthambore-safari-what-to-wear", read: 8  },
+  { id: 41, title: "Gypsy vs Canter: Which Safari is Best for Families?", category: "Family",    img: id30, slug: "/blogs/gypsy-vs-canter-ranthambore-family",    read: 7  },
+  { id: 42, title: "Amer Fort vs. Nahargarh Fort: Which is Better for Sunset?", category: "Heritage", img: id4, slug: "/blogs/amer-vs-nahargarh-fort-sunset", read: 8 },
+  { id: 43, title: "Ranthambore vs. Sariska: Which National Park Should You Visit?", category: "Wildlife", img: id30, slug: "/blogs/ranthambore-vs-sariska-national-park", read: 9 },
 ];
 
 const FEATURED_IDS = [1, 7, 22];

@@ -40,27 +40,37 @@
     <!-- Robots -->
     <meta name="robots" content="index, follow" />
 
-    <!-- ✅ SEO Title -->
-    <title>Ranthambore Safari & Jaipur Tours | Family Packages | BharatMile</title>
+    <!-- ✅ Primary Keywords: Ranthambore Safari Tours | Jaipur Sightseeing Packages -->
+    <title>Book Ranthambore Safari Tours & Jaipur Sightseeing Packages | BharatMile</title>
 
-    <!-- ✅ SEO Description -->
+    <!-- ✅ SEO Description — high CTR, primary keywords, value prop -->
     <meta
       name="description"
-      content="Book safe, family-friendly Ranthambore tiger safaris and romantic Jaipur tours with BharatMile. Custom packages starting at ₹4,999. Chat on WhatsApp today!"
+      content="Book expert Ranthambore tiger safari tours & Jaipur sightseeing packages with BharatMile. Family-safe safaris, heritage fort tours, custom itineraries from ₹4,999. WhatsApp us today!"
     />
+
+    <!-- ✅ Keywords (supplementary signal) -->
+    <meta name="keywords" content="Ranthambore safari tours, book Ranthambore safari, Jaipur sightseeing packages, Jaipur heritage tours, Ranthambore tiger safari, Jaipur fort tours, BharatMile, Rajasthan travel packages" />
 
     <!-- ✅ Canonical URL -->
     <link rel="canonical" href="https://bharatmile.com/" />
 
-    <!-- ✅ Open Graph -->
-    <meta property="og:title" content="Ranthambore Safari & Jaipur Tours | Family Packages | BharatMile" />
-    <meta property="og:description" content="Book safe, family-friendly Ranthambore tiger safaris and romantic Jaipur tours with BharatMile. Custom packages starting at ₹4,999. Chat on WhatsApp today!" />
+    <!-- ✅ Open Graph — complete for social sharing -->
+    <meta property="og:title" content="Book Ranthambore Safari Tours & Jaipur Sightseeing Packages | BharatMile" />
+    <meta property="og:description" content="Expert Ranthambore tiger safari tours & Jaipur heritage packages. Family-safe, custom itineraries from ₹4,999. Book with BharatMile today!" />
     <meta property="og:image" content="https://bharatmile.com/preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:url" content="https://bharatmile.com/" />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="BharatMile" />
+    <meta property="og:locale" content="en_IN" />
 
-    <!-- ✅ Twitter -->
+    <!-- ✅ Twitter Card — complete -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Book Ranthambore Safari Tours & Jaipur Sightseeing Packages | BharatMile" />
+    <meta name="twitter:description" content="Expert Ranthambore tiger safari tours & Jaipur heritage packages. Custom itineraries from ₹4,999." />
+    <meta name="twitter:image" content="https://bharatmile.com/preview.jpg" />
 
     <!-- 🔥 Preload LCP Hero Image — matches HeroBannerImagel.webp used in Home.jsx -->
     <link
@@ -102,7 +112,7 @@
       }
     </script>
 
-    <!-- ✅ Schema Markup -->
+    <!-- ✅ Schema Markup — TravelAgency -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -110,7 +120,14 @@
       "name": "BharatMile",
       "image": "https://bharatmile.com/favicon-512.png",
       "url": "https://bharatmile.com",
-      "telephone": "+91-XXXXXXXXXX",
+      "telephone": "+91-9636974688",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-9636974688",
+        "contactType": "customer service",
+        "areaServed": "IN",
+        "availableLanguage": ["English", "Hindi"]
+      },
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Jaipur",
@@ -118,9 +135,55 @@
         "addressCountry": "IN"
       },
       "priceRange": "₹₹",
-      "audience": {
-        "@type": "Audience",
-        "audienceType": "Families and Couples"
+      "description": "BharatMile is Rajasthan's leading travel agency specialising in Ranthambore tiger safari tours and Jaipur sightseeing packages.",
+      "areaServed": {
+        "@type": "State",
+        "name": "Rajasthan"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Ranthambore & Jaipur Tour Packages",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "TouristTrip",
+              "name": "Ranthambore Safari Tour",
+              "description": "Book Ranthambore tiger safari with Gypsy/Canter, all safari zones, expert naturalist guide.",
+              "url": "https://bharatmile.com/ranthambore-safari-tours"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "TouristTrip",
+              "name": "Jaipur Sightseeing Package",
+              "description": "Guided Jaipur fort and palace tours including Amber Fort, City Palace, Hawa Mahal.",
+              "url": "https://bharatmile.com/jaipur-sightseeing-packages"
+            }
+          }
+        ]
+      },
+      "sameAs": [
+        "https://www.instagram.com/bharatmile",
+        "https://www.facebook.com/bharatmile"
+      ]
+    }
+    </script>
+    <!-- ✅ Schema Markup — WebSite (enables Sitelinks Searchbox) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "BharatMile",
+      "url": "https://bharatmile.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://bharatmile.com/blogs?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
       }
     }
     </script>

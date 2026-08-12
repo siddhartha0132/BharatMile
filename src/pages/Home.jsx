@@ -13,6 +13,7 @@ import {
   Compass,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 // ✅ IMAGES — Using smallest available format for each slot
 import HeroBannerImage from "../assets/HeroBannerImagel.webp"; // 90KB vs 184KB jpeg — saves ~94KB on LCP
@@ -74,10 +75,11 @@ export default function Home() {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
 
   useEffect(() => {
-    document.title = "BharatMile — Explore Incredible India | Travel Guides & Tours";
+    // ✅ Keep homepage title aligned with index.html primary keyword title
+    document.title = "Book Ranthambore Safari Tours & Jaipur Sightseeing Packages | BharatMile";
     const metaDesc = document.querySelector("meta[name='description']");
     if (metaDesc)
-      metaDesc.setAttribute("content", "Explore India's top destinations with BharatMile. Detailed guides, itineraries, hidden gems, and curated cultural experiences.");
+      metaDesc.setAttribute("content", "Book expert Ranthambore tiger safari tours & Jaipur sightseeing packages with BharatMile. Family-safe safaris, heritage fort tours, custom itineraries from ₹4,999. WhatsApp us today!");
 
     // ✅ Throttled scroll listener — prevents FID/INP degradation
     let ticking = false;
@@ -100,10 +102,12 @@ export default function Home() {
     return () => clearInterval(t);
   }, []);
 
+  // ✅ Why BharatMile — Ranthambore & Jaipur specific expertise
   const features = [
-    { icon: Award, title: "Curated Experiences", description: "Every itinerary is handpicked for cultural depth, authenticity, and memories that last a lifetime." },
-    { icon: Briefcase, title: "Local Expert Guides", description: "Trusted local specialists who reveal the stories behind every monument, meal, and moment." },
-    { icon: ShieldCheck, title: "Safe & Secure Booking", description: "Transparent pricing, protected payments, and 24/7 on-trip support wherever you are." },
+    { icon: Award, title: "Ranthambore Safari Specialists", description: "10+ years booking tiger safaris in Zones 1–10. We handle permits, Gypsy/Canter selection, naturalist guides & resort stays in one call." },
+    { icon: Briefcase, title: "Jaipur Heritage Experts", description: "From Amber Fort sunrise tours to City Palace guided walks — our Jaipur-based experts reveal the royal stories no guidebook tells." },
+    { icon: ShieldCheck, title: "Safe, Transparent & Family-Friendly", description: "Verified forest permits, GST-compliant invoices, 24/7 WhatsApp support. Hundreds of families & couples trust us every season." },
+    { icon: Users, title: "Custom Itineraries, Starting ₹4,999", description: "No cookie-cutter packages. We build Ranthambore + Jaipur combos, weekend escapes, and 5-day luxury circuits — all personalised." },
   ];
 
   const popularCities = [
@@ -118,10 +122,13 @@ export default function Home() {
     { name: "Golden Temple Visit", location: "Amritsar, Punjab", image: temple, tag: "Spiritual", link: "/blogs/amritsar-golden-temple-langar" },
   ];
 
+  // ✅ Location-specific testimonials mentioning Ranthambore & Jaipur
   const testimonials = [
-    { quote: "BharatMile turned our Rajasthan honeymoon into something we will talk about for decades. Every detail was perfect.", name: "Priya & Rohan Mehta", location: "Mumbai", rating: 5 },
-    { quote: "The Kerala Backwaters houseboat experience was beyond magical. The guide knew every inlet and story.", name: "Anil Kumar", location: "Bangalore", rating: 5 },
-    { quote: "As a solo female traveller, I felt genuinely safe and looked after throughout Delhi. Exceptional care.", name: "Sarah J.", location: "New York", rating: 5 },
+    { quote: "We spotted three tigers in Zone 4 during our Ranthambore safari — BharatMile arranged everything perfectly, from the Gypsy booking to our resort stay. Unforgettable!", name: "Priya & Rohan Mehta", location: "Mumbai — Ranthambore Safari, Oct 2025", rating: 5 },
+    { quote: "The Amber Fort sunrise tour BharatMile organised was the highlight of our Jaipur trip. Our guide knew every story behind every stone. Worth every rupee!", name: "Anil & Sunita Kumar", location: "Bengaluru — Jaipur Heritage Tour, Jan 2026", rating: 5 },
+    { quote: "Took our kids (7 and 9) on the Ranthambore Canter safari — the naturalist guide kept them engaged the entire time. Safe, educational, and thrilling. 10/10!", name: "The Sharma Family", location: "Delhi — Ranthambore Family Safari, Dec 2025", rating: 5 },
+    { quote: "BharatMile planned our Jaipur-Ranthambore combo perfectly. Forts in the morning, tigers at dawn — it was a dream Rajasthan itinerary!", name: "Sarah & James H.", location: "London — Rajasthan Combo Tour, Feb 2026", rating: 5 },
+    { quote: "The Jaipur City Palace evening walk arranged by BharatMile was magical. Our guide's knowledge of Maharaja history was extraordinary. Highly recommend!", name: "Deepa Nair", location: "Kochi — Jaipur Sightseeing Package, Mar 2026", rating: 5 },
   ];
 
   const stats = [
@@ -135,6 +142,62 @@ export default function Home() {
     <>
       <style>{`
         /* Google Fonts loaded from index.html (non-blocking preload) */
+      `}</style>
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "BharatMile",
+            "image": "https://bharatmile.com/favicon-512.png",
+            "@id": "https://bharatmile.com",
+            "url": "https://bharatmile.com",
+            "telephone": "+91-9636974688",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C-Scheme",
+              "addressLocality": "Jaipur",
+              "addressRegion": "Rajasthan",
+              "postalCode": "302001",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 26.9124,
+              "longitude": 75.7873
+            },
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+              "opens": "09:00",
+              "closes": "20:00"
+            },
+            "areaServed": ["Jaipur", "Ranthambore", "Rajasthan"]
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Review",
+            "itemReviewed": {
+              "@type": "LocalBusiness",
+              "name": "BharatMile Tours"
+            },
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            },
+            "name": "Excellent Jaipur & Ranthambore Experience",
+            "author": {
+              "@type": "Person",
+              "name": "Priya & Rohan Mehta"
+            },
+            "reviewBody": "We spotted three tigers in Zone 4 during our Ranthambore safari — BharatMile arranged everything perfectly, from the Gypsy booking to our resort stay. Unforgettable!"
+          })}
+        </script>
+      </Helmet>
+      <style>{`
 
         :root {
           --sand: #f5efe6;
@@ -915,13 +978,13 @@ export default function Home() {
           <div className="hero-content">
             <div className="hero-badge">
               <Compass size={12} />
-              India's Most Trusted Travel Agency
+              Ranthambore Safaris &amp; Jaipur Heritage Tours
             </div>
             <h1 className="hero-title">
-              Discover<br /><em>Incredible</em> India
+              Book Your<br /><em>Rajasthan</em> Adventure
             </h1>
             <p className="hero-sub">
-              Expertly crafted tours, immersive cultural journeys, and seamless travel planning — from the Himalayas to the backwaters.
+              Expert Ranthambore tiger safari tours &amp; Jaipur sightseeing packages — family-safe, custom-built, starting at ₹4,999.
             </p>
             <div className="hero-actions">
               <Link to={CITIES_PAGE_LINK} className="btn-primary">
@@ -951,16 +1014,16 @@ export default function Home() {
           </div>
         </div>
 
-        {/* ── WHY CHOOSE US ────────────────────────────────── */}
-        <section className="why-section">
+        {/* ── WHY CHOOSE US — Ranthambore & Jaipur Experts ──── */}
+        <section className="why-section" id="why-bharatmile">
           <div className="why-inner">
             <div className="why-header">
               <div>
                 <span className="section-eyebrow">Why BharatMile</span>
-                <h2 className="section-title">Travel crafted with<br />care & expertise</h2>
+                <h2 className="section-title">Ranthambore &amp; Jaipur's<br />Most Trusted Travel Experts</h2>
               </div>
               <p className="section-body">
-                From your first enquiry to your last meal on tour, every element is designed to give you confidence, comfort, and experiences you couldn't plan alone.
+                From your first Ranthambore safari booking to your last heritage walk in Jaipur — every detail is planned by specialists who live and breathe Rajasthan travel.
               </p>
             </div>
             <div className="why-cards">

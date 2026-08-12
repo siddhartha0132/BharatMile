@@ -74,6 +74,21 @@ const RanthamboreResorts = lazy(() => import("./blogs/RanthamboreResorts"));
 const JaipurFortGuide = lazy(() => import("./blogs/JaipurFortGuide"));
 const JaipurToRanthambore = lazy(() => import("./blogs/JaipurToRanthambore"));
 
+// 🔹 New Phase 2 Landing Pages
+const RanthambhoreSafariTours = lazy(() => import("./pages/RanthambhoreSafariTours"));
+const JaipurSightseeingPackages = lazy(() => import("./pages/JaipurSightseeingPackages"));
+
+// 🔹 New Phase 3 SEO Blogs
+const HowToBookJeepSafari = lazy(() => import("./blogs/HowToBookJeepSafari"));
+const JaipurItinerary3Days = lazy(() => import("./blogs/JaipurItinerary3Days"));
+const BestTimeRanthambore = lazy(() => import("./blogs/BestTimeRanthambore"));
+const Top10JaipurMonuments = lazy(() => import("./blogs/Top10JaipurMonuments"));
+const RanthamborefortGuide = lazy(() => import("./blogs/RanthamborefortGuide"));
+const WhereToStayJaipur = lazy(() => import("./blogs/WhereToStayJaipur"));
+const TipsFirstSafari = lazy(() => import("./blogs/TipsFirstSafari"));
+const AmerVsNahargarh = lazy(() => import("./blogs/AmerVsNahargarh"));
+const RanthamboreVsSariska = lazy(() => import("./blogs/RanthamboreVsSariska"));
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -153,6 +168,20 @@ export default function App() {
             <Route path="/blogs/jaipur-fort-complete-guide" element={<JaipurFortGuide />} />
             <Route path="/blogs/jaipur-to-ranthambore-travel-guide" element={<JaipurToRanthambore />} />
 
+            {/* ✅ New Phase 2 Landing Pages */}
+            <Route path="/ranthambore-safari-tours" element={<RanthambhoreSafariTours />} />
+            <Route path="/jaipur-sightseeing-packages" element={<JaipurSightseeingPackages />} />
+
+            {/* ✅ New Phase 3 SEO Blogs */}
+            <Route path="/blogs/how-to-book-jeep-safari-ranthambore" element={<HowToBookJeepSafari />} />
+            <Route path="/blogs/3-day-jaipur-itinerary-history-lovers" element={<JaipurItinerary3Days />} />
+            <Route path="/blogs/best-time-visit-ranthambore-tiger-sightings" element={<BestTimeRanthambore />} />
+            <Route path="/blogs/top-10-monuments-jaipur-2026" element={<Top10JaipurMonuments />} />
+            <Route path="/blogs/ranthambore-fort-complete-surroundings-guide" element={<RanthamborefortGuide />} />
+            <Route path="/blogs/where-to-stay-jaipur-best-neighborhoods" element={<WhereToStayJaipur />} />
+            <Route path="/blogs/tips-first-ranthambore-safari-what-to-wear" element={<TipsFirstSafari />} />
+            <Route path="/blogs/amer-vs-nahargarh-fort-sunset" element={<AmerVsNahargarh />} />
+            <Route path="/blogs/ranthambore-vs-sariska-national-park" element={<RanthamboreVsSariska />} />
           </Routes>
         </main>
       </Suspense>
