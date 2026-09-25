@@ -1,10 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Suspense, lazy } from "react";
+import { Suspense } from "react";
 
-// 🔹 Critical pages (keep eager)
-import Home from "./pages/Home";
-import City from "./pages/City";
-import Blogs from "./pages/Blogs";
+import { routes, NotFound } from "./routes";
 
 // 🔹 Layout
 import Navbar from "./components/Navbar";
@@ -12,86 +9,13 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import LeadCapturePopup from "./components/LeadCapturePopup";
 import WhatsAppFloat from "./components/WhatsAppFloat.jsx";
-
-// 🔹 Lazy loaded pages (performance boost)
-const About = lazy(() => import("./pages/About"));
-const Contact = lazy(() => import("./pages/Contact"));
-
-// 🔹 Cities
-const Udaipur = lazy(() => import("./citys/Udaipur"));
-const Jaipur = lazy(() => import("./citys/Jaipur.jsx"));
-const Ranthambore = lazy(() => import("./citys/Ranthambore"));
-const Jodhpur = lazy(() => import("./citys/Jodhpur"));
-const Bikaner = lazy(() => import("./citys/Bikaner"));
-const Jaisalmer = lazy(() => import("./citys/Jaisalmer"));
-const Jawai = lazy(() => import("./citys/Jawai"));
-const Ranchi = lazy(() => import("./citys/Ranchi"));
-
-// 🔹 Blogs
-const Top10places = lazy(() => import("./blogs/Top10places"));
-const Theultimate2week = lazy(() => import("./blogs/Theultimate2week"));
-const Besttimevisit = lazy(() => import("./blogs/Besttimevisit"));
-const Jaipurvsudaipur = lazy(() => import("./blogs/Jaipurvsudaipur"));
-const ManaliToLeh = lazy(() => import("./blogs/ManaliToLeh"));
-const SpitiValley = lazy(() => import("./blogs/SpitiValley"));
-const VaranasiGhats = lazy(() => import("./blogs/VaranasiGhats"));
-const Rishikesh = lazy(() => import("./blogs/Rishikesh.jsx"));
-const JaisalmerCamping = lazy(() => import("./blogs/Jaisalmerdesert.jsx"));
-const BhangarhFort = lazy(() => import("./blogs/BhangarhFort.jsx"));
-const KeralaBackWater = lazy(() => import("./blogs/KeralabackWater.jsx"));
-const HampiEmpire = lazy(() => import("./blogs/Hampiempire.jsx"));
-const Pondicherry = lazy(() => import("./blogs/Pondicherry.jsx"));
-const Coorg = lazy(() => import("./blogs/Coorg.jsx"));
-const Ooty = lazy(() => import("./blogs/Ooty.jsx"));
-const Mysore = lazy(() => import("./blogs/Mysore.jsx"));
-const India500 = lazy(() => import("./blogs/India500.jsx"));
-const BestHotels = lazy(() => import("./blogs/BestHotels.jsx"));
-const TatkalRailway = lazy(() => import("./blogs/TatkalRailway"));
-const StudentDiscount = lazy(() => import("./blogs/StudentDiscount"));
-const FemaleTrav = lazy(() => import("./blogs/FemaleTrav"));
-const ChandniChowk = lazy(() => import("./blogs/ChandniChowk"));
-const GoldenTemple = lazy(() => import("./blogs/GoldenTemple"));
-const GoaForts = lazy(() => import("./blogs/GoaForts"));
-const HyderabadiBiryani = lazy(() => import("./blogs/HyderabadiBiryani"));
-const MeghalayaWalking = lazy(() => import("./blogs/MeghalayaWalking"));
-const SikkimSilk = lazy(() => import("./blogs/SikkimSilk"));
-const AndamanIslands = lazy(() => import("./blogs/AndamanIslands"));
-const RannofKutch = lazy(() => import("./blogs/RannofKutch"));
-const JimCorbett = lazy(() => import("./blogs/JimCorbett"));
-const ValleyFlowers = lazy(() => import("./blogs/ValleyFlowers"));
-const Mangrove = lazy(() => import("./blogs/Mangrove"));
-const PackingList = lazy(() => import("./blogs/PackingList"));
-
-// 🔹 New BharatMile SEO Blogs (Ranthambore + Jaipur)
-const RanthamboreGuide2026 = lazy(() => import("./blogs/RanthamboreGuide2026"));
-const JaipurCoupleGuide = lazy(() => import("./blogs/JaipurCoupleGuide"));
-const GypsyVsCanter = lazy(() => import("./blogs/GypsyVsCanter"));
-const JaipurFamilyHotels = lazy(() => import("./blogs/JaipurFamilyHotels"));
-const RajasthanWeekend = lazy(() => import("./blogs/RajasthanWeekend"));
-const RanthamboreKidsSafety = lazy(() => import("./blogs/RanthamboreKidsSafety"));
-const JaipurLocalFood = lazy(() => import("./blogs/JaipurLocalFood"));
-const RanthamboreResorts = lazy(() => import("./blogs/RanthamboreResorts"));
-const JaipurFortGuide = lazy(() => import("./blogs/JaipurFortGuide"));
-const JaipurToRanthambore = lazy(() => import("./blogs/JaipurToRanthambore"));
-
-// 🔹 New Phase 2 Landing Pages
-const RanthambhoreSafariTours = lazy(() => import("./pages/RanthambhoreSafariTours"));
-const JaipurSightseeingPackages = lazy(() => import("./pages/JaipurSightseeingPackages"));
-
-// 🔹 New Phase 3 SEO Blogs
-const HowToBookJeepSafari = lazy(() => import("./blogs/HowToBookJeepSafari"));
-const JaipurItinerary3Days = lazy(() => import("./blogs/JaipurItinerary3Days"));
-const BestTimeRanthambore = lazy(() => import("./blogs/BestTimeRanthambore"));
-const Top10JaipurMonuments = lazy(() => import("./blogs/Top10JaipurMonuments"));
-const RanthamborefortGuide = lazy(() => import("./blogs/RanthamborefortGuide"));
-const WhereToStayJaipur = lazy(() => import("./blogs/WhereToStayJaipur"));
-const TipsFirstSafari = lazy(() => import("./blogs/TipsFirstSafari"));
-const AmerVsNahargarh = lazy(() => import("./blogs/AmerVsNahargarh"));
-const RanthamboreVsSariska = lazy(() => import("./blogs/RanthamboreVsSariska"));
+import SiteSeo from "./components/SiteSeo";
+import BlogBookingCta from "./components/BlogBookingCta";
 
 export default function App() {
   return (
     <BrowserRouter>
+      <SiteSeo />
       <Navbar />
       <ScrollToTop />
       <LeadCapturePopup />
@@ -101,88 +25,12 @@ export default function App() {
 
         <main className="min-h-screen pt-20">
           <Routes>
-
-            {/* Eager loaded important routes */}
-            <Route path="/" element={<Home />} />
-            <Route path="/city" element={<City />} />
-            <Route path="/blogs" element={<Blogs />} />
-
-            {/* Lazy basic pages */}
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-
-            {/* City Routes */}
-            <Route path="/city/jaipur" element={<Jaipur />} />
-            <Route path="/city/udaipur" element={<Udaipur />} />
-            <Route path="/city/ranthambore" element={<Ranthambore />} />
-            <Route path="/city/jodhpur" element={<Jodhpur />} />
-            <Route path="/city/bikaner" element={<Bikaner />} />
-            <Route path="/city/jaisalmer" element={<Jaisalmer />} />
-            <Route path="/city/jawai" element={<Jawai />} />
-            <Route path="/city/ranchi" element={<Ranchi />} />
-
-            {/* Blogs */}
-            <Route path="/top-10-places-to-visit-in-india" element={<Top10places />} />
-            <Route path="/2-week-india-itinerary-for-beginners" element={<Theultimate2week />} />
-            <Route path="/why-2025-is-the-best-year-to-visit-bharat" element={<Besttimevisit />} />
-            <Route path="/jaipur-vs-udaipur-which-city-to-visit" element={<Jaipurvsudaipur />} />
-            <Route path="/manali-to-leh-road-trip-guide" element={<ManaliToLeh />} />
-            <Route path="/spiti-valley-middle-land" element={<SpitiValley />} />
-            <Route path="/varanasi-ghats-spiritual-journey" element={<VaranasiGhats />} />
-            <Route path="/rishikesh-yoga-rafting-peace" element={<Rishikesh />} />
-            <Route path="/jaisalmer-desert-camping" element={<JaisalmerCamping />} />
-            <Route path="/bhangarh-fort-haunted-history" element={<BhangarhFort />} />
-            <Route path="/blogs/kerala-backwaters" element={<KeralaBackWater />} />
-            <Route path="/blogs/hampi-ruins-empire" element={<HampiEmpire />} />
-            <Route path="/blogs/pondicherry-french-town" element={<Pondicherry />} />
-            <Route path="/blogs/coorg-coffee-guide" element={<Coorg />} />
-            <Route path="/blogs/ooty-toy-train-tickets-timings" element={<Ooty />} />
-            <Route path="/blogs/mysore-palace-dussehra-experience" element={<Mysore />} />
-            <Route path="/blogs/how-to-travel-india-for-500-rupees" element={<India500 />} />
-            <Route path="/blogs/best-hostels-in-india-for-solo-travelers" element={<BestHotels />} />
-            <Route path="/blogs/tatkal-railway" element={<TatkalRailway />} />
-            <Route path="/blogs/student-discounts" element={<StudentDiscount />} />
-            <Route path="/blogs/solo-female-travel-tips" element={<FemaleTrav />} />
-            <Route path="/blogs/chandni-chowk-street-food-guide" element={<ChandniChowk />} />
-            <Route path="/blogs/amritsar-golden-temple-langar" element={<GoldenTemple />} />
-            <Route path="/goa-forts" element={<GoaForts />} />
-            <Route path="/hyderabadi-biryani" element={<HyderabadiBiryani />} />
-            <Route path="/meghalaya-walking-on-living-root-bridges" element={<MeghalayaWalking />} />
-            <Route path="/sikkim-silk-route-hidden-gem" element={<SikkimSilk />} />
-            <Route path="/andaman-islands-scuba-diving-beginners" element={<AndamanIslands />} />
-            <Route path="/rann-of-kutch-white-desert-festival" element={<RannofKutch />} />
-            <Route path="/jim-corbett-bengal-tiger-safari" element={<JimCorbett />} />
-            <Route path="/valley-of-flowers-monsoon-trekking" element={<ValleyFlowers />} />
-            <Route path="/blogs/sundarbans-mangrove-safari" element={<Mangrove />} />
-            <Route path="/blogs/packing-list-india" element={<PackingList />} />
-
-            {/* ✅ New SEO Blog Routes — Ranthambore & Jaipur */}
-            <Route path="/blogs/ranthambore-safari-guide-2026-family" element={<RanthamboreGuide2026 />} />
-            <Route path="/blogs/jaipur-couple-guide-48-hours" element={<JaipurCoupleGuide />} />
-            <Route path="/blogs/gypsy-vs-canter-ranthambore-family" element={<GypsyVsCanter />} />
-            <Route path="/blogs/family-friendly-hotels-jaipur-under-5000" element={<JaipurFamilyHotels />} />
-            <Route path="/blogs/rajasthan-weekend-trip-family-delhi" element={<RajasthanWeekend />} />
-            <Route path="/blogs/ranthambore-safari-safe-for-kids" element={<RanthamboreKidsSafety />} />
-            <Route path="/blogs/jaipur-local-food-family-guide" element={<JaipurLocalFood />} />
-            <Route path="/blogs/couple-resorts-ranthambore" element={<RanthamboreResorts />} />
-            <Route path="/blogs/jaipur-fort-complete-guide" element={<JaipurFortGuide />} />
-            <Route path="/blogs/jaipur-to-ranthambore-travel-guide" element={<JaipurToRanthambore />} />
-
-            {/* ✅ New Phase 2 Landing Pages */}
-            <Route path="/ranthambore-safari-tours" element={<RanthambhoreSafariTours />} />
-            <Route path="/jaipur-sightseeing-packages" element={<JaipurSightseeingPackages />} />
-
-            {/* ✅ New Phase 3 SEO Blogs */}
-            <Route path="/blogs/how-to-book-jeep-safari-ranthambore" element={<HowToBookJeepSafari />} />
-            <Route path="/blogs/3-day-jaipur-itinerary-history-lovers" element={<JaipurItinerary3Days />} />
-            <Route path="/blogs/best-time-visit-ranthambore-tiger-sightings" element={<BestTimeRanthambore />} />
-            <Route path="/blogs/top-10-monuments-jaipur-2026" element={<Top10JaipurMonuments />} />
-            <Route path="/blogs/ranthambore-fort-complete-surroundings-guide" element={<RanthamborefortGuide />} />
-            <Route path="/blogs/where-to-stay-jaipur-best-neighborhoods" element={<WhereToStayJaipur />} />
-            <Route path="/blogs/tips-first-ranthambore-safari-what-to-wear" element={<TipsFirstSafari />} />
-            <Route path="/blogs/amer-vs-nahargarh-fort-sunset" element={<AmerVsNahargarh />} />
-            <Route path="/blogs/ranthambore-vs-sariska-national-park" element={<RanthamboreVsSariska />} />
+            {routes.map((route) => (
+              <Route key={route.path} path={route.path} element={<route.Component />} />
+            ))}
+            <Route path="*" element={<NotFound />} />
           </Routes>
+          <BlogBookingCta />
         </main>
       </Suspense>
 
