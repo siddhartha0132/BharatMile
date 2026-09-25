@@ -5,12 +5,12 @@ const OFFERS = {
   safari: {
     to: "/ranthambore-safari-tours",
     title: "Ranthambore Safari Tours",
-    text: "Gypsy & Canter safaris, naturalist guide, resort stay and Jaipur transfers on request. From ₹4,999.",
+    text: "Safari seats ₹1,400 per person, full private Gypsy ₹25,000, or our ₹5,000 package + taxi. Same price all year.",
   },
   jaipur: {
     to: "/jaipur-sightseeing-packages",
     title: "Jaipur Sightseeing Packages",
-    text: "Amber Fort, City Palace, Hawa Mahal & more with a local guide and private car. 1–5 day plans.",
+    text: "2-day Jaipur package at ₹4,999 — stay, cab and full-day sightseeing: Amber Fort, City Palace, Hawa Mahal & more.",
   },
 };
 

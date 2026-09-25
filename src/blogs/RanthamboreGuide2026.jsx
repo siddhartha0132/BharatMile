@@ -1,5 +1,6 @@
 // src/blogs/RanthamboreGuide2026.jsx
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import ranthamboreImg from "../assets/Ranthambore.webp";
 
 export default function RanthamboreGuide2026() {
@@ -65,17 +66,17 @@ export default function RanthamboreGuide2026() {
           <tbody>
             <tr className="border-t"><td className="p-2">Best for</td><td className="p-2">Small family (4–6)</td><td className="p-2">Budget groups</td></tr>
             <tr className="border-t"><td className="p-2">Privacy</td><td className="p-2">✅ High</td><td className="p-2">❌ Low</td></tr>
-            <tr className="border-t"><td className="p-2">Cost</td><td className="p-2">₹3,000–₹4,500/jeep</td><td className="p-2">₹800–₹1,200/person</td></tr>
+            <tr className="border-t"><td className="p-2">Cost</td><td className="p-2">₹1,400/seat · ₹25,000 full Gypsy</td><td className="p-2">₹1,400/seat</td></tr>
             <tr className="border-t"><td className="p-2">Kids allowed</td><td className="p-2">✅ Yes (any age)</td><td className="p-2">⚠️ Above 5 only</td></tr>
           </tbody>
         </table>
 
         <h2>Safari Costs in 2026</h2>
         <ul>
-          <li><strong>Gypsy:</strong> ₹3,000 – ₹4,500 per vehicle (6 people)</li>
-          <li><strong>Canter:</strong> ₹800 – ₹1,200 per person</li>
-          <li><strong>Entry Fee:</strong> ₹200 (Indian adult), ₹100 (child under 12)</li>
-          <li><strong>Guide (mandatory):</strong> ₹300 – ₹600</li>
+          <li><strong>Safari seat (Gypsy or Canter):</strong> ₹1,400 per person</li>
+          <li><strong>Full private Gypsy (up to 6 guests):</strong> ₹25,000</li>
+          <li><strong>BharatMile safari package:</strong> ₹5,000 per person + taxi</li>
+          <li>Same price all year — <Link to="/blogs/ranthambore-safari-price-2026">see the full price guide</Link></li>
         </ul>
 
         <h2>Best Time for Families to Visit</h2>

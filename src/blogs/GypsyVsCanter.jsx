@@ -68,8 +68,8 @@ export default function GypsyVsCanter() {
         <p><strong>Canter:</strong> ❌ The forest department strictly prohibits children <strong>under 5 years of age</strong> from boarding a Canter for safety reasons. Even for children aged 5–10, the Canter's open sides and high seating can feel less secure to parents.</p>
 
         <h3>6. Cost (The Only Canter Advantage)</h3>
-        <p><strong>Gypsy:</strong> ❌ More expensive. In 2026, booking a full Gypsy (all 6 seats) costs around ₹18,000–₹22,000 total depending on the season and booking agent, which breaks down to about ₹3,000–₹4,000 per person.</p>
-        <p><strong>Canter:</strong> ✅ <strong>Winner.</strong> Canters are budget-friendly. They cost approximately ₹1,000–₹1,500 per seat. For a family of 4, a Canter is significantly cheaper than booking an exclusive Gypsy.</p>
+        <p><strong>Gypsy:</strong> ❌ More expensive. With BharatMile, a full private Gypsy (all 6 seats) costs ₹25,000 — about ₹4,200 per person when all six seats are used. The price is the same all year.</p>
+        <p><strong>Canter:</strong> ✅ <strong>Winner.</strong> Canters are budget-friendly. A seat costs ₹1,400 per person with BharatMile. For a family of 4, a Canter is significantly cheaper than booking an exclusive Gypsy.</p>
 
         <h2>BharatMile's Verdict for Families</h2>
         <div style={{ background: "#f0f8f0", borderLeft: "4px solid #2d5a27", borderRadius: 8, padding: "16px 20px", fontSize: "1.05rem", color: "#222", marginBottom: 32 }}>

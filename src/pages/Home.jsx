@@ -79,7 +79,7 @@ export default function Home() {
     document.title = "Book Ranthambore Safari Tours & Jaipur Sightseeing Packages | BharatMile";
     const metaDesc = document.querySelector("meta[name='description']");
     if (metaDesc)
-      metaDesc.setAttribute("content", "Book expert Ranthambore tiger safari tours & Jaipur sightseeing packages with BharatMile. Family-safe safaris, heritage fort tours, custom itineraries from ₹4,999. WhatsApp us today!");
+      metaDesc.setAttribute("content", "Book Ranthambore tiger safaris with BharatMile — seats from ₹1,400 per person, private Gypsy ₹25,000 — and 2-day Jaipur packages at ₹4,999 with stay & cab. WhatsApp us today!");
 
     // ✅ Throttled scroll listener — prevents FID/INP degradation
     let ticking = false;
@@ -980,7 +980,7 @@ export default function Home() {
               Book Your<br /><em>Rajasthan</em> Adventure
             </h1>
             <p className="hero-sub">
-              Expert Ranthambore tiger safari tours &amp; Jaipur sightseeing packages — family-safe, custom-built, starting at ₹4,999.
+              Ranthambore tiger safaris from ₹1,400 per person &amp; 2-day Jaipur packages at ₹4,999 with stay, cab and sightseeing.
             </p>
             <div className="hero-actions">
               <Link to={CITIES_PAGE_LINK} className="btn-primary">

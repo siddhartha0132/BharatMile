@@ -74,7 +74,7 @@ export default function HowToBookJeepSafari() {
           <li>Select your dates, safari type (Gypsy/Canter), and slot (morning/afternoon)</li>
           <li>The zone is assigned by lottery — you cannot choose a specific zone, only express preference</li>
           <li>Upload ID proof for all passengers (Aadhaar/Passport for Indian/foreign nationals)</li>
-          <li>Pay online (₹200 entry + ₹3,000–₹4,500 Gypsy vehicle charges + guide fee)</li>
+          <li>Pay online and keep the payment confirmation</li>
           <li>Download your e-permit immediately</li>
         </ol>
         <p><strong>Advance booking window:</strong> Opens 90 days before your safari date for Indian nationals, 120 days for foreign nationals. Peak season slots (October–February) fill up 30–45 days in advance.</p>
@@ -82,7 +82,8 @@ export default function HowToBookJeepSafari() {
         <h2>Step 4: Book Through BharatMile (Easier & Hassle-Free)</h2>
         <p>Navigating the government portal can be confusing — zone lotteries, ID uploads, and payment failures are common. <strong>BharatMile offers a fully managed Ranthambore Gypsy safari booking service:</strong></p>
         <ul>
-          <li>We handle all permit bookings with confirmed zone preference</li>
+          <li>Simple pricing: ₹1,400 per seat, ₹25,000 for a full private Gypsy, same all year</li>
+          <li>We handle all permit bookings with your zone preference</li>
           <li>We arrange an expert naturalist guide (not just a driver)</li>
           <li>We combine safaris with resort stays and Jaipur transfers in one package</li>
           <li>No portal hassles — just WhatsApp us your dates and group size</li>

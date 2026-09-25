@@ -42,6 +42,10 @@ export const routes = [
   route("/city/ranchi", () => import("./citys/Ranchi")),
 
   // Ranthambore & Jaipur blogs
+  blog("/blogs/ranthambore-safari-price-2026", () => import("./blogs/RanthamborePrice2026"), "safari", "Ranthambore Safari Price 2026–27"),
+  blog("/blogs/ranthambore-safari-booking-january-march-2027", () => import("./blogs/SafariBookingJanMar2027"), "safari", "Safari Booking for Jan–Mar 2027"),
+  blog("/blogs/ranthambore-safari-booking-kaise-kare", () => import("./blogs/RanthamboreSafariHindi"), "safari", "रणथंभौर सफारी बुकिंग कैसे करें (हिंदी)"),
+  blog("/blogs/jaipur-2-day-tour-package", () => import("./blogs/Jaipur2DayPackage"), "jaipur", "Jaipur 2-Day Package at ₹4,999"),
   blog("/blogs/ranthambore-safari-guide-2026-family", () => import("./blogs/RanthamboreGuide2026"), "safari", "Ranthambore Safari Guide 2026 for Families"),
   blog("/blogs/jaipur-couple-guide-48-hours", () => import("./blogs/JaipurCoupleGuide"), "jaipur", "48 Hours in Jaipur for Couples"),
   blog("/blogs/gypsy-vs-canter-ranthambore-family", () => import("./blogs/GypsyVsCanter"), "safari", "Gypsy vs Canter: Which Safari Vehicle?"),

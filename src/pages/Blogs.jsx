@@ -67,6 +67,10 @@ const CAT_META = {
 };
 
 const ALL_BLOGS = [
+  { id: 53, title: "Ranthambore Safari Price 2026–27: ₹1,400 Seat, ₹25,000 Gypsy", category: "Wildlife", img: ranthamboreImg, slug: "/blogs/ranthambore-safari-price-2026", read: 6 },
+  { id: 54, title: "Jaipur 2-Day Tour Package at ₹4,999",              category: "Rajasthan", img: amberFortImg, slug: "/blogs/jaipur-2-day-tour-package", read: 6 },
+  { id: 55, title: "Ranthambore Safari Booking for Jan–Mar 2027",       category: "Wildlife",  img: ranthamboreImg, slug: "/blogs/ranthambore-safari-booking-january-march-2027", read: 5 },
+  { id: 56, title: "रणथंभौर सफारी बुकिंग कैसे करें (हिंदी गाइड)",           category: "Wildlife",  img: ranthamboreImg, slug: "/blogs/ranthambore-safari-booking-kaise-kare", read: 5 },
   { id: 44, title: "Ranthambore Safari Guide 2026: Cost, Zones & Best Time", category: "Wildlife", img: ranthamboreImg, slug: "/blogs/ranthambore-safari-guide-2026-family", read: 9 },
   { id: 45, title: "Jaipur to Ranthambore: Distance, Cab & Train Guide",   category: "Rajasthan", img: ranthamboreImg, slug: "/blogs/jaipur-to-ranthambore-travel-guide", read: 7 },
   { id: 46, title: "Is Ranthambore Safari Safe for Kids?",                  category: "Family",    img: ranthamboreImg, slug: "/blogs/ranthambore-safari-safe-for-kids", read: 7 },
@@ -120,7 +124,7 @@ const ALL_BLOGS = [
   { id: 32, title: "Sundarbans: The Mangrove Forest Boat Safari",         category: "Wildlife",  img: id32, slug: "/blogs/sundarbans-mangrove-safari",             read: 6  },
 ];
 
-const FEATURED_IDS = [34, 36, 35]; // Ranthambore booking, best time, Jaipur itinerary
+const FEATURED_IDS = [53, 54, 34]; // safari price, Jaipur package, how to book safari
 const ALL_CATS = ["All", ...Array.from(new Set(ALL_BLOGS.map(b => b.category)))];
 
 export default function Blogs() {

@@ -23,8 +23,8 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "What is the entry fee for Ranthambore National Park in 2026?",
-      acceptedAnswer: { "@type": "Answer", text: "Entry fees in 2026: Indian adults ₹200, children under 12 ₹100. Safari vehicle charges are separate — Gypsy ₹3,000–₹4,500 per vehicle, Canter ₹800–₹1,200 per person. Guide fee (mandatory) ₹300–₹600." }
+      name: "How much does a Ranthambore safari cost in 2026?",
+      acceptedAnswer: { "@type": "Answer", text: "With BharatMile a Ranthambore safari seat costs ₹1,400 per person and a full private Gypsy (up to 6 guests) costs ₹25,000. Prices are the same all year. Our safari package is ₹5,000 per person plus taxi, quoted by pickup city." }
     },
     {
       "@type": "Question",
@@ -78,7 +78,7 @@ export default function RanthambhoreSafariTours() {
         <meta name="description" content="Book Ranthambore safari tours with BharatMile. Expert guide to Zones 1–10, Gypsy vs Canter, 1-day/2-day/5-day itineraries, safari fees 2026, and best time to visit. WhatsApp for instant booking!" />
         <link rel="canonical" href="https://bharatmile.com/ranthambore-safari-tours" />
         <meta property="og:title" content="Book Ranthambore Safari Tours 2026 | BharatMile" />
-        <meta property="og:description" content="Expert Ranthambore tiger safari tours — Zones 1–10 guide, Gypsy/Canter booking, 1-day/2-day/5-day itineraries. Starting ₹4,999." />
+        <meta property="og:description" content="Expert Ranthambore tiger safari tours — Zones 1–10 guide, Gypsy/Canter booking, 1-day/2-day/5-day itineraries. Safari seats from ₹1,400." />
         <meta property="og:image" content="https://bharatmile.com/assets/Ranthambore.webp" />
         <meta property="og:url" content="https://bharatmile.com/ranthambore-safari-tours" />
         <meta property="og:type" content="website" />
@@ -126,7 +126,7 @@ export default function RanthambhoreSafariTours() {
             { label: "Safari Types", value: "Gypsy / Canter" },
             { label: "Nearest Station", value: "Sawai Madhopur" },
             { label: "Distance from Jaipur", value: "~180 km (3.5 hrs)" },
-            { label: "Starting Price", value: "₹4,999 / person" },
+            { label: "Safari Seat", value: "₹1,400 / person" },
           ].map(f => (
             <div key={f.label} style={{ padding: "12px 8px" }}>
               <div style={{ fontSize: 20, fontWeight: 700, color: "#c1644a" }}>{f.value}</div>
@@ -191,7 +191,7 @@ export default function RanthambhoreSafariTours() {
                   ["Best For", "Small families, couples, photographers", "Budget groups, school trips"],
                   ["Privacy", "✅ High — your private vehicle", "❌ Shared with 19 others"],
                   ["Zone Access", "✅ All 10 zones", "⚠️ Zones 4–10 only"],
-                  ["Cost (2026)", "₹3,000–₹4,500 per vehicle", "₹800–₹1,200 per person"],
+                  ["Cost (2026)", "₹1,400 per seat · ₹25,000 full private Gypsy", "₹1,400 per seat"],
                   ["Children Allowed", "✅ Any age", "⚠️ Above 5 years only"],
                   ["Photography", "✅ Excellent — open sides, low profile", "❌ Limited angles, height disadvantage"],
                   ["Advance Booking", "60 days recommended", "30 days recommended"],
@@ -213,17 +213,12 @@ export default function RanthambhoreSafariTours() {
 
         {/* ── SAFARI FEES 2026 ── */}
         <section style={{ marginBottom: 80, background: "#fff8f4", border: "1px solid #f0d9cc", borderRadius: 16, padding: 40 }}>
-          <h2 style={{ fontSize: "2rem", fontWeight: 700, marginBottom: 20, color: "#1c1c1e" }}>Ranthambore Safari Entry Fees & Costs 2026</h2>
+          <h2 style={{ fontSize: "2rem", fontWeight: 700, marginBottom: 20, color: "#1c1c1e" }}>Ranthambore Safari Prices 2026–27</h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 20 }}>
             {[
-              { item: "Entry Fee — Indian Adult", price: "₹200" },
-              { item: "Entry Fee — Child (under 12)", price: "₹100" },
-              { item: "Entry Fee — Foreign National", price: "₹1,500" },
-              { item: "Gypsy Safari (6 pax)", price: "₹3,000–₹4,500" },
-              { item: "Canter Safari (per person)", price: "₹800–₹1,200" },
-              { item: "Naturalist Guide (mandatory)", price: "₹300–₹600" },
-              { item: "Camera Fee (still)", price: "₹200" },
-              { item: "Video Camera Fee", price: "₹5,000" },
+              { item: "Safari seat (per person)", price: "₹1,400" },
+              { item: "Full private Gypsy (up to 6 guests)", price: "₹25,000" },
+              { item: "BharatMile safari package (per person)", price: "₹5,000 + taxi" },
             ].map(f => (
               <div key={f.item} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "12px 16px", background: "#fff", borderRadius: 8, border: "1px solid #eee" }}>
                 <span style={{ fontSize: 14, color: "#444", fontWeight: 500 }}>{f.item}</span>
@@ -231,7 +226,7 @@ export default function RanthambhoreSafariTours() {
               </div>
             ))}
           </div>
-          <p style={{ marginTop: 20, fontSize: 13, color: "#888" }}>* Fees are indicative for 2026 season. Government fees subject to change. BharatMile packages include all forest fees, guide, and vehicle.</p>
+          <p style={{ marginTop: 20, fontSize: 13, color: "#888" }}>* Same price all year. Taxi is quoted by pickup city (Jaipur, Sawai Madhopur station, etc.) — WhatsApp +91-9636974688 for a quote.</p>
         </section>
 
         {/* ── BEST TIME ── */}
@@ -291,7 +286,7 @@ export default function RanthambhoreSafariTours() {
               ))}
             </div>
             <div style={{ marginTop: 20, background: "#fff8f4", borderRadius: 8, padding: 16, fontSize: 14, color: "#666" }}>
-              <strong>Includes:</strong> 2 safari permits (morning Gypsy + afternoon Canter), naturalist guide, Fort entry, transfer (optional) &nbsp;|&nbsp; <strong>From ₹4,999 per person</strong>
+              <strong>Includes:</strong> 2 safari permits (morning Gypsy + afternoon Canter), naturalist guide, Fort entry, transfer (optional) &nbsp;|&nbsp; <strong>₹5,000 per person + taxi</strong>
             </div>
           </div>
 
@@ -476,7 +471,7 @@ export default function RanthambhoreSafariTours() {
                 🏯 Also See Jaipur Packages
               </Link>
             </div>
-            <p style={{ marginTop: 20, fontSize: 13, color: "rgba(255,255,255,0.4)" }}>📞 +91-9636974688 &nbsp;|&nbsp; Starting ₹4,999 per person &nbsp;|&nbsp; Free itinerary consultation</p>
+            <p style={{ marginTop: 20, fontSize: 13, color: "rgba(255,255,255,0.4)" }}>📞 +91-9636974688 &nbsp;|&nbsp; Safari seats from ₹1,400 per person &nbsp;|&nbsp; Free itinerary consultation</p>
           </div>
         </section>
 

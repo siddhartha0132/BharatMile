@@ -262,7 +262,7 @@ export default function JaipurSightseeingPackages() {
               </div>
             </div>
             <div style={{ marginTop: 20, background: "#fff8f4", borderRadius: 8, padding: 16, fontSize: 14, color: "#666" }}>
-              <strong>Includes:</strong> 1 night heritage hotel, private AC car (2 days), expert guide, all entry fees, cultural show, select meals &nbsp;|&nbsp; <strong>From ₹5,999 per person (twin sharing)</strong>
+              <strong>Includes:</strong> 1 night stay, cab for both days, full-day sightseeing on both days &nbsp;|&nbsp; <strong>₹4,999 package</strong>
             </div>
           </div>
 
