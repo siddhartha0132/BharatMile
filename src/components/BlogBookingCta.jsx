@@ -24,7 +24,7 @@ export default function BlogBookingCta() {
   const route = findRoute(pathname);
   if (route?.kind !== "blog") return null;
 
-  const offers = route.cta === "both" ? [OFFERS.safari, OFFERS.jaipur] : [OFFERS[route.cta]];
+  const offers = OFFERS[route.topic] ? [OFFERS[route.topic]] : [OFFERS.safari, OFFERS.jaipur];
 
   return (
     <aside className="max-w-4xl mx-auto px-6 pb-14" aria-label="Plan your trip with BharatMile">

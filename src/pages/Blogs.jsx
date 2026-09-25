@@ -35,7 +35,10 @@ import id29 from "../assets/rann-of-kutch.jpeg";
 import id30 from "../assets/jim-corbett.avif";
 import id31 from "../assets/Valleyofflowers.jpg";
 import id32 from "../assets/sundarbantours.jpg";
-import id33 from "../assets/whatnottobring.jpg";
+import ranthamboreImg from "../assets/Ranthambore.webp";
+import amberFortImg from "../assets/amber-fort.jpg";
+import jaipurImg from "../assets/jaipur.webp";
+import cityPalaceImg from "../assets/city-palace.jpeg";
 
 // ── Category meta ──────────────────────────────────────────────────────────
 const CAT_META = {
@@ -64,6 +67,25 @@ const CAT_META = {
 };
 
 const ALL_BLOGS = [
+  { id: 44, title: "Ranthambore Safari Guide 2026: Cost, Zones & Best Time", category: "Wildlife", img: ranthamboreImg, slug: "/blogs/ranthambore-safari-guide-2026-family", read: 9 },
+  { id: 45, title: "Jaipur to Ranthambore: Distance, Cab & Train Guide",   category: "Rajasthan", img: ranthamboreImg, slug: "/blogs/jaipur-to-ranthambore-travel-guide", read: 7 },
+  { id: 46, title: "Is Ranthambore Safari Safe for Kids?",                  category: "Family",    img: ranthamboreImg, slug: "/blogs/ranthambore-safari-safe-for-kids", read: 7 },
+  { id: 47, title: "Best Couple Resorts in Ranthambore",                    category: "Wildlife",  img: ranthamboreImg, slug: "/blogs/couple-resorts-ranthambore", read: 7 },
+  { id: 48, title: "Complete Jaipur Fort Guide: Amber, Nahargarh & Jaigarh", category: "Heritage", img: amberFortImg, slug: "/blogs/jaipur-fort-complete-guide", read: 9 },
+  { id: 49, title: "48 Hours in Jaipur: A Couple's Guide",                  category: "Rajasthan", img: cityPalaceImg, slug: "/blogs/jaipur-couple-guide-48-hours", read: 7 },
+  { id: 50, title: "Top 5 Family-Friendly Hotels in Jaipur Under ₹5,000",  category: "Family",    img: jaipurImg, slug: "/blogs/family-friendly-hotels-jaipur-under-5000", read: 6 },
+  { id: 51, title: "Top 10 Foods to Eat in Jaipur",                         category: "Food",      img: jaipurImg, slug: "/blogs/jaipur-local-food-family-guide", read: 6 },
+  { id: 52, title: "3-Day Rajasthan Weekend Trip for Families from Delhi", category: "Rajasthan", img: amberFortImg, slug: "/blogs/rajasthan-weekend-trip-family-delhi", read: 8 },
+  { id: 34, title: "How to Book a Jeep Safari in Ranthambore",            category: "Wildlife",  img: ranthamboreImg, slug: "/blogs/how-to-book-jeep-safari-ranthambore",   read: 9  },
+  { id: 35, title: "3-Day Jaipur Itinerary for History Lovers",           category: "Heritage",  img: cityPalaceImg,  slug: "/blogs/3-day-jaipur-itinerary-history-lovers", read: 12 },
+  { id: 36, title: "Best Time to Visit Ranthambore for Tiger Sightings",  category: "Wildlife",  img: ranthamboreImg, slug: "/blogs/best-time-visit-ranthambore-tiger-sightings", read: 10 },
+  { id: 37, title: "Top 10 Monuments in Jaipur 2026",                     category: "Heritage",  img: amberFortImg,  slug: "/blogs/top-10-monuments-jaipur-2026",          read: 11 },
+  { id: 38, title: "Ranthambore Fort Complete Guide",                     category: "Heritage",  img: ranthamboreImg, slug: "/blogs/ranthambore-fort-complete-surroundings-guide", read: 10 },
+  { id: 39, title: "Where to Stay in Jaipur: Best Neighborhoods",         category: "Guides",    img: jaipurImg,  slug: "/blogs/where-to-stay-jaipur-best-neighborhoods", read: 12 },
+  { id: 40, title: "10 Essential Tips for Your First Ranthambore Safari", category: "Tips",      img: ranthamboreImg, slug: "/blogs/tips-first-ranthambore-safari-what-to-wear", read: 8  },
+  { id: 41, title: "Gypsy vs Canter: Which Safari is Best for Families?", category: "Family",    img: ranthamboreImg, slug: "/blogs/gypsy-vs-canter-ranthambore-family",    read: 7  },
+  { id: 42, title: "Amer Fort vs. Nahargarh Fort: Which is Better for Sunset?", category: "Heritage", img: amberFortImg, slug: "/blogs/amer-vs-nahargarh-fort-sunset", read: 8 },
+  { id: 43, title: "Ranthambore vs. Sariska: Which National Park Should You Visit?", category: "Wildlife", img: ranthamboreImg, slug: "/blogs/ranthambore-vs-sariska-national-park", read: 9 },
   { id: 1,  title: "Top 10 Places to Visit in India Before You Die",       category: "Trending",  img: id1,  slug: "/top-10-places-to-visit-in-india",             read: 6  },
   { id: 2,  title: "The Ultimate 2-Week India Itinerary for Beginners",    category: "Guides",    img: id2,  slug: "/2-week-india-itinerary-for-beginners",         read: 10 },
   { id: 3,  title: "Why 2025 is the Best Year to Visit Bharat",            category: "News",      img: id3,  slug: "/why-2025-is-the-best-year-to-visit-bharat",    read: 4  },
@@ -96,20 +118,9 @@ const ALL_BLOGS = [
   { id: 30, title: "Jim Corbett: Spotting the Bengal Tiger",               category: "Wildlife",  img: id30, slug: "/jim-corbett-bengal-tiger-safari",             read: 7  },
   { id: 31, title: "Valley of Flowers: Trekking in Monsoon",              category: "Trekking",  img: id31, slug: "/valley-of-flowers-monsoon-trekking",          read: 6  },
   { id: 32, title: "Sundarbans: The Mangrove Forest Boat Safari",         category: "Wildlife",  img: id32, slug: "/blogs/sundarbans-mangrove-safari",             read: 6  },
-  { id: 33, title: "Packing List for India: What Not to Bring",           category: "Tips",      img: id33, slug: "/blogs/packing-list-india",                    read: 5  },
-  { id: 34, title: "How to Book a Jeep Safari in Ranthambore",            category: "Wildlife",  img: id30, slug: "/blogs/how-to-book-jeep-safari-ranthambore",   read: 9  },
-  { id: 35, title: "3-Day Jaipur Itinerary for History Lovers",           category: "Heritage",  img: id4,  slug: "/blogs/3-day-jaipur-itinerary-history-lovers", read: 12 },
-  { id: 36, title: "Best Time to Visit Ranthambore for Tiger Sightings",  category: "Wildlife",  img: id30, slug: "/blogs/best-time-visit-ranthambore-tiger-sightings", read: 10 },
-  { id: 37, title: "Top 10 Monuments in Jaipur 2026",                     category: "Heritage",  img: id4,  slug: "/blogs/top-10-monuments-jaipur-2026",          read: 11 },
-  { id: 38, title: "Ranthambore Fort Complete Guide",                     category: "Heritage",  img: id30, slug: "/blogs/ranthambore-fort-complete-surroundings-guide", read: 10 },
-  { id: 39, title: "Where to Stay in Jaipur: Best Neighborhoods",         category: "Guides",    img: id4,  slug: "/blogs/where-to-stay-jaipur-best-neighborhoods", read: 12 },
-  { id: 40, title: "10 Essential Tips for Your First Ranthambore Safari", category: "Tips",      img: id30, slug: "/blogs/tips-first-ranthambore-safari-what-to-wear", read: 8  },
-  { id: 41, title: "Gypsy vs Canter: Which Safari is Best for Families?", category: "Family",    img: id30, slug: "/blogs/gypsy-vs-canter-ranthambore-family",    read: 7  },
-  { id: 42, title: "Amer Fort vs. Nahargarh Fort: Which is Better for Sunset?", category: "Heritage", img: id4, slug: "/blogs/amer-vs-nahargarh-fort-sunset", read: 8 },
-  { id: 43, title: "Ranthambore vs. Sariska: Which National Park Should You Visit?", category: "Wildlife", img: id30, slug: "/blogs/ranthambore-vs-sariska-national-park", read: 9 },
 ];
 
-const FEATURED_IDS = [1, 7, 22];
+const FEATURED_IDS = [34, 36, 35]; // Ranthambore booking, best time, Jaipur itinerary
 const ALL_CATS = ["All", ...Array.from(new Set(ALL_BLOGS.map(b => b.category)))];
 
 export default function Blogs() {

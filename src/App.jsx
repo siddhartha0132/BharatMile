@@ -11,6 +11,7 @@ import LeadCapturePopup from "./components/LeadCapturePopup";
 import WhatsAppFloat from "./components/WhatsAppFloat.jsx";
 import SiteSeo from "./components/SiteSeo";
 import BlogBookingCta from "./components/BlogBookingCta";
+import RelatedGuides from "./components/RelatedGuides";
 
 export default function App() {
   return (
@@ -31,6 +32,7 @@ export default function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
           <BlogBookingCta />
+          <RelatedGuides />
         </main>
       </Suspense>
 

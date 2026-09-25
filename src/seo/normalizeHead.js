@@ -97,6 +97,27 @@ export function normalizeHead(doc, pathname, { kind, notFound } = {}) {
   setMeta(doc, "twitter:description", description);
   setMeta(doc, "twitter:image", DEFAULT_IMAGE);
 
+  // Breadcrumbs (shown in Google results as bharatmile.com › Blogs › …).
+  const section = kind === "blog" ? ["Blogs", "/blogs"] : path.startsWith("/city/") ? ["Cities", "/city"] : null;
+  doc.getElementById("ld-breadcrumb")?.remove();
+  if (section && !notFound) {
+    const crumbs = [["Home", "/"], section, [clip(h1 || title, 80), path]];
+    const ld = doc.createElement("script");
+    ld.type = "application/ld+json";
+    ld.id = "ld-breadcrumb";
+    ld.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: crumbs.map(([name, p], i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name,
+        item: p === "/" ? `${SITE}/` : `${SITE}${p}`,
+      })),
+    });
+    doc.head.appendChild(ld);
+  }
+
   // Pages append JSON-LD on every mount; drop exact duplicates.
   const seen = new Set();
   doc.head.querySelectorAll('script[type="application/ld+json"]').forEach((s) => {
