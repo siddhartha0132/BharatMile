@@ -54,9 +54,9 @@ export default function RanthamboreGuide2026() {
 
         <h2>Best Safari Zones for Tiger Sightings in 2026</h2>
         <ul>
-          <li><strong>Zone 1 (Nalghati):</strong> Excellent for tigers and leopards. High density.</li>
-          <li><strong>Zone 2 &amp; 3 (Lahpur &amp; Bakola):</strong> Near lakes, great for early morning sightings.</li>
-          <li><strong>Zone 4 &amp; 5 (Kachida &amp; Kundal):</strong> Most popular with families — good roads, scenic lakes (Rajbagh, Padam Talab).</li>
+          <li><strong>Zone 1 (Sultanpur & Tuti ka Nala):</strong> Good tiger and leopard territory with several water points.</li>
+          <li><strong>Zone 2 &amp; 3 (Nal Ghati, Padam Talao &amp; Rajbagh):</strong> Water holes and lakes, great for early morning sightings.</li>
+          <li><strong>Zone 4 &amp; 5 (Malik Talao &amp; Kachida):</strong> Popular with families — Malik Talao lake and the Kachida valley.</li>
           <li><strong>Zones 6–10 (Buffer):</strong> Quieter, fewer tourists. Good for birdwatching families.</li>
         </ul>
 

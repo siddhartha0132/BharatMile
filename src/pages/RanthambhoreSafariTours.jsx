@@ -19,7 +19,7 @@ const faqSchema = {
     {
       "@type": "Question",
       name: "What is the best safari zone in Ranthambore for tiger sightings?",
-      acceptedAnswer: { "@type": "Answer", text: "Zones 1–5 are the core zones with the highest tiger density. Zone 3 (Lahpur) and Zone 4 (Kachida) near Rajbagh and Padam Talab lakes are most popular for tiger sightings, especially in October–March." }
+      acceptedAnswer: { "@type": "Answer", text: "Zones 1–5 are the core zones with the highest tiger density. Zone 3 (Padam Talao and Rajbagh lakes) and Zone 4 (Malik Talao) are the most popular for tiger sightings, especially in October–March." }
     },
     {
       "@type": "Question",
@@ -62,11 +62,11 @@ const tourSchema = {
 };
 
 const zones = [
-  { zone: "Zone 1 — Nalghati", tiger: "⭐⭐⭐⭐⭐", highlight: "Highest tiger density, close sightings near ridgeline", vehicle: "Gypsy only", tip: "Book 45 days in advance — slots fill first" },
-  { zone: "Zone 2 — Lahpur", tiger: "⭐⭐⭐⭐⭐", highlight: "Near lake, excellent early morning sightings", vehicle: "Gypsy only", tip: "Best for photography enthusiasts" },
-  { zone: "Zone 3 — Bakola", tiger: "⭐⭐⭐⭐", highlight: "Dense forest, leopards and sloth bears", vehicle: "Gypsy only", tip: "Great for birding alongside tiger sightings" },
-  { zone: "Zone 4 — Kachida", tiger: "⭐⭐⭐⭐⭐", highlight: "Padam Talab lake, frequent tiger sightings, family favourite", vehicle: "Gypsy + Canter", tip: "Most popular zone — book early" },
-  { zone: "Zone 5 — Kundal", tiger: "⭐⭐⭐⭐", highlight: "Rajbagh Talab, great tiger and crocodile sightings", vehicle: "Gypsy + Canter", tip: "Scenic lake views perfect for photography" },
+  { zone: "Zone 1 — Sultanpur & Tuti ka Nala", tiger: "⭐⭐⭐⭐", highlight: "Tuti ka Nala, Sultanpur and Peela Pani water points", vehicle: "Gypsy only", tip: "Book 45 days in advance — slots fill first" },
+  { zone: "Zone 2 — Jogi Mahal & Nal Ghati", tiger: "⭐⭐⭐⭐⭐", highlight: "Jogi Mahal, Nal Ghati, Phuta Kot, Lahpur — many water holes", vehicle: "Gypsy only", tip: "Best for photography enthusiasts" },
+  { zone: "Zone 3 — Padam Talao & Rajbagh", tiger: "⭐⭐⭐⭐⭐", highlight: "Padam Talao and Rajbagh lakes below the fort — classic lake sightings", vehicle: "Gypsy only", tip: "Great for birding alongside tiger sightings" },
+  { zone: "Zone 4 — Malik Talao & Lakarda", tiger: "⭐⭐⭐⭐⭐", highlight: "Malik Talao, Lakarda, Adidaant — frequent sightings, family favourite", vehicle: "Gypsy + Canter", tip: "Most popular zone — book early" },
+  { zone: "Zone 5 — Kachida & Bakola", tiger: "⭐⭐⭐⭐", highlight: "Kachida valley, Bakola and Jokha — quieter core zone", vehicle: "Gypsy + Canter", tip: "Scenic lake views perfect for photography" },
   { zone: "Zones 6–10 — Buffer", tiger: "⭐⭐⭐", highlight: "Quieter safari, birdwatching, sambar herds", vehicle: "Gypsy + Canter", tip: "Ideal if core zones are fully booked" },
 ];
 
@@ -315,7 +315,7 @@ export default function RanthambhoreSafariTours() {
               <div>
                 <h4 style={{ fontWeight: 700, color: "#c1644a", marginBottom: 12 }}>Day 2</h4>
                 {[
-                  { time: "5:30 AM", act: "Early morning Gypsy Safari — Zone 4 or 5 (Padam Talab/Rajbagh lake)" },
+                  { time: "5:30 AM", act: "Early morning Gypsy Safari — Zone 3 or 4 (Padam Talao, Rajbagh, Malik Talao lakes)" },
                   { time: "9:30 AM", act: "Return. Buffet breakfast at resort." },
                   { time: "11:00 AM", act: "Ranthambore Fort visit + Ganesh Temple. Local market shopping." },
                   { time: "1:00 PM", act: "Lunch & checkout. Transfer to Sawai Madhopur station / Jaipur." },

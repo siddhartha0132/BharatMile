@@ -42,6 +42,7 @@ export const routes = [
   route("/city/ranchi", () => import("./citys/Ranchi")),
 
   // Ranthambore & Jaipur blogs
+  blog("/blogs/ranthambore-safari-zones-guide", () => import("./blogs/RanthamboreZonesGuide"), "safari", "Ranthambore Safari Zones 1–10 Explained"),
   blog("/blogs/ranthambore-safari-price-2026", () => import("./blogs/RanthamborePrice2026"), "safari", "Ranthambore Safari Price 2026–27"),
   blog("/blogs/ranthambore-safari-booking-january-march-2027", () => import("./blogs/SafariBookingJanMar2027"), "safari", "Safari Booking for Jan–Mar 2027"),
   blog("/blogs/ranthambore-safari-booking-kaise-kare", () => import("./blogs/RanthamboreSafariHindi"), "safari", "रणथंभौर सफारी बुकिंग कैसे करें (हिंदी)"),

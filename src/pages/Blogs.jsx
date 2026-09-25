@@ -67,6 +67,7 @@ const CAT_META = {
 };
 
 const ALL_BLOGS = [
+  { id: 57, title: "Ranthambore Safari Zones 1–10: Which Is Best for Tigers?", category: "Wildlife", img: ranthamboreImg, slug: "/blogs/ranthambore-safari-zones-guide", read: 7 },
   { id: 53, title: "Ranthambore Safari Price 2026–27: ₹1,400 Seat, ₹25,000 Gypsy", category: "Wildlife", img: ranthamboreImg, slug: "/blogs/ranthambore-safari-price-2026", read: 6 },
   { id: 54, title: "Jaipur 2-Day Tour Package at ₹4,999",              category: "Rajasthan", img: amberFortImg, slug: "/blogs/jaipur-2-day-tour-package", read: 6 },
   { id: 55, title: "Ranthambore Safari Booking for Jan–Mar 2027",       category: "Wildlife",  img: ranthamboreImg, slug: "/blogs/ranthambore-safari-booking-january-march-2027", read: 5 },

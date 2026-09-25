@@ -119,9 +119,9 @@ export default function BestTimeRanthambore() {
         <h2>What Zone to Book for Best Tiger Sightings?</h2>
         <p>Regardless of month, these zones consistently deliver the highest tiger sighting rates:</p>
         <ul>
-          <li><strong>Zone 3 (Lahpur) & Zone 4 (Kachida):</strong> Near Padam Talab and Rajbagh lakes. Best zone combination year-round.</li>
-          <li><strong>Zone 1 (Nalghati):</strong> Dense forest, highest tiger density. Best for experienced photographers and serious wildlife spotters.</li>
-          <li><strong>Zone 5 (Kundal):</strong> Near Malik Talab. Reliable in summer months when water is scarce.</li>
+          <li><strong>Zone 3 (Padam Talao & Rajbagh):</strong> The lakes below Ranthambore Fort. The park's best-known tiger territory year-round.</li>
+          <li><strong>Zone 2 (Jogi Mahal & Nal Ghati):</strong> Many water holes and varied terrain. A favourite of photographers and serious wildlife spotters.</li>
+          <li><strong>Zone 4 (Malik Talao & Lakarda):</strong> Reliable in summer months when water is scarce and animals stay near the lake.</li>
         </ul>
       </section>
 
