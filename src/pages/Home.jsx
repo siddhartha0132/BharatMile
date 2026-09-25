@@ -16,7 +16,6 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 // ✅ IMAGES — Using smallest available format for each slot
-import HeroBannerImage from "../assets/HeroBannerImagel.webp"; // 90KB vs 184KB jpeg — saves ~94KB on LCP
 import jaipurWebp from "../assets/jaipur.webp";
 import udaipurWebp from "../assets/udaipur.webp";
 import delhiWebp from "../assets/delhi.webp";
@@ -28,6 +27,7 @@ import Water from "../assets/keralaBackWaterl.webp";
 import temple from "../assets/goldentemple.webp";
 import cloudResortVideo from "../assets/CloudResort2.mp4";
 import cloudResortPdf from "../assets/cloudResort.pdf";
+import cloudResortPoster from "../assets/CloudResortPoster.jpg";
 
 const CITIES_PAGE_LINK = "/city";
 const WHATSAPP_NUMBER = "919636974688";
@@ -930,10 +930,6 @@ export default function Home() {
           justify-content: center;
           border-radius: 50%;
         }
-        /* ✅ Reduce layout shift for images */
-        .hero-img, .city-img, .exp-img {
-          aspect-ratio: auto;
-        }
         /* ✅ will-change for GPU-composited animations only */
         .hero-img { will-change: transform; }
         .city-img { will-change: transform; }
@@ -964,7 +960,7 @@ export default function Home() {
           {/* ✅ Hero LCP image: WebP (90KB vs 184KB), eager, sync decode */}
           <picture>
             <img
-              src={HeroBannerImage}
+              src="/HeroBannerImagel.webp"
               alt="Explore Incredible India — Ranthambore Tiger Safari and Jaipur family tours by BharatMile"
               className="hero-img"
               loading="eager"
@@ -1054,8 +1050,10 @@ export default function Home() {
                   className="resort-video"
                   src={cloudResortVideo}
                   controls
-                  preload="metadata"
-                  poster=""
+                  preload="none"
+                  poster={cloudResortPoster}
+                  width="1280"
+                  height="720"
                   aria-label="The Clouds Resort — property tour video"
                 />
               </div>
@@ -1178,7 +1176,7 @@ export default function Home() {
               {experiences.map((exp) => (
                 <Link key={exp.name} to={exp.link} className="exp-card">
                   <div className="exp-img-wrap">
-                    <img src={exp.image} alt={exp.name} loading="lazy" decoding="async" className="exp-img" />
+                    <img src={exp.image} alt={exp.name} width="600" height="400" loading="lazy" decoding="async" className="exp-img" />
                     <span className="exp-tag-pill">{exp.tag}</span>
                   </div>
                   <div className="exp-body">
