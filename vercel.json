@@ -4,13 +4,23 @@
   "redirects": [
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.bharatmile.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "www.bharatmile.com"
+        }
+      ],
       "destination": "https://bharatmile.com/:path*",
       "permanent": true
     },
     {
       "source": "/blogs/packing-list-india",
       "destination": "/blogs/mysore-palace-dussehra-experience",
+      "permanent": true
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy-policy",
       "permanent": true
     }
   ]

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Phone, Mail, MapPin, Send, MessageCircle, Clock, Globe, ArrowRight, CheckCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const GOOGLE_FORM_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSc6-tbU7hRQeYUyDlaM2pMaH-5oNemq5A9q7b1nOCKAwGZu2w/formResponse";
@@ -14,7 +15,7 @@ const ENTRY_IDS = {
 const WHATSAPP_NUMBER = "919636974688";
 
 const CONTACT_ITEMS = [
-  { icon: Mail,   label: "Email Us",  value: "info@bharatmile.com",    href: "mailto:info@bharatmile.com"   },
+  { icon: Mail,   label: "Email Us",  value: "hello@bharatmile.com",    href: "mailto:hello@bharatmile.com"   },
   { icon: Phone,  label: "Call Us",   value: "+91 96369 74688",        href: `https://wa.me/${WHATSAPP_NUMBER}` },
   { icon: MapPin, label: "Visit HQ",  value: "Jaipur, Rajasthan, India", href: null                         },
 ];
@@ -407,6 +408,10 @@ export default function Contact() {
                       <><Send size={15} /> Send Message</>
                     )}
                   </button>
+                  <p style={{ marginTop: 12, fontSize: 12, color: "#666" }}>
+                    We use your details only to reply to your enquiry. See our{" "}
+                    <Link to="/privacy-policy" style={{ textDecoration: "underline", color: "inherit" }}>Privacy Policy</Link>.
+                  </p>
                 </form>
               )}
             </div>

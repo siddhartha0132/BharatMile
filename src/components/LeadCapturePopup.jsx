@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { X, Phone, ArrowRight, CheckCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 // --- Pop-up Display Rules ---
 const POPUP_DELAY_MS = 30000; // Show pop-up after 30 seconds on first visit
@@ -141,7 +142,7 @@ export default function LeadCapturePopup() {
               <button
                 type="submit"
                 disabled={status === 'sending'}
-                className="w-full bg-indigo-600 text-white font-semibold py-3 rounded-lg hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2"
+                className="w-full bg-[#a8523b] text-white font-semibold py-3 rounded-lg hover:bg-[#8f4531] transition-colors flex items-center justify-center gap-2"
               >
                 {status === 'sending' ? (
                   <span className="flex items-center gap-2">
@@ -157,6 +158,9 @@ export default function LeadCapturePopup() {
               </button>
 
               {status === 'error' && <p className="text-sm text-red-500 text-center">Submission failed. Please try later.</p>}
+              <p className="text-xs text-gray-500 text-center">
+                We only use your number to call you back. See our <Link to="/privacy-policy" onClick={handleClose} className="underline">Privacy Policy</Link>.
+              </p>
             </form>
           </div>
         )}

@@ -245,12 +245,12 @@ export default function Footer() {
         .footer-legal { display: flex; gap: 20px; }
         .footer-legal a {
           font-size: 0.73rem;
-          color: rgba(255,255,255,0.25);
+          color: rgba(255,255,255,0.65);
           text-decoration: none;
           letter-spacing: 0.04em;
           transition: color 0.2s;
         }
-        .footer-legal a:hover { color: rgba(255,255,255,0.6); }
+        .footer-legal a:hover { color: #fff; }
 
         /* ── RESPONSIVE ── */
         @media (max-width: 980px) {
@@ -369,6 +369,9 @@ export default function Footer() {
           <p className="footer-copy">
             © {new Date().getFullYear()} BharatMile. All rights reserved.
           </p>
+          <nav className="footer-legal" aria-label="Legal links">
+            <Link to="/privacy-policy">Privacy Policy</Link>
+          </nav>
         </div>
 
       </footer>

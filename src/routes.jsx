@@ -26,6 +26,7 @@ export const routes = [
   route("/blogs", () => import("./pages/Blogs")),
   route("/about", () => import("./pages/About")),
   route("/contact", () => import("./pages/Contact")),
+  route("/privacy-policy", () => import("./pages/PrivacyPolicy")),
 
   // Money pages
   route("/ranthambore-safari-tours", () => import("./pages/RanthambhoreSafariTours"), "safari"),
