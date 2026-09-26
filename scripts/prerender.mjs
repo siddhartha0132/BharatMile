@@ -37,7 +37,15 @@ function installDom(url) {
 // The app stylesheet is small (~9 KB); inlining it removes a render-blocking request.
 const cssLink = template.match(/<link rel="stylesheet"[^>]*href="(\/assets\/[^"]+\.css)"[^>]*>/);
 const css = cssLink ? readFileSync(join(DIST, cssLink[1]), "utf8") : null;
-const inlineCss = (html) => (css ? html.replace(/<link rel="stylesheet"[^>]*href="\/assets\/[^"]+\.css"[^>]*>/, () => `<style>${css}</style>`) : html);
+const inlineCss = (html) => {
+  if (css) html = html.replace(/<link rel="stylesheet"[^>]*href="\/assets\/[^"]+\.css"[^>]*>/, () => `<style>${css}</style>`);
+  // The page is fully prerendered, so JS only hydrates it. Low priority keeps
+  // it from competing with the hero image, and stops Lighthouse's simulation
+  // treating High-priority scripts as render-blocking for FCP/LCP.
+  return html
+    .replace(/<script type="module"(?![^>]*fetchpriority)/g, '<script type="module" fetchpriority="low"')
+    .replace(/<link rel="modulepreload"(?![^>]*fetchpriority)/g, '<link rel="modulepreload" fetchpriority="low"');
+};
 
 const settle = (window, ms = 250) => new Promise((r) => window.setTimeout(r, ms));
 

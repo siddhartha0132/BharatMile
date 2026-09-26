@@ -19,6 +19,7 @@ import { Helmet } from "react-helmet";
 import jaipurWebp from "../assets/jaipur.webp";
 import udaipurWebp from "../assets/udaipur.webp";
 import ranthamboreWebp from "../assets/Ranthambore.webp";
+import ranthambore480 from "../assets/Ranthambore-480.webp";
 import jaipurJpg from "../assets/jaipur.jpg"; // fallback
 import udaipurJpg from "../assets/udaipur.jpg"; // fallback
 import ranthamboreJpg from "../assets/Ranthambore.jpg"; // fallback
@@ -131,7 +132,7 @@ export default function Home() {
   ];
 
   const popularCities = [
-    { name: "Ranthambore", tag: "Tiger Reserve", image: ranthamboreWebp, imageFallback: ranthamboreJpg, description: "Tigers, lakes and a thousand-year-old fort.", link: "/city/ranthambore", w: 1023, h: 682 },
+    { name: "Ranthambore", tag: "Tiger Reserve", image: ranthamboreWebp, srcSet: `${ranthambore480} 480w, ${ranthamboreWebp} 800w`, imageFallback: ranthamboreJpg, description: "Tigers, lakes and a thousand-year-old fort.", link: "/city/ranthambore", w: 1023, h: 682 },
     { name: "Jaipur", tag: "Rajasthan", image: jaipurWebp, imageFallback: jaipurJpg, description: "The vibrant Pink City of palaces and bazaars.", link: "/city/jaipur", w: 894, h: 720 },
     { name: "Udaipur", tag: "Rajasthan", image: udaipurWebp, imageFallback: udaipurJpg, description: "Romance above shimmering lakes.", link: "/city/udaipur", w: 1136, h: 720 },
   ];
@@ -1119,7 +1120,7 @@ export default function Home() {
           <picture>
             <img
               src="/HeroBannerImagel.webp"
-              srcSet="/HeroBannerImagel-720.webp 720w, /HeroBannerImagel.webp 1170w"
+              srcSet="/HeroBannerImagel-720.webp 720w, /HeroBannerImagel-900.webp 900w, /HeroBannerImagel.webp 1170w"
               sizes="100vw"
               alt="Explore Incredible India — Ranthambore Tiger Safari and Jaipur family tours by BharatMile"
               className="hero-img"
@@ -1296,7 +1297,7 @@ export default function Home() {
                 <Link key={city.name} to={city.link} className="city-card" data-tilt>
                   {/* ✅ Responsive images: serve correct size per viewport, use WebP */}
                   <picture>
-                    <source srcSet={city.image} type="image/webp" />
+                    <source srcSet={city.srcSet ?? city.image} sizes="(max-width: 900px) 100vw, 33vw" type="image/webp" />
                     <img
                       src={city.imageFallback}
                       alt={`${city.name} — ${city.tag} tour destination by BharatMile`}
