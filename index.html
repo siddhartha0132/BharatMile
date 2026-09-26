@@ -16,7 +16,7 @@
     <!-- Mobile Responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google Fonts, loaded after the first paint on a visitor's first page view.
+    <!-- Google Fonts, loaded after first contentful paint on a visitor's first page view.
          Font files are fetched at VeryHigh priority, and if they start before the
          first paint Lighthouse's simulation counts all of them (plus a new
          connection) as blocking FCP/LCP. Returning visitors have the fonts
@@ -32,10 +32,19 @@
           document.head.appendChild(l);
           try { localStorage.setItem("bmFonts", "1"); } catch (e) {}
         }
+        var done = false;
+        function once() { if (!done) { done = true; load(); } }
         var seen = false;
         try { seen = localStorage.getItem("bmFonts") === "1"; } catch (e) {}
-        if (seen) load();
-        else requestAnimationFrame(function () { setTimeout(load, 0); });
+        if (seen) return once();
+        // First visit: wait for the browser's own first-contentful-paint signal
+        // (requestAnimationFrame can fire before anything is actually painted).
+        try {
+          new PerformanceObserver(function (list, obs) {
+            if (list.getEntriesByName("first-contentful-paint").length) { obs.disconnect(); setTimeout(once, 0); }
+          }).observe({ type: "paint", buffered: true });
+        } catch (e) { addEventListener("load", once); }
+        setTimeout(once, 4000);
       })();
     </script>
     <noscript>
