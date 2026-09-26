@@ -20,7 +20,7 @@ export default function HowToBookJeepSafari() {
       "@context": "https://schema.org", "@type": "Article",
       headline: "How to Book a Jeep Safari in Ranthambore National Park",
       author: { "@type": "Organization", name: "BharatMile Editorial" },
-      publisher: { "@type": "Organization", name: "BharatMile", logo: { "@type": "ImageObject", url: "https://bharatmile.com/assets/BharatMile-Logo.webp" } },
+      publisher: { "@type": "Organization", name: "BharatMile", logo: { "@type": "ImageObject", url: "https://bharatmile.com/favicon-512.png" } },
       datePublished: "2026-08-01",
       url: "https://bharatmile.com/blogs/how-to-book-jeep-safari-ranthambore",
     };

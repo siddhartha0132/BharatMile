@@ -13,9 +13,11 @@ import SiteSeo from "./components/SiteSeo";
 import BlogBookingCta from "./components/BlogBookingCta";
 import RelatedGuides from "./components/RelatedGuides";
 
-export default function App() {
+// Everything inside the router. The browser wraps it in BrowserRouter; the
+// prerender step renders it with StaticRouter so the HTML can be hydrated.
+export function AppShell() {
   return (
-    <BrowserRouter>
+    <>
       <SiteSeo />
       <Navbar />
       <ScrollToTop />
@@ -38,6 +40,14 @@ export default function App() {
 
       <WhatsAppFloat />
       <Footer />
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppShell />
     </BrowserRouter>
   );
 }

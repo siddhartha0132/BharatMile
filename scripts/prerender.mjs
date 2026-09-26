@@ -34,6 +34,11 @@ function installDom(url) {
   return dom;
 }
 
+// The app stylesheet is small (~9 KB); inlining it removes a render-blocking request.
+const cssLink = template.match(/<link rel="stylesheet"[^>]*href="(\/assets\/[^"]+\.css)"[^>]*>/);
+const css = cssLink ? readFileSync(join(DIST, cssLink[1]), "utf8") : null;
+const inlineCss = (html) => (css ? html.replace(/<link rel="stylesheet"[^>]*href="\/assets\/[^"]+\.css"[^>]*>/, () => `<style>${css}</style>`) : html);
+
 const settle = (window, ms = 250) => new Promise((r) => window.setTimeout(r, ms));
 
 function outFile(path) {
@@ -71,19 +76,24 @@ const failures = [];
 for (const path of paths) {
   const dom = installDom(`${SITE}${path === "/404" ? "/__not-found__" : path}`);
   try {
-    const { route, root } = await entry.renderPage(window.location.pathname);
+    const { route } = await entry.renderPage(window.location.pathname);
     await settle(dom.window);
     const doc = dom.window.document;
     entry.normalizeHead(doc, path, { kind: route?.kind, notFound: !route });
 
+    // Replace the jsdom client render with real server-rendered markup so the
+    // browser can hydrate it instead of re-creating (and repainting) the DOM.
+    doc.getElementById("root").innerHTML = await entry.renderBody(dom.window.location.pathname);
     const html = doc.getElementById("root").innerHTML;
     if (!doc.querySelector("#root h1") || html.includes(">Loading…<")) {
       failures.push(`${path}: rendered without an <h1> or stuck on Suspense fallback`);
     }
     const file = outFile(path);
     mkdirSync(dirname(file), { recursive: true });
-    writeFileSync(file, dom.serialize());
-    root.unmount();
+    writeFileSync(file, inlineCss(dom.serialize()));
+    // No root.unmount(): the DOM was swapped for server markup, and unmounting
+    // would also run cleanups that strip JSON-LD from <head>. Closing the
+    // window below disposes everything.
   } catch (err) {
     failures.push(`${path}: ${err.stack || err}`);
   } finally {

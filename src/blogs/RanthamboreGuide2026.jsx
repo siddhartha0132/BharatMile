@@ -22,7 +22,7 @@ export default function RanthamboreGuide2026() {
       "@context": "https://schema.org", "@type": "Article",
       headline: "Ranthambore Safari Guide 2026: Cost, Zones & Best Time for Families",
       author: { "@type": "Organization", name: "BharatMile Editorial" },
-      publisher: { "@type": "Organization", name: "BharatMile", logo: { "@type": "ImageObject", url: "https://bharatmile.com/assets/BharatMile-Logo.webp" } },
+      publisher: { "@type": "Organization", name: "BharatMile", logo: { "@type": "ImageObject", url: "https://bharatmile.com/favicon-512.png" } },
       datePublished: "2026-05-03", image: "https://bharatmile.com/assets/Ranthambore.webp",
     };
     const s = document.createElement("script"); s.type = "application/ld+json"; s.text = JSON.stringify(schema); document.head.appendChild(s);

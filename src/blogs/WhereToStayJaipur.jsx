@@ -20,7 +20,7 @@ export default function WhereToStayJaipur() {
       "@context": "https://schema.org", "@type": "Article",
       headline: "Where to Stay in Jaipur: A Guide to the Best Neighborhoods for Tourists",
       author: { "@type": "Organization", name: "BharatMile Editorial" },
-      publisher: { "@type": "Organization", name: "BharatMile", logo: { "@type": "ImageObject", url: "https://bharatmile.com/assets/BharatMile-Logo.webp" } },
+      publisher: { "@type": "Organization", name: "BharatMile", logo: { "@type": "ImageObject", url: "https://bharatmile.com/favicon-512.png" } },
       datePublished: "2026-08-01",
     };
     const s = document.createElement("script"); s.type = "application/ld+json"; s.text = JSON.stringify(schema); document.head.appendChild(s);

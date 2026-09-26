@@ -21,7 +21,7 @@ export default function Top10JaipurMonuments() {
       "@context": "https://schema.org", "@type": "Article",
       headline: "Top 10 Must-Visit Monuments in Jaipur in 2026",
       author: { "@type": "Organization", name: "BharatMile Editorial" },
-      publisher: { "@type": "Organization", name: "BharatMile", logo: { "@type": "ImageObject", url: "https://bharatmile.com/assets/BharatMile-Logo.webp" } },
+      publisher: { "@type": "Organization", name: "BharatMile", logo: { "@type": "ImageObject", url: "https://bharatmile.com/favicon-512.png" } },
       datePublished: "2026-08-01",
     };
     const s = document.createElement("script"); s.type = "application/ld+json"; s.text = JSON.stringify(schema); document.head.appendChild(s);

@@ -26,7 +26,7 @@ import amberFort from "../assets/amber-fort.jpg";
 import cityPalace from "../assets/city-palace.jpeg";
 import cloudResortVideo from "../assets/CloudResort2.mp4";
 import cloudResortPdf from "../assets/cloudResort.pdf";
-import cloudResortPoster from "../assets/CloudResortPoster.jpg";
+import cloudResortPoster from "../assets/CloudResortPoster.webp";
 
 const CITIES_PAGE_LINK = "/city";
 const WHATSAPP_NUMBER = "919636974688";
@@ -301,7 +301,7 @@ export default function Home() {
           color: #fff;
           animation: heroFade 1s ease both 0.2s;
         }
-        @keyframes heroFade { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:none; } }
+        @keyframes heroFade { from { transform:translateY(28px); } to { transform:none; } } /* no opacity: text counts as painted immediately (LCP) */
 
         .hero-title {
           font-family: 'Cormorant Garamond', serif;
@@ -934,9 +934,9 @@ export default function Home() {
           .stats-inner { grid-template-columns: 1fr 1fr; }
           .hero-title { font-size: 2.6rem; }
         }
-      `}
-        {/* ✅ CORE WEB VITALS ADDITIONS */}
-        {`
+      
+        /* ✅ CORE WEB VITALS ADDITIONS */
+
         /* ── MOBILE TOUCH TARGETS (min 44x44px) ── */
         .btn-primary, .btn-ghost {
           min-height: 48px;
@@ -1119,6 +1119,8 @@ export default function Home() {
           <picture>
             <img
               src="/HeroBannerImagel.webp"
+              srcSet="/HeroBannerImagel-720.webp 720w, /HeroBannerImagel.webp 1170w"
+              sizes="100vw"
               alt="Explore Incredible India — Ranthambore Tiger Safari and Jaipur family tours by BharatMile"
               className="hero-img"
               loading="eager"
