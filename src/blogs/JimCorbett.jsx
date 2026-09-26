@@ -1,5 +1,6 @@
 // src/blogs/JimCorbett.jsx
 import React, { useEffect } from "react";
+import heroImage from "../assets/jim-corbett.avif";
 
 export default function JimCorbett() {
   const jsonLd = {
@@ -8,14 +9,14 @@ export default function JimCorbett() {
     headline: "Jim Corbett National Park: Spotting the Bengal Tiger | Complete Safari Guide",
     description:
       "Complete practical guide to Jim Corbett National Park: best zones, safari booking, permits, best months, photography tips, itineraries and conservation notes.",
-    image: ["/images/jim-corbett-hero.jpg"],
+    image: [heroImage],
     author: { "@type": "Organization", name: "BharatMile Editorial" },
     publisher: {
       "@type": "Organization",
       name: "BharatMile",
       logo: {
         "@type": "ImageObject",
-        url: "/images/logo.png",
+        url: "/favicon-512.png",
       },
     },
     mainEntityOfPage: {
@@ -88,7 +89,7 @@ export default function JimCorbett() {
       "property"
     );
     setMeta("og:type", "article", "property");
-    setMeta("og:image", "/images/jim-corbett-hero.jpg", "property");
+    setMeta("og:image", heroImage, "property");
     setMeta("twitter:card", "summary_large_image");
 
     let link = document.querySelector("link[rel='canonical']");
@@ -118,7 +119,7 @@ export default function JimCorbett() {
       {/* ✅ HERO */}
       <section className="relative rounded-2xl overflow-hidden shadow-xl">
         <img
-          src="/images/jim-corbett-hero.jpg"
+          src={heroImage}
           alt="Bengal Tiger in Jim Corbett National Park"
           className="w-full h-[450px] object-cover"
         />

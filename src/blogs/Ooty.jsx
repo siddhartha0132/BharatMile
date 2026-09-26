@@ -1,5 +1,6 @@
 // src/blogs/Ooty.jsx
 import { useEffect } from "react";
+import coverImage from "../assets/ooty.jpeg";
 
 export default function Ooty() {
   useEffect(() => {
@@ -39,7 +40,7 @@ export default function Ooty() {
     setMeta("og:type", "article", "property");
     setMeta(
       "og:image",
-      "https://images.unsplash.com/photo-1600664939236-ea4c17823e0c",
+      coverImage,
       "property"
     );
 
@@ -62,20 +63,20 @@ export default function Ooty() {
       description:
         "Complete Ooty Toy Train guide with timings, booking tips, best seats, scenic routes and UNESCO heritage journey details.",
       image: [
-        "https://images.unsplash.com/photo-1600664939236-ea4c17823e0c",
+        coverImage,
       ],
       author: { "@type": "Organization", name: "BharatMile Editorial" },
       publisher: {
         "@type": "Organization",
         name: "BharatMile",
-        logo: { "@type": "ImageObject", url: "/images/logo.png" },
+        logo: { "@type": "ImageObject", url: "/favicon-512.png" },
       },
       mainEntityOfPage: {
         "@type": "WebPage",
         "@id":
           typeof window !== "undefined"
             ? window.location.href
-            : "https://yourwebsite.com/blog/ooty-toy-train",
+            : "https://bharatmile.com/blogs/ooty-toy-train-tickets-timings",
       },
     };
 
@@ -95,7 +96,7 @@ export default function Ooty() {
       {/* ✅ HERO */}
       <section className="relative rounded-2xl overflow-hidden shadow-xl">
         <img
-          src="https://images.unsplash.com/photo-1600664939236-ea4c17823e0c"
+          src={coverImage}
           alt="Ooty Toy Train Nilgiri Railway"
           className="w-full h-[480px] object-cover"
         />

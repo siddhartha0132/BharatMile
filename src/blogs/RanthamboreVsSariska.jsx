@@ -79,8 +79,8 @@ export default function RanthamboreVsSariska() {
             <strong>Choose Sariska if:</strong> You want a quiet, off-the-beaten-path wilderness experience. It is great for nature lovers who enjoy birdwatching, spotting leopards and herbivores, and appreciate the thrill of the jungle without the traffic jams.
           </p>
 
-          <div className="my-12 p-8 bg-[#fff8f4] border-l-4 border-[#c1644a] rounded-r-xl">
-            <h3 className="font-serif text-2xl font-bold text-[#c1644a] mb-4">Ready for a Safari?</h3>
+          <div className="my-12 p-8 bg-[#fff8f4] border-l-4 border-[#a8523b] rounded-r-xl">
+            <h3 className="font-serif text-2xl font-bold text-[#a8523b] mb-4">Ready for a Safari?</h3>
             <p className="mb-4">
               BharatMile specializes in <strong>Ranthambore Safari Tours</strong>, offering seamless booking for permits, expert naturalist guides, and premium resort stays.
             </p>
@@ -93,7 +93,7 @@ export default function RanthamboreVsSariska() {
           <p className="text-white/80 mb-8 max-w-xl mx-auto">
             Let our wildlife experts plan your perfect Ranthambore itinerary, complete with guaranteed zone permits and Jaipur transfers.
           </p>
-          <Link to="/ranthambore-safari-tours" className="inline-flex items-center gap-2 bg-[#c1644a] hover:bg-[#a14e38] text-white px-8 py-4 rounded-lg font-bold uppercase tracking-wide transition-colors">
+          <Link to="/ranthambore-safari-tours" className="inline-flex items-center gap-2 bg-[#a8523b] hover:bg-[#a14e38] text-white px-8 py-4 rounded-lg font-bold uppercase tracking-wide transition-colors">
             View Safari Packages <ArrowRight size={20} />
           </Link>
         </div>

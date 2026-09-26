@@ -1,5 +1,6 @@
 // src/blogs/Hampiempire.jsx
 import React, { useEffect } from "react";
+import coverImage from "../assets/hampi.jpg";
 
 export default function Hampiempire() {
   useEffect(() => {
@@ -44,7 +45,7 @@ export default function Hampiempire() {
     upsert(
       "property",
       "og:image",
-      "https://images.unsplash.com/photo-1622445275463-afa2ab738c3a"
+      coverImage
     );
 
     // ✅ TWITTER
@@ -58,7 +59,7 @@ export default function Hampiempire() {
     upsert(
       "name",
       "twitter:image",
-      "https://images.unsplash.com/photo-1622445275463-afa2ab738c3a"
+      coverImage
     );
 
     // ✅ CANONICAL
@@ -78,7 +79,7 @@ export default function Hampiempire() {
       description:
         "A heritage guide to Hampi covering the Vijayanagara Empire ruins, temples, stone chariot, landscapes, itineraries and travel tips.",
       image: [
-        "https://images.unsplash.com/photo-1622445275463-afa2ab738c3a",
+        coverImage,
       ],
       author: { "@type": "Organization", name: "BharatMile Editorial" },
       publisher: {
@@ -86,7 +87,7 @@ export default function Hampiempire() {
         name: "BharatMile",
         logo: {
           "@type": "ImageObject",
-          url: window.location.origin + "/images/logo.png",
+          url: window.location.origin + "/favicon-512.png",
         },
       },
       mainEntityOfPage: {
@@ -114,7 +115,7 @@ export default function Hampiempire() {
         {/* ✅ HERO */}
         <header className="mb-10">
           <img
-            src="https://images.unsplash.com/photo-1622445275463-afa2ab738c3a"
+            src={coverImage}
             alt="Hampi ruins and boulder landscapes"
             className="w-full h-72 object-cover rounded-xl shadow-lg mb-6"
             loading="lazy"

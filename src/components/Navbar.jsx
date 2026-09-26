@@ -51,7 +51,7 @@ export default function Navbar() {
 
         :root {
           --sand: #f5efe6;
-          --terracotta: #c1644a;
+          --terracotta: #a8523b;
           --terracotta-dark: #a14e38;
           --charcoal: #1c1c1e;
           --muted: #6b6b6b;
@@ -457,7 +457,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <div className={`mobile-drawer ${menuOpen ? "open" : ""}`} aria-hidden={!menuOpen}>
+      <div className={`mobile-drawer ${menuOpen ? "open" : ""}`} aria-hidden={!menuOpen} inert={!menuOpen}>
         <div className="mobile-backdrop" onClick={() => setMenuOpen(false)} />
         <div className="mobile-panel" role="dialog" aria-label="Navigation menu">
           <div className="mobile-panel-head">

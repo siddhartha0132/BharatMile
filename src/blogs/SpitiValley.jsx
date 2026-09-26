@@ -9,19 +9,19 @@ export default function SpitiValley() {
       "Spiti Valley Travel Guide 2025: Routes, AMS Safety, Villages, Monasteries & Road Trip Tips",
     description:
       "Complete Spiti Valley travel guide covering best time to visit, Shimla vs Manali routes, AMS prevention, villages, monasteries, permits, budget and itinerary.",
-    image: ["https://yourwebsite.com/images/spiti-valley.jpg"],
+    image: ["https://bharatmile.com/preview.jpg"],
     author: { "@type": "Organization", name: "BharatMile" },
     publisher: {
       "@type": "Organization",
       name: "BharatMile",
       logo: {
         "@type": "ImageObject",
-        url: "https://yourwebsite.com/logo.png",
+        url: "https://bharatmile.com/favicon-512.png",
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": "https://yourwebsite.com/blog/spiti-valley-travel-guide",
+      "@id": "https://bharatmile.com/spiti-valley-middle-land",
     },
   };
 
@@ -57,7 +57,7 @@ export default function SpitiValley() {
     );
     set(
       "og:image",
-      "https://yourwebsite.com/images/spiti-valley.jpg",
+      "https://bharatmile.com/preview.jpg",
       "property"
     );
     set("og:type", "article", "property");
@@ -70,7 +70,7 @@ export default function SpitiValley() {
     );
     set(
       "twitter:image",
-      "https://yourwebsite.com/images/spiti-valley.jpg"
+      "https://bharatmile.com/preview.jpg"
     );
 
     let link = document.querySelector("link[rel='canonical']");
@@ -79,7 +79,7 @@ export default function SpitiValley() {
       link.setAttribute("rel", "canonical");
       document.head.appendChild(link);
     }
-    link.href = "https://yourwebsite.com/blog/spiti-valley-travel-guide";
+    link.href = "https://bharatmile.com/spiti-valley-middle-land";
 
     let script = document.getElementById("spiti-jsonld");
     if (!script) {

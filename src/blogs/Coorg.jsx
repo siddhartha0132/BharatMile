@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import heroImage from "../assets/cooorg.jpg";
 
 export default function Coorg() {
   return (
@@ -26,7 +27,7 @@ export default function Coorg() {
           />
           <meta
             property="og:image"
-            content={window.location.origin + "/images/coorg-hero.jpg"}
+            content={window.location.origin + heroImage}
           />
           <meta property="og:type" content="article" />
           <meta property="og:url" content={window.location.href} />
@@ -40,7 +41,7 @@ export default function Coorg() {
           />
           <meta
             name="twitter:image"
-            content={window.location.origin + "/images/coorg-hero.jpg"}
+            content={window.location.origin + heroImage}
           />
 
           {/* ✅ Article Schema */}
@@ -51,7 +52,7 @@ export default function Coorg() {
               headline: "Coorg: The Scotland of India — A Complete Travel Guide",
               description:
                 "Complete Coorg travel guide including coffee plantations, waterfalls, treks, food, itinerary & budget.",
-              image: window.location.origin + "/images/coorg-hero.jpg",
+              image: window.location.origin + heroImage,
               author: {
                 "@type": "Organization",
                 name: "Wander Guides",
@@ -61,7 +62,7 @@ export default function Coorg() {
                 name: "Wander Guides",
                 logo: {
                   "@type": "ImageObject",
-                  url: window.location.origin + "/images/logo.png",
+                  url: window.location.origin + "/favicon-512.png",
                 },
               },
               mainEntityOfPage: {
@@ -77,7 +78,7 @@ export default function Coorg() {
         {/* ✅ HERO */}
         <header className="mb-10">
           <img
-            src="/images/coorg-hero.jpg"
+            src={heroImage}
             alt="Coffee plantations of Coorg"
             className="w-full h-72 object-cover rounded-xl shadow-lg mb-6"
             loading="lazy"

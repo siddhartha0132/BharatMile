@@ -8,7 +8,7 @@ export default function TheUltimate2Week() {
       "The Ultimate 2 Week India Itinerary for First Time Travelers (2025 Guide)",
     description:
       "Perfect 14 day India itinerary for first timers covering Delhi, Agra, Jaipur, Udaipur and Goa with exact transport plan, budget, safety tips and hotels.",
-    image: ["https://yourwebsite.com/images/india-itinerary-hero.jpg"],
+    image: ["https://bharatmile.com/preview.jpg"],
     author: {
       "@type": "Organization",
       name: "BharatMile",
@@ -18,12 +18,12 @@ export default function TheUltimate2Week() {
       name: "BharatMile",
       logo: {
         "@type": "ImageObject",
-        url: "https://yourwebsite.com/logo.png",
+        url: "https://bharatmile.com/favicon-512.png",
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": "https://yourwebsite.com/blog/2-week-india-itinerary",
+      "@id": "https://bharatmile.com/2-week-india-itinerary-for-beginners",
     },
   };
 
@@ -59,7 +59,7 @@ export default function TheUltimate2Week() {
     );
     set(
       "og:image",
-      "https://yourwebsite.com/images/india-itinerary-hero.jpg",
+      "https://bharatmile.com/preview.jpg",
       "property"
     );
     set("og:type", "article", "property");
@@ -72,7 +72,7 @@ export default function TheUltimate2Week() {
     );
     set(
       "twitter:image",
-      "https://yourwebsite.com/images/india-itinerary-hero.jpg"
+      "https://bharatmile.com/preview.jpg"
     );
 
     let link = document.querySelector("link[rel='canonical']");
@@ -81,7 +81,7 @@ export default function TheUltimate2Week() {
       link.setAttribute("rel", "canonical");
       document.head.appendChild(link);
     }
-    link.href = "https://yourwebsite.com/blog/2-week-india-itinerary";
+    link.href = "https://bharatmile.com/2-week-india-itinerary-for-beginners";
 
     let script = document.getElementById("2week-jsonld");
     if (!script) {

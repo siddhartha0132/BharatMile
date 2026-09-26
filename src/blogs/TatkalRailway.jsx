@@ -9,7 +9,7 @@ export default function TatkalRailway() {
       "IRCTC Tatkal Booking Guide 2025: Confirmed Tickets Step-by-Step",
     description:
       "Complete IRCTC Tatkal booking guide with exact AC & Non-AC timings, master list trick, fastest payment method, Premium Tatkal difference and confirmed ticket tips.",
-    image: ["https://yourwebsite.com/images/irctc-tatkal-booking.jpg"],
+    image: ["https://bharatmile.com/preview.jpg"],
     author: {
       "@type": "Organization",
       name: "BharatMile",
@@ -19,12 +19,12 @@ export default function TatkalRailway() {
       name: "BharatMile",
       logo: {
         "@type": "ImageObject",
-        url: "https://yourwebsite.com/logo.png",
+        url: "https://bharatmile.com/favicon-512.png",
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": "https://yourwebsite.com/blog/irctc-tatkal-booking-guide",
+      "@id": "https://bharatmile.com/blogs/tatkal-railway",
     },
   };
 
@@ -60,7 +60,7 @@ export default function TatkalRailway() {
     );
     set(
       "og:image",
-      "https://yourwebsite.com/images/irctc-tatkal-booking.jpg",
+      "https://bharatmile.com/preview.jpg",
       "property"
     );
     set("og:type", "article", "property");
@@ -73,7 +73,7 @@ export default function TatkalRailway() {
     );
     set(
       "twitter:image",
-      "https://yourwebsite.com/images/irctc-tatkal-booking.jpg"
+      "https://bharatmile.com/preview.jpg"
     );
 
     let link = document.querySelector("link[rel='canonical']");
@@ -83,7 +83,7 @@ export default function TatkalRailway() {
       document.head.appendChild(link);
     }
     link.href =
-      "https://yourwebsite.com/blog/irctc-tatkal-booking-guide";
+      "https://bharatmile.com/blogs/tatkal-railway";
 
     let script = document.getElementById("tatkal-jsonld");
     if (!script) {

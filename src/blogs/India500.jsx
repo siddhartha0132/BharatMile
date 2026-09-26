@@ -1,6 +1,7 @@
 // src/blogs/India500.jsx
 import React from "react";
 import { Helmet } from "react-helmet";
+import heroImage from "../assets/Howtotravelin500.jpg";
 
 export default function India500() {
   const jsonLd = {
@@ -9,19 +10,19 @@ export default function India500() {
     headline: "How to Travel India on ₹500 a Day | Ultra Budget India Guide",
     description:
       "A complete ultra-budget India travel guide explaining how to explore India on ₹500/day using cheap food, hostels, public transport, real routes & survival hacks.",
-    image: ["/images/india-budget.jpg"],
+    image: [heroImage],
     author: { "@type": "Organization", name: "BharatMile Editorial" },
     publisher: {
       "@type": "Organization",
       name: "BharatMile",
       logo: {
         "@type": "ImageObject",
-        url: "/images/logo.png",
+        url: "/favicon-512.png",
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": "https://yourwebsite.com/india-500-per-day-travel-guide",
+      "@id": "https://bharatmile.com/blogs/how-to-travel-india-for-500-rupees",
     },
   };
 
@@ -42,7 +43,7 @@ export default function India500() {
 
         <link
           rel="canonical"
-          href="https://yourwebsite.com/india-500-per-day-travel-guide"
+          href="https://bharatmile.com/blogs/how-to-travel-india-for-500-rupees"
         />
 
         {/* Open Graph */}
@@ -51,7 +52,7 @@ export default function India500() {
           property="og:description"
           content="Realistic street-level travel hacks to explore India on ₹500/day with food, transport & hostel breakdowns."
         />
-        <meta property="og:image" content="/images/india-budget.jpg" />
+        <meta property="og:image" content={heroImage} />
         <meta property="og:type" content="article" />
 
         {/* Twitter */}
@@ -67,7 +68,7 @@ export default function India500() {
         {/* ✅ HERO */}
         <header className="mb-10">
           <img
-            src="/images/india-budget.jpg"
+            src={heroImage}
             alt="Ultra budget travel in India"
             className="w-full h-72 object-cover rounded-xl shadow-lg mb-6"
           />

@@ -9,8 +9,8 @@ export default function Bikaner() {
   const description =
     "Explore Bikaner – the Royal Desert City of Rajasthan. Discover Junagarh Fort, Karni Mata Temple, Camel Safari, best food, hotels, culture, history, and a full travel guide with tips, itinerary, and FAQs.";
 
-  const pageUrl = "https://yourwebsite.com/city/bikaner";
-  const imageUrl = "https://yourwebsite.com/assets/bikaner.jpeg";
+  const pageUrl = "https://bharatmile.com/city/bikaner";
+  const imageUrl = "https://bharatmile.com/preview.jpg";
 
   const faqSchema = {
     "@context": "https://schema.org",

@@ -13,12 +13,12 @@ export default function Footer() {
   ];
 
   const destinations = [
-    { to: "/city/jaipur", label: "Jaipur" },
-    { to: "/goa-forts", label: "Goa" },
-    { to: "/blogs/kerala-backwaters", label: "Kerala" },
-    { to: "/top-10-places-to-visit-in-india", label: "Agra & Taj Mahal" },
+    { to: "/ranthambore-safari-tours", label: "Ranthambore Safari Tours" },
+    { to: "/jaipur-sightseeing-packages", label: "Jaipur Sightseeing Packages" },
+    { to: "/blogs/ranthambore-safari-price-2026", label: "Safari Price 2026–27" },
+    { to: "/blogs/jaipur-2-day-tour-package", label: "Jaipur 2-Day Package" },
+    { to: "/blogs/ranthambore-safari-zones-guide", label: "Ranthambore Zones Guide" },
     { to: "/city/udaipur", label: "Udaipur" },
-    { to: "/blogs/amritsar-golden-temple-langar", label: "Amritsar" },
   ];
 
   const socials = [
@@ -31,11 +31,10 @@ export default function Footer() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@300;400;500;600&display=swap');
 
         :root {
           --sand: #f5efe6;
-          --terracotta: #c1644a;
+          --terracotta: #a8523b;
           --terracotta-dark: #a14e38;
           --charcoal: #1c1c1e;
           --charcoal-soft: #2a2a2c;
@@ -70,7 +69,7 @@ export default function Footer() {
           color: #fff;
           line-height: 1.3;
         }
-        .footer-cta-text em { font-style: italic; opacity: 0.85; }
+        .footer-cta-text em { font-style: italic; }
         .footer-cta-btn {
           display: inline-flex;
           align-items: center;
@@ -114,7 +113,7 @@ export default function Footer() {
         .footer-tagline {
           font-size: 0.87rem;
           line-height: 1.75;
-          color: rgba(255,255,255,0.45);
+          color: rgba(255,255,255,0.65);
           margin-bottom: 28px;
           font-weight: 300;
           max-width: 240px;
@@ -125,7 +124,7 @@ export default function Footer() {
           align-items: flex-start;
           gap: 10px;
           font-size: 0.82rem;
-          color: rgba(255,255,255,0.45);
+          color: rgba(255,255,255,0.65);
           line-height: 1.5;
         }
         .footer-contact-icon { color: var(--gold); flex-shrink: 0; margin-top: 2px; }
@@ -137,7 +136,7 @@ export default function Footer() {
           border-radius: 50%;
           border: 1.5px solid rgba(255,255,255,0.12);
           background: transparent;
-          color: rgba(255,255,255,0.45);
+          color: rgba(255,255,255,0.65);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -157,7 +156,7 @@ export default function Footer() {
           letter-spacing: 0.22em;
           text-transform: uppercase;
           font-weight: 700;
-          color: rgba(255,255,255,0.3);
+          color: rgba(255,255,255,0.6);
           margin-bottom: 22px;
         }
         .footer-link-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
@@ -289,7 +288,7 @@ export default function Footer() {
           <div>
             <div className="footer-brand-name">Bharat<span>Mile</span></div>
             <p className="footer-tagline">
-              Discover India's beauty, culture, and hidden gems with trusted local experts. Your journey begins here.
+              BharatMile (Bharat Mile) is a Jaipur-based travel company for Ranthambore tiger safaris, Jaipur sightseeing and Rajasthan tours.
             </p>
             <ul className="footer-contact-list">
               <li className="footer-contact-item">
@@ -306,7 +305,7 @@ export default function Footer() {
               </li>
             </ul>
             <div className="footer-socials">
-              {socials.map((s) => (
+              {socials.filter((s) => s.href !== "#").map((s) => (
                 <a key={s.label} href={s.href} className="footer-social-btn" aria-label={s.label} target="_blank" rel="noopener noreferrer">
                   <s.icon size={14} />
                 </a>
@@ -331,7 +330,7 @@ export default function Footer() {
 
           {/* Destinations */}
           <div>
-            <p className="footer-col-title">Destinations</p>
+            <p className="footer-col-title">Tours &amp; Guides</p>
             <ul className="footer-link-list">
               {destinations.map((l) => (
                 <li key={l.to}>
@@ -344,24 +343,21 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Newsletter */}
+          {/* Quote */}
           <div>
-            <p className="footer-col-title">Travel Insiders</p>
+            <p className="footer-col-title">Get a Free Quote</p>
             <p className="footer-newsletter-text">
-              Get handpicked itineraries, hidden gems, and exclusive offers delivered to your inbox.
+              Send your dates and group size on WhatsApp — we reply with a full plan and price, usually within minutes.
             </p>
-            <div className="newsletter-form">
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="newsletter-input"
-                aria-label="Email for newsletter"
-              />
-              <button className="newsletter-btn">
-                Subscribe <ArrowRight size={13} />
-              </button>
-            </div>
-            <p className="newsletter-note">No spam, ever. Unsubscribe anytime.</p>
+            <a
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi BharatMile, I'd like a quote. Dates: __, People: __")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="newsletter-btn"
+              style={{ textDecoration: "none", display: "inline-flex", justifyContent: "center" }}
+            >
+              WhatsApp +91-9636974688 <ArrowRight size={13} />
+            </a>
           </div>
 
         </div>
@@ -373,11 +369,6 @@ export default function Footer() {
           <p className="footer-copy">
             © {new Date().getFullYear()} BharatMile. All rights reserved.
           </p>
-          <nav className="footer-legal" aria-label="Legal links">
-            <a href="/privacy">Privacy Policy</a>
-            <a href="/terms">Terms of Use</a>
-            <a href="/sitemap">Sitemap</a>
-          </nav>
         </div>
 
       </footer>

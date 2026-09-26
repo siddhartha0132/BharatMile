@@ -1,5 +1,6 @@
 // src/blogs/Mysore.jsx
 import { useEffect } from "react";
+import coverImage from "../assets/Mysore.jpg";
 
 export default function Mysore() {
   useEffect(() => {
@@ -39,7 +40,7 @@ export default function Mysore() {
     setMeta("og:type", "article", "property");
     setMeta(
       "og:image",
-      "https://images.unsplash.com/photo-1587033411391-5d9b9b1e10ef",
+      coverImage,
       "property"
     );
 
@@ -62,20 +63,20 @@ export default function Mysore() {
       description:
         "Complete Mysore Palace and Dussehra festival guide with timings, ticket prices, history and booking tips.",
       image: [
-        "https://images.unsplash.com/photo-1587033411391-5d9b9b1e10ef",
+        coverImage,
       ],
       author: { "@type": "Organization", name: "BharatMile Editorial" },
       publisher: {
         "@type": "Organization",
         name: "BharatMile",
-        logo: { "@type": "ImageObject", url: "/images/logo.png" },
+        logo: { "@type": "ImageObject", url: "/favicon-512.png" },
       },
       mainEntityOfPage: {
         "@type": "WebPage",
         "@id":
           typeof window !== "undefined"
             ? window.location.href
-            : "https://yourwebsite.com/blog/mysore-palace-dussehra",
+            : "https://bharatmile.com/blogs/mysore-palace-dussehra-experience",
       },
     };
 
@@ -95,7 +96,7 @@ export default function Mysore() {
       {/* ✅ HERO */}
       <section className="relative rounded-2xl overflow-hidden shadow-xl">
         <img
-          src="https://images.unsplash.com/photo-1587033411391-5d9b9b1e10ef"
+          src={coverImage}
           alt="Mysore Palace Dussehra"
           className="w-full h-[480px] object-cover"
         />

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import coverImage from "../assets/BestHotels.jpg";
 
 export default function BestHotels() {
   useEffect(() => {
@@ -37,7 +38,7 @@ export default function BestHotels() {
       "property"
     );
     setMeta("og:type", "article", "property");
-    setMeta("og:image", "/hostels-india-cover.jpg", "property");
+    setMeta("og:image", coverImage, "property");
     setMeta("og:url", window.location.href, "property");
 
     // Twitter Tags
@@ -50,7 +51,7 @@ export default function BestHotels() {
       "twitter:description",
       "A deeply detailed long-form guide to the top hostels across India — perfect for solo travelers, backpackers and students."
     );
-    setMeta("twitter:image", "/hostels-india-cover.jpg");
+    setMeta("twitter:image", coverImage);
 
     // Schema Markup
     const schema = {
@@ -59,7 +60,7 @@ export default function BestHotels() {
       headline: "Best Hostels in India for Solo Travelers",
       description:
         "An in-depth 3000+ word guide to the best budget hostels across India — covering safety, prices, amenities, reviews and travel routes.",
-      image: "/hostels-india-cover.jpg",
+      image: coverImage,
       author: {
         "@type": "Organization",
         name: "Hostel Travel Guide",
@@ -101,7 +102,7 @@ export default function BestHotels() {
           </p>
 
           <img
-            src="/hostels-india-cover.jpg"
+            src={coverImage}
             alt="Best Hostels in India for Solo Travelers"
             className="mt-6 rounded-lg shadow-lg"
           />

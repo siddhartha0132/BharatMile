@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import heroImage from "../assets/Top-Ten.jpg";
 
 export default function Top10places() {
 
@@ -105,7 +106,7 @@ export default function Top10places() {
       {/* HERO / AD SECTION */}
       <section className="relative overflow-hidden">
         <img
-          src="/images/b1.jpg"
+          src={heroImage}
           alt="Luxury India Travel"
           className="absolute inset-0 w-full h-full object-cover opacity-60"
         />

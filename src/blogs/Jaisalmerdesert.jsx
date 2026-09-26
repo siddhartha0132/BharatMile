@@ -1,5 +1,17 @@
 // src/blogs/JaisalmerDesert.jsx
 import React, { useEffect } from "react";
+import samSand from "../assets/sam-sand.jpeg";
+import desertCamp from "../assets/jaislamerdesert.jpg";
+import jaisalmerFort from "../assets/jaisalmer-fort.jpg";
+import gadisarLake from "../assets/Gadisar-Lake.jpeg";
+import heroImage from "../assets/jaisalmer-hero.jpeg";
+
+const GALLERY = [
+  [samSand, "Sam Sand Dunes near Jaisalmer at sunset"],
+  [desertCamp, "Desert camp tents in the Thar desert, Jaisalmer"],
+  [jaisalmerFort, "Jaisalmer Fort, the golden fort of Rajasthan"],
+  [gadisarLake, "Gadisar Lake in Jaisalmer"],
+];
 
 export default function JaisalmerDesert() {
   const jsonLd = {
@@ -10,7 +22,7 @@ export default function JaisalmerDesert() {
         name: "Jaisalmer Desert Camping",
         description:
           "Luxury desert camping near Jaisalmer with private tents, camel safaris, folk performances, stargazing and gourmet Rajasthani dinners.",
-        image: ["/images/jaisalmer-hero.jpg"],
+        image: [heroImage],
         address: {
           "@type": "PostalAddress",
           addressLocality: "Jaisalmer",
@@ -81,7 +93,7 @@ export default function JaisalmerDesert() {
     );
 
     setMeta("og:type", "article", "property");
-    setMeta("og:image", "/images/jaisalmer-hero.jpg", "property");
+    setMeta("og:image", heroImage, "property");
     setMeta("twitter:card", "summary_large_image");
 
     let link = document.querySelector("link[rel='canonical']");
@@ -108,7 +120,7 @@ export default function JaisalmerDesert() {
       {/* ✅ HERO */}
       <section className="relative rounded-2xl overflow-hidden shadow-xl">
         <img
-          src="/images/jaisalmer-hero.jpg"
+          src={heroImage}
           alt="Luxury desert camping in Jaisalmer"
           className="w-full h-[450px] object-cover"
         />
@@ -172,12 +184,16 @@ export default function JaisalmerDesert() {
       <section className="mt-16">
         <h2 className="text-2xl font-semibold mb-4">Desert Camp Gallery</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {Array.from({ length: 8 }).map((_, i) => (
+          {GALLERY.map(([src, alt]) => (
             <img
-              key={i}
-              src={`/images/gallery-${i + 1}.jpg`}
-              alt={`Jaisalmer desert camp ${i + 1}`}
-              className="rounded-lg object-cover"
+              key={alt}
+              src={src}
+              alt={alt}
+              width="600"
+              height="400"
+              loading="lazy"
+              decoding="async"
+              className="rounded-lg object-cover aspect-[3/2] w-full"
             />
           ))}
         </div>

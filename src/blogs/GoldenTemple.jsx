@@ -1,5 +1,6 @@
 // src/blogs/GoldenTemple.jsx
 import React, { useEffect } from "react";
+import coverImage from "../assets/goldentemple.webp";
 
 export default function GoldenTemple() {
   useEffect(() => {
@@ -44,7 +45,7 @@ export default function GoldenTemple() {
     upsert(
       "property",
       "og:image",
-      "https://images.unsplash.com/photo-1582550945154-66ea8fff25e7"
+      coverImage
     );
 
     // ✅ TWITTER
@@ -58,7 +59,7 @@ export default function GoldenTemple() {
     upsert(
       "name",
       "twitter:image",
-      "https://images.unsplash.com/photo-1582550945154-66ea8fff25e7"
+      coverImage
     );
 
     // ✅ CANONICAL
@@ -79,7 +80,7 @@ export default function GoldenTemple() {
       description:
         "A spiritual and cultural travel guide to the Golden Temple, covering darshan, langar, history, safety, dress code and nearby attractions.",
       image: [
-        "https://images.unsplash.com/photo-1582550945154-66ea8fff25e7",
+        coverImage,
       ],
       author: { "@type": "Organization", name: "BharatMile Editorial" },
       publisher: {
@@ -87,7 +88,7 @@ export default function GoldenTemple() {
         name: "BharatMile",
         logo: {
           "@type": "ImageObject",
-          url: window.location.origin + "/images/logo.png",
+          url: window.location.origin + "/favicon-512.png",
         },
       },
       mainEntityOfPage: {
@@ -115,7 +116,7 @@ export default function GoldenTemple() {
         {/* ✅ HERO */}
         <header className="mb-10">
           <img
-            src="https://images.unsplash.com/photo-1582550945154-66ea8fff25e7"
+            src={coverImage}
             alt="Golden Temple Amritsar at night reflection"
             className="w-full h-72 object-cover rounded-xl shadow-lg mb-6"
             loading="lazy"

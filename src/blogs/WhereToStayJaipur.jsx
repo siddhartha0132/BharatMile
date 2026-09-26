@@ -124,7 +124,7 @@ export default function WhereToStayJaipur() {
                 </ul>
               </div>
               <div style={{ background: "#fff8f4", borderRadius: 10, padding: 16 }}>
-                <h4 style={{ color: "#c1644a", fontSize: "0.9rem", marginBottom: 10, fontWeight: 700 }}>⚠️ Cons</h4>
+                <h4 style={{ color: "#a8523b", fontSize: "0.9rem", marginBottom: 10, fontWeight: 700 }}>⚠️ Cons</h4>
                 <ul style={{ fontSize: 14, color: "#444", paddingLeft: 16, margin: 0 }}>
                   {area.cons.map(c => <li key={c} style={{ marginBottom: 6 }}>{c}</li>)}
                 </ul>

@@ -52,12 +52,11 @@ export default function Contact() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@300;400;500;600&display=swap');
 
         :root {
           --sand: #f5efe6;
           --sand-dark: #ede3d6;
-          --terracotta: #c1644a;
+          --terracotta: #a8523b;
           --terracotta-dark: #a14e38;
           --charcoal: #1c1c1e;
           --charcoal-soft: #232325;
@@ -143,7 +142,7 @@ export default function Contact() {
           font-size: 1.6rem; font-weight: 600; color: #fff;
           margin-bottom: 8px;
         }
-        .ct-left-sub { font-size: 0.83rem; color: rgba(255,255,255,0.4); line-height: 1.6; margin-bottom: 44px; }
+        .ct-left-sub { font-size: 0.83rem; color: rgba(255,255,255,0.65); line-height: 1.6; margin-bottom: 44px; }
 
         .ct-contact-list { display: flex; flex-direction: column; gap: 28px; margin-bottom: 48px; }
         .ct-contact-item { display: flex; align-items: flex-start; gap: 14px; text-decoration: none; }
@@ -155,7 +154,7 @@ export default function Contact() {
           transition: background 0.2s, border-color 0.2s;
         }
         .ct-contact-item:hover .ct-contact-icon { background: rgba(201,151,42,0.15); border-color: rgba(201,151,42,0.35); }
-        .ct-contact-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 4px; }
+        .ct-contact-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 4px; }
         .ct-contact-value { font-size: 0.88rem; font-weight: 500; color: rgba(255,255,255,0.82); }
         .ct-contact-item:hover .ct-contact-value { color: #fff; }
 

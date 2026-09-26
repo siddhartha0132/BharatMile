@@ -8,19 +8,19 @@ export default function RannofKutch() {
     headline: "Rann of Kutch Travel Guide 2025: White Desert, Rann Utsav, Tent City & Permit",
     description:
       "Complete Rann of Kutch travel guide with Rann Utsav dates, full moon visit, Tent City stay, permit process, best time, Bhuj travel and sightseeing.",
-    image: ["https://yourwebsite.com/images/kutch-white-desert-full-moon.jpg"],
+    image: ["https://bharatmile.com/preview.jpg"],
     author: { "@type": "Organization", name: "BharatMile" },
     publisher: {
       "@type": "Organization",
       name: "BharatMile",
       logo: {
         "@type": "ImageObject",
-        url: "https://yourwebsite.com/logo.png",
+        url: "https://bharatmile.com/favicon-512.png",
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": "https://yourwebsite.com/blog/rann-of-kutch-travel-guide",
+      "@id": "https://bharatmile.com/rann-of-kutch-white-desert-festival",
     },
   };
 
@@ -56,7 +56,7 @@ export default function RannofKutch() {
     );
     set(
       "og:image",
-      "https://yourwebsite.com/images/kutch-white-desert-full-moon.jpg",
+      "https://bharatmile.com/preview.jpg",
       "property"
     );
     set("og:type", "article", "property");
@@ -69,7 +69,7 @@ export default function RannofKutch() {
     );
     set(
       "twitter:image",
-      "https://yourwebsite.com/images/kutch-white-desert-full-moon.jpg"
+      "https://bharatmile.com/preview.jpg"
     );
 
     let link = document.querySelector("link[rel='canonical']");
@@ -78,7 +78,7 @@ export default function RannofKutch() {
       link.setAttribute("rel", "canonical");
       document.head.appendChild(link);
     }
-    link.href = "https://yourwebsite.com/blog/rann-of-kutch-travel-guide";
+    link.href = "https://bharatmile.com/rann-of-kutch-white-desert-festival";
 
     let script = document.getElementById("rann-jsonld");
     if (!script) {

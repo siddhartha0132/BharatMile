@@ -1,5 +1,6 @@
 // src/blogs/MeghalayaWalking.jsx
 import React, { useEffect } from "react";
+import coverImage from "../assets/meghalayahero.jpeg";
 
 export default function MeghalayaWalking() {
   useEffect(() => {
@@ -39,7 +40,7 @@ export default function MeghalayaWalking() {
     setMeta("og:type", "article", "property");
     setMeta(
       "og:image",
-      "https://images.unsplash.com/photo-1608889176923-3c87f225f53c",
+      coverImage,
       "property"
     );
 
@@ -60,19 +61,19 @@ export default function MeghalayaWalking() {
       headline: "Meghalaya Living Root Bridge Trek 2025 | Complete Guide & Booking",
       description:
         "Complete guide to Meghalaya Living Root Bridge and Double Decker Bridge trek with routes, safety & travel tips.",
-      image: ["https://images.unsplash.com/photo-1608889176923-3c87f225f53c"],
+      image: [coverImage],
       author: { "@type": "Organization", name: "BharatMile Editorial" },
       publisher: {
         "@type": "Organization",
         name: "BharatMile",
-        logo: { "@type": "ImageObject", url: "/images/logo.png" },
+        logo: { "@type": "ImageObject", url: "/favicon-512.png" },
       },
       mainEntityOfPage: {
         "@type": "WebPage",
         "@id":
           typeof window !== "undefined"
             ? window.location.href
-            : "https://yourwebsite.com/blog/meghalaya-living-root-bridge-trek",
+            : "https://bharatmile.com/meghalaya-walking-on-living-root-bridges",
       },
     };
 
@@ -92,7 +93,7 @@ export default function MeghalayaWalking() {
       {/* ✅ HERO */}
       <section className="relative rounded-2xl overflow-hidden shadow-xl">
         <img
-          src="https://images.unsplash.com/photo-1608889176923-3c87f225f53c"
+          src={coverImage}
           alt="Meghalaya Living Root Bridge Trek"
           className="w-full h-[480px] object-cover"
         />

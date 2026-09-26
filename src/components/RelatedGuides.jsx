@@ -19,7 +19,7 @@ export default function RelatedGuides() {
           <li key={g.path}>
             <Link
               to={g.path}
-              className="flex min-h-11 items-center rounded-xl border border-gray-200 bg-white px-4 py-3 font-medium text-gray-800 transition hover:border-[#c1644a] hover:text-[#c1644a]"
+              className="flex min-h-11 items-center rounded-xl border border-gray-200 bg-white px-4 py-3 font-medium text-gray-800 transition hover:border-[#a8523b] hover:text-[#a8523b]"
             >
               {g.label} →
             </Link>

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import coverImage from "../assets/goa.jpg";
 
 export default function GoaForts() {
   useEffect(() => {
@@ -43,7 +44,7 @@ export default function GoaForts() {
     upsert(
       "property",
       "og:image",
-      "https://images.unsplash.com/photo-1607356220218-36f92f2189e6"
+      coverImage
     );
 
     // ✅ TWITTER
@@ -57,7 +58,7 @@ export default function GoaForts() {
     upsert(
       "name",
       "twitter:image",
-      "https://images.unsplash.com/photo-1607356220218-36f92f2189e6"
+      coverImage
     );
 
     // ✅ CANONICAL
@@ -78,7 +79,7 @@ export default function GoaForts() {
       description:
         "A heritage travel guide to Goa's forts and spice farms with safety tips, food, itineraries and slow-travel insights.",
       image: [
-        "https://images.unsplash.com/photo-1607356220218-36f92f2189e6",
+        coverImage,
       ],
       author: { "@type": "Organization", name: "BharatMile Editorial" },
       publisher: {
@@ -86,7 +87,7 @@ export default function GoaForts() {
         name: "BharatMile",
         logo: {
           "@type": "ImageObject",
-          url: window.location.origin + "/images/logo.png",
+          url: window.location.origin + "/favicon-512.png",
         },
       },
       mainEntityOfPage: {
@@ -114,7 +115,7 @@ export default function GoaForts() {
         {/* ✅ HERO */}
         <header className="mb-10">
           <img
-            src="https://images.unsplash.com/photo-1607356220218-36f92f2189e6"
+            src={coverImage}
             alt="Fort Aguada Goa"
             className="w-full h-72 object-cover rounded-xl shadow-lg mb-6"
             loading="lazy"

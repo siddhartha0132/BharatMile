@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import heroImage from "../assets/Top-Ten.jpg";
 
 export default function VaranasiGhats() {
 
@@ -45,7 +46,7 @@ export default function VaranasiGhats() {
     set("og:title", document.title, "property");
     set("og:description", description, "property");
     set("og:type", "article", "property");
-    set("og:image", "https://yourwebsite.com/images/varanasi-ganga-aarti.jpg", "property");
+    set("og:image", "https://bharatmile.com/preview.jpg", "property");
 
     // Twitter
     set("twitter:card", "summary_large_image");
@@ -53,7 +54,7 @@ export default function VaranasiGhats() {
     set("twitter:description", description);
     set(
       "twitter:image",
-      "https://yourwebsite.com/images/varanasi-ganga-aarti.jpg"
+      "https://bharatmile.com/preview.jpg"
     );
 
     // Canonical
@@ -63,7 +64,7 @@ export default function VaranasiGhats() {
       link.setAttribute("rel", "canonical");
       document.head.appendChild(link);
     }
-    link.href = "https://yourwebsite.com/varanasi-ghats-guide";
+    link.href = "https://bharatmile.com/varanasi-ghats-spiritual-journey";
 
     // JSON-LD Article
     const jsonLd = {
@@ -71,7 +72,7 @@ export default function VaranasiGhats() {
       "@type": "Article",
       headline: document.title,
       description,
-      image: ["https://yourwebsite.com/images/varanasi-ganga-aarti.jpg"],
+      image: ["https://bharatmile.com/preview.jpg"],
       author: { "@type": "Organization", name: "BharatMile Heritage" },
       publisher: { "@type": "Organization", name: "BharatMile" },
       mainEntityOfPage: { "@type": "WebPage", "@id": window.location.href },
@@ -92,7 +93,7 @@ export default function VaranasiGhats() {
 
       {/* HERO IMAGE */}
       <img
-        src="/images/varanasi-ganga-aarti.jpg"
+        src={heroImage}
         alt="Varanasi Ghats and Ganga Aarti"
         className="rounded-xl w-full mb-8 shadow-lg"
       />

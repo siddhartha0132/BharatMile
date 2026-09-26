@@ -9,7 +9,7 @@ export default function StudentDiscount() {
       "Student Travel Discounts in India 2025: Flights, Trains, Buses & Monument Entry",
     description:
       "Complete guide to student discounts in India on flights, IRCTC trains, buses and monuments. Eligibility, documents required, airline-wise benefits and insider money-saving tips.",
-    image: ["https://yourwebsite.com/images/student-travel-discount.jpg"],
+    image: ["https://bharatmile.com/preview.jpg"],
     author: {
       "@type": "Organization",
       name: "BharatMile",
@@ -19,12 +19,12 @@ export default function StudentDiscount() {
       name: "BharatMile",
       logo: {
         "@type": "ImageObject",
-        url: "https://yourwebsite.com/logo.png",
+        url: "https://bharatmile.com/favicon-512.png",
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": "https://yourwebsite.com/blog/student-travel-discounts-india",
+      "@id": "https://bharatmile.com/blogs/student-discounts",
     },
   };
 
@@ -60,7 +60,7 @@ export default function StudentDiscount() {
     );
     set(
       "og:image",
-      "https://yourwebsite.com/images/student-travel-discount.jpg",
+      "https://bharatmile.com/preview.jpg",
       "property"
     );
     set("og:type", "article", "property");
@@ -73,7 +73,7 @@ export default function StudentDiscount() {
     );
     set(
       "twitter:image",
-      "https://yourwebsite.com/images/student-travel-discount.jpg"
+      "https://bharatmile.com/preview.jpg"
     );
 
     let link = document.querySelector("link[rel='canonical']");
@@ -83,7 +83,7 @@ export default function StudentDiscount() {
       document.head.appendChild(link);
     }
     link.href =
-      "https://yourwebsite.com/blog/student-travel-discounts-india";
+      "https://bharatmile.com/blogs/student-discounts";
 
     let script = document.getElementById("student-jsonld");
     if (!script) {

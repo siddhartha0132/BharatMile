@@ -1,6 +1,7 @@
 // src/blogs/HyderabadiBiryani_Full.jsx
 import React from "react";
 import { Helmet } from "react-helmet";
+import coverImage from "../assets/LocalFoodsHyderabad.jpeg";
 
 export default function HyderabadiBiryani() {
   const jsonLd = {
@@ -9,14 +10,14 @@ export default function HyderabadiBiryani() {
     headline: "Hyderabadi Biryani: The Authentic Food Trail — Complete Guide (2025)",
     description:
       "A complete Hyderabadi biryani guide: history, kacchi vs pakki styles, best restaurants in Hyderabad, recipes, etiquette & food traveller tips.",
-    image: ["https://images.unsplash.com/photo-1604908177522-f86a1b4ba53b"],
+    image: [coverImage],
     author: { "@type": "Organization", name: "BharatMile Editorial" },
     publisher: {
       "@type": "Organization",
       name: "BharatMile",
       logo: {
         "@type": "ImageObject",
-        url: "/images/logo.png",
+        url: "/favicon-512.png",
       },
     },
     mainEntityOfPage: {
@@ -41,7 +42,7 @@ export default function HyderabadiBiryani() {
 
         <link
           rel="canonical"
-          href="https://yourwebsite.com/blog/hyderabadi-biryani-authentic-food-trail"
+          href="https://bharatmile.com/hyderabadi-biryani"
         />
 
         {/* Open Graph */}
@@ -55,7 +56,7 @@ export default function HyderabadiBiryani() {
         />
         <meta
           property="og:image"
-          content="https://images.unsplash.com/photo-1604908177522-f86a1b4ba53b"
+          content={coverImage}
         />
         <meta property="og:type" content="article" />
 
@@ -72,7 +73,7 @@ export default function HyderabadiBiryani() {
         {/* ✅ HERO */}
         <header className="mb-10">
           <img
-            src="https://images.unsplash.com/photo-1604908177522-f86a1b4ba53b"
+            src={coverImage}
             alt="Hyderabadi Biryani"
             className="w-full h-72 object-cover rounded-xl shadow-lg mb-6"
           />

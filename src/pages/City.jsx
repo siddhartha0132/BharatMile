@@ -25,7 +25,7 @@ const ALL_CITIES = [
 const TAGS = ["All", "Heritage", "Wildlife", "Desert", "Lakes", "Nature"];
 
 const TAG_COLORS = {
-  Heritage: { bg: "rgba(193,100,74,0.15)", color: "#c1644a" },
+  Heritage: { bg: "rgba(193,100,74,0.15)", color: "#a8523b" },
   Wildlife: { bg: "rgba(74,130,80,0.15)",  color: "#3d7a43" },
   Desert:   { bg: "rgba(201,151,42,0.15)", color: "#9a7218" },
   Lakes:    { bg: "rgba(59,130,186,0.15)", color: "#2d6fa3" },
@@ -52,12 +52,11 @@ export default function City() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@300;400;500;600&display=swap');
 
         :root {
           --sand: #f5efe6;
           --sand-dark: #ede3d6;
-          --terracotta: #c1644a;
+          --terracotta: #a8523b;
           --terracotta-dark: #a14e38;
           --charcoal: #1c1c1e;
           --muted: #6b6b6b;

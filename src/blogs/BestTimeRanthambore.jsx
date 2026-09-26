@@ -75,7 +75,7 @@ export default function BestTimeRanthambore() {
         <div style={{ overflowX: "auto", marginBottom: 32 }}>
           <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.9rem" }}>
             <thead>
-              <tr style={{ background: "#c1644a", color: "#fff" }}>
+              <tr style={{ background: "#a8523b", color: "#fff" }}>
                 <th style={{ padding: "12px 16px", textAlign: "left" }}>Month</th>
                 <th style={{ padding: "12px 16px", textAlign: "left" }}>Status</th>
                 <th style={{ padding: "12px 16px", textAlign: "left" }}>Temp</th>
@@ -101,7 +101,7 @@ export default function BestTimeRanthambore() {
 
         {months.filter(m => m.open).map(m => (
           <div key={m.month} style={{ marginBottom: 24, paddingLeft: 20, borderLeft: "3px solid #f0d9cc" }}>
-            <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#c1644a", marginBottom: 8 }}>{m.month} — {m.tiger} Tiger Sightings</h3>
+            <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#a8523b", marginBottom: 8 }}>{m.month} — {m.tiger} Tiger Sightings</h3>
             <p style={{ fontSize: "0.95rem", color: "#444", margin: 0 }}>{m.notes}</p>
           </div>
         ))}

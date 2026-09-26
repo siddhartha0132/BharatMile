@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import heroImage from "../assets/bhangarhgort.jpeg";
 
 export default function BhangarhFort() {
   useEffect(() => {
@@ -37,7 +38,7 @@ export default function BhangarhFort() {
     );
     setOrCreate(
       "og:image",
-      window.location.origin + "/images/bhangarh-hero.jpg",
+      window.location.origin + heroImage,
       "property"
     );
     setOrCreate("og:type", "article", "property");
@@ -52,7 +53,7 @@ export default function BhangarhFort() {
     );
     setOrCreate(
       "twitter:image",
-      window.location.origin + "/images/bhangarh-hero.jpg"
+      window.location.origin + heroImage
     );
 
     // ✅ CANONICAL
@@ -71,7 +72,7 @@ export default function BhangarhFort() {
       headline: "The Haunted History of Bhangarh Fort",
       description:
         "An in-depth guide covering the haunted legends, real history, visitor rules, safety tips & travel guide for Bhangarh Fort.",
-      image: [window.location.origin + "/images/bhangarh-hero.jpg"],
+      image: [window.location.origin + heroImage],
       author: {
         "@type": "Organization",
         name: "India Travel Insights",
@@ -81,7 +82,7 @@ export default function BhangarhFort() {
         name: "India Travel Insights",
         logo: {
           "@type": "ImageObject",
-          url: window.location.origin + "/images/logo.png",
+          url: window.location.origin + "/favicon-512.png",
         },
       },
       mainEntityOfPage: {
@@ -109,7 +110,7 @@ export default function BhangarhFort() {
         {/* ✅ HERO */}
         <header className="mb-10">
           <img
-            src="/images/bhangarh-hero.jpg"
+            src={heroImage}
             alt="Bhangarh Fort ruins at dusk"
             className="w-full h-72 object-cover rounded-xl shadow-lg"
             loading="lazy"

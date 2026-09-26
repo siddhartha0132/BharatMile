@@ -30,12 +30,12 @@ export default function Besttimevisit() {
     upsertMeta("property", "og:type", "article");
     upsertMeta("property", "og:url", window.location.href);
     upsertMeta("property", "og:site_name", "BharatMile");
-    upsertMeta("property", "og:image", window.location.origin + "/images/india-2025-feature.jpg");
+    upsertMeta("property", "og:image", window.location.origin + "/preview.jpg");
 
     upsertMeta("name", "twitter:card", "summary_large_image");
     upsertMeta("name", "twitter:title", title);
     upsertMeta("name", "twitter:description", "Plan your India 2025 trip with this complete guide — best time, festivals, itineraries & budgets.");
-    upsertMeta("name", "twitter:image", window.location.origin + "/images/india-2025-feature.jpg");
+    upsertMeta("name", "twitter:image", window.location.origin + "/preview.jpg");
 
     let link = document.querySelector("link[rel='canonical']");
     if (!link) {
@@ -49,14 +49,14 @@ export default function Besttimevisit() {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": title,
-      "image": [window.location.origin + "/images/india-2025-feature.jpg"],
+      "image": [window.location.origin + "/preview.jpg"],
       "author": { "@type": "Person", "name": "BharatMile Editorial" },
       "publisher": {
         "@type": "Organization",
         "name": "BharatMile",
         "logo": {
           "@type": "ImageObject",
-          "url": window.location.origin + "/images/logo.png"
+          "url": window.location.origin + "/favicon-512.png"
         }
       },
       "datePublished": "2025-11-23",

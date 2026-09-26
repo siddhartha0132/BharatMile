@@ -1,5 +1,6 @@
 // src/blogs/FemaleTrav_Expanded.jsx
 import React, { useEffect } from "react";
+import heroImage from "../assets/Femaletraveler.jpg";
 
 export default function FemaleTravExpanded() {
   useEffect(() => {
@@ -44,7 +45,7 @@ export default function FemaleTravExpanded() {
     upsert(
       "property",
       "og:image",
-      window.location.origin + "/images/female-travel-hero.jpg"
+      window.location.origin + heroImage
     );
 
     // ✅ TWITTER
@@ -58,7 +59,7 @@ export default function FemaleTravExpanded() {
     upsert(
       "name",
       "twitter:image",
-      window.location.origin + "/images/female-travel-hero.jpg"
+      window.location.origin + heroImage
     );
 
     // ✅ CANONICAL
@@ -79,14 +80,14 @@ export default function FemaleTravExpanded() {
       headline: title,
       description:
         "Actionable safety tips for solo female travellers covering accommodation, transport, health, digital safety, money and cultural awareness.",
-      image: [window.location.origin + "/images/female-travel-hero.jpg"],
+      image: [window.location.origin + heroImage],
       author: { "@type": "Organization", name: "BharatMile Editorial" },
       publisher: {
         "@type": "Organization",
         name: "BharatMile",
         logo: {
           "@type": "ImageObject",
-          url: window.location.origin + "/images/logo.png",
+          url: window.location.origin + "/favicon-512.png",
         },
       },
       mainEntityOfPage: {
@@ -114,7 +115,7 @@ export default function FemaleTravExpanded() {
         {/* ✅ HERO */}
         <header className="mb-10">
           <img
-            src="/images/female-travel-hero.jpg"
+            src={heroImage}
             alt="Solo female traveler exploring safely"
             className="w-full h-72 object-cover rounded-xl shadow-lg mb-6"
             loading="lazy"

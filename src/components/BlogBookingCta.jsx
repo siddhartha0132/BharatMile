@@ -29,7 +29,7 @@ export default function BlogBookingCta() {
   return (
     <aside className="max-w-4xl mx-auto px-6 pb-14" aria-label="Plan your trip with BharatMile">
       <div className="rounded-2xl border border-orange-200 bg-orange-50 p-6 md:p-8">
-        <p className="text-sm font-semibold uppercase tracking-wide text-[#c1644a]">Plan it with BharatMile</p>
+        <p className="text-sm font-semibold uppercase tracking-wide text-[#a8523b]">Plan it with BharatMile</p>
         <h2 className="mt-1 text-2xl font-bold text-gray-900">Book with a Jaipur-based local team</h2>
         <div className={`mt-5 grid gap-4 ${offers.length > 1 ? "md:grid-cols-2" : ""}`}>
           {offers.map((o) => (
@@ -47,7 +47,7 @@ export default function BlogBookingCta() {
           href={WHATSAPP}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-5 inline-flex min-h-11 items-center rounded-full bg-green-600 px-5 py-2.5 font-semibold text-white hover:bg-green-700"
+          className="mt-5 inline-flex min-h-11 items-center rounded-full bg-green-700 px-5 py-2.5 font-semibold text-white hover:bg-green-800"
         >
           Get a free quote on WhatsApp
         </a>

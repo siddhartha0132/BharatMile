@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import coverImage from "../assets/Andaman-and-Nicobar.jpg";
 
 export default function AndamanIslands() {
   useEffect(() => {
@@ -37,7 +38,7 @@ export default function AndamanIslands() {
       "property"
     );
     set("og:type", "article", "property");
-    set("og:image", "/andaman-cover.jpg", "property");
+    set("og:image", coverImage, "property");
     set("og:url", window.location.href, "property");
 
     // ✅ TWITTER
@@ -47,7 +48,7 @@ export default function AndamanIslands() {
       "twitter:description",
       "Best locations, prices & safety tips for first-time scuba divers in Andaman."
     );
-    set("twitter:image", "/andaman-cover.jpg");
+    set("twitter:image", coverImage);
   }, []);
 
   return (
@@ -58,7 +59,7 @@ export default function AndamanIslands() {
         <div className="lg:col-span-3">
           <header className="mb-10">
             <img
-              src="/andaman-cover.jpg"
+              src={coverImage}
               alt="Scuba Diving in Andaman Islands for Beginners"
               className="rounded-xl shadow-lg mb-6 w-full"
               loading="lazy"

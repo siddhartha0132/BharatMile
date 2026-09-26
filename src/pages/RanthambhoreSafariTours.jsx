@@ -107,7 +107,7 @@ export default function RanthambhoreSafariTours() {
           </p>
           <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
             <a href={`https://wa.me/${WHATSAPP}?text=Hi%20BharatMile!%20I%20want%20to%20book%20a%20Ranthambore%20Safari%20Tour`} target="_blank" rel="noopener noreferrer"
-              style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#25D366", color: "#fff", padding: "14px 28px", borderRadius: 4, fontWeight: 700, fontSize: "0.92rem", textDecoration: "none", letterSpacing: "0.04em", textTransform: "uppercase" }}>
+              style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#15803d", color: "#fff", padding: "14px 28px", borderRadius: 4, fontWeight: 700, fontSize: "0.92rem", textDecoration: "none", letterSpacing: "0.04em", textTransform: "uppercase" }}>
               <Phone size={16} /> WhatsApp to Book Instantly
             </a>
             <a href="#itineraries" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "transparent", border: "1.5px solid rgba(255,255,255,0.4)", color: "#fff", padding: "14px 28px", borderRadius: 4, fontWeight: 500, fontSize: "0.92rem", textDecoration: "none" }}>
@@ -129,7 +129,7 @@ export default function RanthambhoreSafariTours() {
             { label: "Safari Seat", value: "₹1,400 / person" },
           ].map(f => (
             <div key={f.label} style={{ padding: "12px 8px" }}>
-              <div style={{ fontSize: 20, fontWeight: 700, color: "#c1644a" }}>{f.value}</div>
+              <div style={{ fontSize: 20, fontWeight: 700, color: "#a8523b" }}>{f.value}</div>
               <div style={{ fontSize: 12, color: "#666", marginTop: 4, fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.05em" }}>{f.label}</div>
             </div>
           ))}
@@ -161,11 +161,11 @@ export default function RanthambhoreSafariTours() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 20 }}>
             {zones.map((z) => (
               <div key={z.zone} style={{ background: "#fff", border: "1px solid #e8e8e8", borderRadius: 12, padding: 24, boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
-                <h3 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#c1644a", marginBottom: 8 }}>{z.zone}</h3>
+                <h3 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#a8523b", marginBottom: 8 }}>{z.zone}</h3>
                 <div style={{ fontSize: "1rem", marginBottom: 6 }}>{z.tiger} Tiger Probability</div>
                 <p style={{ fontSize: 14, color: "#555", marginBottom: 8 }}><strong>Highlight:</strong> {z.highlight}</p>
                 <p style={{ fontSize: 14, color: "#555", marginBottom: 8 }}><strong>Vehicle:</strong> {z.vehicle}</p>
-                <p style={{ fontSize: 13, color: "#888", fontStyle: "italic" }}>💡 {z.tip}</p>
+                <p style={{ fontSize: 13, color: "#666", fontStyle: "italic" }}>💡 {z.tip}</p>
               </div>
             ))}
           </div>
@@ -180,7 +180,7 @@ export default function RanthambhoreSafariTours() {
           <div style={{ overflowX: "auto" }}>
             <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.95rem", background: "#fff", borderRadius: 12, overflow: "hidden", boxShadow: "0 2px 12px rgba(0,0,0,0.07)" }}>
               <thead>
-                <tr style={{ background: "#c1644a", color: "#fff" }}>
+                <tr style={{ background: "#a8523b", color: "#fff" }}>
                   <th style={{ padding: "14px 16px", textAlign: "left" }}>Feature</th>
                   <th style={{ padding: "14px 16px", textAlign: "left" }}>🚙 Gypsy (6-seater Jeep)</th>
                   <th style={{ padding: "14px 16px", textAlign: "left" }}>🚌 Canter (20-seater)</th>
@@ -222,7 +222,7 @@ export default function RanthambhoreSafariTours() {
             ].map(f => (
               <div key={f.item} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "12px 16px", background: "#fff", borderRadius: 8, border: "1px solid #eee" }}>
                 <span style={{ fontSize: 14, color: "#444", fontWeight: 500 }}>{f.item}</span>
-                <span style={{ fontSize: 15, color: "#c1644a", fontWeight: 700, marginLeft: 8, whiteSpace: "nowrap" }}>{f.price}</span>
+                <span style={{ fontSize: 15, color: "#a8523b", fontWeight: 700, marginLeft: 8, whiteSpace: "nowrap" }}>{f.price}</span>
               </div>
             ))}
           </div>
@@ -243,7 +243,7 @@ export default function RanthambhoreSafariTours() {
               { period: "June", rating: "⭐⭐⭐", temp: "35–45°C", crowd: "Very Low", tiger: "Good (closing soon)", note: "Park closes June 30. Extreme heat. Not recommended for families with children." },
             ].map(m => (
               <div key={m.period} style={{ background: "#fff", border: "1px solid #e8e8e8", borderRadius: 12, padding: 24, boxShadow: "0 2px 10px rgba(0,0,0,0.05)" }}>
-                <h3 style={{ fontSize: "1rem", fontWeight: 700, color: "#c1644a", marginBottom: 8 }}>{m.period}</h3>
+                <h3 style={{ fontSize: "1rem", fontWeight: 700, color: "#a8523b", marginBottom: 8 }}>{m.period}</h3>
                 <div style={{ fontSize: "1rem", marginBottom: 8 }}>{m.rating}</div>
                 <div style={{ display: "flex", gap: 12, fontSize: 13, marginBottom: 10 }}>
                   <span>🌡️ {m.temp}</span>
@@ -262,9 +262,9 @@ export default function RanthambhoreSafariTours() {
           <p style={{ fontSize: "1.05rem", color: "#666", marginBottom: 40 }}>Choose your perfect Ranthambore tour duration. All itineraries include safari permits, naturalist guide, and BharatMile support.</p>
 
           {/* 1-Day */}
-          <div style={{ background: "#fff", border: "2px solid #c1644a", borderRadius: 16, padding: 36, marginBottom: 32, boxShadow: "0 4px 20px rgba(193,100,74,0.1)" }}>
+          <div style={{ background: "#fff", border: "2px solid #a8523b", borderRadius: 16, padding: 36, marginBottom: 32, boxShadow: "0 4px 20px rgba(193,100,74,0.1)" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
-              <div style={{ background: "#c1644a", color: "#fff", padding: "4px 14px", borderRadius: 100, fontSize: 12, fontWeight: 700, textTransform: "uppercase" }}>1-Day Itinerary</div>
+              <div style={{ background: "#a8523b", color: "#fff", padding: "4px 14px", borderRadius: 100, fontSize: 12, fontWeight: 700, textTransform: "uppercase" }}>1-Day Itinerary</div>
               <span style={{ fontSize: 14, color: "#888" }}>Quick wildlife escape from Jaipur/Sawai Madhopur</span>
             </div>
             <h3 style={{ fontSize: "1.3rem", fontWeight: 700, marginBottom: 20, color: "#1c1c1e" }}>Ranthambore Day Safari — 1 Day / 0 Nights</h3>
@@ -280,7 +280,7 @@ export default function RanthambhoreSafariTours() {
                 { time: "07:30 PM", act: "Depart back to Jaipur or Sawai Madhopur station for onward journey" },
               ].map(s => (
                 <div key={s.time} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
-                  <span style={{ background: "#fff8f4", color: "#c1644a", fontWeight: 700, fontSize: 12, padding: "4px 8px", borderRadius: 6, whiteSpace: "nowrap", marginTop: 2 }}>{s.time}</span>
+                  <span style={{ background: "#fff8f4", color: "#a8523b", fontWeight: 700, fontSize: 12, padding: "4px 8px", borderRadius: 6, whiteSpace: "nowrap", marginTop: 2 }}>{s.time}</span>
                   <span style={{ fontSize: 14, color: "#555" }}>{s.act}</span>
                 </div>
               ))}
@@ -297,9 +297,9 @@ export default function RanthambhoreSafariTours() {
               <span style={{ fontSize: 14, color: "#888" }}>Most popular weekend package</span>
             </div>
             <h3 style={{ fontSize: "1.3rem", fontWeight: 700, marginBottom: 20, color: "#1c1c1e" }}>Ranthambore Classic Safari — 2 Days / 1 Night</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 24 }}>
               <div>
-                <h4 style={{ fontWeight: 700, color: "#c1644a", marginBottom: 12 }}>Day 1</h4>
+                <h4 style={{ fontWeight: 700, color: "#a8523b", marginBottom: 12 }}>Day 1</h4>
                 {[
                   { time: "Afternoon", act: "Arrive at Sawai Madhopur. Check in at safari resort. Orientation briefing by naturalist." },
                   { time: "3:00 PM", act: "Afternoon Gypsy Safari — Zone 1, 2 or 3 (core zones, tiger hotspots)" },
@@ -307,13 +307,13 @@ export default function RanthambhoreSafariTours() {
                   { time: "7:30 PM", act: "Dinner. Naturalist slideshow on Ranthambore tigers and wildlife." },
                 ].map(s => (
                   <div key={s.time} style={{ display: "flex", gap: 10, marginBottom: 12 }}>
-                    <span style={{ color: "#c1644a", fontWeight: 700, fontSize: 12, minWidth: 70 }}>{s.time}</span>
+                    <span style={{ color: "#a8523b", fontWeight: 700, fontSize: 12, minWidth: 70 }}>{s.time}</span>
                     <span style={{ fontSize: 14, color: "#555" }}>{s.act}</span>
                   </div>
                 ))}
               </div>
               <div>
-                <h4 style={{ fontWeight: 700, color: "#c1644a", marginBottom: 12 }}>Day 2</h4>
+                <h4 style={{ fontWeight: 700, color: "#a8523b", marginBottom: 12 }}>Day 2</h4>
                 {[
                   { time: "5:30 AM", act: "Early morning Gypsy Safari — Zone 3 or 4 (Padam Talao, Rajbagh, Malik Talao lakes)" },
                   { time: "9:30 AM", act: "Return. Buffet breakfast at resort." },
@@ -321,7 +321,7 @@ export default function RanthambhoreSafariTours() {
                   { time: "1:00 PM", act: "Lunch & checkout. Transfer to Sawai Madhopur station / Jaipur." },
                 ].map(s => (
                   <div key={s.time} style={{ display: "flex", gap: 10, marginBottom: 12 }}>
-                    <span style={{ color: "#c1644a", fontWeight: 700, fontSize: 12, minWidth: 70 }}>{s.time}</span>
+                    <span style={{ color: "#a8523b", fontWeight: 700, fontSize: 12, minWidth: 70 }}>{s.time}</span>
                     <span style={{ fontSize: 14, color: "#555" }}>{s.act}</span>
                   </div>
                 ))}
@@ -394,7 +394,7 @@ export default function RanthambhoreSafariTours() {
           <p style={{ fontSize: "1.05rem", color: "#444", marginBottom: 16 }}>
             The fort complex includes the famous <strong>Ganesh Temple</strong> (one of Rajasthan's most revered temples), ancient step wells (baolis), Hammir's Hall of Justice, the Hamir Court palace ruins, and centuries-old temples. The fort was once the site of the legendary Jauhar of Rani Padmini's era.
           </p>
-          <div style={{ background: "#fff8f4", borderLeft: "4px solid #c1644a", borderRadius: 8, padding: 20, fontSize: 14, color: "#555" }}>
+          <div style={{ background: "#fff8f4", borderLeft: "4px solid #a8523b", borderRadius: 8, padding: 20, fontSize: 14, color: "#555" }}>
             <strong>BharatMile Tip:</strong> Visit the fort between safaris (11 AM–2 PM) when the park gates are closed for the midday break. Entry to the fort is free. The climb takes 30–45 minutes each way — wear comfortable shoes.
           </div>
         </section>
@@ -409,7 +409,7 @@ export default function RanthambhoreSafariTours() {
               { mode: "🚗 By Road", detail: "NH21 from Jaipur (180 km, 3.5 hrs), NH44 from Delhi (400 km, 6 hrs). Private cabs recommended — BharatMile arranges comfortable AC transfers." },
             ].map(r => (
               <div key={r.mode} style={{ background: "#fff", border: "1px solid #e8e8e8", borderRadius: 12, padding: 24, boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
-                <h3 style={{ fontSize: "1rem", fontWeight: 700, color: "#c1644a", marginBottom: 12 }}>{r.mode}</h3>
+                <h3 style={{ fontSize: "1rem", fontWeight: 700, color: "#a8523b", marginBottom: 12 }}>{r.mode}</h3>
                 <p style={{ fontSize: 14, color: "#555", lineHeight: 1.65 }}>{r.detail}</p>
               </div>
             ))}
@@ -432,7 +432,7 @@ export default function RanthambhoreSafariTours() {
               { title: "Jaipur Sightseeing Packages →", href: "/jaipur-sightseeing-packages" },
               { title: "Ranthambore Complete City Guide →", href: "/city/ranthambore" },
             ].map(l => (
-              <Link key={l.href} to={l.href} style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 0", color: "#c1644a", textDecoration: "none", fontSize: "0.95rem", fontWeight: 500, borderBottom: "1px dashed #f0d9cc" }}>
+              <Link key={l.href} to={l.href} style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 0", color: "#a8523b", textDecoration: "none", fontSize: "0.95rem", fontWeight: 500, borderBottom: "1px dashed #f0d9cc" }}>
                 <ArrowRight size={14} style={{ flexShrink: 0 }} />{l.title}
               </Link>
             ))}
@@ -464,7 +464,7 @@ export default function RanthambhoreSafariTours() {
             </p>
             <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
               <a href={`https://wa.me/${WHATSAPP}?text=Hi%20BharatMile!%20I%20want%20to%20book%20a%20Ranthambore%20Safari%20Tour.%20Please%20share%20package%20details.`} target="_blank" rel="noopener noreferrer"
-                style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#25D366", color: "#fff", padding: "16px 32px", borderRadius: 6, fontWeight: 700, fontSize: "1rem", textDecoration: "none" }}>
+                style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#15803d", color: "#fff", padding: "16px 32px", borderRadius: 6, fontWeight: 700, fontSize: "1rem", textDecoration: "none" }}>
                 🐯 Book Now on WhatsApp
               </a>
               <Link to="/jaipur-sightseeing-packages" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "transparent", border: "1.5px solid rgba(255,255,255,0.4)", color: "#fff", padding: "16px 32px", borderRadius: 6, fontWeight: 500, fontSize: "1rem", textDecoration: "none" }}>

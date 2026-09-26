@@ -118,7 +118,7 @@ export default function JaipurSightseeingPackages() {
           </p>
           <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
             <a href={`https://wa.me/${WHATSAPP}?text=Hi%20BharatMile!%20I%20want%20to%20book%20a%20Jaipur%20Sightseeing%20Package`} target="_blank" rel="noopener noreferrer"
-              style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#25D366", color: "#fff", padding: "14px 28px", borderRadius: 4, fontWeight: 700, fontSize: "0.92rem", textDecoration: "none", letterSpacing: "0.04em", textTransform: "uppercase" }}>
+              style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#15803d", color: "#fff", padding: "14px 28px", borderRadius: 4, fontWeight: 700, fontSize: "0.92rem", textDecoration: "none", letterSpacing: "0.04em", textTransform: "uppercase" }}>
               <Phone size={16} /> WhatsApp to Book Instantly
             </a>
             <a href="#itineraries" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "transparent", border: "1.5px solid rgba(255,255,255,0.4)", color: "#fff", padding: "14px 28px", borderRadius: 4, fontWeight: 500, fontSize: "0.92rem", textDecoration: "none" }}>
@@ -225,13 +225,13 @@ export default function JaipurSightseeingPackages() {
           </div>
 
           {/* 2-Day */}
-          <div style={{ background: "#fff", border: "2px solid #c1644a", borderRadius: 16, padding: 36, marginBottom: 32, boxShadow: "0 4px 20px rgba(193,100,74,0.1)" }}>
+          <div style={{ background: "#fff", border: "2px solid #a8523b", borderRadius: 16, padding: 36, marginBottom: 32, boxShadow: "0 4px 20px rgba(193,100,74,0.1)" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
-              <div style={{ background: "#c1644a", color: "#fff", padding: "4px 14px", borderRadius: 100, fontSize: 12, fontWeight: 700, textTransform: "uppercase" }}>2-Day Itinerary</div>
+              <div style={{ background: "#a8523b", color: "#fff", padding: "4px 14px", borderRadius: 100, fontSize: 12, fontWeight: 700, textTransform: "uppercase" }}>2-Day Itinerary</div>
               <span style={{ fontSize: 14, color: "#888" }}>Most popular package — complete Jaipur experience</span>
             </div>
             <h3 style={{ fontSize: "1.3rem", fontWeight: 700, marginBottom: 20, color: "#1c1c1e" }}>Jaipur Heritage Deep Dive — 2 Days / 1 Night</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 24 }}>
               <div>
                 <h4 style={{ fontWeight: 700, color: "#8b4513", marginBottom: 12 }}>Day 1 — Royal Forts & Palaces</h4>
                 {[
@@ -308,7 +308,7 @@ export default function JaipurSightseeingPackages() {
                   <span style={{ fontSize: 13, color: "#555" }}>{n.pros}</span>
                 </div>
                 <div style={{ marginBottom: 12 }}>
-                  <span style={{ fontSize: 13, color: "#c1644a", fontWeight: 600 }}>⚠️ Cons: </span>
+                  <span style={{ fontSize: 13, color: "#a8523b", fontWeight: 600 }}>⚠️ Cons: </span>
                   <span style={{ fontSize: 13, color: "#555" }}>{n.cons}</span>
                 </div>
                 <div style={{ fontSize: 13, color: "#555", marginBottom: 8 }}><strong>Popular Hotels:</strong> {n.hotels}</div>
@@ -390,7 +390,7 @@ export default function JaipurSightseeingPackages() {
             </p>
             <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
               <a href={`https://wa.me/${WHATSAPP}?text=Hi%20BharatMile!%20I%20want%20to%20book%20a%20Jaipur%20Sightseeing%20Package.%20Please%20share%20package%20details.`} target="_blank" rel="noopener noreferrer"
-                style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#25D366", color: "#fff", padding: "16px 32px", borderRadius: 6, fontWeight: 700, fontSize: "1rem", textDecoration: "none" }}>
+                style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#15803d", color: "#fff", padding: "16px 32px", borderRadius: 6, fontWeight: 700, fontSize: "1rem", textDecoration: "none" }}>
                 🏯 Book Now on WhatsApp
               </a>
               <Link to="/ranthambore-safari-tours" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "transparent", border: "1.5px solid rgba(255,255,255,0.4)", color: "#fff", padding: "16px 32px", borderRadius: 6, fontWeight: 500, fontSize: "1rem", textDecoration: "none" }}>

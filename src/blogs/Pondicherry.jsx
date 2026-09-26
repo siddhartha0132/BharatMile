@@ -7,19 +7,19 @@ export default function Pondicherry() {
     "@type": "Article",
     headline: "Pondicherry Travel Guide 2025: Best Places, Beaches, Cafes & Auroville",
     description: "Complete Pondicherry travel guide with best places to visit, beaches, White Town walk, Auroville trip, food, cafes, hotels and best time to visit.",
-    image: ["https://yourwebsite.com/images/pondicherry-white-town.jpg"],
+    image: ["https://bharatmile.com/preview.jpg"],
     author: { "@type": "Organization", name: "BharatMile" },
     publisher: {
       "@type": "Organization",
       name: "BharatMile",
       logo: {
         "@type": "ImageObject",
-        url: "https://yourwebsite.com/logo.png",
+        url: "https://bharatmile.com/favicon-512.png",
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": "https://yourwebsite.com/blog/pondicherry-travel-guide",
+      "@id": "https://bharatmile.com/blogs/pondicherry-french-town",
     },
   };
 
@@ -55,7 +55,7 @@ export default function Pondicherry() {
     );
     set(
       "og:image",
-      "https://yourwebsite.com/images/pondicherry-white-town.jpg",
+      "https://bharatmile.com/preview.jpg",
       "property"
     );
     set("og:type", "article", "property");
@@ -68,7 +68,7 @@ export default function Pondicherry() {
     );
     set(
       "twitter:image",
-      "https://yourwebsite.com/images/pondicherry-white-town.jpg"
+      "https://bharatmile.com/preview.jpg"
     );
 
     let link = document.querySelector("link[rel='canonical']");
@@ -77,7 +77,7 @@ export default function Pondicherry() {
       link.setAttribute("rel", "canonical");
       document.head.appendChild(link);
     }
-    link.href = "https://yourwebsite.com/blog/pondicherry-travel-guide";
+    link.href = "https://bharatmile.com/blogs/pondicherry-french-town";
 
     let script = document.getElementById("pondicherry-jsonld");
     if (!script) {

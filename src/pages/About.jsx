@@ -84,12 +84,11 @@ export default function About() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap');
 
         :root {
           --sand: #f5efe6;
           --sand-dark: #ede3d6;
-          --terracotta: #c1644a;
+          --terracotta: #a8523b;
           --terracotta-dark: #a14e38;
           --charcoal: #1c1c1e;
           --charcoal-soft: #232325;
@@ -489,7 +488,7 @@ export default function About() {
               Every Mile<br />Tells a <em>Story</em>
             </h1>
             <p className="ab-hero-sub">
-              BharatMile was born from a simple belief — that India deserves to be experienced, not just visited. We're the bridge between curiosity and the extraordinary.
+              BharatMile (Bharat Mile) was born from a simple belief — that India deserves to be experienced, not just visited. We're the bridge between curiosity and the extraordinary.
             </p>
             <div className="ab-hero-line" />
           </div>

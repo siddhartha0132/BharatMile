@@ -8,19 +8,19 @@ export default function Rishikesh() {
     headline: "Rishikesh Travel Guide 2025: Yoga Capital, Rafting, Temples & Best Time to Visit",
     description:
       "Complete Rishikesh travel guide with rafting season, best yoga ashrams, Ganga Aarti, Tapovan cafés, adventure sports, safety tips and best time to visit.",
-    image: ["https://yourwebsite.com/images/rishikesh-ram-jhula.jpg"],
+    image: ["https://bharatmile.com/preview.jpg"],
     author: { "@type": "Organization", name: "BharatMile" },
     publisher: {
       "@type": "Organization",
       name: "BharatMile",
       logo: {
         "@type": "ImageObject",
-        url: "https://yourwebsite.com/logo.png",
+        url: "https://bharatmile.com/favicon-512.png",
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": "https://yourwebsite.com/blog/rishikesh-travel-guide",
+      "@id": "https://bharatmile.com/rishikesh-yoga-rafting-peace",
     },
   };
 
@@ -56,7 +56,7 @@ export default function Rishikesh() {
     );
     set(
       "og:image",
-      "https://yourwebsite.com/images/rishikesh-ram-jhula.jpg",
+      "https://bharatmile.com/preview.jpg",
       "property"
     );
     set("og:type", "article", "property");
@@ -69,7 +69,7 @@ export default function Rishikesh() {
     );
     set(
       "twitter:image",
-      "https://yourwebsite.com/images/rishikesh-ram-jhula.jpg"
+      "https://bharatmile.com/preview.jpg"
     );
 
     let link = document.querySelector("link[rel='canonical']");
@@ -78,7 +78,7 @@ export default function Rishikesh() {
       link.setAttribute("rel", "canonical");
       document.head.appendChild(link);
     }
-    link.href = "https://yourwebsite.com/blog/rishikesh-travel-guide";
+    link.href = "https://bharatmile.com/rishikesh-yoga-rafting-peace";
 
     let script = document.getElementById("rishikesh-jsonld");
     if (!script) {

@@ -42,7 +42,7 @@ import cityPalaceImg from "../assets/city-palace.jpeg";
 
 // ── Category meta ──────────────────────────────────────────────────────────
 const CAT_META = {
-  Trending:  { color: "#c1644a", bg: "rgba(193,100,74,0.13)" },
+  Trending:  { color: "#a8523b", bg: "rgba(193,100,74,0.13)" },
   Guides:    { color: "#2d6fa3", bg: "rgba(59,130,186,0.13)" },
   News:      { color: "#9a7218", bg: "rgba(201,151,42,0.13)" },
   Rajasthan: { color: "#a14e38", bg: "rgba(161,78,56,0.12)"  },
@@ -52,11 +52,11 @@ const CAT_META = {
   Kerala:    { color: "#3d7a43", bg: "rgba(61,122,67,0.13)"  },
   Leisure:   { color: "#2d6fa3", bg: "rgba(59,130,186,0.13)" },
   Nature:    { color: "#4a7a30", bg: "rgba(74,122,48,0.13)"  },
-  Family:    { color: "#c1644a", bg: "rgba(193,100,74,0.13)" },
+  Family:    { color: "#a8523b", bg: "rgba(193,100,74,0.13)" },
   Budget:    { color: "#9a7218", bg: "rgba(201,151,42,0.13)" },
   Tips:      { color: "#555",    bg: "rgba(80,80,80,0.10)"   },
   Student:   { color: "#7b5ea7", bg: "rgba(123,94,167,0.13)" },
-  Safety:    { color: "#c1644a", bg: "rgba(193,100,74,0.13)" },
+  Safety:    { color: "#a8523b", bg: "rgba(193,100,74,0.13)" },
   Food:      { color: "#a14e38", bg: "rgba(161,78,56,0.12)"  },
   Culture:   { color: "#8b6914", bg: "rgba(139,105,20,0.13)" },
   Goa:       { color: "#2d6fa3", bg: "rgba(59,130,186,0.13)" },
@@ -152,12 +152,11 @@ export default function Blogs() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=DM+Sans:wght@300;400;500;600&display=swap');
 
         :root {
           --sand: #f5efe6;
           --sand-dark: #ede3d6;
-          --terracotta: #c1644a;
+          --terracotta: #a8523b;
           --terracotta-dark: #a14e38;
           --charcoal: #1c1c1e;
           --charcoal-soft: #232325;

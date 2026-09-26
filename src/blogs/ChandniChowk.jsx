@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import heroImage from "../assets/street-food.jpg";
 
 export default function ChandniChowk() {
   return (
@@ -26,7 +27,7 @@ export default function ChandniChowk() {
           />
           <meta
             property="og:image"
-            content={window.location.origin + "/images/chandni-chowk-food.jpg"}
+            content={window.location.origin + heroImage}
           />
           <meta property="og:type" content="article" />
           <meta property="og:url" content={window.location.href} />
@@ -40,7 +41,7 @@ export default function ChandniChowk() {
           />
           <meta
             name="twitter:image"
-            content={window.location.origin + "/images/chandni-chowk-food.jpg"}
+            content={window.location.origin + heroImage}
           />
 
           {/* ✅ Canonical */}
@@ -54,7 +55,7 @@ export default function ChandniChowk() {
               headline: "The Street Food of Delhi: Chandni Chowk Guide",
               description:
                 "A complete guide to Chandni Chowk's street food — must-try snacks, food lanes, hygiene tips & travel advice.",
-              image: window.location.origin + "/images/chandni-chowk-food.jpg",
+              image: window.location.origin + heroImage,
               author: {
                 "@type": "Organization",
                 name: "India Travel Insights",
@@ -64,7 +65,7 @@ export default function ChandniChowk() {
                 name: "India Travel Insights",
                 logo: {
                   "@type": "ImageObject",
-                  url: window.location.origin + "/images/logo.png",
+                  url: window.location.origin + "/favicon-512.png",
                 },
               },
               mainEntityOfPage: {
@@ -80,7 +81,7 @@ export default function ChandniChowk() {
         {/* ✅ HERO */}
         <header className="mb-10">
           <img
-            src="/images/chandni-chowk-food.jpg"
+            src={heroImage}
             alt="Street food in Chandni Chowk"
             className="w-full h-72 object-cover rounded-xl shadow-lg mb-6"
           />

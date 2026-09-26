@@ -15,7 +15,7 @@ export default function ManaliToLeh() {
       name: "BharatMile",
       logo: {
         "@type": "ImageObject",
-        url: "/images/logo.png",
+        url: "/favicon-512.png",
       },
     },
     mainEntityOfPage: {

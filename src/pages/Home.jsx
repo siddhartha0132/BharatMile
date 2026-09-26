@@ -149,6 +149,7 @@ export default function Home() {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             "name": "BharatMile",
+            "alternateName": ["Bharat Mile", "Bharatmile"],
             "image": "https://bharatmile.com/favicon-512.png",
             "@id": "https://bharatmile.com",
             "url": "https://bharatmile.com",
@@ -202,7 +203,7 @@ export default function Home() {
         :root {
           --sand: #f5efe6;
           --sand-dark: #e8ddd0;
-          --terracotta: #c1644a;
+          --terracotta: #a8523b;
           --terracotta-dark: #a14e38;
           --charcoal: #1c1c1e;
           --charcoal-soft: #2d2d2f;
@@ -587,7 +588,7 @@ export default function Home() {
         .exp-body { padding: 24px; }
         .exp-loc {
           font-size: 0.75rem;
-          color: rgba(255,255,255,0.4);
+          color: rgba(255,255,255,0.65);
           display: flex;
           align-items: center;
           gap: 4px;
@@ -937,7 +938,7 @@ export default function Home() {
         /* ✅ content-visibility for below-fold sections — improves LCP */
         .why-section, .exp-section, .testi-section, .cta-section {
           content-visibility: auto;
-          contain-intrinsic-size: 0 600px;
+          contain-intrinsic-size: auto 600px;
         }
         /* ✅ Prevent horizontal scroll on all screens */
         .bm-root { max-width: 100vw; overflow-x: hidden; }
@@ -1209,7 +1210,7 @@ export default function Home() {
             </div>
             <div className="testi-dots">
               {testimonials.map((_, i) => (
-                <button key={i} className={`testi-dot ${i === activeTestimonial ? "active" : ""}`} onClick={() => setActiveTestimonial(i)} />
+                <button key={i} type="button" aria-label={`Show testimonial ${i + 1}`} aria-current={i === activeTestimonial} className={`testi-dot ${i === activeTestimonial ? "active" : ""}`} onClick={() => setActiveTestimonial(i)} />
               ))}
             </div>
           </div>

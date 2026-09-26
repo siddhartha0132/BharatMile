@@ -1,5 +1,6 @@
 // src/blogs/Mangrove.jsx
 import React, { useEffect } from "react";
+import coverImage from "../assets/sundarbantours.jpg";
 
 export default function Mangrove() {
   useEffect(() => {
@@ -39,7 +40,7 @@ export default function Mangrove() {
     setMeta("og:type", "article", "property");
     setMeta(
       "og:image",
-      "https://images.unsplash.com/photo-1600275669439-14eaad2e4c68",
+      coverImage,
       "property"
     );
 
@@ -60,14 +61,14 @@ export default function Mangrove() {
       headline: "Sundarbans Mangrove Boat Safari 2025 | Complete Guide & Booking",
       description:
         "Complete Sundarbans tiger safari & mangrove boat tour guide with routes, prices, wildlife expectations and safety.",
-      image: ["https://images.unsplash.com/photo-1600275669439-14eaad2e4c68"],
+      image: [coverImage],
       author: { "@type": "Organization", name: "BharatMile Editorial" },
       publisher: {
         "@type": "Organization",
         name: "BharatMile",
         logo: {
           "@type": "ImageObject",
-          url: "/images/logo.png",
+          url: "/favicon-512.png",
         },
       },
       mainEntityOfPage: {
@@ -75,7 +76,7 @@ export default function Mangrove() {
         "@id":
           typeof window !== "undefined"
             ? window.location.href
-            : "https://yourwebsite.com/blog/sundarbans-mangrove-boat-safari",
+            : "https://bharatmile.com/blogs/sundarbans-mangrove-safari",
       },
     };
 
@@ -95,7 +96,7 @@ export default function Mangrove() {
       {/* ✅ HERO */}
       <section className="relative rounded-2xl overflow-hidden shadow-xl">
         <img
-          src="https://images.unsplash.com/photo-1600275669439-14eaad2e4c68"
+          src={coverImage}
           alt="Sundarbans Mangrove Boat Safari"
           className="w-full h-[480px] object-cover"
         />

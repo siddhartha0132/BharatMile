@@ -8,19 +8,19 @@ export default function SikkimSilk() {
     headline: "Sikkim Silk Route Travel Guide 2025: Zuluk, Nathang Valley, Kupup Lake & Permit Details",
     description:
       "Complete Sikkim Silk Route travel guide with Zuluk, Nathang Valley, Kupup Lake, permits, best season, homestays, itinerary, safety tips and photography spots.",
-    image: ["https://yourwebsite.com/images/sikkim-silk-route.jpg"],
+    image: ["https://bharatmile.com/preview.jpg"],
     author: { "@type": "Organization", name: "BharatMile" },
     publisher: {
       "@type": "Organization",
       name: "BharatMile",
       logo: {
         "@type": "ImageObject",
-        url: "https://yourwebsite.com/logo.png",
+        url: "https://bharatmile.com/favicon-512.png",
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": "https://yourwebsite.com/blog/sikkim-silk-route-travel-guide",
+      "@id": "https://bharatmile.com/sikkim-silk-route-hidden-gem",
     },
   };
 
@@ -56,7 +56,7 @@ export default function SikkimSilk() {
     );
     set(
       "og:image",
-      "https://yourwebsite.com/images/sikkim-silk-route.jpg",
+      "https://bharatmile.com/preview.jpg",
       "property"
     );
     set("og:type", "article", "property");
@@ -69,7 +69,7 @@ export default function SikkimSilk() {
     );
     set(
       "twitter:image",
-      "https://yourwebsite.com/images/sikkim-silk-route.jpg"
+      "https://bharatmile.com/preview.jpg"
     );
 
     let link = document.querySelector("link[rel='canonical']");
@@ -78,7 +78,7 @@ export default function SikkimSilk() {
       link.setAttribute("rel", "canonical");
       document.head.appendChild(link);
     }
-    link.href = "https://yourwebsite.com/blog/sikkim-silk-route-travel-guide";
+    link.href = "https://bharatmile.com/sikkim-silk-route-hidden-gem";
 
     let script = document.getElementById("sikkim-silk-jsonld");
     if (!script) {

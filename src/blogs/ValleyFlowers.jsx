@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import heroImage from "../assets/Valleyofflowers.jpg";
 
 export default function ValleyFlowers() {
 
@@ -45,7 +46,7 @@ export default function ValleyFlowers() {
     set("og:title", document.title, "property");
     set("og:description", description, "property");
     set("og:type", "article", "property");
-    set("og:image", "https://yourwebsite.com/images/valley-of-flowers-bloom.jpg", "property");
+    set("og:image", "https://bharatmile.com/preview.jpg", "property");
 
     // Twitter
     set("twitter:card", "summary_large_image");
@@ -53,7 +54,7 @@ export default function ValleyFlowers() {
     set("twitter:description", description);
     set(
       "twitter:image",
-      "https://yourwebsite.com/images/valley-of-flowers-bloom.jpg"
+      "https://bharatmile.com/preview.jpg"
     );
 
     // Canonical
@@ -63,7 +64,7 @@ export default function ValleyFlowers() {
       link.setAttribute("rel", "canonical");
       document.head.appendChild(link);
     }
-    link.href = "https://yourwebsite.com/valley-of-flowers-trek-guide";
+    link.href = "https://bharatmile.com/valley-of-flowers-monsoon-trekking";
 
     // JSON-LD
     const jsonLd = {
@@ -71,7 +72,7 @@ export default function ValleyFlowers() {
       "@type": "Article",
       headline: document.title,
       description,
-      image: ["https://yourwebsite.com/images/valley-of-flowers-bloom.jpg"],
+      image: ["https://bharatmile.com/preview.jpg"],
       author: { "@type": "Organization", name: "BharatMile Treks" },
       publisher: { "@type": "Organization", name: "BharatMile" },
       mainEntityOfPage: { "@type": "WebPage", "@id": window.location.href },
@@ -92,7 +93,7 @@ export default function ValleyFlowers() {
 
       {/* HERO IMAGE */}
       <img
-        src="/images/valley-of-flowers-bloom.jpg"
+        src={heroImage}
         alt="Valley of Flowers National Park Trek"
         className="rounded-xl w-full mb-8 shadow-lg"
       />

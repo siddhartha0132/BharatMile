@@ -82,7 +82,7 @@ export default function BlogLayout({
           href={wa}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-4 inline-flex min-h-11 items-center rounded-full bg-green-600 px-6 py-3 font-semibold text-white hover:bg-green-700"
+          className="mt-4 inline-flex min-h-11 items-center rounded-full bg-green-700 px-6 py-3 font-semibold text-white hover:bg-green-800"
         >
           WhatsApp +91-9636974688
         </a>
@@ -96,7 +96,7 @@ export default function BlogLayout({
               <details key={f.q} className="group py-4">
                 <summary className="cursor-pointer list-none font-semibold text-gray-900 flex justify-between gap-4">
                   {f.q}
-                  <span className="text-[#c1644a] group-open:rotate-45 transition">+</span>
+                  <span className="text-[#a8523b] group-open:rotate-45 transition">+</span>
                 </summary>
                 <p className="mt-2 text-gray-700 leading-relaxed">{f.a}</p>
               </details>

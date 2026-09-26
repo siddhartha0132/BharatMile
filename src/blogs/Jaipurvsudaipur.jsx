@@ -1,6 +1,7 @@
 // src/blogs/JaipurvsUdaipur.jsx
 import React from "react";
 import { Helmet } from "react-helmet";
+import heroImage from "../assets/jaipurvsudaipur25.avif";
 
 export default function JaipurvsUdaipur() {
   const jsonLd = {
@@ -9,19 +10,19 @@ export default function JaipurvsUdaipur() {
     headline: "Jaipur vs Udaipur: Which City Should You Visit? | BharatMile",
     description:
       "A complete Jaipur vs Udaipur comparison covering vibe, attractions, food, budget, transport, safety, photography spots, and sample itineraries.",
-    image: ["/images/jaipur-udaipur-compare.jpg"],
+    image: [heroImage],
     author: { "@type": "Organization", name: "BharatMile Editorial" },
     publisher: {
       "@type": "Organization",
       name: "BharatMile",
       logo: {
         "@type": "ImageObject",
-        url: "/images/logo.png",
+        url: "/favicon-512.png",
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": "https://yourwebsite.com/blog/jaipur-vs-udaipur-which-city-should-you-visit",
+      "@id": "https://bharatmile.com/jaipur-vs-udaipur-which-city-to-visit",
     },
   };
 
@@ -44,7 +45,7 @@ export default function JaipurvsUdaipur() {
 
         <link
           rel="canonical"
-          href="https://yourwebsite.com/blog/jaipur-vs-udaipur-which-city-should-you-visit"
+          href="https://bharatmile.com/jaipur-vs-udaipur-which-city-to-visit"
         />
 
         {/* Open Graph */}
@@ -53,7 +54,7 @@ export default function JaipurvsUdaipur() {
           property="og:description"
           content="Confused between Jaipur and Udaipur? This deep comparison helps you choose the perfect Rajasthan city."
         />
-        <meta property="og:image" content="/images/jaipur-udaipur-compare.jpg" />
+        <meta property="og:image" content={heroImage} />
         <meta property="og:type" content="article" />
 
         {/* Twitter */}
@@ -68,7 +69,7 @@ export default function JaipurvsUdaipur() {
         {/* ✅ HERO */}
         <header className="mb-10">
           <img
-            src="/images/jaipur-udaipur-compare.jpg"
+            src={heroImage}
             alt="Jaipur vs Udaipur travel comparison"
             className="w-full h-72 object-cover rounded-xl shadow-lg mb-6"
           />
