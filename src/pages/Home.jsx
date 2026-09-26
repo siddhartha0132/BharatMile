@@ -18,13 +18,12 @@ import { Helmet } from "react-helmet";
 // ✅ IMAGES — Using smallest available format for each slot
 import jaipurWebp from "../assets/jaipur.webp";
 import udaipurWebp from "../assets/udaipur.webp";
-import delhiWebp from "../assets/delhi.webp";
+import ranthamboreWebp from "../assets/Ranthambore.webp";
 import jaipurJpg from "../assets/jaipur.jpg"; // fallback
 import udaipurJpg from "../assets/udaipur.jpg"; // fallback
-import delhiJpg from "../assets/delhi.jpg"; // fallback
-import TajMahal from "../assets/taj-mahal.webp";
-import Water from "../assets/keralaBackWaterl.webp";
-import temple from "../assets/goldentemple.webp";
+import ranthamboreJpg from "../assets/Ranthambore.jpg"; // fallback
+import amberFort from "../assets/amber-fort.jpg";
+import cityPalace from "../assets/city-palace.jpeg";
 import cloudResortVideo from "../assets/CloudResort2.mp4";
 import cloudResortPdf from "../assets/cloudResort.pdf";
 import cloudResortPoster from "../assets/CloudResortPoster.jpg";
@@ -51,7 +50,7 @@ function useCounter(target, duration = 2000, startOnMount = false) {
 }
 
 // ── Stat Item ─────────────────────────────────────────────────────────────
-function StatItem({ target, suffix, label, onVisible }) {
+function StatItem({ target, suffix, label }) {
   const { count, trigger } = useCounter(target);
   const ref = useRef(null);
   useEffect(() => {
@@ -71,7 +70,6 @@ function StatItem({ target, suffix, label, onVisible }) {
 }
 
 export default function Home() {
-  const [scrolled, setScrolled] = useState(false);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
 
   useEffect(() => {
@@ -81,19 +79,41 @@ export default function Home() {
     if (metaDesc)
       metaDesc.setAttribute("content", "Book Ranthambore tiger safaris with BharatMile — seats from ₹1,400 per person, private Gypsy ₹25,000 — and 2-day Jaipur packages at ₹4,999 with stay & cab. WhatsApp us today!");
 
-    // ✅ Throttled scroll listener — prevents FID/INP degradation
-    let ticking = false;
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setScrolled(window.scrollY > 60);
-          ticking = false;
-        });
-        ticking = true;
-      }
+  }, []);
+
+  // 3D tilt for [data-tilt] cards — mouse/trackpad only, skipped for reduced motion.
+  useEffect(() => {
+    const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!fine || reduce) return;
+    let card = null, last = null, frame = 0;
+    const reset = (el) => ["--rx", "--ry", "--mx", "--my"].forEach((v) => el.style.removeProperty(v));
+    const apply = () => {
+      frame = 0;
+      if (!card || !last) return;
+      const r = card.getBoundingClientRect();
+      const x = (last.clientX - r.left) / r.width;
+      const y = (last.clientY - r.top) / r.height;
+      card.style.setProperty("--rx", `${((0.5 - y) * 10).toFixed(2)}deg`);
+      card.style.setProperty("--ry", `${((x - 0.5) * 12).toFixed(2)}deg`);
+      card.style.setProperty("--mx", `${(x * 100).toFixed(1)}%`);
+      card.style.setProperty("--my", `${(y * 100).toFixed(1)}%`);
     };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onMove = (e) => {
+      const next = e.target.closest?.("[data-tilt]") ?? null;
+      if (card && next !== card) reset(card);
+      card = next;
+      last = e;
+      if (card && !frame) frame = requestAnimationFrame(apply);
+    };
+    const onLeave = () => { if (card) reset(card); card = null; };
+    document.addEventListener("pointermove", onMove, { passive: true });
+    document.documentElement.addEventListener("pointerleave", onLeave);
+    return () => {
+      cancelAnimationFrame(frame);
+      document.removeEventListener("pointermove", onMove);
+      document.documentElement.removeEventListener("pointerleave", onLeave);
+    };
   }, []);
 
   // Auto-rotate testimonials
@@ -111,15 +131,15 @@ export default function Home() {
   ];
 
   const popularCities = [
+    { name: "Ranthambore", tag: "Tiger Reserve", image: ranthamboreWebp, imageFallback: ranthamboreJpg, description: "Tigers, lakes and a thousand-year-old fort.", link: "/city/ranthambore", w: 1023, h: 682 },
     { name: "Jaipur", tag: "Rajasthan", image: jaipurWebp, imageFallback: jaipurJpg, description: "The vibrant Pink City of palaces and bazaars.", link: "/city/jaipur", w: 894, h: 720 },
     { name: "Udaipur", tag: "Rajasthan", image: udaipurWebp, imageFallback: udaipurJpg, description: "Romance above shimmering lakes.", link: "/city/udaipur", w: 1136, h: 720 },
-    { name: "Delhi", tag: "Capital Territory", image: delhiWebp, imageFallback: delhiJpg, description: "Seven dynasties, one boundless city.", link: "/city/delhi", w: 1136, h: 720 },
   ];
 
   const experiences = [
-    { name: "Taj Mahal Sunrise tour", location: "Agra, UP", image: TajMahal, tag: "Heritage", link: "/top-10-places-to-visit-in-india" },
-    { name: "Kerala Backwaters Cruise", location: "Alleppey, Kerala", image: Water, tag: "Nature", link: "/blogs/kerala-backwaters" },
-    { name: "Golden Temple Visit", location: "Amritsar, Punjab", image: temple, tag: "Spiritual", link: "/blogs/amritsar-golden-temple-langar" },
+    { name: "Ranthambore Tiger Safari", location: "Sawai Madhopur, Rajasthan", image: ranthamboreWebp, tag: "Wildlife", price: "From ₹1,400", link: "/ranthambore-safari-tours" },
+    { name: "Jaipur 2-Day Heritage Tour", location: "Jaipur, Rajasthan", image: amberFort, tag: "Heritage", price: "₹4,999 package", link: "/blogs/jaipur-2-day-tour-package" },
+    { name: "Jaipur + Ranthambore Combo", location: "Jaipur → Ranthambore", image: cityPalace, tag: "Best Seller", price: "Custom quote", link: "/ranthambore-safari-tours" },
   ];
 
   // ✅ Location-specific testimonials mentioning Ranthambore & Jaipur
@@ -948,6 +968,143 @@ export default function Home() {
         .bm-root { -webkit-font-smoothing: antialiased; text-rendering: optimizeSpeed; }
         /* ✅ Prevent font flash */
         body { font-display: optional; }
+        /* ══ 3D DEPTH & MOBILE LAYOUT ══════════════════════════════════
+           CSS-only (scroll-driven animations) so it costs no JS on phones.
+           Every effect is off for prefers-reduced-motion. */
+        .exp-price {
+          display: inline-block;
+          margin: 2px 0 14px;
+          font-size: 0.8rem;
+          font-weight: 600;
+          color: #fff;
+          background: rgba(255,255,255,0.1);
+          border: 1px solid rgba(255,255,255,0.18);
+          padding: 4px 10px;
+          border-radius: 100px;
+        }
+        .why-card, .exp-card { position: relative; }
+        /* 4 feature cards: one row on wide screens, 2×2 on mid-size (no orphan card) */
+        @media (min-width: 1024px) { .why-cards { grid-template-columns: repeat(4, 1fr); } }
+        @media (min-width: 901px) and (max-width: 1023px) { .why-cards { grid-template-columns: repeat(2, 1fr); } }
+
+        /* Laptop/desktop: cards tilt toward the pointer with a soft glare */
+        @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+          .why-card[data-tilt], .exp-card[data-tilt], .city-card[data-tilt] {
+            transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+            transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s;
+            will-change: transform;
+          }
+          .why-card[data-tilt]:hover, .exp-card[data-tilt]:hover, .city-card[data-tilt]:hover {
+            transform: perspective(900px) translateY(-8px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+            transition-duration: 0.15s, 0.4s;
+            box-shadow: 0 30px 60px -24px rgba(20, 14, 10, 0.45);
+            z-index: 2;
+          }
+          [data-tilt]::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.22), transparent 55%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 3;
+          }
+          [data-tilt]:hover::after { opacity: 1; }
+        }
+
+        @supports (animation-timeline: scroll()) {
+          @media (prefers-reduced-motion: no-preference) {
+            /* Hero: photo drifts slower than the page, headline tips back into depth */
+            .hero picture {
+              position: absolute;
+              inset: 0;
+              display: block;
+              animation: bmHeroDepth linear both;
+              animation-timeline: scroll(root);
+              animation-range: 0 100vh;
+            }
+            .hero-content {
+              animation: heroFade 1s ease both 0.2s, bmHeroText linear both;
+              animation-timeline: auto, scroll(root);
+              animation-range: normal, 0 75vh;
+              transform-origin: 50% 100%;
+            }
+            @keyframes bmHeroDepth { to { transform: translateY(28%) scale(1.1); } }
+            @keyframes bmHeroText {
+              to { transform: perspective(700px) translateY(-40px) rotateX(22deg) scale(0.94); opacity: 0; }
+            }
+          }
+        }
+
+        /* Desktop: cards rise into place with a 3D flip as they scroll into view */
+        @supports (animation-timeline: view()) {
+          @media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
+            .why-cards, .cities-grid, .exp-grid { perspective: 1400px; }
+            .why-card, .city-card, .exp-card {
+              animation: bmRise3d linear both;
+              animation-timeline: view();
+              animation-range: entry 0% cover 28%;
+            }
+            .why-card:nth-child(2), .city-card:nth-child(2), .exp-card:nth-child(2) { animation-range: entry 8% cover 32%; }
+            .why-card:nth-child(3), .city-card:nth-child(3), .exp-card:nth-child(3) { animation-range: entry 16% cover 36%; }
+            @keyframes bmRise3d {
+              from { opacity: 0; translate: 0 70px; rotate: x 24deg; }
+              to { opacity: 1; translate: 0 0; rotate: x 0deg; }
+            }
+          }
+        }
+
+        /* Phones & tablets: swipeable carousels instead of tall stacks */
+        @media (max-width: 900px) {
+          .why-cards, .exp-grid {
+            display: grid;
+            grid-template-columns: none;
+            grid-auto-flow: column;
+            grid-auto-columns: 80%;
+            gap: 14px;
+            overflow-x: auto;
+            overscroll-behavior-x: contain;
+            scroll-snap-type: x mandatory;
+            margin-inline: -32px;
+            padding: 12px 10% 28px;
+            scroll-padding-inline: 10%;
+            scrollbar-width: none;
+            perspective: 900px;
+          }
+          .why-cards::-webkit-scrollbar, .exp-grid::-webkit-scrollbar { display: none; }
+          .why-card, .exp-card { scroll-snap-align: center; border-radius: 14px; overflow: hidden; }
+          .why-card { box-shadow: 0 16px 40px -22px rgba(20, 14, 10, 0.35); }
+          .why-card:hover, .exp-card:hover { transform: none; }
+          .cities-grid { gap: 12px; }
+          .city-card { border-radius: 14px; }
+          .why-section, .exp-section, .cities-section { padding-top: 72px; padding-bottom: 64px; }
+          .why-header, .cities-header { margin-bottom: 28px; }
+          .exp-header { margin-bottom: 20px; }
+        }
+        @media (max-width: 900px) and (prefers-reduced-motion: no-preference) {
+          /* Cover-flow: cards turn in 3D as they slide past the centre */
+          @supports (animation-timeline: view()) {
+            .why-card, .exp-card {
+              animation: bmCoverflow linear both;
+              animation-timeline: view(inline);
+            }
+            @keyframes bmCoverflow {
+              0% { rotate: y -34deg; scale: 0.84; opacity: 0.55; }
+              50% { rotate: y 0deg; scale: 1; opacity: 1; }
+              100% { rotate: y 34deg; scale: 0.84; opacity: 0.55; }
+            }
+          }
+          /* Tactile press feedback on touch */
+          .why-card:active, .exp-card:active, .city-card:active { scale: 0.98; transition: scale 0.1s; }
+        }
+        @media (max-width: 600px) {
+          .hero { padding-bottom: 56px; }
+          .hero-content { padding: 0 20px; }
+          .hero-actions { flex-direction: column; align-items: stretch; }
+          .hero-actions .btn-primary, .hero-actions .btn-ghost { justify-content: center; width: 100%; }
+          .why-cards, .exp-grid { margin-inline: -32px; }
+        }
         /* ✅ Mobile hero — avoid reflow from 100svh on older browsers */
         @supports not (height: 100svh) {
           .hero { height: 100vh; }
@@ -984,8 +1141,8 @@ export default function Home() {
               Ranthambore tiger safaris from ₹1,400 per person &amp; 2-day Jaipur packages at ₹4,999 with stay, cab and sightseeing.
             </p>
             <div className="hero-actions">
-              <Link to={CITIES_PAGE_LINK} className="btn-primary">
-                Explore Tours <ArrowRight size={16} />
+              <Link to="/ranthambore-safari-tours" className="btn-primary">
+                Book a Tiger Safari <ArrowRight size={16} />
               </Link>
               <button
                 className="btn-ghost"
@@ -1025,7 +1182,7 @@ export default function Home() {
             </div>
             <div className="why-cards">
               {features.map((f) => (
-                <div key={f.title} className="why-card">
+                <div key={f.title} className="why-card" data-tilt>
                   <div className="why-icon"><f.icon size={22} /></div>
                   <h3>{f.title}</h3>
                   <p>{f.description}</p>
@@ -1134,7 +1291,7 @@ export default function Home() {
             </div>
             <div className="cities-grid">
               {popularCities.map((city) => (
-                <Link key={city.name} to={city.link} className="city-card">
+                <Link key={city.name} to={city.link} className="city-card" data-tilt>
                   {/* ✅ Responsive images: serve correct size per viewport, use WebP */}
                   <picture>
                     <source srcSet={city.image} type="image/webp" />
@@ -1175,7 +1332,7 @@ export default function Home() {
             </div>
             <div className="exp-grid">
               {experiences.map((exp) => (
-                <Link key={exp.name} to={exp.link} className="exp-card">
+                <Link key={exp.name} to={exp.link} className="exp-card" data-tilt>
                   <div className="exp-img-wrap">
                     <img src={exp.image} alt={exp.name} width="600" height="400" loading="lazy" decoding="async" className="exp-img" />
                     <span className="exp-tag-pill">{exp.tag}</span>
@@ -1183,6 +1340,7 @@ export default function Home() {
                   <div className="exp-body">
                     <div className="exp-loc"><MapPin size={10} />{exp.location}</div>
                     <div className="exp-name">{exp.name}</div>
+                    <div className="exp-price">{exp.price}</div>
                     <span className="exp-link">Explore <ArrowRight size={12} /></span>
                   </div>
                 </Link>
