@@ -167,7 +167,7 @@ export default function Blogs() {
         }
 
         .bl-root {
-          font-family: 'DM Sans', sans-serif;
+          font-family: 'DM Sans', 'DMS Fallback', 'DMS Fallback Android', sans-serif;
           background: var(--white);
           color: var(--charcoal);
           min-height: 100vh;
@@ -195,7 +195,7 @@ export default function Blogs() {
           display: block; margin-bottom: 18px;
         }
         .bl-hero-title {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: clamp(2.6rem, 6vw, 4.5rem);
           font-weight: 600; color: #fff; line-height: 1.08;
           margin-bottom: 18px; letter-spacing: -0.01em;
@@ -220,7 +220,7 @@ export default function Blogs() {
         .bl-search-icon { color: rgba(255,255,255,0.4); padding: 0 14px; flex-shrink: 0; }
         .bl-search-input {
           flex: 1; background: transparent; border: none; outline: none;
-          font-family: 'DM Sans', sans-serif; font-size: 0.88rem;
+          font-family: 'DM Sans', 'DMS Fallback', 'DMS Fallback Android', sans-serif; font-size: 0.88rem;
           color: #fff; padding: 13px 0;
         }
         .bl-search-input::placeholder { color: rgba(255,255,255,0.3); }
@@ -274,7 +274,7 @@ export default function Blogs() {
           margin-bottom: 10px;
         }
         .bl-feat-title {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-weight: 600; line-height: 1.25; color: #fff;
         }
         .bl-feat-card:first-child .bl-feat-title { font-size: 1.9rem; }
@@ -315,7 +315,7 @@ export default function Blogs() {
           text-transform: uppercase; padding: 6px 14px; border-radius: 100px;
           border: 1.5px solid rgba(0,0,0,0.1); background: transparent;
           color: var(--muted); cursor: pointer; white-space: nowrap;
-          transition: all 0.2s; font-family: 'DM Sans', sans-serif;
+          transition: all 0.2s; font-family: 'DM Sans', 'DMS Fallback', 'DMS Fallback Android', sans-serif;
           flex-shrink: 0;
         }
         .bl-cat-pill:hover { border-color: var(--terracotta); color: var(--terracotta); }
@@ -328,7 +328,7 @@ export default function Blogs() {
         /* ── ARTICLE GRID ── */
         .bl-grid-wrap { max-width: 1100px; margin: 0 auto; padding: 64px 32px 100px; }
         .bl-grid-title {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: 1.6rem; font-weight: 600; color: var(--charcoal);
           margin-bottom: 40px;
         }
@@ -359,7 +359,7 @@ export default function Blogs() {
         }
         .bl-card-body { padding: 22px; flex: 1; display: flex; flex-direction: column; gap: 12px; }
         .bl-card-title {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: 1.18rem; font-weight: 600; color: var(--charcoal);
           line-height: 1.35;
           display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
@@ -388,13 +388,13 @@ export default function Blogs() {
           grid-column: 1 / -1; text-align: center; padding: 80px 0;
         }
         .bl-empty-icon { color: var(--sand-dark); margin: 0 auto 16px; }
-        .bl-empty-title { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--charcoal); margin-bottom: 8px; }
+        .bl-empty-title { font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif; font-size: 1.6rem; color: var(--charcoal); margin-bottom: 8px; }
         .bl-empty-sub { font-size: 0.88rem; color: var(--muted); margin-bottom: 20px; }
         .bl-empty-reset {
           background: none; border: 1.5px solid var(--terracotta); color: var(--terracotta);
           font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em;
           text-transform: uppercase; padding: 9px 20px; border-radius: 3px;
-          cursor: pointer; font-family: 'DM Sans', sans-serif;
+          cursor: pointer; font-family: 'DM Sans', 'DMS Fallback', 'DMS Fallback Android', sans-serif;
           transition: background 0.2s, color 0.2s;
         }
         .bl-empty-reset:hover { background: var(--terracotta); color: #fff; }

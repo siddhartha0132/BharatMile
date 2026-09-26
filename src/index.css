@@ -58,3 +58,15 @@ img, video {
   /* the global 48px touch-target rule would pad inline text links */
   .prose a { min-height: 0; min-width: 0; padding: 0; }
 }
+
+/* Size-matched fallbacks for the Google Fonts, which load after first paint.
+   Widths measured against Cormorant Garamond / DM Sans so text doesn't
+   reflow (layout shift) when the web fonts swap in. local() fails on
+   platforms without the font, so the next family in the stack is used:
+   Times New Roman / Arial on Apple & Windows, Noto Serif / Roboto on Android. */
+@font-face { font-family: "CG Fallback"; src: local("Times New Roman"), local("TimesNewRomanPSMT"); font-weight: 400; size-adjust: 95.6%; }
+@font-face { font-family: "CG Fallback"; src: local("Times New Roman Bold"), local("TimesNewRomanPS-BoldMT"); font-weight: 700; size-adjust: 90.3%; }
+@font-face { font-family: "CG Fallback Android"; src: local("Noto Serif"), local("NotoSerif-Regular"); font-weight: 400; size-adjust: 82.1%; }
+@font-face { font-family: "CG Fallback Android"; src: local("Noto Serif Bold"), local("NotoSerif-Bold"); font-weight: 700; size-adjust: 78%; }
+@font-face { font-family: "DMS Fallback"; src: local("Arial"), local("ArialMT"), local("Helvetica"); font-weight: 400; size-adjust: 103.5%; }
+@font-face { font-family: "DMS Fallback Android"; src: local("Roboto"), local("Roboto-Regular"); font-weight: 400; size-adjust: 105%; }

@@ -16,16 +16,28 @@
     <!-- Mobile Responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google Fonts — non-blocking (print-media swap). No rel=preload: it would
-         fetch the CSS at VeryHigh priority, which Lighthouse models as render-blocking. -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <!-- Google Fonts, loaded after the first paint on a visitor's first page view.
+         Font files are fetched at VeryHigh priority, and if they start before the
+         first paint Lighthouse's simulation counts all of them (plus a new
+         connection) as blocking FCP/LCP. Returning visitors have the fonts
+         cached, so we load them immediately for them (no font swap). -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap"
-      media="print"
-      onload="this.media='all'"
-    />
+    <script>
+      (function () {
+        var href = "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap";
+        function load() {
+          var l = document.createElement("link");
+          l.rel = "stylesheet";
+          l.href = href;
+          document.head.appendChild(l);
+          try { localStorage.setItem("bmFonts", "1"); } catch (e) {}
+        }
+        var seen = false;
+        try { seen = localStorage.getItem("bmFonts") === "1"; } catch (e) {}
+        if (seen) load();
+        else requestAnimationFrame(function () { setTimeout(load, 0); });
+      })();
+    </script>
     <noscript>
       <link
         rel="stylesheet"

@@ -68,7 +68,7 @@ export default function Contact() {
         }
 
         .ct-root {
-          font-family: 'DM Sans', sans-serif;
+          font-family: 'DM Sans', 'DMS Fallback', 'DMS Fallback Android', sans-serif;
           background: var(--white);
           color: var(--charcoal);
           min-height: 100vh;
@@ -96,7 +96,7 @@ export default function Contact() {
           display: block; margin-bottom: 18px;
         }
         .ct-hero-title {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: clamp(2.6rem, 6vw, 4.5rem);
           font-weight: 600; color: #fff; line-height: 1.08;
           margin-bottom: 18px; letter-spacing: -0.01em;
@@ -139,7 +139,7 @@ export default function Contact() {
           pointer-events: none;
         }
         .ct-left-title {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: 1.6rem; font-weight: 600; color: #fff;
           margin-bottom: 8px;
         }
@@ -168,7 +168,7 @@ export default function Contact() {
           color: rgba(255,255,255,0.75); font-size: 0.8rem;
           font-weight: 600; letter-spacing: 0.07em;
           text-transform: uppercase; cursor: pointer;
-          font-family: 'DM Sans', sans-serif;
+          font-family: 'DM Sans', 'DMS Fallback', 'DMS Fallback Android', sans-serif;
           transition: background 0.2s, border-color 0.2s, color 0.2s;
           width: 100%;
         }
@@ -177,7 +177,7 @@ export default function Contact() {
         /* Right panel — form */
         .ct-right { padding: 52px 48px; background: var(--white); }
         .ct-form-title {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: 1.8rem; font-weight: 600; color: var(--charcoal);
           margin-bottom: 6px;
         }
@@ -191,7 +191,7 @@ export default function Contact() {
           text-transform: uppercase; color: var(--muted);
         }
         .ct-input, .ct-textarea {
-          font-family: 'DM Sans', sans-serif;
+          font-family: 'DM Sans', 'DMS Fallback', 'DMS Fallback Android', sans-serif;
           font-size: 0.88rem; color: var(--charcoal);
           background: var(--sand);
           border: 1.5px solid transparent;
@@ -211,7 +211,7 @@ export default function Contact() {
           display: flex; align-items: center; justify-content: center; gap: 9px;
           width: 100%; background: var(--terracotta);
           color: #fff; border: none; border-radius: 3px;
-          padding: 15px; font-family: 'DM Sans', sans-serif;
+          padding: 15px; font-family: 'DM Sans', 'DMS Fallback', 'DMS Fallback Android', sans-serif;
           font-size: 0.82rem; font-weight: 700;
           letter-spacing: 0.1em; text-transform: uppercase;
           cursor: pointer; transition: background 0.2s, transform 0.18s;
@@ -249,7 +249,7 @@ export default function Contact() {
           margin-bottom: 18px; flex-shrink: 0;
         }
         .ct-info-label {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: 1.15rem; font-weight: 600; color: var(--charcoal);
           margin-bottom: 8px;
         }

@@ -98,7 +98,7 @@ export default function RanthambhoreSafariTours() {
           <div style={{ display: "inline-block", background: "rgba(193,100,74,0.2)", border: "1px solid rgba(193,100,74,0.5)", color: "#e8c56b", fontSize: 11, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", padding: "6px 16px", borderRadius: 100, marginBottom: 24 }}>
             🐯 Rajasthan's #1 Safari Tour Specialist
           </div>
-          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.4rem, 5vw, 3.8rem)", fontWeight: 700, color: "#fff", lineHeight: 1.1, marginBottom: 20 }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif", fontSize: "clamp(2.4rem, 5vw, 3.8rem)", fontWeight: 700, color: "#fff", lineHeight: 1.1, marginBottom: 20 }}>
             Book Ranthambore Safari Tours 2026<br />
             <span style={{ color: "#e8c56b", fontStyle: "italic" }}>Tiger Zones, Packages & Itineraries</span>
           </h1>
@@ -456,7 +456,7 @@ export default function RanthambhoreSafariTours() {
         <section style={{ background: "linear-gradient(135deg, #1a1a0a 0%, #2d1b00 100%)", borderRadius: 20, padding: 60, textAlign: "center", position: "relative", overflow: "hidden" }}>
           <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle at 30% 50%, rgba(193,100,74,0.2) 0%, transparent 50%)", pointerEvents: "none" }} />
           <div style={{ position: "relative" }}>
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.8rem, 4vw, 2.8rem)", fontWeight: 700, color: "#fff", marginBottom: 16 }}>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif", fontSize: "clamp(1.8rem, 4vw, 2.8rem)", fontWeight: 700, color: "#fff", marginBottom: 16 }}>
               Ready to Book Your<br /><span style={{ color: "#e8c56b" }}>Ranthambore Safari Tour?</span>
             </h2>
             <p style={{ fontSize: "1.05rem", color: "rgba(255,255,255,0.72)", maxWidth: 500, margin: "0 auto 36px", lineHeight: 1.7 }}>

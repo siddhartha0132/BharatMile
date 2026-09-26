@@ -66,7 +66,7 @@ export default function City() {
         }
 
         .ct-root {
-          font-family: 'DM Sans', sans-serif;
+          font-family: 'DM Sans', 'DMS Fallback', 'DMS Fallback Android', sans-serif;
           background: var(--white);
           color: var(--charcoal);
           min-height: 100vh;
@@ -100,7 +100,7 @@ export default function City() {
           margin-bottom: 18px;
         }
         .ct-header-title {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: clamp(2.6rem, 6vw, 4.5rem);
           font-weight: 600;
           color: #fff;
@@ -157,7 +157,7 @@ export default function City() {
           border: 1px solid var(--sand-dark);
           border-radius: 3px;
           padding: 10px 14px 10px 38px;
-          font-family: 'DM Sans', sans-serif;
+          font-family: 'DM Sans', 'DMS Fallback', 'DMS Fallback Android', sans-serif;
           font-size: 0.84rem;
           color: var(--charcoal);
           outline: none;
@@ -186,7 +186,7 @@ export default function City() {
           cursor: pointer;
           transition: all 0.2s;
           white-space: nowrap;
-          font-family: 'DM Sans', sans-serif;
+          font-family: 'DM Sans', 'DMS Fallback', 'DMS Fallback Android', sans-serif;
         }
         .ct-pill:hover { border-color: var(--terracotta); color: var(--terracotta); }
         .ct-pill.active {
@@ -281,7 +281,7 @@ export default function City() {
           margin-bottom: 4px;
         }
         .ct-card-name {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: 1.6rem;
           font-weight: 600;
           line-height: 1.1;
@@ -321,7 +321,7 @@ export default function City() {
           grid-column: 1 / -1;
         }
         .ct-empty-icon { color: var(--sand-dark); margin-bottom: 16px; }
-        .ct-empty-title { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--charcoal); margin-bottom: 8px; }
+        .ct-empty-title { font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif; font-size: 1.6rem; color: var(--charcoal); margin-bottom: 8px; }
         .ct-empty-sub { font-size: 0.88rem; color: var(--muted); }
 
         /* ── RESPONSIVE ── */

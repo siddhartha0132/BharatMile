@@ -109,7 +109,7 @@ export default function JaipurSightseeingPackages() {
           <div style={{ display: "inline-block", background: "rgba(139,69,19,0.25)", border: "1px solid rgba(201,151,42,0.5)", color: "#e8c56b", fontSize: 11, fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", padding: "6px 16px", borderRadius: 100, marginBottom: 24 }}>
             🏯 Jaipur's Most Trusted Heritage Tour Operator
           </div>
-          <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.4rem, 5vw, 3.8rem)", fontWeight: 700, color: "#fff", lineHeight: 1.1, marginBottom: 20 }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif", fontSize: "clamp(2.4rem, 5vw, 3.8rem)", fontWeight: 700, color: "#fff", lineHeight: 1.1, marginBottom: 20 }}>
             Jaipur Sightseeing Packages 2026<br />
             <span style={{ color: "#e8c56b", fontStyle: "italic" }}>Forts, Palaces & Heritage Tours</span>
           </h1>
@@ -382,7 +382,7 @@ export default function JaipurSightseeingPackages() {
         <section style={{ background: "linear-gradient(135deg, #1a0a0a 0%, #2d1400 100%)", borderRadius: 20, padding: 60, textAlign: "center", position: "relative", overflow: "hidden" }}>
           <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle at 30% 50%, rgba(139,69,19,0.25) 0%, transparent 50%)", pointerEvents: "none" }} />
           <div style={{ position: "relative" }}>
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(1.8rem, 4vw, 2.8rem)", fontWeight: 700, color: "#fff", marginBottom: 16 }}>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif", fontSize: "clamp(1.8rem, 4vw, 2.8rem)", fontWeight: 700, color: "#fff", marginBottom: 16 }}>
               Ready to Explore<br /><span style={{ color: "#e8c56b" }}>Royal Jaipur with BharatMile?</span>
             </h2>
             <p style={{ fontSize: "1.05rem", color: "rgba(255,255,255,0.72)", maxWidth: 520, margin: "0 auto 36px", lineHeight: 1.7 }}>

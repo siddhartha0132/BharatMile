@@ -65,7 +65,7 @@ export default function Navbar() {
           left: 0;
           right: 0;
           z-index: 100;
-          font-family: 'DM Sans', sans-serif;
+          font-family: 'DM Sans', 'DMS Fallback', 'DMS Fallback Android', sans-serif;
           transition: background 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -117,7 +117,7 @@ export default function Navbar() {
         }
 
         .nav-logo-text {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: 1.45rem;
           font-weight: 600;
           letter-spacing: 0.01em;
@@ -305,7 +305,7 @@ export default function Navbar() {
         }
 
         .mobile-logo-text {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: 1.4rem;
           font-weight: 600;
           color: var(--charcoal);
@@ -377,7 +377,7 @@ export default function Navbar() {
           border: none;
           border-radius: 4px;
           padding: 14px;
-          font-family: 'DM Sans', sans-serif;
+          font-family: 'DM Sans', 'DMS Fallback', 'DMS Fallback Android', sans-serif;
           font-size: 0.85rem;
           font-weight: 600;
           letter-spacing: 0.08em;

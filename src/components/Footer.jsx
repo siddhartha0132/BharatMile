@@ -43,7 +43,7 @@ export default function Footer() {
         }
 
         .footer {
-          font-family: 'DM Sans', sans-serif;
+          font-family: 'DM Sans', 'DMS Fallback', 'DMS Fallback Android', sans-serif;
           background: var(--charcoal);
           color: rgba(255,255,255,0.6);
         }
@@ -63,7 +63,7 @@ export default function Footer() {
           flex-wrap: wrap;
         }
         .footer-cta-text {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: clamp(1.25rem, 3vw, 1.75rem);
           font-weight: 500;
           color: #fff;
@@ -102,7 +102,7 @@ export default function Footer() {
 
         /* ── BRAND COL ── */
         .footer-brand-name {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: 2rem;
           font-weight: 600;
           color: #fff;
@@ -189,7 +189,7 @@ export default function Footer() {
           border: 1.5px solid rgba(255,255,255,0.1);
           border-radius: 3px;
           padding: 11px 14px;
-          font-family: 'DM Sans', sans-serif;
+          font-family: 'DM Sans', 'DMS Fallback', 'DMS Fallback Android', sans-serif;
           font-size: 0.83rem;
           color: #fff;
           outline: none;
@@ -208,7 +208,7 @@ export default function Footer() {
           border: none;
           border-radius: 3px;
           padding: 11px;
-          font-family: 'DM Sans', sans-serif;
+          font-family: 'DM Sans', 'DMS Fallback', 'DMS Fallback Android', sans-serif;
           font-size: 0.78rem;
           font-weight: 700;
           letter-spacing: 0.1em;

@@ -99,7 +99,7 @@ export default function About() {
         }
 
         .ab-root {
-          font-family: 'DM Sans', sans-serif;
+          font-family: 'DM Sans', 'DMS Fallback', 'DMS Fallback Android', sans-serif;
           background: var(--white);
           color: var(--charcoal);
           overflow-x: hidden;
@@ -139,7 +139,7 @@ export default function About() {
           opacity: 0.85;
         }
         .ab-hero-title {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: clamp(2.8rem, 7vw, 5.5rem);
           font-weight: 600;
           color: #fff;
@@ -188,7 +188,7 @@ export default function About() {
           margin-bottom: 16px;
         }
         .ab-story-title {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: clamp(2rem, 4vw, 3rem);
           font-weight: 600;
           color: var(--charcoal);
@@ -225,7 +225,7 @@ export default function About() {
           box-shadow: 0 8px 40px rgba(0,0,0,0.06);
         }
         .ab-story-quote {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: 1.65rem;
           font-style: italic;
           color: var(--charcoal);
@@ -261,7 +261,7 @@ export default function About() {
         .ab-values-inner { max-width: 1100px; margin: 0 auto; }
         .ab-values-head { text-align: center; margin-bottom: 64px; }
         .ab-values-title {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: clamp(2rem, 4vw, 3rem);
           font-weight: 600;
           color: #fff;
@@ -304,7 +304,7 @@ export default function About() {
         }
         .ab-value-card:hover .ab-value-icon { background: var(--terracotta); color: #fff; }
         .ab-value-title {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: 1.45rem;
           font-weight: 600;
           color: #fff;
@@ -334,7 +334,7 @@ export default function About() {
         .ab-stat-item:last-child { border-right: none; }
         .ab-stat-num {
           display: block;
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: 3rem;
           font-weight: 600;
           color: var(--terracotta);
@@ -373,7 +373,7 @@ export default function About() {
           display: flex;
           align-items: center;
           justify-content: center;
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: 1.6rem;
           font-weight: 600;
           color: var(--gold-light);
@@ -381,7 +381,7 @@ export default function About() {
           flex-shrink: 0;
         }
         .ab-team-name {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: 1.3rem;
           font-weight: 600;
           color: var(--charcoal);
@@ -414,7 +414,7 @@ export default function About() {
         }
         .ab-cta-inner { position: relative; max-width: 680px; margin: 0 auto; text-align: center; }
         .ab-cta-title {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: clamp(2.4rem, 5vw, 3.8rem);
           font-weight: 600;
           color: #fff;
@@ -567,7 +567,7 @@ export default function About() {
               <span style={{ fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700, color: 'var(--terracotta)', display: 'block', marginBottom: 14 }}>
                 The People Behind the Miles
               </span>
-              <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(2rem,4vw,3rem)', fontWeight: 600, color: 'var(--charcoal)', lineHeight: 1.2 }}>
+              <h2 style={{ fontFamily: "'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif", fontSize: 'clamp(2rem,4vw,3rem)', fontWeight: 600, color: 'var(--charcoal)', lineHeight: 1.2 }}>
                 Meet our team
               </h2>
             </div>

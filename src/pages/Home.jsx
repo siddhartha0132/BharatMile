@@ -237,7 +237,7 @@ export default function Home() {
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         .bm-root {
-          font-family: 'DM Sans', sans-serif;
+          font-family: 'DM Sans', 'DMS Fallback', 'DMS Fallback Android', sans-serif;
           background: var(--white);
           color: var(--charcoal);
           overflow-x: hidden;
@@ -305,7 +305,7 @@ export default function Home() {
         @keyframes heroFade { from { transform:translateY(28px); } to { transform:none; } } /* no opacity: text counts as painted immediately (LCP) */
 
         .hero-title {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: clamp(3rem, 7vw, 6rem);
           font-weight: 600;
           line-height: 1.08;
@@ -400,7 +400,7 @@ export default function Home() {
         .stat-item:last-child { border-right: none; }
         .stat-number {
           display: block;
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: 2.8rem;
           font-weight: 600;
           color: #e8c56b;
@@ -425,7 +425,7 @@ export default function Home() {
           margin-bottom: 14px;
         }
         .section-title {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: clamp(2rem, 4vw, 3rem);
           font-weight: 600;
           line-height: 1.15;
@@ -475,7 +475,7 @@ export default function Home() {
           color: var(--terracotta);
         }
         .why-card h3 {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: 1.35rem;
           font-weight: 600;
           margin-bottom: 12px;
@@ -536,7 +536,7 @@ export default function Home() {
           gap: 5px;
         }
         .city-name {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: 1.9rem;
           font-weight: 600;
           line-height: 1.1;
@@ -617,7 +617,7 @@ export default function Home() {
           letter-spacing: 0.04em;
         }
         .exp-name {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: 1.3rem;
           font-weight: 600;
           color: #fff;
@@ -655,7 +655,7 @@ export default function Home() {
         }
         .testi-slide.active { opacity: 1; transform: none; pointer-events: auto; }
         .testi-quote {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: clamp(1.3rem, 3vw, 1.85rem);
           font-style: italic;
           color: var(--charcoal);
@@ -716,7 +716,7 @@ export default function Home() {
           display: inline-block;
         }
         .resort-heading {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: clamp(1.8rem, 3.5vw, 2.8rem);
           font-weight: 600;
           color: #fff;
@@ -773,7 +773,7 @@ export default function Home() {
           letter-spacing: 0.06em;
         }
         .resort-title {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: clamp(1.6rem, 3vw, 2.4rem);
           font-weight: 700;
           color: #fff;
@@ -910,7 +910,7 @@ export default function Home() {
         }
         .cta-inner { position: relative; max-width: 700px; margin: 0 auto; text-align: center; }
         .cta-title {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
           font-size: clamp(2.4rem, 5vw, 4rem);
           font-weight: 600;
           color: #fff;
