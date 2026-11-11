@@ -129,7 +129,7 @@ export default function LeadCapturePopup() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleClose}
-              className="w-full mb-3 bg-[#16a34a] text-white font-bold py-3 px-4 rounded-lg hover:bg-[#15803d] transition-colors flex items-center justify-center gap-2 text-sm shadow"
+              className="w-full mb-3 bg-[#15803d] text-white font-bold py-3 px-4 rounded-lg hover:bg-[#166534] transition-colors flex items-center justify-center gap-2 text-sm shadow"
             >
               <Phone size={17} /> Chat on WhatsApp Now (2-Min Reply)
             </a>

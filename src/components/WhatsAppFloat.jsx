@@ -39,7 +39,7 @@ export default function WhatsAppFloat() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with BharatMile Rajasthan Travel Expert on WhatsApp"
-      className="fixed right-4 bottom-5 z-[9999] flex items-center gap-2.5 bg-[#16a34a] hover:bg-[#15803d] text-white pl-3.5 pr-4 py-2.5 rounded-full shadow-xl hover:scale-105 transition"
+      className="fixed right-3 bottom-4 sm:right-4 sm:bottom-5 z-[9999] flex items-center gap-2 bg-[#15803d] hover:bg-[#166534] text-white pl-3 pr-3.5 py-2.5 rounded-full shadow-xl hover:scale-105 transition"
     >
       {/* ✅ Inline SVG — eliminates external network request (improves LCP + TBT) */}
       <svg

@@ -157,7 +157,7 @@ export default function Footer() {
           letter-spacing: 0.22em;
           text-transform: uppercase;
           font-weight: 700;
-          color: rgba(255,255,255,0.6);
+          color: rgba(255,255,255,0.78);
           margin-bottom: 22px;
         }
         .footer-link-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
@@ -167,7 +167,7 @@ export default function Footer() {
           gap: 6px;
           text-decoration: none;
           font-size: 0.85rem;
-          color: rgba(255,255,255,0.5);
+          color: rgba(255,255,255,0.75);
           padding: 6px 0;
           transition: color 0.2s;
         }
@@ -179,7 +179,7 @@ export default function Footer() {
         .footer-newsletter-text {
           font-size: 0.83rem;
           line-height: 1.75;
-          color: rgba(255,255,255,0.42);
+          color: rgba(255,255,255,0.75);
           margin-bottom: 20px;
           font-weight: 300;
         }
@@ -242,7 +242,7 @@ export default function Footer() {
           gap: 16px;
           flex-wrap: wrap;
         }
-        .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.25); letter-spacing: 0.04em; }
+        .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.72); letter-spacing: 0.04em; }
         .footer-legal { display: flex; gap: 20px; }
         .footer-legal a {
           font-size: 0.73rem;

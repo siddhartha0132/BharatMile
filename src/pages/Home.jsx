@@ -18,16 +18,22 @@ import { Helmet } from "react-helmet";
 
 // ✅ IMAGES — Using smallest available format for each slot
 import jaipurWebp from "../assets/jaipur.webp";
+import jaipur480 from "../assets/jaipur-480.webp";
 import udaipurWebp from "../assets/udaipur.webp";
+import udaipur480 from "../assets/udaipur-480.webp";
 import ranthamboreWebp from "../assets/Ranthambore.webp";
 import ranthambore480 from "../assets/Ranthambore-480.webp";
 import jaisalmerWebp from "../assets/Jaislamer.webp";
+import jaisalmer480 from "../assets/jaisalmer-480.webp";
 import jodhpurWebp from "../assets/Jodhpur.webp";
+import jodhpur480 from "../assets/jodhpur-480.webp";
 import jaipurJpg from "../assets/jaipur.jpg"; // fallback
 import udaipurJpg from "../assets/udaipur.jpg"; // fallback
 import ranthamboreJpg from "../assets/Ranthambore.jpg"; // fallback
-import amberFort from "../assets/amber-fort.jpg";
-import cityPalace from "../assets/city-palace.jpeg";
+import amberFortWebp from "../assets/amber-fort.webp";
+import amberFort480 from "../assets/amber-fort-480.webp";
+import cityPalaceWebp from "../assets/city-palace.webp";
+import cityPalace480 from "../assets/city-palace-480.webp";
 import cloudResortVideo from "../assets/CloudResort2.mp4";
 import cloudResortPdf from "../assets/cloudResort.pdf";
 import cloudResortPoster from "../assets/CloudResortPoster.webp";
@@ -199,17 +205,17 @@ export default function Home() {
 
   const popularCities = [
     { name: "Ranthambore", tag: "Tiger Reserve", image: ranthamboreWebp, srcSet: `${ranthambore480} 480w, ${ranthamboreWebp} 800w`, imageFallback: ranthamboreJpg, description: "Tigers, lakes and a thousand-year-old fort.", link: "/city/ranthambore", w: 1023, h: 682 },
-    { name: "Jaipur", tag: "Rajasthan", image: jaipurWebp, imageFallback: jaipurJpg, description: "The vibrant Pink City of palaces and bazaars.", link: "/city/jaipur", w: 894, h: 720 },
-    { name: "Udaipur", tag: "Rajasthan", image: udaipurWebp, imageFallback: udaipurJpg, description: "Romance above shimmering lakes.", link: "/city/udaipur", w: 1136, h: 720 },
+    { name: "Jaipur", tag: "Rajasthan", image: jaipurWebp, srcSet: `${jaipur480} 480w, ${jaipurWebp} 894w`, imageFallback: jaipurJpg, description: "The vibrant Pink City of palaces and bazaars.", link: "/city/jaipur", w: 894, h: 720 },
+    { name: "Udaipur", tag: "Rajasthan", image: udaipurWebp, srcSet: `${udaipur480} 480w, ${udaipurWebp} 1136w`, imageFallback: udaipurJpg, description: "Romance above shimmering lakes.", link: "/city/udaipur", w: 1136, h: 720 },
   ];
 
   const experiences = [
-    { name: "Ranthambore Tiger Safari", location: "Sawai Madhopur, Rajasthan", image: ranthamboreWebp, tag: "Wildlife", price: "From ₹1,400", link: "/ranthambore-safari-tours" },
-    { name: "Jaipur 2-Day Heritage Tour", location: "Jaipur, Rajasthan", image: amberFort, tag: "Heritage", price: "₹4,999 package", link: "/jaipur-sightseeing-packages" },
-    { name: "Jaisalmer Desert Safari & Camp", location: "Sam Sand Dunes, Jaisalmer", image: jaisalmerWebp, tag: "Nov–Feb Special", price: "From ₹6,999", link: "/rajasthan-tour-packages" },
-    { name: "Jaipur + Ranthambore Combo", location: "Jaipur → Ranthambore (3D/2N)", image: cityPalace, tag: "Best Seller", price: "From ₹7,499", link: "/rajasthan-tour-packages" },
-    { name: "Jaipur – Jodhpur – Udaipur", location: "5-Day Royal Circuit", image: jodhpurWebp, tag: "Family & Couple", price: "From ₹13,999", link: "/rajasthan-tour-packages" },
-    { name: "Grand Rajasthan 7-Day Tour", location: "Jaipur • Jodhpur • Jaisalmer • Udaipur", image: udaipurWebp, tag: "Complete Tour", price: "From ₹19,999", link: "/rajasthan-tour-packages" },
+    { name: "Ranthambore Tiger Safari", location: "Sawai Madhopur, Rajasthan", image: ranthambore480, srcSet: `${ranthambore480} 480w, ${ranthamboreWebp} 800w`, tag: "Wildlife", price: "From ₹1,400", link: "/ranthambore-safari-tours" },
+    { name: "Jaipur 2-Day Heritage Tour", location: "Jaipur, Rajasthan", image: amberFort480, srcSet: `${amberFort480} 480w, ${amberFortWebp} 800w`, tag: "Heritage", price: "₹4,999 package", link: "/jaipur-sightseeing-packages" },
+    { name: "Jaisalmer Desert Safari & Camp", location: "Sam Sand Dunes, Jaisalmer", image: jaisalmer480, srcSet: `${jaisalmer480} 480w, ${jaisalmerWebp} 1080w`, tag: "Nov–Feb Special", price: "From ₹6,999", link: "/rajasthan-tour-packages" },
+    { name: "Jaipur + Ranthambore Combo", location: "Jaipur → Ranthambore (3D/2N)", image: cityPalace480, srcSet: `${cityPalace480} 480w, ${cityPalaceWebp} 800w`, tag: "Best Seller", price: "From ₹7,499", link: "/rajasthan-tour-packages" },
+    { name: "Jaipur – Jodhpur – Udaipur", location: "5-Day Royal Circuit", image: jodhpur480, srcSet: `${jodhpur480} 480w, ${jodhpurWebp} 1080w`, tag: "Family & Couple", price: "From ₹13,999", link: "/rajasthan-tour-packages" },
+    { name: "Grand Rajasthan 7-Day Tour", location: "Jaipur • Jodhpur • Jaisalmer • Udaipur", image: udaipur480, srcSet: `${udaipur480} 480w, ${udaipurWebp} 1136w`, tag: "Complete Tour", price: "From ₹19,999", link: "/rajasthan-tour-packages" },
   ];
 
   // ✅ Location-specific testimonials mentioning Ranthambore & Jaipur
@@ -230,9 +236,6 @@ export default function Home() {
 
   return (
     <>
-      <style>{`
-        /* Google Fonts loaded from index.html (non-blocking preload) */
-      `}</style>
       <Helmet>
         <script type="application/ld+json">
           {JSON.stringify({
@@ -315,12 +318,12 @@ export default function Home() {
         /* ── HERO ── */
         .hero {
           position: relative;
-          height: 100svh;
-          min-height: 600px;
+          min-height: 100svh;
           display: flex;
           flex-direction: column;
-          justify-content: flex-end;
-          padding-bottom: 80px;
+          justify-content: center;
+          padding-top: 96px;
+          padding-bottom: 56px;
           overflow: hidden;
         }
         .hero-img {
@@ -329,8 +332,12 @@ export default function Home() {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          transform: scale(1.04);
-          animation: heroZoom 12s ease-out forwards;
+        }
+        @media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
+          .hero-img {
+            transform: scale(1.04);
+            animation: heroZoom 12s ease-out forwards;
+          }
         }
         @keyframes heroZoom { to { transform: scale(1); } }
 
@@ -339,9 +346,9 @@ export default function Home() {
           inset: 0;
           background: linear-gradient(
             to top,
-            rgba(18,14,10,0.88) 0%,
-            rgba(18,14,10,0.3) 55%,
-            rgba(18,14,10,0.05) 100%
+            rgba(18,14,10,0.9) 0%,
+            rgba(18,14,10,0.45) 55%,
+            rgba(18,14,10,0.22) 100%
           );
         }
 
@@ -350,35 +357,35 @@ export default function Home() {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          background: rgba(201,151,42,0.18);
-          border: 1px solid rgba(201,151,42,0.45);
-          color: #e8c56b;
+          background: rgba(201,151,42,0.22);
+          border: 1px solid rgba(232,197,107,0.55);
+          color: #f3d47c;
           font-size: 11px;
           font-weight: 600;
-          letter-spacing: 0.18em;
+          letter-spacing: 0.16em;
           text-transform: uppercase;
           padding: 6px 14px;
           border-radius: 100px;
-          margin-bottom: 22px;
+          margin-bottom: 16px;
           backdrop-filter: blur(6px);
         }
 
         .hero-content {
           position: relative;
-          max-width: 900px;
+          z-index: 2;
+          width: 100%;
+          max-width: 920px;
           padding: 0 32px;
           margin: 0 auto;
           color: #fff;
-          animation: heroFade 1s ease both 0.2s;
         }
-        @keyframes heroFade { from { transform:translateY(28px); } to { transform:none; } } /* no opacity: text counts as painted immediately (LCP) */
 
         .hero-title {
           font-family: 'Cormorant Garamond', 'CG Fallback', 'CG Fallback Android', serif;
-          font-size: clamp(3rem, 7vw, 6rem);
+          font-size: clamp(2.5rem, 6.5vw, 5.2rem);
           font-weight: 600;
-          line-height: 1.08;
-          margin-bottom: 20px;
+          line-height: 1.06;
+          margin-bottom: 14px;
           letter-spacing: -0.01em;
         }
         .hero-title em {
@@ -386,14 +393,14 @@ export default function Home() {
           color: #e8c56b;
         }
         .hero-sub {
-          font-size: 1.05rem;
-          color: rgba(255,255,255,0.78);
-          max-width: 520px;
-          line-height: 1.7;
-          margin-bottom: 36px;
-          font-weight: 300;
+          font-size: 1rem;
+          color: rgba(255,255,255,0.88);
+          max-width: 580px;
+          line-height: 1.6;
+          margin-bottom: 20px;
+          font-weight: 400;
         }
-        .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+        .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
 
         .btn-primary {
           display: inline-flex;
@@ -433,14 +440,14 @@ export default function Home() {
 
         .hero-scroll {
           position: absolute;
-          bottom: 28px;
+          bottom: 18px;
           left: 50%;
           transform: translateX(-50%);
-          color: rgba(255,255,255,0.5);
+          color: rgba(255,255,255,0.78);
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 6px;
+          gap: 4px;
           font-size: 10px;
           letter-spacing: 0.12em;
           text-transform: uppercase;
@@ -480,7 +487,7 @@ export default function Home() {
           font-size: 0.75rem;
           letter-spacing: 0.1em;
           text-transform: uppercase;
-          color: rgba(255,255,255,0.5);
+          color: rgba(255,255,255,0.78);
         }
 
         /* ── SECTION COMMONS ── */
@@ -635,7 +642,7 @@ export default function Home() {
           font-size: 0.82rem;
           letter-spacing: 0.1em;
           text-transform: uppercase;
-          color: rgba(255,255,255,0.5);
+          color: rgba(255,255,255,0.82);
           text-decoration: none;
           transition: color 0.2s;
         }
@@ -666,8 +673,8 @@ export default function Home() {
           position: absolute;
           top: 14px;
           left: 14px;
-          background: rgba(201,151,42,0.88);
-          color: #fff;
+          background: #e8c56b;
+          color: #1c1c1e;
           font-size: 9px;
           font-weight: 700;
           letter-spacing: 0.14em;
@@ -838,7 +845,7 @@ export default function Home() {
         .resort-star-label {
           font-size: 0.78rem;
           font-weight: 600;
-          color: rgba(255,255,255,0.55);
+          color: rgba(255,255,255,0.78);
           letter-spacing: 0.06em;
         }
         .resort-title {
@@ -851,7 +858,7 @@ export default function Home() {
         }
         .resort-location {
           font-size: 0.82rem;
-          color: rgba(255,255,255,0.5);
+          color: rgba(255,255,255,0.78);
           display: flex;
           align-items: center;
           gap: 5px;
@@ -863,10 +870,9 @@ export default function Home() {
           color: #e8c56b;
           font-size: 0.92rem;
           margin-bottom: 20px;
-          opacity: 0.9;
         }
         .resort-desc {
-          color: rgba(255,255,255,0.68);
+          color: rgba(255,255,255,0.82);
           font-size: 0.9rem;
           line-height: 1.78;
           margin-bottom: 28px;
@@ -882,7 +888,7 @@ export default function Home() {
           align-items: center;
           gap: 8px;
           font-size: 0.82rem;
-          color: rgba(255,255,255,0.72);
+          color: rgba(255,255,255,0.82);
         }
         .resort-amenity::before {
           content: '✦';
@@ -900,7 +906,7 @@ export default function Home() {
         }
         .resort-testi {
           font-style: italic;
-          color: rgba(255,255,255,0.6);
+          color: rgba(255,255,255,0.78);
           font-size: 0.85rem;
           line-height: 1.6;
           margin-bottom: 10px;
@@ -987,7 +993,7 @@ export default function Home() {
           margin-bottom: 20px;
         }
         .cta-title span { color: #e8c56b; }
-        .cta-sub { color: rgba(255,255,255,0.55); font-size: 0.97rem; line-height: 1.7; margin-bottom: 40px; }
+        .cta-sub { color: rgba(255,255,255,0.8); font-size: 0.97rem; line-height: 1.7; margin-bottom: 40px; }
         .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
         /* ── RESPONSIVE ── */
@@ -1002,7 +1008,10 @@ export default function Home() {
         }
         @media (max-width: 600px) {
           .stats-inner { grid-template-columns: 1fr 1fr; }
-          .hero-title { font-size: 2.6rem; }
+          .hero-title { font-size: 2.25rem; margin-bottom: 10px; }
+          .hero-sub { font-size: 0.9rem; line-height: 1.5; margin-bottom: 14px; }
+          .hero-badge { font-size: 9.5px; letter-spacing: 0.1em; padding: 5px 11px; margin-bottom: 10px; }
+          .hero-scroll { display: none; }
         }
       
         /* ✅ CORE WEB VITALS ADDITIONS */
@@ -1022,11 +1031,10 @@ export default function Home() {
           border-radius: 50%;
         }
         /* ✅ will-change for GPU-composited animations only */
-        .hero-img { will-change: transform; }
         .city-img { will-change: transform; }
         .testi-slide { will-change: opacity, transform; }
         /* ✅ content-visibility for below-fold sections — improves LCP */
-        .why-section, .exp-section, .testi-section, .cta-section {
+        .why-section, .cities-section, .exp-section, .resort-section, .testi-section, .cta-section {
           content-visibility: auto;
           contain-intrinsic-size: auto 600px;
         }
@@ -1083,27 +1091,20 @@ export default function Home() {
           [data-tilt]:hover::after { opacity: 1; }
         }
 
+        .hero picture {
+          position: absolute;
+          inset: 0;
+          display: block;
+        }
         @supports (animation-timeline: scroll()) {
-          @media (prefers-reduced-motion: no-preference) {
-            /* Hero: photo drifts slower than the page, headline tips back into depth */
+          @media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
+            /* Hero background photo gentle parallax on desktop only — never fade hero-content on scroll */
             .hero picture {
-              position: absolute;
-              inset: 0;
-              display: block;
               animation: bmHeroDepth linear both;
               animation-timeline: scroll(root);
               animation-range: 0 100vh;
             }
-            .hero-content {
-              animation: heroFade 1s ease both 0.2s, bmHeroText linear both;
-              animation-timeline: auto, scroll(root);
-              animation-range: normal, 0 75vh;
-              transform-origin: 50% 100%;
-            }
-            @keyframes bmHeroDepth { to { transform: translateY(28%) scale(1.1); } }
-            @keyframes bmHeroText {
-              to { transform: perspective(700px) translateY(-40px) rotateX(22deg) scale(0.94); opacity: 0; }
-            }
+            @keyframes bmHeroDepth { to { transform: translateY(18%) scale(1.06); } }
           }
         }
 
@@ -1169,32 +1170,25 @@ export default function Home() {
           .why-card:active, .exp-card:active, .city-card:active { scale: 0.98; transition: scale 0.1s; }
         }
         @media (max-width: 600px) {
-          .hero { padding-bottom: 56px; }
-          .hero-content { padding: 0 20px; }
-          .hero-actions { flex-direction: column; align-items: stretch; }
-          .hero-actions .btn-primary, .hero-actions .btn-ghost { justify-content: center; width: 100%; }
+          .hero {
+            min-height: auto;
+            padding-top: 82px;
+            padding-bottom: 36px;
+          }
+          .hero-content { padding: 0 16px; }
+          .hero-actions { display: none; }
           .why-cards, .exp-grid { margin-inline: -32px; }
         }
-        /* ✅ Mobile hero — avoid reflow from 100svh on older browsers */
-        @supports not (height: 100svh) {
-          .hero { height: 100vh; }
-        }
         /* ── HERO TRIP FINDER / WHATSAPP QUOTE BAR ── */
-        .hero {
-          height: auto;
-          min-height: 100svh;
-          padding-top: 110px;
-          padding-bottom: 64px;
-        }
         .hero-finder {
-          margin-top: 24px;
-          background: rgba(20, 16, 12, 0.82);
-          border: 1px solid rgba(232, 197, 107, 0.42);
+          margin-top: 4px;
+          background: rgba(18, 14, 10, 0.88);
+          border: 1.5px solid rgba(232, 197, 107, 0.55);
           border-radius: 12px;
           padding: 16px;
           backdrop-filter: blur(12px);
           -webkit-backdrop-filter: blur(12px);
-          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
         }
         .hero-finder-grid {
           display: grid;
@@ -1206,9 +1200,9 @@ export default function Home() {
           display: block;
           font-size: 10px;
           font-weight: 700;
-          letter-spacing: 0.12em;
+          letter-spacing: 0.1em;
           text-transform: uppercase;
-          color: #e8c56b;
+          color: #f3d47c;
           margin-bottom: 5px;
         }
         .hero-field select {
@@ -1216,8 +1210,8 @@ export default function Home() {
           min-height: 44px;
           padding: 9px 11px;
           border-radius: 6px;
-          border: 1px solid rgba(255, 255, 255, 0.22);
-          background: rgba(255, 255, 255, 0.96);
+          border: 1px solid rgba(255, 255, 255, 0.25);
+          background: #ffffff;
           color: #1c1c1e;
           font-size: 0.85rem;
           font-weight: 600;
@@ -1232,14 +1226,14 @@ export default function Home() {
           align-items: center;
           justify-content: center;
           gap: 7px;
-          min-height: 44px;
+          min-height: 46px;
           padding: 10px 18px;
           border-radius: 6px;
-          background: #16a34a;
+          background: #15803d;
           color: #fff;
           font-size: 0.84rem;
           font-weight: 700;
-          letter-spacing: 0.04em;
+          letter-spacing: 0.03em;
           text-transform: uppercase;
           border: none;
           cursor: pointer;
@@ -1247,7 +1241,7 @@ export default function Home() {
           transition: background 0.2s, transform 0.18s;
         }
         .btn-wa-instant:hover {
-          background: #15803d;
+          background: #166534;
           transform: translateY(-1px);
         }
         .btn-search-go {
@@ -1255,14 +1249,14 @@ export default function Home() {
           align-items: center;
           justify-content: center;
           gap: 6px;
-          min-height: 44px;
+          min-height: 46px;
           padding: 10px 15px;
           border-radius: 6px;
           background: var(--terracotta);
           color: #fff;
           font-size: 0.82rem;
           font-weight: 700;
-          letter-spacing: 0.04em;
+          letter-spacing: 0.03em;
           text-transform: uppercase;
           border: none;
           cursor: pointer;
@@ -1274,21 +1268,24 @@ export default function Home() {
           gap: 8px;
           margin-top: 12px;
           padding-top: 10px;
-          border-top: 1px solid rgba(255, 255, 255, 0.12);
+          border-top: 1px solid rgba(255, 255, 255, 0.15);
           align-items: center;
         }
         .hero-quick-label {
           font-size: 11px;
-          color: rgba(255, 255, 255, 0.65);
+          color: rgba(255, 255, 255, 0.88);
           font-weight: 600;
         }
         .hero-pill-link {
+          display: inline-flex;
+          align-items: center;
+          min-height: 36px;
           font-size: 11px;
           font-weight: 600;
           color: #fff;
-          background: rgba(255, 255, 255, 0.11);
-          border: 1px solid rgba(255, 255, 255, 0.22);
-          padding: 4px 11px;
+          background: rgba(255, 255, 255, 0.14);
+          border: 1px solid rgba(255, 255, 255, 0.28);
+          padding: 6px 12px;
           border-radius: 100px;
           text-decoration: none;
           transition: background 0.2s, border-color 0.2s;
@@ -1298,14 +1295,27 @@ export default function Home() {
           border-color: #e8c56b;
         }
         @media (max-width: 900px) {
+          .hero-finder {
+            padding: 13px;
+          }
           .hero-finder-grid {
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+          }
+          .hero-field-tour {
+            grid-column: 1 / -1;
           }
           .hero-finder-btns {
-            flex-direction: column;
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1.55fr 1fr;
+            gap: 8px;
+            margin-top: 2px;
           }
           .btn-wa-instant, .btn-search-go {
             width: 100%;
+            padding: 10px 10px;
+            font-size: 0.78rem;
           }
         }
       `}</style>
@@ -1332,7 +1342,7 @@ export default function Home() {
           <div className="hero-overlay" />
           <div className="hero-content">
             <div className="hero-badge">
-              <Compass size={12} />
+              <Compass size={12} aria-hidden="true" />
               Nov – Feb Peak Rajasthan Season • Safaris, Forts &amp; Desert Camps
             </div>
             <h1 className="hero-title">
@@ -1341,34 +1351,11 @@ export default function Home() {
             <p className="hero-sub">
               Ranthambore tiger safaris from ₹1,400, 2-day Jaipur packages at ₹4,999, Jaisalmer luxury desert camps &amp; custom 5–7 day Rajasthan circuits.
             </p>
-            <div className="hero-actions">
-              <Link to="/rajasthan-tour-packages" className="btn-primary">
-                Explore Rajasthan Packages <ArrowRight size={16} />
-              </Link>
-              <Link to="/ranthambore-safari-tours" className="btn-ghost" style={{ textDecoration: "none" }}>
-                🐯 Book Ranthambore Safari
-              </Link>
-              <button
-                className="btn-ghost"
-                aria-label="Talk to a BharatMile travel expert on WhatsApp"
-                onClick={() =>
-                  window.open(
-                    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-                      "Hi BharatMile! I am visiting your website and want to plan a Rajasthan trip. Please share your best winter packages!"
-                    )}`,
-                    "_blank",
-                    "noopener,noreferrer"
-                  )
-                }
-              >
-                <Phone size={16} /> WhatsApp Expert
-              </button>
-            </div>
 
-            {/* ── INTERACTIVE HERO TRIP SEARCH & WHATSAPP QUOTE BAR ── */}
+            {/* ── INTERACTIVE HERO TRIP SEARCH & WHATSAPP QUOTE BAR (FIRST ON MOBILE & DESKTOP) ── */}
             <div className="hero-finder" role="search" aria-label="Search Rajasthan tours and get an instant WhatsApp quote">
               <div className="hero-finder-grid">
-                <div className="hero-field">
+                <div className="hero-field hero-field-tour">
                   <label htmlFor="hero-tour-select">Select Destination / Package</label>
                   <select
                     id="hero-tour-select"
@@ -1413,36 +1400,62 @@ export default function Home() {
                     type="button"
                     className="btn-wa-instant"
                     onClick={handleHeroWhatsAppQuote}
+                    aria-label="Send trip enquiry on WhatsApp for instant quote"
                   >
-                    <Phone size={15} /> Get WhatsApp Quote
+                    <Phone size={15} aria-hidden="true" /> Send on WhatsApp
                   </button>
                   <button
                     type="button"
                     className="btn-search-go"
                     onClick={handleHeroExplore}
+                    aria-label="View selected tour package details"
                   >
-                    <Search size={15} /> View
+                    <Search size={15} aria-hidden="true" /> View Package
                   </button>
                 </div>
               </div>
               <div className="hero-quick-pills">
-                <span className="hero-quick-label"> Trending Now:</span>
+                <span className="hero-quick-label">Trending Now:</span>
                 <Link to="/ranthambore-safari-tours" className="hero-pill-link">
                   🐯 Ranthambore Safari ₹1,400
                 </Link>
                 <Link to="/jaipur-sightseeing-packages" className="hero-pill-link">
-                  🏯 Jaipur 2-Day Package ₹4,999
+                  🏯 Jaipur 2-Day ₹4,999
                 </Link>
                 <Link to="/rajasthan-tour-packages" className="hero-pill-link">
-                  🐪 Jaisalmer Desert Camp ₹6,999
+                  🐪 Jaisalmer Camp ₹6,999
                 </Link>
                 <Link to="/rajasthan-tour-packages" className="hero-pill-link">
-                  👑 5D Jaipur–Jodhpur–Udaipur ₹13,999
+                  👑 5D Rajasthan ₹13,999
                 </Link>
               </div>
             </div>
+
+            <div className="hero-actions">
+              <Link to="/rajasthan-tour-packages" className="btn-primary">
+                Explore Rajasthan Packages <ArrowRight size={16} aria-hidden="true" />
+              </Link>
+              <Link to="/ranthambore-safari-tours" className="btn-ghost" style={{ textDecoration: "none" }}>
+                🐯 Book Ranthambore Safari
+              </Link>
+              <button
+                className="btn-ghost"
+                aria-label="Talk to a BharatMile travel expert on WhatsApp"
+                onClick={() =>
+                  window.open(
+                    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                      "Hi BharatMile! I am visiting your website and want to plan a Rajasthan trip. Please share your best winter packages!"
+                    )}`,
+                    "_blank",
+                    "noopener,noreferrer"
+                  )
+                }
+              >
+                <Phone size={16} aria-hidden="true" /> WhatsApp Expert
+              </button>
+            </div>
           </div>
-          <div className="hero-scroll">
+          <div className="hero-scroll" aria-hidden="true">
             <ChevronDown size={18} />
             Scroll
           </div>
@@ -1533,14 +1546,24 @@ export default function Home() {
               {experiences.map((exp) => (
                 <Link key={exp.name} to={exp.link} className="exp-card" data-tilt>
                   <div className="exp-img-wrap">
-                    <img src={exp.image} alt={exp.name} width="600" height="400" loading="lazy" decoding="async" className="exp-img" />
+                    <img
+                      src={exp.image}
+                      srcSet={exp.srcSet}
+                      sizes="(max-width: 900px) 80vw, 360px"
+                      alt={exp.name}
+                      width="480"
+                      height="320"
+                      loading="lazy"
+                      decoding="async"
+                      className="exp-img"
+                    />
                     <span className="exp-tag-pill">{exp.tag}</span>
                   </div>
                   <div className="exp-body">
-                    <div className="exp-loc"><MapPin size={10} />{exp.location}</div>
+                    <div className="exp-loc"><MapPin size={10} aria-hidden="true" />{exp.location}</div>
                     <div className="exp-name">{exp.name}</div>
                     <div className="exp-price">{exp.price}</div>
-                    <span className="exp-link">Explore &amp; Book <ArrowRight size={12} /></span>
+                    <span className="exp-link">Explore &amp; Book <ArrowRight size={12} aria-hidden="true" /></span>
                   </div>
                 </Link>
               ))}
@@ -1554,7 +1577,7 @@ export default function Home() {
             <div className="resort-eyebrow">Featured Stay</div>
             <h2 className="resort-heading">
               Discover <span>The Clouds Resort</span><br />
-              <em style={{ fontStyle: 'italic', fontSize: '70%', color: 'rgba(255,255,255,0.6)' }}>Where Understated Luxury Meets the Serenity of Nature</em>
+              <em style={{ fontStyle: 'italic', fontSize: '70%', color: 'rgba(255,255,255,0.82)' }}>Where Understated Luxury Meets the Serenity of Nature</em>
             </h2>
             <div className="resort-layout">
 
@@ -1569,7 +1592,15 @@ export default function Home() {
                   width="1280"
                   height="720"
                   aria-label="The Clouds Resort — property tour video"
-                />
+                >
+                  <track
+                    kind="captions"
+                    srcLang="en"
+                    label="English"
+                    default
+                    src="data:text/vtt;charset=utf-8,WEBVTT%0A%0A00:00:00.000%20--%3E%2000:01:00.000%0AThe%20Clouds%20Resort%20Arambol%20North%20Goa%20property%20tour."
+                  />
+                </video>
               </div>
 
               {/* Right — Content */}
