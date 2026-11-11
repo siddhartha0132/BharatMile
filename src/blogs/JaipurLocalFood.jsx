@@ -50,7 +50,7 @@ export default function JaipurLocalFood() {
       <div className="bg-amber-50 border border-amber-200 rounded-xl p-6 text-center">
         <h3 className="text-xl font-bold mb-2">Book a Guided Jaipur Food Walk with BharatMile</h3>
         <p className="text-gray-600 mb-4">3-hour guided walk through old city markets + 8 food tastings. ₹799/person. Perfect for families.</p>
-        <a href="https://wa.me/919636974688" target="_blank" rel="noreferrer" className="inline-block bg-amber-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-amber-700 transition">Book Food Tour on WhatsApp 🍛</a>
+        <a href="https://wa.me/919636974688?text=Hi%20BharatMile!%20I%20want%20to%20book%20a%20Jaipur%20Food%20%26%20Heritage%20Tour." target="_blank" rel="noreferrer" className="inline-block bg-amber-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-amber-700 transition">Book Food Tour on WhatsApp 🍛</a>
       </div>
     </main>
   );

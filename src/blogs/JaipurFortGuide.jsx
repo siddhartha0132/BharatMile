@@ -61,7 +61,7 @@ export default function JaipurFortGuide() {
       <div className="bg-amber-50 border border-amber-200 rounded-xl p-6 text-center mt-10">
         <h3 className="text-xl font-bold mb-2">Book a Guided Jaipur Fort Tour with BharatMile</h3>
         <p className="text-gray-600 mb-4">AC cab + licensed guide + all fort entries included. Family fort tour from ₹2,499 for up to 5 people.</p>
-        <a href="https://wa.me/919636974688" target="_blank" rel="noreferrer" className="inline-block bg-amber-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-amber-700 transition">Book Fort Tour on WhatsApp 🏰</a>
+        <a href="https://wa.me/919636974688?text=Hi%20BharatMile!%20I%20want%20to%20book%20a%20Jaipur%20Forts%20Sightseeing%20Tour." target="_blank" rel="noreferrer" className="inline-block bg-amber-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-amber-700 transition">Book Fort Tour on WhatsApp 🏰</a>
       </div>
     </main>
   );

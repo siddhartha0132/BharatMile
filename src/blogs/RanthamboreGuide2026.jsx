@@ -92,7 +92,7 @@ export default function RanthamboreGuide2026() {
       <div className="mt-14 bg-amber-50 border border-amber-200 rounded-xl p-6 text-center">
         <h3 className="text-xl font-bold mb-2">Book Your Family Ranthambore Safari with BharatMile</h3>
         <p className="text-gray-600 mb-4">Get zone selection, gypsy booking, resort stay &amp; Jaipur transfer — all in one package starting at ₹4,999.</p>
-        <a href="https://wa.me/919636974688" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 transition">Chat on WhatsApp 🐯</a>
+        <a href="https://wa.me/919636974688?text=Hi%20BharatMile!%20I%20read%20your%202026%20Ranthambore%20Family%20Guide%20and%20want%20to%20book%20a%20safari." target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 transition">Chat on WhatsApp 🐯</a>
       </div>
 
       <div className="mt-10 border-t pt-6">

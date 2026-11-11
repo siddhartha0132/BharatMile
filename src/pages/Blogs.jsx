@@ -67,6 +67,8 @@ const CAT_META = {
 };
 
 const ALL_BLOGS = [
+  { id: 58, title: "Rajasthan in November & December 2026: Best Places, Weather & 5–7 Day Itinerary", category: "Rajasthan", img: amberFortImg, slug: "/blogs/rajasthan-in-november-december-itinerary", read: 8 },
+  { id: 59, title: "Jaisalmer Desert Safari & Sam Sand Dunes Camp Price 2026–27: Complete Guide", category: "Rajasthan", img: id5, slug: "/blogs/jaisalmer-desert-safari-camp-price-guide", read: 7 },
   { id: 57, title: "Ranthambore Safari Zones 1–10: Which Is Best for Tigers?", category: "Wildlife", img: ranthamboreImg, slug: "/blogs/ranthambore-safari-zones-guide", read: 7 },
   { id: 53, title: "Ranthambore Safari Price 2026–27: ₹1,400 Seat, ₹25,000 Gypsy", category: "Wildlife", img: ranthamboreImg, slug: "/blogs/ranthambore-safari-price-2026", read: 6 },
   { id: 54, title: "Jaipur 2-Day Tour Package at ₹4,999",              category: "Rajasthan", img: amberFortImg, slug: "/blogs/jaipur-2-day-tour-package", read: 6 },
@@ -93,7 +95,7 @@ const ALL_BLOGS = [
   { id: 43, title: "Ranthambore vs. Sariska: Which National Park Should You Visit?", category: "Wildlife", img: ranthamboreImg, slug: "/blogs/ranthambore-vs-sariska-national-park", read: 9 },
   { id: 1,  title: "Top 10 Places to Visit in India Before You Die",       category: "Trending",  img: id1,  slug: "/top-10-places-to-visit-in-india",             read: 6  },
   { id: 2,  title: "The Ultimate 2-Week India Itinerary for Beginners",    category: "Guides",    img: id2,  slug: "/2-week-india-itinerary-for-beginners",         read: 10 },
-  { id: 3,  title: "Why 2025 is the Best Year to Visit Bharat",            category: "News",      img: id3,  slug: "/why-2025-is-the-best-year-to-visit-bharat",    read: 4  },
+  { id: 3,  title: "Why 2026–27 is the Best Time to Visit Bharat",         category: "News",      img: id3,  slug: "/why-2025-is-the-best-year-to-visit-bharat",    read: 4  },
   { id: 4,  title: "Jaipur vs Udaipur: Which City Should You Visit?",      category: "Rajasthan", img: id4,  slug: "/jaipur-vs-udaipur-which-city-to-visit",        read: 7  },
   { id: 5,  title: "Jaisalmer Desert Camping: A Night Under the Stars",    category: "Rajasthan", img: id5,  slug: "/jaisalmer-desert-camping",                     read: 5  },
   { id: 6,  title: "The Haunted History of Bhangarh Fort",                 category: "Mystery",   img: id6,  slug: "/bhangarh-fort-haunted-history",                read: 5  },

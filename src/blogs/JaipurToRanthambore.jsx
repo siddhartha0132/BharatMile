@@ -55,7 +55,7 @@ export default function JaipurToRanthambore() {
       <div className="bg-green-50 border border-green-200 rounded-xl p-6 text-center mt-10">
         <h3 className="text-xl font-bold mb-2">Book Jaipur to Ranthambore Private Cab</h3>
         <p className="text-gray-600 mb-4">AC cab, experienced driver, pick-up from hotel. ₹2,800 one-way for family of 4. Add return for ₹5,200.</p>
-        <a href="https://wa.me/919636974688" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 transition">Book Cab on WhatsApp 🚗</a>
+        <a href="https://wa.me/919636974688?text=Hi%20BharatMile!%20I%20want%20to%20book%20a%20Jaipur%20to%20Ranthambore%20Private%20AC%20Cab." target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 transition">Book Cab on WhatsApp 🚗</a>
       </div>
     </main>
   );

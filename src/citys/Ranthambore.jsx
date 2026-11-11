@@ -108,8 +108,41 @@ export default function Ranthambore() {
             <p className="text-gray-600">Gypsy / Canter</p>
           </div>
           <div>
-            <p className="font-semibold">Nearest Station</p>
-            <p className="text-gray-600">Sawai Madhopur</p>
+            <p className="font-semibold">Safari Seat</p>
+            <p className="text-[#a8523b] font-bold">₹1,400 / Person</p>
+          </div>
+        </div>
+      </section>
+
+      {/* INSTANT SAFARI BOOKING BANNER */}
+      <section className="max-w-6xl mx-auto px-6 pt-10">
+        <div className="rounded-2xl bg-gradient-to-r from-[#1e2612] to-[#34421e] p-6 text-white shadow-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <span className="inline-block bg-amber-400/20 text-amber-300 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-1">
+              Nov – Feb Peak Tiger Sightings • Zones 1–10
+            </span>
+            <h2 className="text-2xl font-bold">Book Ranthambore Safari — ₹1,400/Seat | Private Gypsy ₹25,000</h2>
+            <p className="text-sm text-gray-200 mt-1">
+              Confirmed Gypsy &amp; Canter permits, naturalist guides, resort stays, and Jaipur–Ranthambore AC cabs.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3 shrink-0">
+            <a
+              href={`https://wa.me/919636974688?text=${encodeURIComponent(
+                "Hi BharatMile! I'm reading your Ranthambore guide and want to book a Ranthambore Tiger Safari."
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-green-600 hover:bg-green-700 text-white font-bold px-5 py-3 rounded-lg transition"
+            >
+              💬 Book Safari on WhatsApp
+            </a>
+            <a
+              href="/ranthambore-safari-tours"
+              className="bg-white/15 hover:bg-white/25 text-white font-semibold px-4 py-3 rounded-lg transition"
+            >
+              Safari Zones &amp; Packages →
+            </a>
           </div>
         </div>
       </section>

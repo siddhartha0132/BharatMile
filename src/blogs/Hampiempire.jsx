@@ -228,7 +228,7 @@ export default function Hampiempire() {
           </p>
 
           <a
-            href="https://wa.me/9198XXXXXXXX"
+            href="https://wa.me/919636974688?text=Hi%20BharatMile!%20I%20want%20to%20plan%20a%20heritage%20trip%20with%20your%20team."
             target="_blank"
             rel="noreferrer"
             className="inline-block mt-4 bg-white text-green-600 px-6 py-2 rounded-lg font-semibold hover:scale-105 transition"

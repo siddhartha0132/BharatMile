@@ -29,7 +29,7 @@ export default function Udaipur() {
       </Helmet>
 
       {/* HERO */}
-      <section className="relative w-full h-[420px] rounded-xl overflow-hidden shadow-lg mb-16">
+      <section className="relative w-full h-[420px] rounded-xl overflow-hidden shadow-lg mb-8">
         <img
           src={udaipurHero}
           alt="Lake Pichola Udaipur"
@@ -39,6 +39,37 @@ export default function Udaipur() {
           <h1 className="text-5xl font-bold text-white p-8">
             Udaipur – The City of Lakes
           </h1>
+        </div>
+      </section>
+
+      {/* INSTANT UDAIPUR BOOKING BANNER */}
+      <section className="mb-14 rounded-2xl bg-gradient-to-r from-[#13293d] to-[#1e4363] p-6 text-white shadow-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <span className="inline-block bg-amber-400/20 text-amber-300 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-1">
+            Nov – Feb Winter Romance &amp; Family Special
+          </span>
+          <h2 className="text-2xl font-bold">Udaipur &amp; Kumbhalgarh Tour Packages — From ₹9,999</h2>
+          <p className="text-sm text-gray-200 mt-1">
+            Lake Pichola Boat Ride, City Palace, Sajjangarh &amp; Kumbhalgarh Fort with Verified Hotels &amp; Private AC Cab.
+          </p>
+        </div>
+        <div className="flex flex-wrap gap-3 shrink-0">
+          <a
+            href={`https://wa.me/919636974688?text=${encodeURIComponent(
+              "Hi BharatMile! I'm reading your Udaipur guide and want to book an Udaipur Tour Package / Sightseeing Cab."
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-green-600 hover:bg-green-700 text-white font-bold px-5 py-3 rounded-lg transition"
+          >
+            💬 Get Quote on WhatsApp
+          </a>
+          <a
+            href="/rajasthan-tour-packages"
+            className="bg-white/15 hover:bg-white/25 text-white font-semibold px-4 py-3 rounded-lg transition"
+          >
+            All Rajasthan Packages →
+          </a>
         </div>
       </section>
 

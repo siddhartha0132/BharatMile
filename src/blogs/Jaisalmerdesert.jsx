@@ -219,14 +219,14 @@ export default function JaisalmerDesert() {
       {/* ✅ WHATSAPP FINAL CTA */}
       <section className="mt-20 bg-green-600 text-white p-8 rounded-xl text-center shadow-xl">
         <h3 className="text-2xl font-semibold">
-          Ready for the Ultimate Desert Experience?
+          Book Your 3-Day Jaisalmer &amp; Sam Sand Dunes Luxury Camp (From ₹6,999)
         </h3>
         <p className="mt-2 text-green-100">
-          Get instant price, availability & packages directly on WhatsApp.
+          Swiss Luxury Tent + Camel &amp; Jeep Safari + Folk Night &amp; Dinner. Get instant availability on WhatsApp.
         </p>
 
         <a
-          href="https://wa.me/919636974688"
+          href="https://wa.me/919636974688?text=Hi%20BharatMile!%20I%20read%20your%20Jaisalmer%20Desert%20Camping%20guide%20and%20want%20to%20book%20a%20Sam%20Sand%20Dunes%20camp%20package."
           target="_blank"
           rel="noreferrer"
           className="inline-block mt-5 bg-white text-green-600 px-8 py-3 rounded-lg font-bold hover:scale-105 transition"

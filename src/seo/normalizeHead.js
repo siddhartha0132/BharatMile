@@ -10,21 +10,26 @@ const DEFAULT_DESC =
   "Book Ranthambore tiger safaris with BharatMile — seats from ₹1,400 per person, private Gypsy ₹25,000 — and 2-day Jaipur packages at ₹4,999 with stay & cab. WhatsApp us today!";
 
 const FALLBACK = {
-  "/blogs": {
-    title: "Ranthambore, Jaipur & India Travel Blog 2026 | BharatMile",
+  "/rajasthan-tour-packages": {
+    title: "Rajasthan Tour Packages 2026–27 — Jaipur, Ranthambore, Jaisalmer & Udaipur | BharatMile",
     description:
-      "Ranthambore safari guides, Jaipur itineraries, booking tips and India travel stories from BharatMile's Jaipur-based team. Plan smarter, book with confidence.",
+      "Book Rajasthan tour packages for November–February peak winter season. Jaipur 2D at ₹4,999, Jaisalmer Desert Camp ₹6,999, Ranthambore Safari ₹1,400, 5D/7D Royal Circuits. Instant WhatsApp quotes!",
+  },
+  "/blogs": {
+    title: "Ranthambore, Jaipur & Rajasthan Travel Blog 2026–27 | BharatMile",
+    description:
+      "Ranthambore safari guides, Jaipur itineraries, Jaisalmer desert tips and Rajasthan travel stories from BharatMile's Jaipur-based team. Plan smarter, book on WhatsApp.",
   },
   "/about": {
     description:
-      "BharatMile is a Jaipur-based travel company running Ranthambore tiger safaris and Jaipur heritage tours. Meet the team, our promise and why families trust us.",
+      "BharatMile is a Jaipur-based travel company running Rajasthan tour packages, Ranthambore tiger safaris, Jaisalmer desert camps and Jaipur heritage tours.",
   },
   "/contact": {
     description:
-      "Contact BharatMile to plan a Ranthambore safari or Jaipur sightseeing tour. Call or WhatsApp +91-9636974688 — quick replies, custom quotes, no hidden charges.",
+      "Contact BharatMile to plan a Rajasthan tour, Ranthambore safari or Jaipur sightseeing package. Call or WhatsApp +91-9636974688 — quick replies, custom quotes.",
   },
   "/city": {
-    title: "Rajasthan City Guides: Jaipur, Ranthambore, Udaipur & More | BharatMile",
+    title: "Rajasthan City Guides: Jaipur, Ranthambore, Udaipur, Jaisalmer & Jodhpur | BharatMile",
   },
 };
 

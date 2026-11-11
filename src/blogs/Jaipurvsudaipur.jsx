@@ -147,10 +147,10 @@ export default function JaipurvsUdaipur() {
         <section className="mt-16 bg-white p-6 rounded-xl shadow-md">
           <h3 className="text-xl font-semibold mb-3">Related Rajasthan Travel Guides</h3>
           <ul className="grid md:grid-cols-2 gap-3 text-blue-600 font-medium">
-            <li><a href="/hampi-empire">→ Hampi Empire Travel</a></li>
-            <li><a href="/golden-temple">→ Golden Temple Langar Guide</a></li>
-            <li><a href="/goa-forts">→ Goa Beyond Beaches</a></li>
-            <li><a href="/india-500-per-day-travel-guide">→ Travel India on ₹500</a></li>
+            <li><a href="/rajasthan-tour-packages">→ All Rajasthan Tour Packages</a></li>
+            <li><a href="/jaipur-sightseeing-packages">→ Jaipur Sightseeing Packages (₹4,999)</a></li>
+            <li><a href="/city/udaipur">→ Complete Udaipur Travel Guide</a></li>
+            <li><a href="/ranthambore-safari-tours">→ Ranthambore Tiger Safari (₹1,400)</a></li>
           </ul>
         </section>
 
@@ -182,14 +182,14 @@ export default function JaipurvsUdaipur() {
         {/* ✅ WHATSAPP CTA (REAL NUMBER) */}
         <div className="mt-16 bg-green-600 text-white p-6 rounded-xl shadow-lg text-center">
           <h3 className="text-xl font-semibold">
-            Confused Between Jaipur & Udaipur?
+            Why Choose One? Visit Both Jaipur &amp; Udaipur!
           </h3>
           <p className="mt-2 text-green-100">
-            Get a personalized Rajasthan trip plan in minutes.
+            Book our 5-Day Jaipur – Jodhpur – Udaipur package (from ₹13,999) or get a custom plan on WhatsApp.
           </p>
 
           <a
-            href="https://wa.me/919636974688"
+            href="https://wa.me/919636974688?text=Hi%20BharatMile!%20I%20read%20your%20Jaipur%20vs%20Udaipur%20guide%20and%20want%20a%20custom%20Rajasthan%20tour%20quote."
             target="_blank"
             rel="noreferrer"
             className="inline-block mt-4 bg-white text-green-600 px-6 py-2 rounded-lg font-semibold hover:scale-105 transition"

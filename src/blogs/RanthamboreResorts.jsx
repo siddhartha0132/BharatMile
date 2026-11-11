@@ -58,7 +58,7 @@ export default function RanthamboreResorts() {
       <div className="bg-rose-50 border border-rose-200 rounded-xl p-6 text-center mt-10">
         <h3 className="text-xl font-bold mb-2">Book Your Romantic Ranthambore Getaway</h3>
         <p className="text-gray-600 mb-4">Resort + 2 safaris + candlelit dinner — couple packages from ₹8,999 for 2 nights. BharatMile handles everything.</p>
-        <a href="https://wa.me/919636974688" target="_blank" rel="noreferrer" className="inline-block bg-rose-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-rose-700 transition">Book Couple Package on WhatsApp 🌹</a>
+        <a href="https://wa.me/919636974688?text=Hi%20BharatMile!%20I%20want%20to%20book%20a%20Ranthambore%20Couple%20Resort%20%2B%20Safari%20Package." target="_blank" rel="noreferrer" className="inline-block bg-rose-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-rose-700 transition">Book Couple Package on WhatsApp 🌹</a>
       </div>
     </main>
   );

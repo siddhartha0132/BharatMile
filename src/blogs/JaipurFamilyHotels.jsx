@@ -59,7 +59,7 @@ export default function JaipurFamilyHotels() {
       <div className="bg-amber-50 border border-amber-200 rounded-xl p-6 text-center mt-10">
         <h3 className="text-xl font-bold mb-2">Let BharatMile Book Your Family Stay</h3>
         <p className="text-gray-600 mb-4">We negotiate best rates + include breakfast + fort tour in one package. Starting at ₹3,999/night for a family of 4.</p>
-        <a href="https://wa.me/919636974688" target="_blank" rel="noreferrer" className="inline-block bg-amber-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-amber-700 transition">Get Hotel Deals on WhatsApp 🏰</a>
+        <a href="https://wa.me/919636974688?text=Hi%20BharatMile!%20I%20want%20hotel%20%2B%20cab%20package%20options%20for%20our%20Jaipur%20family%20trip." target="_blank" rel="noreferrer" className="inline-block bg-amber-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-amber-700 transition">Get Hotel Deals on WhatsApp 🏰</a>
       </div>
     </main>
   );

@@ -13,12 +13,13 @@ export default function Footer() {
   ];
 
   const destinations = [
+    { to: "/rajasthan-tour-packages", label: "Rajasthan Winter Packages" },
     { to: "/ranthambore-safari-tours", label: "Ranthambore Safari Tours" },
     { to: "/jaipur-sightseeing-packages", label: "Jaipur Sightseeing Packages" },
+    { to: "/city/jaisalmer", label: "Jaisalmer Desert Safari" },
+    { to: "/city/udaipur", label: "Udaipur Lake Tours" },
+    { to: "/city/jodhpur", label: "Jodhpur Blue City" },
     { to: "/blogs/ranthambore-safari-price-2026", label: "Safari Price 2026–27" },
-    { to: "/blogs/jaipur-2-day-tour-package", label: "Jaipur 2-Day Package" },
-    { to: "/blogs/ranthambore-safari-zones-guide", label: "Ranthambore Zones Guide" },
-    { to: "/city/udaipur", label: "Udaipur" },
   ];
 
   const socials = [
@@ -270,13 +271,21 @@ export default function Footer() {
         <div className="footer-cta-band">
           <div className="footer-cta-inner">
             <p className="footer-cta-text">
-              Ready to explore India? <em>Let's plan your perfect journey.</em>
+              Planning a Rajasthan trip this winter? <em>Get a custom plan &amp; price on WhatsApp in 2 minutes.</em>
             </p>
             <button
               className="footer-cta-btn"
-              onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}`)}
+              onClick={() =>
+                window.open(
+                  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                    "Hi BharatMile! I'm planning a Rajasthan trip and want a custom itinerary & quote."
+                  )}`,
+                  "_blank",
+                  "noopener,noreferrer"
+                )
+              }
             >
-              <Phone size={13} /> Chat with Us
+              <Phone size={13} /> Chat on WhatsApp
             </button>
           </div>
         </div>

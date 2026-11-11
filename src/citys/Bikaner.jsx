@@ -5,7 +5,7 @@ import bikanerHero from "../assets/Bikaner.jpeg"; // change image if needed
 
 export default function Bikaner() {
   const pageTitle =
-    "Bikaner Travel Guide | Best Places, History, Hotels, Desert Safari & Food (2025)";
+    "Bikaner Travel Guide 2026–27 | Junagarh Fort, Karni Mata, Desert Safari & Hotels";
   const description =
     "Explore Bikaner – the Royal Desert City of Rajasthan. Discover Junagarh Fort, Karni Mata Temple, Camel Safari, best food, hotels, culture, history, and a full travel guide with tips, itinerary, and FAQs.";
 

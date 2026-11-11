@@ -10,10 +10,10 @@ import lakeImg from "../assets/Gadisar-Lake.jpeg";
 export default function Jaisalmer() {
 
   const title =
-    "Jaisalmer Travel Guide 2025 | Golden City, Desert Safari, Places, Hotels, Itinerary & Tips";
+    "Jaisalmer Travel Guide 2026–27 | Golden City, Sam Sand Dunes Desert Safari, Camps & Itinerary";
 
   const description =
-    "Complete Jaisalmer travel guide 2025 covering Golden Fort, Sam Sand Dunes, desert safari prices, best hotels, food, shopping, safety, routes, culture, festivals & itinerary.";
+    "Complete Jaisalmer travel guide 2026–27 covering Golden Fort, Sam Sand Dunes desert safari & luxury camps from ₹6,999, best hotels, food, safety & winter itinerary.";
 
   const url = "https://bharatmile.com/city/jaisalmer";
   const img = "https://bharatmile.com/assets/jaisalmer.jpg";
@@ -90,12 +90,43 @@ export default function Jaisalmer() {
       </Helmet>
 
       {/* HERO */}
-      <section className="relative h-[460px] rounded-xl overflow-hidden shadow-xl mb-16">
+      <section className="relative h-[460px] rounded-xl overflow-hidden shadow-xl mb-8">
         <img src={heroImg} alt="Jaisalmer Golden City" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/50 flex items-end">
           <h1 className="text-5xl font-bold text-white p-8">
             Jaisalmer – The Golden City of India
           </h1>
+        </div>
+      </section>
+
+      {/* INSTANT DESERT CAMP BOOKING BANNER */}
+      <section className="mb-14 rounded-2xl bg-gradient-to-r from-[#2e1d09] to-[#593812] p-6 text-white shadow-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <span className="inline-block bg-amber-400/20 text-amber-300 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-1">
+            Nov – Feb Desert Peak Season • Sam Sand Dunes
+          </span>
+          <h2 className="text-2xl font-bold">3-Day Jaisalmer &amp; Luxury Desert Camp Package — From ₹6,999</h2>
+          <p className="text-sm text-gray-200 mt-1">
+            Includes Swiss Luxury Tent at Sam Sand Dunes, Camel &amp; Jeep Safari, Kalbelia Folk Dance, Dinner &amp; Fort Sightseeing.
+          </p>
+        </div>
+        <div className="flex flex-wrap gap-3 shrink-0">
+          <a
+            href={`https://wa.me/919636974688?text=${encodeURIComponent(
+              "Hi BharatMile! I'm reading your Jaisalmer guide and want to book the Jaisalmer Desert Safari & Sam Sand Dunes Camp Package (from ₹6,999)."
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-green-600 hover:bg-green-700 text-white font-bold px-5 py-3 rounded-lg transition"
+          >
+            💬 Book Camp on WhatsApp
+          </a>
+          <a
+            href="/rajasthan-tour-packages"
+            className="bg-white/15 hover:bg-white/25 text-white font-semibold px-4 py-3 rounded-lg transition"
+          >
+            See Rajasthan Packages →
+          </a>
         </div>
       </section>
 

@@ -110,14 +110,34 @@ export default function LeadCapturePopup() {
         ) : (
           // Initial Form State
           <div>
-            <div className="text-center mb-6">
-              <Phone size={32} className="text-indigo-600 mx-auto mb-2" />
+            <div className="text-center mb-5">
+              <span className="inline-block bg-orange-100 text-[#a8523b] text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-2">
+                Nov – Feb Rajasthan Peak Season
+              </span>
               <h3 className="text-xl font-bold text-gray-900">
-                Want to talk about your India trip?
+                Planning a Rajasthan or Ranthambore Trip?
               </h3>
-              <p className="text-sm text-gray-500 mt-1">
-                Enter your number and get a call back in 5 minutes!
+              <p className="text-sm text-gray-600 mt-1">
+                Chat with our Jaipur team on WhatsApp or get a call back in 5 minutes!
               </p>
+            </div>
+
+            <a
+              href={`https://wa.me/919636974688?text=${encodeURIComponent(
+                "Hi BharatMile! I'm on your website and want a quote for my Rajasthan / Ranthambore trip."
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleClose}
+              className="w-full mb-3 bg-[#16a34a] text-white font-bold py-3 px-4 rounded-lg hover:bg-[#15803d] transition-colors flex items-center justify-center gap-2 text-sm shadow"
+            >
+              <Phone size={17} /> Chat on WhatsApp Now (2-Min Reply)
+            </a>
+
+            <div className="relative flex py-1.5 items-center mb-3">
+              <div className="flex-grow border-t border-gray-200"></div>
+              <span className="flex-shrink mx-3 text-xs text-gray-400 uppercase">Or request a call</span>
+              <div className="flex-grow border-t border-gray-200"></div>
             </div>
 
             {/* Native form posts directly to Google Forms */}

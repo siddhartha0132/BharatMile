@@ -257,7 +257,7 @@ export default function BhangarhFort() {
           </p>
 
           <a
-            href="https://wa.me/919999999999"
+            href="https://wa.me/919636974688?text=Hi%20BharatMile!%20I%20want%20to%20plan%20a%20Jaipur%20%2B%20Bhangarh%20Fort%20day%20trip."
             target="_blank"
             rel="noreferrer"
             className="inline-block mt-4 bg-white text-green-600 px-6 py-2 rounded-lg font-semibold hover:scale-105 transition"

@@ -11,8 +11,9 @@ import {
   Users,
   Globe,
   Compass,
+  Search,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 // ✅ IMAGES — Using smallest available format for each slot
@@ -20,6 +21,8 @@ import jaipurWebp from "../assets/jaipur.webp";
 import udaipurWebp from "../assets/udaipur.webp";
 import ranthamboreWebp from "../assets/Ranthambore.webp";
 import ranthambore480 from "../assets/Ranthambore-480.webp";
+import jaisalmerWebp from "../assets/Jaislamer.webp";
+import jodhpurWebp from "../assets/Jodhpur.webp";
 import jaipurJpg from "../assets/jaipur.jpg"; // fallback
 import udaipurJpg from "../assets/udaipur.jpg"; // fallback
 import ranthamboreJpg from "../assets/Ranthambore.jpg"; // fallback
@@ -31,6 +34,49 @@ import cloudResortPoster from "../assets/CloudResortPoster.webp";
 
 const CITIES_PAGE_LINK = "/city";
 const WHATSAPP_NUMBER = "919636974688";
+
+const HERO_SEARCH_OPTIONS = [
+  {
+    value: "All Rajasthan Tour Package (Jaipur–Jodhpur–Jaisalmer–Udaipur)",
+    label: "All Rajasthan Tour Package (Jaipur • Jodhpur • Jaisalmer • Udaipur)",
+    route: "/rajasthan-tour-packages",
+  },
+  {
+    value: "Ranthambore Tiger Safari (Zones 1–10)",
+    label: "Ranthambore Tiger Safari (Seat ₹1,400 / Private Gypsy)",
+    route: "/ranthambore-safari-tours",
+  },
+  {
+    value: "Jaipur 2-Day Heritage Package (₹4,999)",
+    label: "Jaipur 2-Day Sightseeing + Stay + Cab (₹4,999)",
+    route: "/jaipur-sightseeing-packages",
+  },
+  {
+    value: "Jaisalmer Desert Safari & Sam Sand Dunes Luxury Camp",
+    label: "Jaisalmer Desert Safari & Sam Sand Dunes Camp (₹6,999)",
+    route: "/rajasthan-tour-packages#jaisalmer-desert-3d",
+  },
+  {
+    value: "Jaipur + Ranthambore 3-Day Combo",
+    label: "Jaipur + Ranthambore 3-Day Combo (₹7,499)",
+    route: "/rajasthan-tour-packages#jaipur-ranthambore-3d",
+  },
+  {
+    value: "Udaipur City of Lakes & Kumbhalgarh Tour",
+    label: "Udaipur City of Lakes & Kumbhalgarh Tour (₹9,999)",
+    route: "/city/udaipur",
+  },
+  {
+    value: "Jodhpur Blue City & Jawai Leopard Safari",
+    label: "Jodhpur Blue City & Jawai Leopard Safari",
+    route: "/city/jodhpur",
+  },
+  {
+    value: "Rajasthan Private AC Cab / Tempo Traveller",
+    label: "Rajasthan Private AC Cab / Tempo Traveller Hire",
+    route: "/rajasthan-tour-packages",
+  },
+];
 
 // ── Animated counter hook ──────────────────────────────────────────────────
 function useCounter(target, duration = 2000, startOnMount = false) {
@@ -71,7 +117,27 @@ function StatItem({ target, suffix, label }) {
 }
 
 export default function Home() {
+  const navigate = useNavigate();
   const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [selectedTour, setSelectedTour] = useState(HERO_SEARCH_OPTIONS[0].value);
+  const [travelMonth, setTravelMonth] = useState("November 2026 (Peak Winter)");
+  const [tripGuests, setTripGuests] = useState("Family (3–5 Guests)");
+
+  const handleHeroWhatsAppQuote = () => {
+    const msg = `Hi BharatMile! 👋 I want to book a Rajasthan trip:\n• *Tour:* ${selectedTour}\n• *Month:* ${travelMonth}\n• *Travellers:* ${tripGuests}\n\nPlease share the itinerary, live availability & best price!`;
+    window.open(
+      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
+
+  const handleHeroExplore = () => {
+    const found =
+      HERO_SEARCH_OPTIONS.find((o) => o.value === selectedTour) ||
+      HERO_SEARCH_OPTIONS[0];
+    navigate(found.route.split("#")[0]);
+  };
 
   useEffect(() => {
     // ✅ Keep homepage title aligned with index.html primary keyword title
@@ -139,8 +205,11 @@ export default function Home() {
 
   const experiences = [
     { name: "Ranthambore Tiger Safari", location: "Sawai Madhopur, Rajasthan", image: ranthamboreWebp, tag: "Wildlife", price: "From ₹1,400", link: "/ranthambore-safari-tours" },
-    { name: "Jaipur 2-Day Heritage Tour", location: "Jaipur, Rajasthan", image: amberFort, tag: "Heritage", price: "₹4,999 package", link: "/blogs/jaipur-2-day-tour-package" },
-    { name: "Jaipur + Ranthambore Combo", location: "Jaipur → Ranthambore", image: cityPalace, tag: "Best Seller", price: "Custom quote", link: "/ranthambore-safari-tours" },
+    { name: "Jaipur 2-Day Heritage Tour", location: "Jaipur, Rajasthan", image: amberFort, tag: "Heritage", price: "₹4,999 package", link: "/jaipur-sightseeing-packages" },
+    { name: "Jaisalmer Desert Safari & Camp", location: "Sam Sand Dunes, Jaisalmer", image: jaisalmerWebp, tag: "Nov–Feb Special", price: "From ₹6,999", link: "/rajasthan-tour-packages" },
+    { name: "Jaipur + Ranthambore Combo", location: "Jaipur → Ranthambore (3D/2N)", image: cityPalace, tag: "Best Seller", price: "From ₹7,499", link: "/rajasthan-tour-packages" },
+    { name: "Jaipur – Jodhpur – Udaipur", location: "5-Day Royal Circuit", image: jodhpurWebp, tag: "Family & Couple", price: "From ₹13,999", link: "/rajasthan-tour-packages" },
+    { name: "Grand Rajasthan 7-Day Tour", location: "Jaipur • Jodhpur • Jaisalmer • Udaipur", image: udaipurWebp, tag: "Complete Tour", price: "From ₹19,999", link: "/rajasthan-tour-packages" },
   ];
 
   // ✅ Location-specific testimonials mentioning Ranthambore & Jaipur
@@ -1110,6 +1179,135 @@ export default function Home() {
         @supports not (height: 100svh) {
           .hero { height: 100vh; }
         }
+        /* ── HERO TRIP FINDER / WHATSAPP QUOTE BAR ── */
+        .hero {
+          height: auto;
+          min-height: 100svh;
+          padding-top: 110px;
+          padding-bottom: 64px;
+        }
+        .hero-finder {
+          margin-top: 24px;
+          background: rgba(20, 16, 12, 0.82);
+          border: 1px solid rgba(232, 197, 107, 0.42);
+          border-radius: 12px;
+          padding: 16px;
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+        }
+        .hero-finder-grid {
+          display: grid;
+          grid-template-columns: 1.7fr 1.1fr 1fr auto;
+          gap: 10px;
+          align-items: end;
+        }
+        .hero-field label {
+          display: block;
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: #e8c56b;
+          margin-bottom: 5px;
+        }
+        .hero-field select {
+          width: 100%;
+          min-height: 44px;
+          padding: 9px 11px;
+          border-radius: 6px;
+          border: 1px solid rgba(255, 255, 255, 0.22);
+          background: rgba(255, 255, 255, 0.96);
+          color: #1c1c1e;
+          font-size: 0.85rem;
+          font-weight: 600;
+          font-family: inherit;
+        }
+        .hero-finder-btns {
+          display: flex;
+          gap: 8px;
+        }
+        .btn-wa-instant {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 7px;
+          min-height: 44px;
+          padding: 10px 18px;
+          border-radius: 6px;
+          background: #16a34a;
+          color: #fff;
+          font-size: 0.84rem;
+          font-weight: 700;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          border: none;
+          cursor: pointer;
+          white-space: nowrap;
+          transition: background 0.2s, transform 0.18s;
+        }
+        .btn-wa-instant:hover {
+          background: #15803d;
+          transform: translateY(-1px);
+        }
+        .btn-search-go {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+          min-height: 44px;
+          padding: 10px 15px;
+          border-radius: 6px;
+          background: var(--terracotta);
+          color: #fff;
+          font-size: 0.82rem;
+          font-weight: 700;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          border: none;
+          cursor: pointer;
+          white-space: nowrap;
+        }
+        .hero-quick-pills {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          margin-top: 12px;
+          padding-top: 10px;
+          border-top: 1px solid rgba(255, 255, 255, 0.12);
+          align-items: center;
+        }
+        .hero-quick-label {
+          font-size: 11px;
+          color: rgba(255, 255, 255, 0.65);
+          font-weight: 600;
+        }
+        .hero-pill-link {
+          font-size: 11px;
+          font-weight: 600;
+          color: #fff;
+          background: rgba(255, 255, 255, 0.11);
+          border: 1px solid rgba(255, 255, 255, 0.22);
+          padding: 4px 11px;
+          border-radius: 100px;
+          text-decoration: none;
+          transition: background 0.2s, border-color 0.2s;
+        }
+        .hero-pill-link:hover {
+          background: rgba(232, 197, 107, 0.25);
+          border-color: #e8c56b;
+        }
+        @media (max-width: 900px) {
+          .hero-finder-grid {
+            grid-template-columns: 1fr;
+          }
+          .hero-finder-btns {
+            flex-direction: column;
+          }
+          .btn-wa-instant, .btn-search-go {
+            width: 100%;
+          }
+        }
       `}</style>
 
       <div className="bm-root">
@@ -1135,25 +1333,113 @@ export default function Home() {
           <div className="hero-content">
             <div className="hero-badge">
               <Compass size={12} />
-              Ranthambore Safaris &amp; Jaipur Heritage Tours
+              Nov – Feb Peak Rajasthan Season • Safaris, Forts &amp; Desert Camps
             </div>
             <h1 className="hero-title">
               Book Your<br /><em>Rajasthan</em> Adventure
             </h1>
             <p className="hero-sub">
-              Ranthambore tiger safaris from ₹1,400 per person &amp; 2-day Jaipur packages at ₹4,999 with stay, cab and sightseeing.
+              Ranthambore tiger safaris from ₹1,400, 2-day Jaipur packages at ₹4,999, Jaisalmer luxury desert camps &amp; custom 5–7 day Rajasthan circuits.
             </p>
             <div className="hero-actions">
-              <Link to="/ranthambore-safari-tours" className="btn-primary">
-                Book a Tiger Safari <ArrowRight size={16} />
+              <Link to="/rajasthan-tour-packages" className="btn-primary">
+                Explore Rajasthan Packages <ArrowRight size={16} />
+              </Link>
+              <Link to="/ranthambore-safari-tours" className="btn-ghost" style={{ textDecoration: "none" }}>
+                🐯 Book Ranthambore Safari
               </Link>
               <button
                 className="btn-ghost"
                 aria-label="Talk to a BharatMile travel expert on WhatsApp"
-                onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}`)}
+                onClick={() =>
+                  window.open(
+                    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                      "Hi BharatMile! I am visiting your website and want to plan a Rajasthan trip. Please share your best winter packages!"
+                    )}`,
+                    "_blank",
+                    "noopener,noreferrer"
+                  )
+                }
               >
-                <Phone size={16} /> Talk to an Expert
+                <Phone size={16} /> WhatsApp Expert
               </button>
+            </div>
+
+            {/* ── INTERACTIVE HERO TRIP SEARCH & WHATSAPP QUOTE BAR ── */}
+            <div className="hero-finder" role="search" aria-label="Search Rajasthan tours and get an instant WhatsApp quote">
+              <div className="hero-finder-grid">
+                <div className="hero-field">
+                  <label htmlFor="hero-tour-select">Select Destination / Package</label>
+                  <select
+                    id="hero-tour-select"
+                    value={selectedTour}
+                    onChange={(e) => setSelectedTour(e.target.value)}
+                  >
+                    {HERO_SEARCH_OPTIONS.map((opt) => (
+                      <option key={opt.value} value={opt.value}>
+                        {opt.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="hero-field">
+                  <label htmlFor="hero-month-select">Travel Month</label>
+                  <select
+                    id="hero-month-select"
+                    value={travelMonth}
+                    onChange={(e) => setTravelMonth(e.target.value)}
+                  >
+                    <option>November 2026 (Peak Winter)</option>
+                    <option>December 2026 (Xmas / New Year)</option>
+                    <option>January 2027 (Winter Peak)</option>
+                    <option>February – March 2027</option>
+                  </select>
+                </div>
+                <div className="hero-field">
+                  <label htmlFor="hero-guests-select">Travellers</label>
+                  <select
+                    id="hero-guests-select"
+                    value={tripGuests}
+                    onChange={(e) => setTripGuests(e.target.value)}
+                  >
+                    <option>Couple (2 Guests)</option>
+                    <option>Family (3–5 Guests)</option>
+                    <option>Group (6+ Guests)</option>
+                    <option>Solo Traveller</option>
+                  </select>
+                </div>
+                <div className="hero-finder-btns">
+                  <button
+                    type="button"
+                    className="btn-wa-instant"
+                    onClick={handleHeroWhatsAppQuote}
+                  >
+                    <Phone size={15} /> Get WhatsApp Quote
+                  </button>
+                  <button
+                    type="button"
+                    className="btn-search-go"
+                    onClick={handleHeroExplore}
+                  >
+                    <Search size={15} /> View
+                  </button>
+                </div>
+              </div>
+              <div className="hero-quick-pills">
+                <span className="hero-quick-label"> Trending Now:</span>
+                <Link to="/ranthambore-safari-tours" className="hero-pill-link">
+                  🐯 Ranthambore Safari ₹1,400
+                </Link>
+                <Link to="/jaipur-sightseeing-packages" className="hero-pill-link">
+                  🏯 Jaipur 2-Day Package ₹4,999
+                </Link>
+                <Link to="/rajasthan-tour-packages" className="hero-pill-link">
+                  🐪 Jaisalmer Desert Camp ₹6,999
+                </Link>
+                <Link to="/rajasthan-tour-packages" className="hero-pill-link">
+                  👑 5D Jaipur–Jodhpur–Udaipur ₹13,999
+                </Link>
+              </div>
             </div>
           </div>
           <div className="hero-scroll">
@@ -1190,6 +1476,73 @@ export default function Home() {
                   <h3>{f.title}</h3>
                   <p>{f.description}</p>
                 </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── POPULAR CITIES ───────────────────────────────── */}
+        <section className="cities-section">
+          <div className="cities-inner">
+            <div className="cities-header">
+              <span className="section-eyebrow">Top Destinations</span>
+              <h2 className="section-title">Cities that stay<br />with you forever</h2>
+            </div>
+            <div className="cities-grid">
+              {popularCities.map((city) => (
+                <Link key={city.name} to={city.link} className="city-card" data-tilt>
+                  {/* ✅ Responsive images: serve correct size per viewport, use WebP */}
+                  <picture>
+                    <source srcSet={city.srcSet ?? city.image} sizes="(max-width: 900px) 100vw, 33vw" type="image/webp" />
+                    <img
+                      src={city.imageFallback}
+                      alt={`${city.name} — ${city.tag} tour destination by BharatMile`}
+                      loading="lazy"
+                      decoding="async"
+                      className="city-img"
+                      width={city.w}
+                      height={city.h}
+                      sizes="(max-width: 900px) 100vw, 33vw"
+                    />
+                  </picture>
+                  <div className="city-overlay" />
+                  <div className="city-info">
+                    <div className="city-tag"><MapPin size={9} />{city.tag}</div>
+                    <div className="city-name">{city.name}</div>
+                    <div className="city-desc">{city.description}</div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── EXPERIENCES ──────────────────────────────────── */}
+        <section className="exp-section">
+          <div className="exp-inner">
+            <div className="exp-header">
+              <div>
+                <span className="section-eyebrow">Signature Journeys</span>
+                <h2 className="section-title">Unforgettable<br />Rajasthan Packages</h2>
+              </div>
+              <Link to="/rajasthan-tour-packages" className="link-all">
+                View all packages <ArrowRight size={14} />
+              </Link>
+            </div>
+            <div className="exp-grid">
+              {experiences.map((exp) => (
+                <Link key={exp.name} to={exp.link} className="exp-card" data-tilt>
+                  <div className="exp-img-wrap">
+                    <img src={exp.image} alt={exp.name} width="600" height="400" loading="lazy" decoding="async" className="exp-img" />
+                    <span className="exp-tag-pill">{exp.tag}</span>
+                  </div>
+                  <div className="exp-body">
+                    <div className="exp-loc"><MapPin size={10} />{exp.location}</div>
+                    <div className="exp-name">{exp.name}</div>
+                    <div className="exp-price">{exp.price}</div>
+                    <span className="exp-link">Explore &amp; Book <ArrowRight size={12} /></span>
+                  </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -1271,7 +1624,7 @@ export default function Home() {
                     ⬇ Download Brochure
                   </a>
                   <a
-                    href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi BharatMile! I want to enquire about The Clouds Resort, Arambol Goa.")}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="resort-btn-ghost"
@@ -1281,73 +1634,6 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── POPULAR CITIES ───────────────────────────────── */}
-        <section className="cities-section">
-          <div className="cities-inner">
-            <div className="cities-header">
-              <span className="section-eyebrow">Top Destinations</span>
-              <h2 className="section-title">Cities that stay<br />with you forever</h2>
-            </div>
-            <div className="cities-grid">
-              {popularCities.map((city) => (
-                <Link key={city.name} to={city.link} className="city-card" data-tilt>
-                  {/* ✅ Responsive images: serve correct size per viewport, use WebP */}
-                  <picture>
-                    <source srcSet={city.srcSet ?? city.image} sizes="(max-width: 900px) 100vw, 33vw" type="image/webp" />
-                    <img
-                      src={city.imageFallback}
-                      alt={`${city.name} — ${city.tag} tour destination by BharatMile`}
-                      loading="lazy"
-                      decoding="async"
-                      className="city-img"
-                      width={city.w}
-                      height={city.h}
-                      sizes="(max-width: 900px) 100vw, 33vw"
-                    />
-                  </picture>
-                  <div className="city-overlay" />
-                  <div className="city-info">
-                    <div className="city-tag"><MapPin size={9} />{city.tag}</div>
-                    <div className="city-name">{city.name}</div>
-                    <div className="city-desc">{city.description}</div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── EXPERIENCES ──────────────────────────────────── */}
-        <section className="exp-section">
-          <div className="exp-inner">
-            <div className="exp-header">
-              <div>
-                <span className="section-eyebrow">Signature Journeys</span>
-                <h2 className="section-title">Unforgettable<br />Experiences</h2>
-              </div>
-              <Link to={CITIES_PAGE_LINK} className="link-all">
-                View all <ArrowRight size={14} />
-              </Link>
-            </div>
-            <div className="exp-grid">
-              {experiences.map((exp) => (
-                <Link key={exp.name} to={exp.link} className="exp-card" data-tilt>
-                  <div className="exp-img-wrap">
-                    <img src={exp.image} alt={exp.name} width="600" height="400" loading="lazy" decoding="async" className="exp-img" />
-                    <span className="exp-tag-pill">{exp.tag}</span>
-                  </div>
-                  <div className="exp-body">
-                    <div className="exp-loc"><MapPin size={10} />{exp.location}</div>
-                    <div className="exp-name">{exp.name}</div>
-                    <div className="exp-price">{exp.price}</div>
-                    <span className="exp-link">Explore <ArrowRight size={12} /></span>
-                  </div>
-                </Link>
-              ))}
             </div>
           </div>
         </section>
@@ -1390,10 +1676,21 @@ export default function Home() {
               From a weekend escape to a three-week expedition — we handle every detail so you can focus on the wonder.
             </p>
             <div className="cta-actions">
-              <Link to={CITIES_PAGE_LINK} className="btn-primary">
-                Explore All Destinations <ArrowRight size={16} />
+              <Link to="/rajasthan-tour-packages" className="btn-primary">
+                View All Rajasthan Packages <ArrowRight size={16} />
               </Link>
-              <button className="btn-ghost" onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}`)}>
+              <button
+                className="btn-ghost"
+                onClick={() =>
+                  window.open(
+                    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                      "Hi BharatMile! I want to plan my Rajasthan trip and get a custom itinerary quote."
+                    )}`,
+                    "_blank",
+                    "noopener,noreferrer"
+                  )
+                }
+              >
                 <Phone size={16} /> Chat on WhatsApp
               </button>
             </div>

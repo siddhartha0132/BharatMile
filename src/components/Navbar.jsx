@@ -7,8 +7,10 @@ const WHATSAPP_NUMBER = "919636974688";
 
 const navLinks = [
   { to: "/", label: "Home", title: "Go to BharatMile Home Page" },
-  { to: "/about", label: "About", title: "Learn more About Us" },
-  { to: "/city", label: "Destinations", title: "Explore Cities" },
+  { to: "/rajasthan-tour-packages", label: "Rajasthan Packages", title: "Book Rajasthan Winter Tour Packages" },
+  { to: "/ranthambore-safari-tours", label: "Ranthambore Safari", title: "Book Ranthambore Tiger Safari Tours" },
+  { to: "/jaipur-sightseeing-packages", label: "Jaipur Tours", title: "Book Jaipur Sightseeing Packages" },
+  { to: "/city", label: "Destinations", title: "Explore Rajasthan Cities" },
   { to: "/blogs", label: "Blogs", title: "Read our Travel Blogs" },
   { to: "/contact", label: "Contact", title: "Contact BharatMile Team" },
 ];
@@ -440,10 +442,18 @@ export default function Navbar() {
 
           <button
             className="nav-cta"
-            onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}`)}
+            onClick={() =>
+              window.open(
+                `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                  "Hi BharatMile! I want to plan a Rajasthan trip and get a custom quote."
+                )}`,
+                "_blank",
+                "noopener,noreferrer"
+              )
+            }
             aria-label="Contact us on WhatsApp"
           >
-            <Phone size={13} /> Plan My Trip
+            <Phone size={13} /> WhatsApp Quote
           </button>
 
           <button
@@ -492,7 +502,13 @@ export default function Navbar() {
               aria-label="Plan my trip on WhatsApp"
               onClick={() => {
                 setMenuOpen(false);
-                window.open(`https://wa.me/${WHATSAPP_NUMBER}`);
+                window.open(
+                  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                    "Hi BharatMile! I want to plan a Rajasthan trip and get a custom quote."
+                  )}`,
+                  "_blank",
+                  "noopener,noreferrer"
+                );
               }}
             >
               <Phone size={14} /> Plan My Trip on WhatsApp

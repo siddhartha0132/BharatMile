@@ -86,7 +86,7 @@ export default function Jodhpur() {
       </Helmet>
 
       {/* HERO */}
-      <section className="relative h-96 rounded-xl overflow-hidden shadow-lg mb-14">
+      <section className="relative h-96 rounded-xl overflow-hidden shadow-lg mb-8">
         <img
           src={jodhpurHero}
           alt="Mehrangarh Fort and Blue City of Jodhpur"
@@ -102,6 +102,37 @@ export default function Jodhpur() {
               and unforgettable food experiences.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* INSTANT JODHPUR BOOKING BANNER */}
+      <section className="mb-14 rounded-2xl bg-gradient-to-r from-[#142d4c] to-[#244c7a] p-6 text-white shadow-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <span className="inline-block bg-amber-400/20 text-amber-300 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-1">
+            Nov – Feb Marwar Peak Season
+          </span>
+          <h2 className="text-2xl font-bold">5-Day Jaipur – Jodhpur – Udaipur Package — From ₹13,999</h2>
+          <p className="text-sm text-gray-200 mt-1">
+            Covers Mehrangarh Fort, Jaswant Thada, Blue City Walks &amp; Private AC Sightseeing Cab.
+          </p>
+        </div>
+        <div className="flex flex-wrap gap-3 shrink-0">
+          <a
+            href={`https://wa.me/919636974688?text=${encodeURIComponent(
+              "Hi BharatMile! I'm reading your Jodhpur guide and want a quote for a Jodhpur / Rajasthan Tour Package."
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-green-600 hover:bg-green-700 text-white font-bold px-5 py-3 rounded-lg transition"
+          >
+            💬 Book on WhatsApp
+          </a>
+          <a
+            href="/rajasthan-tour-packages"
+            className="bg-white/15 hover:bg-white/25 text-white font-semibold px-4 py-3 rounded-lg transition"
+          >
+            All Rajasthan Packages →
+          </a>
         </div>
       </section>
 

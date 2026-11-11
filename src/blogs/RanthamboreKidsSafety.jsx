@@ -63,7 +63,7 @@ export default function RanthamboreKidsSafety() {
       <div className="bg-green-50 border border-green-200 rounded-xl p-6 text-center mt-10">
         <h3 className="text-xl font-bold mb-2">Book a Kid-Friendly Ranthambore Safari</h3>
         <p className="text-gray-600 mb-4">We select child-safe zones, book private gypsies, and arrange family-friendly resorts with kids' meals. Packages from ₹3,499.</p>
-        <a href="https://wa.me/919636974688" target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 transition">Book Kids Safari on WhatsApp 🦁</a>
+        <a href="https://wa.me/919636974688?text=Hi%20BharatMile!%20I%20want%20to%20book%20a%20family-safe%20Ranthambore%20safari%20with%20kids." target="_blank" rel="noreferrer" className="inline-block bg-green-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 transition">Book Kids Safari on WhatsApp 🦁</a>
       </div>
     </main>
   );

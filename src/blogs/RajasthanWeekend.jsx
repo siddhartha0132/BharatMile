@@ -55,8 +55,8 @@ export default function RajasthanWeekend() {
 
       <div className="bg-orange-50 border border-orange-200 rounded-xl p-6 text-center mt-10">
         <h3 className="text-xl font-bold mb-2">Book This Exact Trip with BharatMile</h3>
-        <p className="text-gray-600 mb-4">All-inclusive 3-day Jaipur + Ranthambore family packages from ₹7,999/person. Cab, hotel, safari — all arranged.</p>
-        <a href="https://wa.me/919636974688" target="_blank" rel="noreferrer" className="inline-block bg-orange-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-orange-700 transition">Plan with BharatMile 🗺️</a>
+        <p className="text-gray-600 mb-4">All-inclusive 3-day Jaipur + Ranthambore family packages from ₹7,499/person. Cab, hotel, safari — all arranged.</p>
+        <a href="https://wa.me/919636974688?text=Hi%20BharatMile!%20I%20want%20to%20book%20the%203-Day%20Jaipur%20%2B%20Ranthambore%20Weekend%20Family%20Trip." target="_blank" rel="noreferrer" className="inline-block bg-orange-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-orange-700 transition">Plan with BharatMile on WhatsApp 🗺️</a>
       </div>
     </main>
   );

@@ -29,20 +29,23 @@ export const routes = [
   route("/privacy-policy", () => import("./pages/PrivacyPolicy")),
 
   // Money pages
+  route("/rajasthan-tour-packages", () => import("./pages/RajasthanTourPackages"), "rajasthan"),
   route("/ranthambore-safari-tours", () => import("./pages/RanthambhoreSafariTours"), "safari"),
   route("/jaipur-sightseeing-packages", () => import("./pages/JaipurSightseeingPackages"), "jaipur"),
 
   // Cities
-  route("/city/jaipur", () => import("./citys/Jaipur.jsx")),
-  route("/city/udaipur", () => import("./citys/Udaipur")),
-  route("/city/ranthambore", () => import("./citys/Ranthambore")),
-  route("/city/jodhpur", () => import("./citys/Jodhpur")),
-  route("/city/bikaner", () => import("./citys/Bikaner")),
-  route("/city/jaisalmer", () => import("./citys/Jaisalmer")),
-  route("/city/jawai", () => import("./citys/Jawai")),
-  route("/city/ranchi", () => import("./citys/Ranchi")),
+  route("/city/jaipur", () => import("./citys/Jaipur.jsx"), "jaipur"),
+  route("/city/udaipur", () => import("./citys/Udaipur"), "rajasthan"),
+  route("/city/ranthambore", () => import("./citys/Ranthambore"), "safari"),
+  route("/city/jodhpur", () => import("./citys/Jodhpur"), "rajasthan"),
+  route("/city/bikaner", () => import("./citys/Bikaner"), "rajasthan"),
+  route("/city/jaisalmer", () => import("./citys/Jaisalmer"), "rajasthan"),
+  route("/city/jawai", () => import("./citys/Jawai"), "safari"),
+  route("/city/ranchi", () => import("./citys/Ranchi"), "india"),
 
-  // Ranthambore & Jaipur blogs
+  // Ranthambore, Jaipur & Rajasthan blogs
+  blog("/blogs/rajasthan-in-november-december-itinerary", () => import("./blogs/RajasthanNovDecItinerary"), "rajasthan", "Rajasthan in Nov & Dec: 5–7 Day Itinerary"),
+  blog("/blogs/jaisalmer-desert-safari-camp-price-guide", () => import("./blogs/JaisalmerDesertSafariPrice"), "rajasthan", "Jaisalmer Desert Safari & Camp Price 2026–27"),
   blog("/blogs/ranthambore-safari-zones-guide", () => import("./blogs/RanthamboreZonesGuide"), "safari", "Ranthambore Safari Zones 1–10 Explained"),
   blog("/blogs/ranthambore-safari-price-2026", () => import("./blogs/RanthamborePrice2026"), "safari", "Ranthambore Safari Price 2026–27"),
   blog("/blogs/ranthambore-safari-booking-january-march-2027", () => import("./blogs/SafariBookingJanMar2027"), "safari", "Safari Booking for Jan–Mar 2027"),

@@ -15,9 +15,9 @@ export default function Jawai() {
   const companyName = "BharatMile";
 
   const pageTitle =
-    "Jawai Travel Guide 2025 | Leopard Safari, Jawai Bandh, Camps, Best Time, Hotels & Itinerary";
+    "Jawai Travel Guide 2026–27 | Leopard Safari, Jawai Bandh, Camps, Best Time & Itinerary";
   const pageDescription =
-    "Complete Jawai travel guide 2025 – leopard safari experience, Jawai Bandh, best camps & hotels, itinerary, food, culture, safety tips, how to reach & best time to visit.";
+    "Complete Jawai travel guide 2026–27 – leopard safari booking, Jawai Bandh, luxury camps & hotels, itinerary, food, culture, safety tips, how to reach & best time to visit.";
 
   useEffect(() => {
     document.title = pageTitle;
@@ -58,7 +58,7 @@ export default function Jawai() {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
-          { "@type": "ListItem", position: 2, name: "Cities", item: siteUrl + "/cities" },
+          { "@type": "ListItem", position: 2, name: "Cities", item: siteUrl + "/city" },
           { "@type": "ListItem", position: 3, name: "Jawai", item: pageUrl },
         ],
       },

@@ -111,7 +111,14 @@ for (const path of paths) {
 
 // Sitemap generated from the same route table, so it can't drift.
 const files = sourceFiles();
-const priority = (p) => (p === "/" ? "1.0" : /^\/(ranthambore-safari-tours|jaipur-sightseeing-packages)$/.test(p) ? "0.9" : "0.7");
+const priority = (p) =>
+  p === "/"
+    ? "1.0"
+    : /^\/(rajasthan-tour-packages|ranthambore-safari-tours|jaipur-sightseeing-packages)$/.test(p)
+      ? "0.9"
+      : p === "/city" || p.startsWith("/city/")
+        ? "0.8"
+        : "0.7";
 const urls = entry.routes
   .map(({ path }) => {
     const loc = path === "/" ? `${SITE}/` : `${SITE}${path}`;

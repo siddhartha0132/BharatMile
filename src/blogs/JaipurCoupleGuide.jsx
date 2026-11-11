@@ -87,7 +87,7 @@ export default function JaipurCoupleGuide() {
       <div className="mt-14 bg-pink-50 border border-pink-200 rounded-xl p-6 text-center">
         <h3 className="text-xl font-bold mb-2">Plan Your Romantic Jaipur Trip with BharatMile</h3>
         <p className="text-gray-600 mb-4">Hotel + Fort tour + Private cab from Delhi — customised couple packages starting at ₹6,999.</p>
-        <a href="https://wa.me/919636974688" target="_blank" rel="noreferrer" className="inline-block bg-rose-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-rose-700 transition">Book on WhatsApp 💑</a>
+        <a href="https://wa.me/919636974688?text=Hi%20BharatMile!%20I%20want%20to%20book%20the%20Jaipur%20Couple%20Tour%20Package." target="_blank" rel="noreferrer" className="inline-block bg-rose-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-rose-700 transition">Book on WhatsApp 💑</a>
       </div>
     </main>
   );

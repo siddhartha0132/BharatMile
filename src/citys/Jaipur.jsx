@@ -57,7 +57,7 @@ export default function Jaipur() {
     <main className="max-w-7xl mx-auto px-6 py-12 bg-gray-50">
 
       {/* HERO */}
-      <section className="relative h-[450px] rounded-xl overflow-hidden shadow mb-16">
+      <section className="relative h-[450px] rounded-xl overflow-hidden shadow mb-8">
         <img
           src={jaipurHero}
           alt="Jaipur Pink City skyline"
@@ -73,6 +73,37 @@ export default function Jaipur() {
               authentic Rajasthani food — Jaipur is India’s most iconic heritage city.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* INSTANT BOOKING BANNER */}
+      <section className="mb-14 rounded-2xl bg-gradient-to-r from-[#2b150e] to-[#4a2416] p-6 text-white shadow-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <span className="inline-block bg-amber-400/20 text-amber-300 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-1">
+            Nov – Feb Winter Offer • Local Jaipur Team
+          </span>
+          <h2 className="text-2xl font-bold">2-Day Jaipur Package at ₹4,999 / Person</h2>
+          <p className="text-sm text-gray-200 mt-1">
+            Includes Hotel Stay + Private AC Cab + Amber Fort, City Palace, Hawa Mahal &amp; Nahargarh Sightseeing.
+          </p>
+        </div>
+        <div className="flex flex-wrap gap-3 shrink-0">
+          <a
+            href={`https://wa.me/919636974688?text=${encodeURIComponent(
+              "Hi BharatMile! I'm reading your Jaipur guide and want to book the Jaipur 2-Day Package (₹4,999) / Sightseeing Cab."
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-green-600 hover:bg-green-700 text-white font-bold px-5 py-3 rounded-lg transition"
+          >
+            💬 Book on WhatsApp
+          </a>
+          <a
+            href="/jaipur-sightseeing-packages"
+            className="bg-white/15 hover:bg-white/25 text-white font-semibold px-4 py-3 rounded-lg transition"
+          >
+            View Packages →
+          </a>
         </div>
       </section>
 
@@ -213,10 +244,10 @@ export default function Jaipur() {
           Explore More Rajasthan Destinations
         </h2>
         <ul className="grid md:grid-cols-2 gap-4 text-lg">
-          <li><a href="/city/ranthambore" className="text-green-700 font-semibold">Ranthambore Travel Guide</a></li>
+          <li><a href="/ranthambore-safari-tours" className="text-green-700 font-semibold">Ranthambore Safari Tours</a></li>
           <li><a href="/city/jaisalmer" className="text-green-700 font-semibold">Jaisalmer Travel Guide</a></li>
           <li><a href="/city/udaipur" className="text-green-700 font-semibold">Udaipur Travel Guide</a></li>
-          <li><a href="/city/pushkar" className="text-green-700 font-semibold">Pushkar Travel Guide</a></li>
+          <li><a href="/rajasthan-tour-packages" className="text-green-700 font-semibold">All Rajasthan Tour Packages</a></li>
         </ul>
       </section>
 
