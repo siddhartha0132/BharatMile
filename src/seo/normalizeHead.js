@@ -88,7 +88,13 @@ export function normalizeHead(doc, pathname, { kind, notFound } = {}) {
     return l;
   }).setAttribute("href", url);
 
-  setMeta(doc, "robots", notFound ? "noindex, follow" : "index, follow");
+  setMeta(
+    doc,
+    "robots",
+    notFound
+      ? "noindex, follow"
+      : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+  );
 
   // Open Graph / Twitter mirror the final title & description. Page-level
   // og:image values mostly point at unhashed /assets paths that 404, so

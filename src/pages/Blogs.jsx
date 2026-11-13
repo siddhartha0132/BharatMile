@@ -67,6 +67,8 @@ const CAT_META = {
 };
 
 const ALL_BLOGS = [
+  { id: 60, title: "Pushkar Camel Fair 2026 (Nov 17–24): Dates, Tent Stay, Cab & Tour Guide", category: "Rajasthan", img: amberFortImg, slug: "/blogs/pushkar-camel-fair-2026-guide-dates-stay", read: 6 },
+  { id: 61, title: "Christmas & New Year in Rajasthan 2026–27: Best Places, Festivals & Packages", category: "Rajasthan", img: id5, slug: "/blogs/christmas-new-year-rajasthan-2026-27-packages", read: 7 },
   { id: 58, title: "Rajasthan in November & December 2026: Best Places, Weather & 5–7 Day Itinerary", category: "Rajasthan", img: amberFortImg, slug: "/blogs/rajasthan-in-november-december-itinerary", read: 8 },
   { id: 59, title: "Jaisalmer Desert Safari & Sam Sand Dunes Camp Price 2026–27: Complete Guide", category: "Rajasthan", img: id5, slug: "/blogs/jaisalmer-desert-safari-camp-price-guide", read: 7 },
   { id: 57, title: "Ranthambore Safari Zones 1–10: Which Is Best for Tigers?", category: "Wildlife", img: ranthamboreImg, slug: "/blogs/ranthambore-safari-zones-guide", read: 7 },

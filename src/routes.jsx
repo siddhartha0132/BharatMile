@@ -44,6 +44,8 @@ export const routes = [
   route("/city/ranchi", () => import("./citys/Ranchi"), "india"),
 
   // Ranthambore, Jaipur & Rajasthan blogs
+  blog("/blogs/pushkar-camel-fair-2026-guide-dates-stay", () => import("./blogs/PushkarFair2026Guide"), "rajasthan", "Pushkar Camel Fair 2026 (Nov 17–24) Guide"),
+  blog("/blogs/christmas-new-year-rajasthan-2026-27-packages", () => import("./blogs/ChristmasNewYearRajasthan"), "rajasthan", "Christmas & New Year in Rajasthan 2026–27"),
   blog("/blogs/rajasthan-in-november-december-itinerary", () => import("./blogs/RajasthanNovDecItinerary"), "rajasthan", "Rajasthan in Nov & Dec: 5–7 Day Itinerary"),
   blog("/blogs/jaisalmer-desert-safari-camp-price-guide", () => import("./blogs/JaisalmerDesertSafariPrice"), "rajasthan", "Jaisalmer Desert Safari & Camp Price 2026–27"),
   blog("/blogs/ranthambore-safari-zones-guide", () => import("./blogs/RanthamboreZonesGuide"), "safari", "Ranthambore Safari Zones 1–10 Explained"),
